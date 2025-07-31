@@ -1,0 +1,153 @@
+# Electricity Analysis Tool
+
+Automated electricity consumption analysis with interactive reporting for building energy management.
+
+## Features
+
+- Load electricity consumption data from CSV files
+- Automated data quality checks and completeness validation
+- Energy consumption analysis (monthly and daily)
+- Interactive Plotly visualizations
+- Automated HTML report generation
+- Support for multiple loads/circuits
+- Comprehensive logging system
+- Individual load analysis with separate visualizations
+- Customizable styling and color schemes
+
+## Installation
+
+```bash
+pip install pandas numpy matplotlib seaborn plotly icecream
+```
+
+## Usage
+
+```python
+from main.electricity_analysis import ComputeEnergy
+
+# Initialize the analysis
+ea = ComputeEnergy()
+
+# Run analysis on your data
+ea.run("path/to/your/data.csv")
+```
+
+## Project Structure
+
+```
+├── main/
+│   ├── electricity_analysis.py      # Main analysis class
+│   ├── config.py                    # Configuration and styling
+│   └── electricity_analysis_notebook.ipynb
+├── logs/                            # Log files (auto-generated)
+├── reports/                         # Generated HTML reports
+├── building_identifiers.csv         # Building mapping data
+└── README                           # This file
+```
+
+## Configuration
+
+Edit `main/config.py` to customize:
+
+- Colors for different loads (consumption, production, import, export)
+- Font families and sizes (Montserrat for headings, Inter for body text)
+- Report styling and layout
+
+## Data Format
+
+Your CSV file should contain:
+
+- `Date` column with timestamps
+- Power consumption columns with `[kW]` suffix
+- Example: `Consumption [kW]`, `MCB 1102 [kW]`, etc.
+
+## Output
+
+The tool generates:
+
+- **Individual HTML files** for each load's monthly and daily analysis
+- **Comprehensive HTML report** with all loads and summaries
+- **Log files** for debugging and monitoring
+- **Interactive Plotly charts** embedded in HTML
+
+## Example Output Files
+
+- `energy_consumption_Consumption_per_month.html`
+- `energy_consumption_MCB_1102_per_day.html`
+- `Client Name - 2025-07.html` (main report)
+- `logs/warning.txt`, `logs/error.txt`, etc.
+
+## Data Quality Checks
+
+The tool performs comprehensive data validation:
+
+- Missing timestamp detection
+- Data completeness per hour/day/month
+- Consecutive missing data validation
+- Interval consistency checks
+
+## Customization
+
+### Adding New Loads
+
+Simply add new columns to your CSV with the `[kW]` suffix.
+
+### Modifying Colors
+
+Update the color scheme in `main/config.py`:
+
+```python
+CONSUMPTION_COLOR = '#f5b041'   # Orange
+PRODUCTION_COLOR = '#76b7b2'    # Teal
+IMPORT_COLOR = '#4e79a7'        # Blue
+EXPORT_COLOR = '#333333'        # Dark Gray
+```
+
+### Changing Fonts
+
+Modify font settings in `main/config.py`:
+
+```python
+HEADING_FONT_FAMILY = "'Montserrat', Arial, sans-serif"
+BODY_FONT_FAMILY = "'Inter', Arial, sans-serif"
+```
+
+## Troubleshooting
+
+### Common Issues
+
+1. **"Data is not complete" error**: Check your data for missing timestamps
+2. **Import errors**: Ensure all required packages are installed
+3. **File not found**: Verify the path to your CSV file is correct
+
+### Debug Mode
+
+Enable detailed logging by checking the `logs/` directory for:
+
+- `debug.txt` - Detailed execution information
+- `warning.txt` - Warning messages
+- `error.txt` - Error messages
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Support
+
+For issues and questions:
+
+1. Check the logs in the `logs/` directory
+2. Review the data quality checks
+3. Open an issue on GitHub with detailed error information
+
+---
+
+**Built with ❤️ for energy efficiency and sustainability**

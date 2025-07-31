@@ -1,0 +1,1221 @@
+98fa6cfe [ERROR] ⚠️  Warning: Data is not complete to compute energy
+98fa6cfe [ERROR] ❌ Error: 
+The fig parameter must be a dict or Figure.
+    Received value of type <class 'NoneType'>: None
+27b00e2d [ERROR] ⚠️  Warning: Data is not complete to compute energy
+27b00e2d [ERROR] ❌ Error: 
+The fig parameter must be a dict or Figure.
+    Received value of type <class 'NoneType'>: None
+ee9d422f [ERROR] ⚠️  Warning: Data is not complete to compute energy
+ee9d422f [ERROR] ❌ Error: 
+The fig parameter must be a dict or Figure.
+    Received value of type <class 'NoneType'>: None
+d6bf3a99 [ERROR] ❌ Error: 
+The fig parameter must be a dict or Figure.
+    Received value of type <class 'NoneType'>: None
+b9b7febc [ERROR] ❌ Error while generating HTML Report: 
+The fig parameter must be a dict or Figure.
+    Received value of type <class 'NoneType'>: None
+b9b7febc [ERROR] ❌ Error: ❌ Error while generating HTML Report: 
+The fig parameter must be a dict or Figure.
+    Received value of type <class 'NoneType'>: None
+a7f83cae [ERROR] ❌ Error while writing HTML Report: name 'logger' is not defined
+a7f83cae [ERROR] ❌ Error: ❌ Error while writing HTML Report: name 'logger' is not defined
+a5547ae9 [ERROR] ❌ Error while writing HTML Report: name 'logger' is not defined
+a5547ae9 [ERROR] ❌ Error: ❌ Error while writing HTML Report: name 'logger' is not defined
+0e4f76cd [ERROR] ❌ Error while writing HTML Report: 'ReportLogger' object has no attribute 'logs'
+0e4f76cd [ERROR] ❌ Error: ❌ Error while writing HTML Report: 'ReportLogger' object has no attribute 'logs'
+0e4f76cd [ERROR] ❌ Error while writing HTML Report: 'ReportLogger' object has no attribute 'logs'
+0e4f76cd [ERROR] ❌ Error: ❌ Error while writing HTML Report: 'ReportLogger' object has no attribute 'logs'
+52f825be [ERROR] ❌ Error while writing HTML Report: 'ReportLogger' object has no attribute 'logs'
+52f825be [ERROR] ❌ Error: ❌ Error while writing HTML Report: 'ReportLogger' object has no attribute 'logs'
+1572fe68 [ERROR] ❌ Error while writing HTML Report: 'ReportLogger' object has no attribute 'logs'
+1572fe68 [ERROR] ❌ Error: ❌ Error while writing HTML Report: 'ReportLogger' object has no attribute 'logs'
+90f3d2e0 [ERROR] ❌ Error while writing HTML Report: 'ReportLogger' object has no attribute 'logs'
+90f3d2e0 [ERROR] ❌ Error: ❌ Error while writing HTML Report: 'ReportLogger' object has no attribute 'logs'
+78fad100 [ERROR] ❌ Error: type object 'PlotlyStyle' has no attribute 'CONSUMPTION_COLOR'
+78fad100 [ERROR] ❌ Error: type object 'PlotlyStyle' has no attribute 'CONSUMPTION_COLOR'
+70a603ff [ERROR] ❌ Error: type object 'PlotlyStyle' has no attribute 'CONSUMPTION_COLOR'
+a014eebb [ERROR] ❌ Error: type object 'PlotlyStyle' has no attribute 'CONSUMPTION_COLOR'
+3f25c497 [ERROR] ❌ Error while generating HTML Report: name 'consumption' is not defined
+3f25c497 [ERROR] ❌ Error: ❌ Error while generating HTML Report: name 'consumption' is not defined
+10729cbf [ERROR] ❌ Error while generating HTML styles: name 'consumption' is not defined
+10729cbf [ERROR] ❌ Error while generating HTML Report: ❌ Error while generating HTML styles: name 'consumption' is not defined
+10729cbf [ERROR] ❌ Error: ❌ Error while generating HTML Report: ❌ Error while generating HTML styles: name 'consumption' is not defined
+7a2589b1 [ERROR] ❌ Error while writing HTML Report: [Errno 2] No such file or directory: '/home/philg/projects/stratcon/notebooks/Gigawatt Power Inc - 2025-6.html'
+7a2589b1 [ERROR] ❌ Error: ❌ Error while writing HTML Report: [Errno 2] No such file or directory: '/home/philg/projects/stratcon/notebooks/Gigawatt Power Inc - 2025-6.html'
+ce67c929 [ERROR] ❌ Error while writing HTML Report: [Errno 2] No such file or directory: '/home/philg/projects/stratcon/notebooks/Gigawatt Power Inc - 2025-6.html'
+ce67c929 [ERROR] ❌ Error: ❌ Error while writing HTML Report: [Errno 2] No such file or directory: '/home/philg/projects/stratcon/notebooks/Gigawatt Power Inc - 2025-6.html'
+d921683c [ERROR] ❌ Error while writing HTML Report: 'ReportLogger' object has no attribute 'logs'
+d921683c [ERROR] ❌ Error: ❌ Error while writing HTML Report: 'ReportLogger' object has no attribute 'logs'
+631a2fee [ERROR] ❌ Error: 'Consumption per interval [kWh]'
+198f7098 [ERROR] ❌ Error: 'Consumption per interval [kWh]'
+7eafef71 [ERROR] ❌ Error: Cannot set a DataFrame with multiple columns to the single column Energy_export_per_interval [kWh]
+f823e11c [ERROR] ❌ Error: 'Production [kW]'
+f823e11c [ERROR] ❌ Error: 'Production [kW]'
+f823e11c [ERROR] ❌ Error: 'Production [kW]'
+2025-07-31 10:43:23 - ef81328f [ERROR] ❌ Error loading data: list index out of range
+2025-07-31 10:43:23 - ef81328f [ERROR] ❌ Error: cannot unpack non-iterable NoneType object
+2025-07-31 10:46:59 - 92470728 [ERROR] ❌ Error loading data: list index out of range
+2025-07-31 10:46:59 - 92470728 [ERROR] ❌ Error: cannot unpack non-iterable NoneType object
+2025-07-31 10:49:13 - 2964b15d [ERROR] ❌ Error: too many values to unpack (expected 2)
+2025-07-31 10:54:54 - db63da9f [ERROR] ❌ Error: too many values to unpack (expected 2)
+2025-07-31 11:00:30 - 2d0532c6 [ERROR] ❌ Error: too many values to unpack (expected 2)
+2025-07-31 11:01:16 - 417af316 [ERROR] ❌ Error: too many values to unpack (expected 2)
+2025-07-31 11:03:00 - d4a83674 [ERROR] ❌ Error: too many values to unpack (expected 2)
+2025-07-31 11:04:46 - 84061314 [ERROR] ❌ Error while drawing energy per month: 'Energy_consumption_per_interval [kWh]'
+2025-07-31 11:04:46 - 84061314 [ERROR] ❌ Error while generating summary of energy consumption: ❌ Error while drawing energy per month: 'Energy_consumption_per_interval [kWh]'
+2025-07-31 11:04:46 - 84061314 [ERROR] ❌ Error: ❌ Error while generating summary of energy consumption: ❌ Error while drawing energy per month: 'Energy_consumption_per_interval [kWh]'
+2025-07-31 11:22:18 - 751d391f [ERROR] ❌ Error while drawing energy per month: Vertical spacing cannot be greater than (1 / (rows - 1)) = 0.052632.
+The resulting plot would have 20 rows (rows=20).
+2025-07-31 11:22:18 - 751d391f [ERROR] ❌ Error while generating summary of energy consumption: ❌ Error while drawing energy per month: Vertical spacing cannot be greater than (1 / (rows - 1)) = 0.052632.
+The resulting plot would have 20 rows (rows=20).
+2025-07-31 11:22:18 - 751d391f [ERROR] ❌ Error: ❌ Error while generating summary of energy consumption: ❌ Error while drawing energy per month: Vertical spacing cannot be greater than (1 / (rows - 1)) = 0.052632.
+The resulting plot would have 20 rows (rows=20).
+2025-07-31 11:25:17 - be02f927 [ERROR] ❌ Error while drawing energy per month: Vertical spacing cannot be greater than (1 / (rows - 1)) = 0.052632.
+The resulting plot would have 20 rows (rows=20).
+2025-07-31 11:25:17 - be02f927 [ERROR] ❌ Error while generating summary of energy consumption: ❌ Error while drawing energy per month: Vertical spacing cannot be greater than (1 / (rows - 1)) = 0.052632.
+The resulting plot would have 20 rows (rows=20).
+2025-07-31 11:25:17 - be02f927 [ERROR] ❌ Error: ❌ Error while generating summary of energy consumption: ❌ Error while drawing energy per month: Vertical spacing cannot be greater than (1 / (rows - 1)) = 0.052632.
+The resulting plot would have 20 rows (rows=20).
+2025-07-31 11:28:46 - d4567102 [ERROR] ❌ Error while drawing energy per month: Vertical spacing cannot be greater than (1 / (rows - 1)) = 0.052632.
+The resulting plot would have 20 rows (rows=20).
+2025-07-31 11:28:46 - d4567102 [ERROR] ❌ Error while generating summary of energy consumption: ❌ Error while drawing energy per month: Vertical spacing cannot be greater than (1 / (rows - 1)) = 0.052632.
+The resulting plot would have 20 rows (rows=20).
+2025-07-31 11:28:46 - d4567102 [ERROR] ❌ Error: ❌ Error while generating summary of energy consumption: ❌ Error while drawing energy per month: Vertical spacing cannot be greater than (1 / (rows - 1)) = 0.052632.
+The resulting plot would have 20 rows (rows=20).
+2025-07-31 11:32:58 - bc449f18 [ERROR] ❌ Error while drawing energy per month: Vertical spacing cannot be greater than (1 / (rows - 1)) = 0.052632.
+The resulting plot would have 20 rows (rows=20).
+2025-07-31 11:32:58 - bc449f18 [ERROR] ❌ Error while generating summary of energy consumption: ❌ Error while drawing energy per month: Vertical spacing cannot be greater than (1 / (rows - 1)) = 0.052632.
+The resulting plot would have 20 rows (rows=20).
+2025-07-31 11:32:58 - bc449f18 [ERROR] ❌ Error: ❌ Error while generating summary of energy consumption: ❌ Error while drawing energy per month: Vertical spacing cannot be greater than (1 / (rows - 1)) = 0.052632.
+The resulting plot would have 20 rows (rows=20).
+2025-07-31 11:35:05 - 627dd002 [ERROR] ❌ Error while drawing energy per month: Vertical spacing cannot be greater than (1 / (rows - 1)) = 0.052632.
+The resulting plot would have 20 rows (rows=20).
+2025-07-31 11:35:05 - 627dd002 [ERROR] ❌ Error while generating summary of energy consumption: ❌ Error while drawing energy per month: Vertical spacing cannot be greater than (1 / (rows - 1)) = 0.052632.
+The resulting plot would have 20 rows (rows=20).
+2025-07-31 11:35:05 - 627dd002 [ERROR] ❌ Error: ❌ Error while generating summary of energy consumption: ❌ Error while drawing energy per month: Vertical spacing cannot be greater than (1 / (rows - 1)) = 0.052632.
+The resulting plot would have 20 rows (rows=20).
+2025-07-31 11:38:06 - 358865c9 [ERROR] ❌ Error while drawing energy per month: list.append() takes exactly one argument (2 given)
+2025-07-31 11:38:06 - 358865c9 [ERROR] ❌ Error while generating summary of energy consumption: ❌ Error while drawing energy per month: list.append() takes exactly one argument (2 given)
+2025-07-31 11:38:06 - 358865c9 [ERROR] ❌ Error: ❌ Error while generating summary of energy consumption: ❌ Error while drawing energy per month: list.append() takes exactly one argument (2 given)
+2025-07-31 11:38:58 - 8849f6e1 [ERROR] ❌ Error while drawing energy per month: Vertical spacing cannot be greater than (1 / (rows - 1)) = 0.052632.
+The resulting plot would have 20 rows (rows=20).
+2025-07-31 11:38:58 - 8849f6e1 [ERROR] ❌ Error while generating summary of energy consumption: ❌ Error while drawing energy per month: Vertical spacing cannot be greater than (1 / (rows - 1)) = 0.052632.
+The resulting plot would have 20 rows (rows=20).
+2025-07-31 11:38:58 - 8849f6e1 [ERROR] ❌ Error: ❌ Error while generating summary of energy consumption: ❌ Error while drawing energy per month: Vertical spacing cannot be greater than (1 / (rows - 1)) = 0.052632.
+The resulting plot would have 20 rows (rows=20).
+2025-07-31 11:51:02 - b51322b5 [ERROR] ❌ Error while generating summary: unsupported format string passed to Series.__format__
+2025-07-31 11:51:02 - b51322b5 [ERROR] ❌ Error: ❌ Error while generating summary: unsupported format string passed to Series.__format__
+2025-07-31 12:06:05 - 39b7282c [ERROR] ❌ Error while generating summary: name 'columns' is not defined
+2025-07-31 12:06:05 - 39b7282c [ERROR] ❌ Error: ❌ Error while generating summary: name 'columns' is not defined
+2025-07-31 12:06:44 - 23a06321 [ERROR] ❌ Error while generating summary: name 'columns' is not defined
+2025-07-31 12:06:44 - 23a06321 [ERROR] ❌ Error: ❌ Error while generating summary: name 'columns' is not defined
+2025-07-31 12:11:54 - ad1c685b [ERROR] ❌ Error while generating summary: unsupported format string passed to Series.__format__
+2025-07-31 12:11:54 - ad1c685b [ERROR] ❌ Error: ❌ Error while generating summary: unsupported format string passed to Series.__format__
+2025-07-31 12:12:46 - 2edb3fe4 [ERROR] ❌ Error while generating summary: unsupported format string passed to Series.__format__
+2025-07-31 12:12:46 - 2edb3fe4 [ERROR] ❌ Error: ❌ Error while generating summary: unsupported format string passed to Series.__format__
+2025-07-31 12:13:49 - 806b41f2 [ERROR] ❌ Error while generating summary: unsupported format string passed to Series.__format__
+2025-07-31 12:13:49 - 806b41f2 [ERROR] ❌ Error: ❌ Error while generating summary: unsupported format string passed to Series.__format__
+2025-07-31 12:15:14 - 6e0ab50d [ERROR] ❌ Error while generating HTML Report: 
+The fig parameter must be a dict or Figure.
+    Received value of type <class 'list'>: [Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'AAAAAAAAAAAAAAAAAAAAAA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'HhM8mCf6E0AOLbKd79dYQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'MCB 1102',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'HhM8mCf6E0AOLbKd79dYQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - MCB 1102'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': '7cNn2BWkPEAywYN5onRUQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'MCB 1202',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': '7cNn2BWkPEAywYN5onRUQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - MCB 1202'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'ERERERHtOEDRaQOdNlZSQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'MCB 1201',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'ERERERHtOEDRaQOdNlZSQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - MCB 1201'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'B/NE/RuBBUBOG+i0gbReQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'MCB 1101',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'B/NE/RuBBUBOG+i0gbReQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - MCB 1101'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'AUcoo9f2hEB7ME/U/9OYQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'DKS PD / PTP  17 Fl',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'AUcoo9f2hEB7ME/U/9OYQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - DKS PD / PTP  17 Fl'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'nPxiyZ+SlEBNUyrObnSpQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'MCB 1601',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'nPxiyZ+SlEBNUyrObnSpQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - MCB 1601'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'v58aL3WAtkCxK0DuBRa6QA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'ECB 1801 150A',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'v58aL3WAtkCxK0DuBRa6QA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - ECB 1801 150A'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': '88Nn2N2tskDWL5b8lhq2QA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'ECB 1901',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': '88Nn2N2tskDWL5b8lhq2QA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - ECB 1901'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'MAisHCIHq0CsHFpk+zSvQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'MCB 1401',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'MAisHCIHq0CsHFpk+zSvQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - MCB 1401'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'NQisHNZov0DyfD81yjrDQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'MCB 1501',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'NQisHNZov0DyfD81yjrDQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - MCB 1501'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'WTm0yKaqtUC1rNUxqam3QA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'ECB 225 -  21F',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'WTm0yKaqtUC1rNUxqam3QA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - ECB 225 -  21F'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'eb6fGncOvEAS5on638nAQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'ECB 20F',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'eb6fGncOvEAS5on638nAQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - ECB 20F'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'DbsC5H5wrEALn2FXYKKyQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'MCB 802',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'DbsC5H5wrEALn2FXYKKyQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - MCB 802'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'dZMYBDbCkkB1ME/U//yVQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'MCB 801',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'dZMYBDbCkkB1ME/U//yVQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - MCB 801'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': '7lG4HgWbrEC4dJMYaC6xQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'MCB 701',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': '7lG4HgWbrEC4dJMYaC6xQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - MCB 701'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'JL0ta6U7qUDdWPKLZcetQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'MCB 702',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'JL0ta6U7qUDdWPKLZcetQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - MCB 702'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'bef7qWVvt0A6tMh28vu7QA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'ECB 2301 150A',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'bef7qWVvt0A6tMh28vu7QA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - ECB 2301 150A'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'yehtWddbvUBIi2zns+W7QA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'ECB 2201 150A',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'yehtWddbvUBIi2zns+W7QA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - ECB 2201 150A'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'JTEIrPBItEDaT42X7uq4QA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'EBC 2401 150A',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'JTEIrPBItEDaT42X7uq4QA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - EBC 2401 150A'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+})]
+2025-07-31 12:15:14 - 6e0ab50d [ERROR] ❌ Error: ❌ Error while generating HTML Report: 
+The fig parameter must be a dict or Figure.
+    Received value of type <class 'list'>: [Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'AAAAAAAAAAAAAAAAAAAAAA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'HhM8mCf6E0AOLbKd79dYQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'MCB 1102',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'HhM8mCf6E0AOLbKd79dYQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - MCB 1102'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': '7cNn2BWkPEAywYN5onRUQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'MCB 1202',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': '7cNn2BWkPEAywYN5onRUQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - MCB 1202'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'ERERERHtOEDRaQOdNlZSQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'MCB 1201',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'ERERERHtOEDRaQOdNlZSQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - MCB 1201'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'B/NE/RuBBUBOG+i0gbReQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'MCB 1101',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'B/NE/RuBBUBOG+i0gbReQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - MCB 1101'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'AUcoo9f2hEB7ME/U/9OYQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'DKS PD / PTP  17 Fl',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'AUcoo9f2hEB7ME/U/9OYQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - DKS PD / PTP  17 Fl'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'nPxiyZ+SlEBNUyrObnSpQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'MCB 1601',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'nPxiyZ+SlEBNUyrObnSpQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - MCB 1601'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'v58aL3WAtkCxK0DuBRa6QA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'ECB 1801 150A',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'v58aL3WAtkCxK0DuBRa6QA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - ECB 1801 150A'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': '88Nn2N2tskDWL5b8lhq2QA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'ECB 1901',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': '88Nn2N2tskDWL5b8lhq2QA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - ECB 1901'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'MAisHCIHq0CsHFpk+zSvQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'MCB 1401',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'MAisHCIHq0CsHFpk+zSvQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - MCB 1401'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'NQisHNZov0DyfD81yjrDQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'MCB 1501',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'NQisHNZov0DyfD81yjrDQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - MCB 1501'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'WTm0yKaqtUC1rNUxqam3QA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'ECB 225 -  21F',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'WTm0yKaqtUC1rNUxqam3QA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - ECB 225 -  21F'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'eb6fGncOvEAS5on638nAQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'ECB 20F',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'eb6fGncOvEAS5on638nAQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - ECB 20F'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'DbsC5H5wrEALn2FXYKKyQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'MCB 802',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'DbsC5H5wrEALn2FXYKKyQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - MCB 802'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'dZMYBDbCkkB1ME/U//yVQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'MCB 801',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'dZMYBDbCkkB1ME/U//yVQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - MCB 801'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': '7lG4HgWbrEC4dJMYaC6xQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'MCB 701',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': '7lG4HgWbrEC4dJMYaC6xQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - MCB 701'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'JL0ta6U7qUDdWPKLZcetQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'MCB 702',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'JL0ta6U7qUDdWPKLZcetQA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - MCB 702'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'bef7qWVvt0A6tMh28vu7QA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'ECB 2301 150A',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'bef7qWVvt0A6tMh28vu7QA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - ECB 2301 150A'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'yehtWddbvUBIi2zns+W7QA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'ECB 2201 150A',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'yehtWddbvUBIi2zns+W7QA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - ECB 2201 150A'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'Consumption',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'JTEIrPBItEDaT42X7uq4QA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - Consumption'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+}), Figure({
+    'data': [{'marker': {'color': '#f5b041'},
+              'name': 'EBC 2401 150A',
+              'type': 'bar',
+              'x': array(['Jun 2025', 'Jul 2025'], dtype=object),
+              'y': {'bdata': 'JTEIrPBItEDaT42X7uq4QA==', 'dtype': 'f8'}}],
+    'layout': {'font': {'family': 'Inter, sans-serif', 'size': 14},
+               'height': 400,
+               'showlegend': True,
+               'template': '...',
+               'title': {'font': {'family': 'Montserrat, Arial, sans-serif', 'size': 20},
+                         'text': 'Energy Analysis per Month - EBC 2401 150A'},
+               'xaxis': {'type': 'category'},
+               'yaxis': {'tickformat': ',.0f'}}
+})]
+2025-07-31 12:34:09 - 61d87a0e [ERROR] ❌ Error while generating HTML Report: cannot access local variable 'fig_month_html' where it is not associated with a value
+2025-07-31 12:34:09 - 61d87a0e [ERROR] ❌ Error: ❌ Error while generating HTML Report: cannot access local variable 'fig_month_html' where it is not associated with a value
+2025-07-31 12:38:11 - 5d6a9c31 [ERROR] ❌ Error while generating summary: unsupported format string passed to Series.__format__
+2025-07-31 12:38:11 - 5d6a9c31 [ERROR] ❌ Error: ❌ Error while generating summary: unsupported format string passed to Series.__format__

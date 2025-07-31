@@ -1,0 +1,520 @@
+98fa6cfe [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+98fa6cfe [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+98fa6cfe [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+98fa6cfe [WARNING]    Largest gap: 879.0 intervals
+98fa6cfe [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+98fa6cfe [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+98fa6cfe [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+98fa6cfe [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+98fa6cfe [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+98fa6cfe [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+27b00e2d [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+27b00e2d [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+27b00e2d [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+27b00e2d [WARNING]    Largest gap: 879.0 intervals
+27b00e2d [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+27b00e2d [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+27b00e2d [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+27b00e2d [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+27b00e2d [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+27b00e2d [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+ee9d422f [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+ee9d422f [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+ee9d422f [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+ee9d422f [WARNING]    Largest gap: 879.0 intervals
+ee9d422f [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+ee9d422f [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+ee9d422f [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+ee9d422f [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+ee9d422f [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+ee9d422f [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+d6bf3a99 [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+d6bf3a99 [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+d6bf3a99 [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+d6bf3a99 [WARNING]    Largest gap: 879.0 intervals
+d6bf3a99 [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+d6bf3a99 [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+d6bf3a99 [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+d6bf3a99 [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+d6bf3a99 [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+d6bf3a99 [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+b9b7febc [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+b9b7febc [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+b9b7febc [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+b9b7febc [WARNING]    Largest gap: 879.0 intervals
+b9b7febc [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+b9b7febc [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+b9b7febc [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+b9b7febc [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+b9b7febc [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+b9b7febc [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+a7f83cae [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+a7f83cae [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+a7f83cae [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+a7f83cae [WARNING]    Largest gap: 879.0 intervals
+a7f83cae [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+a7f83cae [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+a7f83cae [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+a7f83cae [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+a7f83cae [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+a7f83cae [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+a5547ae9 [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+a5547ae9 [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+a5547ae9 [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+a5547ae9 [WARNING]    Largest gap: 879.0 intervals
+a5547ae9 [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+a5547ae9 [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+a5547ae9 [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+a5547ae9 [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+a5547ae9 [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+a5547ae9 [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+0e4f76cd [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+0e4f76cd [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+0e4f76cd [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+0e4f76cd [WARNING]    Largest gap: 879.0 intervals
+0e4f76cd [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+0e4f76cd [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+0e4f76cd [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+0e4f76cd [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+0e4f76cd [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+0e4f76cd [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+0e4f76cd [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+0e4f76cd [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+0e4f76cd [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+0e4f76cd [WARNING]    Largest gap: 879.0 intervals
+0e4f76cd [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+0e4f76cd [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+0e4f76cd [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+0e4f76cd [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+0e4f76cd [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+0e4f76cd [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+0e4f76cd [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+0e4f76cd [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+0e4f76cd [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+0e4f76cd [WARNING]    Largest gap: 879.0 intervals
+0e4f76cd [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+0e4f76cd [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+0e4f76cd [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+0e4f76cd [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+0e4f76cd [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+0e4f76cd [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+52f825be [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+52f825be [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+52f825be [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+52f825be [WARNING]    Largest gap: 879.0 intervals
+52f825be [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+52f825be [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+52f825be [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+52f825be [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+52f825be [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+52f825be [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+1572fe68 [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+1572fe68 [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+1572fe68 [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+1572fe68 [WARNING]    Largest gap: 879.0 intervals
+1572fe68 [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+1572fe68 [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+1572fe68 [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+1572fe68 [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+1572fe68 [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+1572fe68 [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+90f3d2e0 [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+90f3d2e0 [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+90f3d2e0 [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+90f3d2e0 [WARNING]    Largest gap: 879.0 intervals
+90f3d2e0 [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+90f3d2e0 [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+90f3d2e0 [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+90f3d2e0 [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+90f3d2e0 [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+90f3d2e0 [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+78fad100 [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+78fad100 [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+78fad100 [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+78fad100 [WARNING]    Largest gap: 879.0 intervals
+78fad100 [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+78fad100 [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+78fad100 [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+78fad100 [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+78fad100 [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+78fad100 [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+78fad100 [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+78fad100 [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+78fad100 [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+78fad100 [WARNING]    Largest gap: 879.0 intervals
+78fad100 [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+78fad100 [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+78fad100 [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+78fad100 [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+78fad100 [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+78fad100 [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+70a603ff [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+70a603ff [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+70a603ff [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+70a603ff [WARNING]    Largest gap: 879.0 intervals
+70a603ff [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+70a603ff [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+70a603ff [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+70a603ff [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+70a603ff [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+70a603ff [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+a014eebb [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+a014eebb [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+a014eebb [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+a014eebb [WARNING]    Largest gap: 879.0 intervals
+a014eebb [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+a014eebb [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+a014eebb [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+a014eebb [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+a014eebb [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+a014eebb [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+3f25c497 [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+3f25c497 [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+3f25c497 [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+3f25c497 [WARNING]    Largest gap: 879.0 intervals
+3f25c497 [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+3f25c497 [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+3f25c497 [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+3f25c497 [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+3f25c497 [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+3f25c497 [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+10729cbf [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+10729cbf [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+10729cbf [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+10729cbf [WARNING]    Largest gap: 879.0 intervals
+10729cbf [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+10729cbf [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+10729cbf [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+10729cbf [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+10729cbf [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+10729cbf [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+7a2589b1 [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+7a2589b1 [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+7a2589b1 [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+7a2589b1 [WARNING]    Largest gap: 879.0 intervals
+7a2589b1 [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+7a2589b1 [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+7a2589b1 [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+7a2589b1 [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+7a2589b1 [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+7a2589b1 [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+ce67c929 [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+ce67c929 [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+ce67c929 [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+ce67c929 [WARNING]    Largest gap: 879.0 intervals
+ce67c929 [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+ce67c929 [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+ce67c929 [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+ce67c929 [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+ce67c929 [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+ce67c929 [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+d921683c [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+d921683c [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+d921683c [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+d921683c [WARNING]    Largest gap: 879.0 intervals
+d921683c [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+d921683c [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+d921683c [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+d921683c [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+d921683c [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+d921683c [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+dee9bf78 [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+dee9bf78 [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+dee9bf78 [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+dee9bf78 [WARNING]    Largest gap: 879.0 intervals
+dee9bf78 [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+dee9bf78 [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+dee9bf78 [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+dee9bf78 [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+dee9bf78 [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+dee9bf78 [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+69cb4b47 [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+69cb4b47 [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+69cb4b47 [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+69cb4b47 [WARNING]    Largest gap: 879.0 intervals
+69cb4b47 [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+69cb4b47 [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+69cb4b47 [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+69cb4b47 [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+69cb4b47 [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+69cb4b47 [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+350e8ddf [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+350e8ddf [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+350e8ddf [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+350e8ddf [WARNING]    Largest gap: 879.0 intervals
+350e8ddf [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+350e8ddf [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+350e8ddf [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+350e8ddf [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+350e8ddf [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+350e8ddf [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+631a2fee [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+631a2fee [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+631a2fee [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+631a2fee [WARNING]    Largest gap: 879.0 intervals
+631a2fee [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+631a2fee [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+631a2fee [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+631a2fee [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+631a2fee [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+631a2fee [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+198f7098 [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+198f7098 [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+198f7098 [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+198f7098 [WARNING]    Largest gap: 879.0 intervals
+198f7098 [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+198f7098 [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+198f7098 [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+198f7098 [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+198f7098 [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+198f7098 [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+25252baf [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+25252baf [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+25252baf [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+25252baf [WARNING]    Largest gap: 879.0 intervals
+25252baf [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+25252baf [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+25252baf [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+25252baf [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+25252baf [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+25252baf [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+d1edc9a7 [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+d1edc9a7 [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+d1edc9a7 [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+d1edc9a7 [WARNING]    Largest gap: 879.0 intervals
+d1edc9a7 [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+d1edc9a7 [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+d1edc9a7 [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+d1edc9a7 [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+d1edc9a7 [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+d1edc9a7 [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+7eafef71 [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+7eafef71 [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+7eafef71 [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+7eafef71 [WARNING]    Largest gap: 879.0 intervals
+7eafef71 [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+7eafef71 [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+7eafef71 [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+7eafef71 [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+7eafef71 [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+7eafef71 [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+38773349 [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+38773349 [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+38773349 [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+38773349 [WARNING]    Largest gap: 879.0 intervals
+38773349 [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+38773349 [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+38773349 [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+38773349 [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+38773349 [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+38773349 [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+e18786b9 [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+e18786b9 [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+e18786b9 [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+e18786b9 [WARNING]    Largest gap: 879.0 intervals
+e18786b9 [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+e18786b9 [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+e18786b9 [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+e18786b9 [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+e18786b9 [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+e18786b9 [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+13c643c0 [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+13c643c0 [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+13c643c0 [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+13c643c0 [WARNING]    Largest gap: 879.0 intervals
+13c643c0 [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+13c643c0 [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+13c643c0 [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+13c643c0 [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+13c643c0 [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+13c643c0 [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+df94ea95 [WARNING] ⚠️ Warning  Missing days 2025-4: [19, 20] - computation continues
+df94ea95 [WARNING] ⚠️ Warning  Missing days 2025-5: [4] - computation continues
+df94ea95 [WARNING] ⚠️  ALARM: Found 4 consecutive missing timestamps
+df94ea95 [WARNING]    Largest gap: 879.0 intervals
+df94ea95 [WARNING] ⚠️  ALARM: Found 3 hours with more than 3.0 missing timestamps
+df94ea95 [WARNING]    Problematic hours: [(2025, 4, 21, 6), (2025, 5, 5, 6), (2025, 5, 13, 6)]
+df94ea95 [WARNING] ⚠️  ALARM: Found 3 days with more than 15.0 missing timestamps
+df94ea95 [WARNING]    Problematic days: [(2025, 4, 21), (2025, 5, 5), (2025, 5, 13)]
+df94ea95 [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+df94ea95 [WARNING]    Problematic months: [(2025, 4), (2025, 5)]
+f823e11c [WARNING] ⚠️ Warning  Missing days 2025-6: [1, 2, 3, 4] - computation continues
+f823e11c [WARNING] ⚠️  ALARM: Found 5 consecutive missing timestamps
+f823e11c [WARNING]    Largest gap: 466.0 intervals
+f823e11c [WARNING] ⚠️  ALARM: Found 5 hours with more than 3.0 missing timestamps
+f823e11c [WARNING]    Problematic hours: [(2025, 6, 20, 16), (2025, 6, 22, 11), (2025, 7, 10, 14), (2025, 7, 16, 15), (2025, 7, 18, 15)]
+f823e11c [WARNING] ⚠️  ALARM: Found 4 days with more than 15.0 missing timestamps
+f823e11c [WARNING]    Problematic days: [(2025, 6, 22), (2025, 7, 10), (2025, 7, 16), (2025, 7, 18)]
+f823e11c [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+f823e11c [WARNING]    Problematic months: [(2025, 6), (2025, 7)]
+f823e11c [WARNING] ⚠️ Warning  Missing days 2025-6: [1, 2, 3, 4] - computation continues
+f823e11c [WARNING] ⚠️  ALARM: Found 5 consecutive missing timestamps
+f823e11c [WARNING]    Largest gap: 466.0 intervals
+f823e11c [WARNING] ⚠️  ALARM: Found 5 hours with more than 3.0 missing timestamps
+f823e11c [WARNING]    Problematic hours: [(2025, 6, 20, 16), (2025, 6, 22, 11), (2025, 7, 10, 14), (2025, 7, 16, 15), (2025, 7, 18, 15)]
+f823e11c [WARNING] ⚠️  ALARM: Found 4 days with more than 15.0 missing timestamps
+f823e11c [WARNING]    Problematic days: [(2025, 6, 22), (2025, 7, 10), (2025, 7, 16), (2025, 7, 18)]
+f823e11c [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+f823e11c [WARNING]    Problematic months: [(2025, 6), (2025, 7)]
+f823e11c [WARNING] ⚠️ Warning  Missing days 2025-6: [1, 2, 3, 4] - computation continues
+f823e11c [WARNING] ⚠️  ALARM: Found 5 consecutive missing timestamps
+f823e11c [WARNING]    Largest gap: 466.0 intervals
+f823e11c [WARNING] ⚠️  ALARM: Found 5 hours with more than 3.0 missing timestamps
+f823e11c [WARNING]    Problematic hours: [(2025, 6, 20, 16), (2025, 6, 22, 11), (2025, 7, 10, 14), (2025, 7, 16, 15), (2025, 7, 18, 15)]
+f823e11c [WARNING] ⚠️  ALARM: Found 4 days with more than 15.0 missing timestamps
+f823e11c [WARNING]    Problematic days: [(2025, 6, 22), (2025, 7, 10), (2025, 7, 16), (2025, 7, 18)]
+f823e11c [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+f823e11c [WARNING]    Problematic months: [(2025, 6), (2025, 7)]
+2025-07-31 11:04:46 - 84061314 [WARNING] ⚠️ Warning  Missing days 2025-6: [1, 2, 3, 4] - computation continues
+2025-07-31 11:04:46 - 84061314 [WARNING] ⚠️  ALARM: Found 5 consecutive missing timestamps
+2025-07-31 11:04:46 - 84061314 [WARNING]    Largest gap: 466.0 intervals
+2025-07-31 11:04:46 - 84061314 [WARNING] ⚠️  ALARM: Found 5 hours with more than 3.0 missing timestamps
+2025-07-31 11:04:46 - 84061314 [WARNING]    Problematic hours: [(2025, 6, 20, 16), (2025, 6, 22, 11), (2025, 7, 10, 14), (2025, 7, 16, 15), (2025, 7, 18, 15)]
+2025-07-31 11:04:46 - 84061314 [WARNING] ⚠️  ALARM: Found 4 days with more than 15.0 missing timestamps
+2025-07-31 11:04:46 - 84061314 [WARNING]    Problematic days: [(2025, 6, 22), (2025, 7, 10), (2025, 7, 16), (2025, 7, 18)]
+2025-07-31 11:04:46 - 84061314 [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+2025-07-31 11:04:46 - 84061314 [WARNING]    Problematic months: [(2025, 6), (2025, 7)]
+2025-07-31 11:22:18 - 751d391f [WARNING] ⚠️ Warning  Missing days 2025-6: [1, 2, 3, 4] - computation continues
+2025-07-31 11:22:18 - 751d391f [WARNING] ⚠️  ALARM: Found 5 consecutive missing timestamps
+2025-07-31 11:22:18 - 751d391f [WARNING]    Largest gap: 466.0 intervals
+2025-07-31 11:22:18 - 751d391f [WARNING] ⚠️  ALARM: Found 5 hours with more than 3.0 missing timestamps
+2025-07-31 11:22:18 - 751d391f [WARNING]    Problematic hours: [(2025, 6, 20, 16), (2025, 6, 22, 11), (2025, 7, 10, 14), (2025, 7, 16, 15), (2025, 7, 18, 15)]
+2025-07-31 11:22:18 - 751d391f [WARNING] ⚠️  ALARM: Found 4 days with more than 15.0 missing timestamps
+2025-07-31 11:22:18 - 751d391f [WARNING]    Problematic days: [(2025, 6, 22), (2025, 7, 10), (2025, 7, 16), (2025, 7, 18)]
+2025-07-31 11:22:18 - 751d391f [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+2025-07-31 11:22:18 - 751d391f [WARNING]    Problematic months: [(2025, 6), (2025, 7)]
+2025-07-31 11:25:16 - be02f927 [WARNING] ⚠️ Warning  Missing days 2025-6: [1, 2, 3, 4] - computation continues
+2025-07-31 11:25:16 - be02f927 [WARNING] ⚠️  ALARM: Found 5 consecutive missing timestamps
+2025-07-31 11:25:16 - be02f927 [WARNING]    Largest gap: 466.0 intervals
+2025-07-31 11:25:16 - be02f927 [WARNING] ⚠️  ALARM: Found 5 hours with more than 3.0 missing timestamps
+2025-07-31 11:25:16 - be02f927 [WARNING]    Problematic hours: [(2025, 6, 20, 16), (2025, 6, 22, 11), (2025, 7, 10, 14), (2025, 7, 16, 15), (2025, 7, 18, 15)]
+2025-07-31 11:25:16 - be02f927 [WARNING] ⚠️  ALARM: Found 4 days with more than 15.0 missing timestamps
+2025-07-31 11:25:16 - be02f927 [WARNING]    Problematic days: [(2025, 6, 22), (2025, 7, 10), (2025, 7, 16), (2025, 7, 18)]
+2025-07-31 11:25:16 - be02f927 [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+2025-07-31 11:25:16 - be02f927 [WARNING]    Problematic months: [(2025, 6), (2025, 7)]
+2025-07-31 11:28:46 - d4567102 [WARNING] ⚠️ Warning  Missing days 2025-6: [1, 2, 3, 4] - computation continues
+2025-07-31 11:28:46 - d4567102 [WARNING] ⚠️  ALARM: Found 5 consecutive missing timestamps
+2025-07-31 11:28:46 - d4567102 [WARNING]    Largest gap: 466.0 intervals
+2025-07-31 11:28:46 - d4567102 [WARNING] ⚠️  ALARM: Found 5 hours with more than 3.0 missing timestamps
+2025-07-31 11:28:46 - d4567102 [WARNING]    Problematic hours: [(2025, 6, 20, 16), (2025, 6, 22, 11), (2025, 7, 10, 14), (2025, 7, 16, 15), (2025, 7, 18, 15)]
+2025-07-31 11:28:46 - d4567102 [WARNING] ⚠️  ALARM: Found 4 days with more than 15.0 missing timestamps
+2025-07-31 11:28:46 - d4567102 [WARNING]    Problematic days: [(2025, 6, 22), (2025, 7, 10), (2025, 7, 16), (2025, 7, 18)]
+2025-07-31 11:28:46 - d4567102 [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+2025-07-31 11:28:46 - d4567102 [WARNING]    Problematic months: [(2025, 6), (2025, 7)]
+2025-07-31 11:32:58 - bc449f18 [WARNING] ⚠️ Warning  Missing days 2025-6: [1, 2, 3, 4] - computation continues
+2025-07-31 11:32:58 - bc449f18 [WARNING] ⚠️  ALARM: Found 5 consecutive missing timestamps
+2025-07-31 11:32:58 - bc449f18 [WARNING]    Largest gap: 466.0 intervals
+2025-07-31 11:32:58 - bc449f18 [WARNING] ⚠️  ALARM: Found 5 hours with more than 3.0 missing timestamps
+2025-07-31 11:32:58 - bc449f18 [WARNING]    Problematic hours: [(2025, 6, 20, 16), (2025, 6, 22, 11), (2025, 7, 10, 14), (2025, 7, 16, 15), (2025, 7, 18, 15)]
+2025-07-31 11:32:58 - bc449f18 [WARNING] ⚠️  ALARM: Found 4 days with more than 15.0 missing timestamps
+2025-07-31 11:32:58 - bc449f18 [WARNING]    Problematic days: [(2025, 6, 22), (2025, 7, 10), (2025, 7, 16), (2025, 7, 18)]
+2025-07-31 11:32:58 - bc449f18 [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+2025-07-31 11:32:58 - bc449f18 [WARNING]    Problematic months: [(2025, 6), (2025, 7)]
+2025-07-31 11:35:05 - 627dd002 [WARNING] ⚠️ Warning  Missing days 2025-6: [1, 2, 3, 4] - computation continues
+2025-07-31 11:35:05 - 627dd002 [WARNING] ⚠️  ALARM: Found 5 consecutive missing timestamps
+2025-07-31 11:35:05 - 627dd002 [WARNING]    Largest gap: 466.0 intervals
+2025-07-31 11:35:05 - 627dd002 [WARNING] ⚠️  ALARM: Found 5 hours with more than 3.0 missing timestamps
+2025-07-31 11:35:05 - 627dd002 [WARNING]    Problematic hours: [(2025, 6, 20, 16), (2025, 6, 22, 11), (2025, 7, 10, 14), (2025, 7, 16, 15), (2025, 7, 18, 15)]
+2025-07-31 11:35:05 - 627dd002 [WARNING] ⚠️  ALARM: Found 4 days with more than 15.0 missing timestamps
+2025-07-31 11:35:05 - 627dd002 [WARNING]    Problematic days: [(2025, 6, 22), (2025, 7, 10), (2025, 7, 16), (2025, 7, 18)]
+2025-07-31 11:35:05 - 627dd002 [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+2025-07-31 11:35:05 - 627dd002 [WARNING]    Problematic months: [(2025, 6), (2025, 7)]
+2025-07-31 11:38:06 - 358865c9 [WARNING] ⚠️ Warning  Missing days 2025-6: [1, 2, 3, 4] - computation continues
+2025-07-31 11:38:06 - 358865c9 [WARNING] ⚠️  ALARM: Found 5 consecutive missing timestamps
+2025-07-31 11:38:06 - 358865c9 [WARNING]    Largest gap: 466.0 intervals
+2025-07-31 11:38:06 - 358865c9 [WARNING] ⚠️  ALARM: Found 5 hours with more than 3.0 missing timestamps
+2025-07-31 11:38:06 - 358865c9 [WARNING]    Problematic hours: [(2025, 6, 20, 16), (2025, 6, 22, 11), (2025, 7, 10, 14), (2025, 7, 16, 15), (2025, 7, 18, 15)]
+2025-07-31 11:38:06 - 358865c9 [WARNING] ⚠️  ALARM: Found 4 days with more than 15.0 missing timestamps
+2025-07-31 11:38:06 - 358865c9 [WARNING]    Problematic days: [(2025, 6, 22), (2025, 7, 10), (2025, 7, 16), (2025, 7, 18)]
+2025-07-31 11:38:06 - 358865c9 [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+2025-07-31 11:38:06 - 358865c9 [WARNING]    Problematic months: [(2025, 6), (2025, 7)]
+2025-07-31 11:38:58 - 8849f6e1 [WARNING] ⚠️ Warning  Missing days 2025-6: [1, 2, 3, 4] - computation continues
+2025-07-31 11:38:58 - 8849f6e1 [WARNING] ⚠️  ALARM: Found 5 consecutive missing timestamps
+2025-07-31 11:38:58 - 8849f6e1 [WARNING]    Largest gap: 466.0 intervals
+2025-07-31 11:38:58 - 8849f6e1 [WARNING] ⚠️  ALARM: Found 5 hours with more than 3.0 missing timestamps
+2025-07-31 11:38:58 - 8849f6e1 [WARNING]    Problematic hours: [(2025, 6, 20, 16), (2025, 6, 22, 11), (2025, 7, 10, 14), (2025, 7, 16, 15), (2025, 7, 18, 15)]
+2025-07-31 11:38:58 - 8849f6e1 [WARNING] ⚠️  ALARM: Found 4 days with more than 15.0 missing timestamps
+2025-07-31 11:38:58 - 8849f6e1 [WARNING]    Problematic days: [(2025, 6, 22), (2025, 7, 10), (2025, 7, 16), (2025, 7, 18)]
+2025-07-31 11:38:58 - 8849f6e1 [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+2025-07-31 11:38:58 - 8849f6e1 [WARNING]    Problematic months: [(2025, 6), (2025, 7)]
+2025-07-31 11:51:01 - b51322b5 [WARNING] ⚠️ Warning  Missing days 2025-6: [1, 2, 3, 4] - computation continues
+2025-07-31 11:51:01 - b51322b5 [WARNING] ⚠️  ALARM: Found 5 consecutive missing timestamps
+2025-07-31 11:51:01 - b51322b5 [WARNING]    Largest gap: 466.0 intervals
+2025-07-31 11:51:01 - b51322b5 [WARNING] ⚠️  ALARM: Found 5 hours with more than 3.0 missing timestamps
+2025-07-31 11:51:01 - b51322b5 [WARNING]    Problematic hours: [(2025, 6, 20, 16), (2025, 6, 22, 11), (2025, 7, 10, 14), (2025, 7, 16, 15), (2025, 7, 18, 15)]
+2025-07-31 11:51:01 - b51322b5 [WARNING] ⚠️  ALARM: Found 4 days with more than 15.0 missing timestamps
+2025-07-31 11:51:01 - b51322b5 [WARNING]    Problematic days: [(2025, 6, 22), (2025, 7, 10), (2025, 7, 16), (2025, 7, 18)]
+2025-07-31 11:51:01 - b51322b5 [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+2025-07-31 11:51:01 - b51322b5 [WARNING]    Problematic months: [(2025, 6), (2025, 7)]
+2025-07-31 12:06:02 - 39b7282c [WARNING] ⚠️ Warning  Missing days 2025-6: [1, 2, 3, 4] - computation continues
+2025-07-31 12:06:02 - 39b7282c [WARNING] ⚠️  ALARM: Found 5 consecutive missing timestamps
+2025-07-31 12:06:02 - 39b7282c [WARNING]    Largest gap: 466.0 intervals
+2025-07-31 12:06:02 - 39b7282c [WARNING] ⚠️  ALARM: Found 5 hours with more than 3.0 missing timestamps
+2025-07-31 12:06:02 - 39b7282c [WARNING]    Problematic hours: [(2025, 6, 20, 16), (2025, 6, 22, 11), (2025, 7, 10, 14), (2025, 7, 16, 15), (2025, 7, 18, 15)]
+2025-07-31 12:06:02 - 39b7282c [WARNING] ⚠️  ALARM: Found 4 days with more than 15.0 missing timestamps
+2025-07-31 12:06:02 - 39b7282c [WARNING]    Problematic days: [(2025, 6, 22), (2025, 7, 10), (2025, 7, 16), (2025, 7, 18)]
+2025-07-31 12:06:02 - 39b7282c [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+2025-07-31 12:06:02 - 39b7282c [WARNING]    Problematic months: [(2025, 6), (2025, 7)]
+2025-07-31 12:06:42 - 23a06321 [WARNING] ⚠️ Warning  Missing days 2025-6: [1, 2, 3, 4] - computation continues
+2025-07-31 12:06:42 - 23a06321 [WARNING] ⚠️  ALARM: Found 5 consecutive missing timestamps
+2025-07-31 12:06:42 - 23a06321 [WARNING]    Largest gap: 466.0 intervals
+2025-07-31 12:06:42 - 23a06321 [WARNING] ⚠️  ALARM: Found 5 hours with more than 3.0 missing timestamps
+2025-07-31 12:06:42 - 23a06321 [WARNING]    Problematic hours: [(2025, 6, 20, 16), (2025, 6, 22, 11), (2025, 7, 10, 14), (2025, 7, 16, 15), (2025, 7, 18, 15)]
+2025-07-31 12:06:42 - 23a06321 [WARNING] ⚠️  ALARM: Found 4 days with more than 15.0 missing timestamps
+2025-07-31 12:06:42 - 23a06321 [WARNING]    Problematic days: [(2025, 6, 22), (2025, 7, 10), (2025, 7, 16), (2025, 7, 18)]
+2025-07-31 12:06:42 - 23a06321 [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+2025-07-31 12:06:42 - 23a06321 [WARNING]    Problematic months: [(2025, 6), (2025, 7)]
+2025-07-31 12:11:51 - ad1c685b [WARNING] ⚠️ Warning  Missing days 2025-6: [1, 2, 3, 4] - computation continues
+2025-07-31 12:11:51 - ad1c685b [WARNING] ⚠️  ALARM: Found 5 consecutive missing timestamps
+2025-07-31 12:11:51 - ad1c685b [WARNING]    Largest gap: 466.0 intervals
+2025-07-31 12:11:51 - ad1c685b [WARNING] ⚠️  ALARM: Found 5 hours with more than 3.0 missing timestamps
+2025-07-31 12:11:51 - ad1c685b [WARNING]    Problematic hours: [(2025, 6, 20, 16), (2025, 6, 22, 11), (2025, 7, 10, 14), (2025, 7, 16, 15), (2025, 7, 18, 15)]
+2025-07-31 12:11:51 - ad1c685b [WARNING] ⚠️  ALARM: Found 4 days with more than 15.0 missing timestamps
+2025-07-31 12:11:51 - ad1c685b [WARNING]    Problematic days: [(2025, 6, 22), (2025, 7, 10), (2025, 7, 16), (2025, 7, 18)]
+2025-07-31 12:11:51 - ad1c685b [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+2025-07-31 12:11:51 - ad1c685b [WARNING]    Problematic months: [(2025, 6), (2025, 7)]
+2025-07-31 12:12:43 - 2edb3fe4 [WARNING] ⚠️ Warning  Missing days 2025-6: [1, 2, 3, 4] - computation continues
+2025-07-31 12:12:43 - 2edb3fe4 [WARNING] ⚠️  ALARM: Found 5 consecutive missing timestamps
+2025-07-31 12:12:43 - 2edb3fe4 [WARNING]    Largest gap: 466.0 intervals
+2025-07-31 12:12:43 - 2edb3fe4 [WARNING] ⚠️  ALARM: Found 5 hours with more than 3.0 missing timestamps
+2025-07-31 12:12:43 - 2edb3fe4 [WARNING]    Problematic hours: [(2025, 6, 20, 16), (2025, 6, 22, 11), (2025, 7, 10, 14), (2025, 7, 16, 15), (2025, 7, 18, 15)]
+2025-07-31 12:12:43 - 2edb3fe4 [WARNING] ⚠️  ALARM: Found 4 days with more than 15.0 missing timestamps
+2025-07-31 12:12:43 - 2edb3fe4 [WARNING]    Problematic days: [(2025, 6, 22), (2025, 7, 10), (2025, 7, 16), (2025, 7, 18)]
+2025-07-31 12:12:43 - 2edb3fe4 [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+2025-07-31 12:12:43 - 2edb3fe4 [WARNING]    Problematic months: [(2025, 6), (2025, 7)]
+2025-07-31 12:13:47 - 806b41f2 [WARNING] ⚠️ Warning  Missing days 2025-6: [1, 2, 3, 4] - computation continues
+2025-07-31 12:13:47 - 806b41f2 [WARNING] ⚠️  ALARM: Found 5 consecutive missing timestamps
+2025-07-31 12:13:47 - 806b41f2 [WARNING]    Largest gap: 466.0 intervals
+2025-07-31 12:13:47 - 806b41f2 [WARNING] ⚠️  ALARM: Found 5 hours with more than 3.0 missing timestamps
+2025-07-31 12:13:47 - 806b41f2 [WARNING]    Problematic hours: [(2025, 6, 20, 16), (2025, 6, 22, 11), (2025, 7, 10, 14), (2025, 7, 16, 15), (2025, 7, 18, 15)]
+2025-07-31 12:13:47 - 806b41f2 [WARNING] ⚠️  ALARM: Found 4 days with more than 15.0 missing timestamps
+2025-07-31 12:13:47 - 806b41f2 [WARNING]    Problematic days: [(2025, 6, 22), (2025, 7, 10), (2025, 7, 16), (2025, 7, 18)]
+2025-07-31 12:13:47 - 806b41f2 [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+2025-07-31 12:13:47 - 806b41f2 [WARNING]    Problematic months: [(2025, 6), (2025, 7)]
+2025-07-31 12:15:11 - 6e0ab50d [WARNING] ⚠️ Warning  Missing days 2025-6: [1, 2, 3, 4] - computation continues
+2025-07-31 12:15:11 - 6e0ab50d [WARNING] ⚠️  ALARM: Found 5 consecutive missing timestamps
+2025-07-31 12:15:11 - 6e0ab50d [WARNING]    Largest gap: 466.0 intervals
+2025-07-31 12:15:11 - 6e0ab50d [WARNING] ⚠️  ALARM: Found 5 hours with more than 3.0 missing timestamps
+2025-07-31 12:15:11 - 6e0ab50d [WARNING]    Problematic hours: [(2025, 6, 20, 16), (2025, 6, 22, 11), (2025, 7, 10, 14), (2025, 7, 16, 15), (2025, 7, 18, 15)]
+2025-07-31 12:15:11 - 6e0ab50d [WARNING] ⚠️  ALARM: Found 4 days with more than 15.0 missing timestamps
+2025-07-31 12:15:11 - 6e0ab50d [WARNING]    Problematic days: [(2025, 6, 22), (2025, 7, 10), (2025, 7, 16), (2025, 7, 18)]
+2025-07-31 12:15:11 - 6e0ab50d [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+2025-07-31 12:15:11 - 6e0ab50d [WARNING]    Problematic months: [(2025, 6), (2025, 7)]
+2025-07-31 12:34:06 - 61d87a0e [WARNING] ⚠️ Warning  Missing days 2025-6: [1, 2, 3, 4] - computation continues
+2025-07-31 12:34:06 - 61d87a0e [WARNING] ⚠️  ALARM: Found 5 consecutive missing timestamps
+2025-07-31 12:34:06 - 61d87a0e [WARNING]    Largest gap: 466.0 intervals
+2025-07-31 12:34:06 - 61d87a0e [WARNING] ⚠️  ALARM: Found 5 hours with more than 3.0 missing timestamps
+2025-07-31 12:34:06 - 61d87a0e [WARNING]    Problematic hours: [(2025, 6, 20, 16), (2025, 6, 22, 11), (2025, 7, 10, 14), (2025, 7, 16, 15), (2025, 7, 18, 15)]
+2025-07-31 12:34:06 - 61d87a0e [WARNING] ⚠️  ALARM: Found 4 days with more than 15.0 missing timestamps
+2025-07-31 12:34:06 - 61d87a0e [WARNING]    Problematic days: [(2025, 6, 22), (2025, 7, 10), (2025, 7, 16), (2025, 7, 18)]
+2025-07-31 12:34:06 - 61d87a0e [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+2025-07-31 12:34:06 - 61d87a0e [WARNING]    Problematic months: [(2025, 6), (2025, 7)]
+2025-07-31 12:38:09 - 5d6a9c31 [WARNING] ⚠️ Warning  Missing days 2025-6: [1, 2, 3, 4] - computation continues
+2025-07-31 12:38:09 - 5d6a9c31 [WARNING] ⚠️  ALARM: Found 5 consecutive missing timestamps
+2025-07-31 12:38:09 - 5d6a9c31 [WARNING]    Largest gap: 466.0 intervals
+2025-07-31 12:38:09 - 5d6a9c31 [WARNING] ⚠️  ALARM: Found 5 hours with more than 3.0 missing timestamps
+2025-07-31 12:38:09 - 5d6a9c31 [WARNING]    Problematic hours: [(2025, 6, 20, 16), (2025, 6, 22, 11), (2025, 7, 10, 14), (2025, 7, 16, 15), (2025, 7, 18, 15)]
+2025-07-31 12:38:09 - 5d6a9c31 [WARNING] ⚠️  ALARM: Found 4 days with more than 15.0 missing timestamps
+2025-07-31 12:38:09 - 5d6a9c31 [WARNING]    Problematic days: [(2025, 6, 22), (2025, 7, 10), (2025, 7, 16), (2025, 7, 18)]
+2025-07-31 12:38:09 - 5d6a9c31 [WARNING] ⚠️  ALARM: Found 2 months with more than 87.0 missing timestamps
+2025-07-31 12:38:09 - 5d6a9c31 [WARNING]    Problematic months: [(2025, 6), (2025, 7)]
