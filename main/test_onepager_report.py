@@ -10,17 +10,20 @@ import os
 sys.path.append('.')
 
 # Import the electricity analysis module
-from electricity_analysis import ea
+from electricity_analysis import ComputeEnergy, GenerateReport
+import pandas as pd
 
-def test_onepager_report():
-    """Test the one-pager report generation"""
+
+
+def test_onepager_with_specific_load(load, warning_only=True):
+    """Test the one-pager report with a specific load selection"""
     
     # Paths
     root_path = "/home/philg/projects/stratcon"
     data_path = f"{root_path}/downloads/Neo3/NEO3 - 07&08 - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv"
     loads_summary_path = f"{root_path}/downloads/Neo3/NEO3 - loads_cutoff_dates.csv"
     
-    print("🔌 Testing One-Pager Report Generation")
+    print("\n🔌 Testing One-Pager Report with Specific Load")
     print("=" * 50)
     
     try:
@@ -35,99 +38,66 @@ def test_onepager_report():
         
         print(f"✅ Data file found: {data_path}")
         print(f"✅ Loads summary file found: {loads_summary_path}")
+
         
-        # Check file sizes
-        data_size = os.path.getsize(data_path)
-        loads_size = os.path.getsize(loads_summary_path)
-        print(f"📏 Data file size: {data_size:,} bytes")
-        print(f"📏 Loads summary size: {loads_size:,} bytes")
         
-        # Test data loading step by step
-        print("\n🔍 Step-by-step debugging:")
+        # Initialize the report generator
+        report_generator = GenerateReport()
         
-        print("Step 1: Loading and preparing data...")
-        df = ea.load_and_prepare_data(data_path)
-        if df is None:
-            print("❌ Failed to load data")
-            return False
-        print(f"✅ Data loaded successfully. Shape: {df.shape}")
-        print(f"📊 Columns: {list(df.columns)}")
-        
-        print("Step 2: Initializing intervals and alarm levels...")
-        df = ea.init_interval_and_alarm_levels(df)
-        print(f"✅ Intervals initialized. Shape: {df.shape}")
-        
-        print("Step 3: Selecting full months...")
-        df = ea.select_full_months(df, warning_only=False)
-        if df is None:
-            print("❌ No complete months found in data")
-            return False
-        print(f"✅ Full months selected. Shape: {df.shape}")
-        
-        print("Step 4: Computing energy...")
-        df = ea.compute_energy(df)
-        print(f"✅ Energy computed. Shape: {df.shape}")
-        print(f"📊 Energy columns: {[col for col in df.columns if 'Consumption [kWh]' in col]}")
-        
-        print("Step 5: Generating one-pager report...")
-        report_path = ea.generate_onepager_report(df, loads_summary_path)
-        
-        if report_path:
-            print(f"✅ One-pager report generated successfully!")
-            print(f"📄 Report saved to: {report_path}")
-            print(f"🌐 Open the file in your browser to view the report")
-            return True
-        else:
-            print("❌ Failed to generate one-pager report")
-            return False
+        # Generate one-pager report with specific load
+        print("🔌 Generating one-pager report with specific load...")
+        try:
+            values_for_html, df, chart_daily_consumption, chart_monthly_history, chart_hourly_consumption, chart_days_consumption = report_generator.generate_onepager_report_values_and_charts(data_path, loads_summary_path, selected_load = load, warning_only=warning_only)
+
+            report_path = report_generator.generate_onepager_html(values_for_html, chart_daily_consumption, chart_monthly_history, chart_hourly_consumption, chart_days_consumption)
             
+            if report_path:
+                print("✅ One-pager report with specific load generated successfully!")
+                print(f"📄 Report saved to: {report_path}")
+                print(f"🌐 Open the file in your browser to view the report")
+                return True
+            else:
+                print("❌ Failed to generate one-pager report with specific load")
+                return False
+        except Exception as e:
+            print(f"❌ Exception during report generation: {e}")
+            import traceback
+            print(f"📋 Full traceback:")
+            traceback.print_exc()
+            return False
+        
     except Exception as e:
-        print(f"❌ Error during test: {e}")
+        print(f"❌ Error during specific load test: {e}")
         import traceback
         print(f"📋 Full traceback:")
         traceback.print_exc()
-        return False
-
-def test_full_analysis_with_onepager():
-    """Test the full analysis with one-pager report"""
-    
-    # Paths
-    root_path = "/home/philg/projects/stratcon"
-    data_path = f"{root_path}/downloads/Neo3/NEO3 - 07&08 - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv"
-    loads_summary_path = f"{root_path}/downloads/Neo3/NEO3 - loads_cutoff_dates.csv"
-    
-    print("\n🔌 Testing Full Analysis with One-Pager Report")
-    print("=" * 50)
-    
-    try:
-        # Run full analysis (this will also generate one-pager reports)
-        print("🔌 Running full analysis...")
-        ea.run(data_path, loads_summary_path, strict=False)
-        
-        print("✅ Full analysis completed successfully!")
-        print("📄 Check the reports directory for generated files")
-        return True
-        
-    except Exception as e:
-        print(f"❌ Error during full analysis: {e}")
         return False
 
 if __name__ == "__main__":
     print("🚀 Starting One-Pager Report Tests")
     print("=" * 60)
     
-    # Test 1: One-pager report only
-    success1 = test_onepager_report()
+    # # Test 1: Step-by-step one-pager report generation
+    # success1 = test_onepager_report()
     
-    # Test 2: Full analysis with one-pager
-    success2 = test_full_analysis_with_onepager()
+    # # Test 2: One-pager only (using generate_onepager_only method)
+    # success2 = test_onepager_only()
+    
+    # Test 3: One-pager with specific load selection
+    success3 = test_onepager_with_specific_load("MCB 701")
+
+    
+    # # Test 4: Full analysis with one-pager
+    # success4 = test_full_analysis_with_onepager()
     
     print("\n" + "=" * 60)
     print("📊 Test Results:")
-    print(f"One-pager only: {'✅ PASSED' if success1 else '❌ FAILED'}")
-    print(f"Full analysis: {'✅ PASSED' if success2 else '❌ FAILED'}")
+    # print(f"Step-by-step one-pager: {'✅ PASSED' if success1 else '❌ FAILED'}")
+    # print(f"One-pager only method: {'✅ PASSED' if success2 else '❌ FAILED'}")
+    print(f"One-pager with specific load: {'✅ PASSED' if success3 else '❌ FAILED'}")
+    # print(f"Full analysis: {'✅ PASSED' if success4 else '❌ FAILED'}")
     
-    if success1 or success2:
-        print("\n🎉 At least one test passed! Check the reports directory for generated files.")
-    else:
-        print("\n❌ All tests failed. Check the error messages above.")
+    # if success1 or success2 or success3 or success4:
+    #     print("\n🎉 At least one test passed! Check the reports directory for generated files.")
+    # else:
+    #     print("\n❌ All tests failed. Check the error messages above.")

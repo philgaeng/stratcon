@@ -12866,3 +12866,1899 @@ Year Month Day
            29                          220.331708  
            30                          234.542292  
            31                           87.711958  
+2025-09-12 16:05:20 - 2fd9e2a1 [INFO] 🔌 Electricity Consumption Analysis
+2025-09-12 16:05:20 - 2fd9e2a1 [INFO] ==================================================
+2025-09-12 16:40:50 - b14989e1 [INFO] 🔌 Electricity Consumption Analysis
+2025-09-12 16:40:50 - b14989e1 [INFO] ==================================================
+2025-09-12 16:40:51 - b14989e1 [INFO] ✅ Running report for Client_1
+2025-09-12 16:50:01 - 648fb8db [INFO] 🔌 Electricity Consumption Analysis
+2025-09-12 16:50:01 - 648fb8db [INFO] ==================================================
+2025-09-12 16:50:01 - 648fb8db [INFO] ✅ Running report for Client_1
+2025-09-12 17:14:36 - 5753e06f [INFO] 🔌 Electricity Consumption Analysis
+2025-09-12 17:14:36 - 5753e06f [INFO] ==================================================
+2025-09-12 17:14:36 - 5753e06f [INFO] ✅ Running report for Client_1
+2025-09-12 17:16:12 - 336c1535 [INFO] 🔌 Electricity Consumption Analysis
+2025-09-12 17:16:12 - 336c1535 [INFO] ==================================================
+2025-09-12 17:16:12 - 336c1535 [INFO] ✅ Running report for Client_1
+2025-09-12 17:43:01 - a06f442d [INFO] 🔌 Generating One-Pager Report
+2025-09-12 17:43:01 - a06f442d [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_report_20250912_174301.html
+2025-09-12 17:43:01 - a06f442d [INFO] ✅ One-pager report generated successfully
+2025-09-12 17:43:01 - a06f442d [INFO] 🔌 Electricity Consumption Analysis
+2025-09-12 17:43:01 - a06f442d [INFO] ==================================================
+2025-09-12 17:43:01 - a06f442d [INFO] ✅ Running report for Client_1
+2025-09-12 17:55:00 - 9548fbea [INFO] 🔌 Generating One-Pager Report
+2025-09-12 17:55:00 - 9548fbea [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_report_20250912_175500.html
+2025-09-12 17:55:00 - 9548fbea [INFO] ✅ One-pager report generated successfully
+2025-09-12 17:55:00 - 9548fbea [INFO] 🔌 Electricity Consumption Analysis
+2025-09-12 17:55:00 - 9548fbea [INFO] ==================================================
+2025-09-12 17:55:00 - 9548fbea [INFO] ✅ Running report for Client_1
+2025-09-12 18:07:17 - b11267f7 [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - 07&08 - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-12 18:07:17 - 72b8ff1a [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-12 18:07:17 - 72b8ff1a [INFO]                     Consumption - Consumption [kWh]  MCB 802 - Consumption [kWh]  MCB 801 - Consumption [kWh]  MCB 701 - Consumption [kWh]  MCB 702 - Consumption [kWh]
+Year-Month-cut-off                                                                                                                                                     
+2025-03                                12499.937250                  4490.119667                  2061.611792                  2838.657000                  3776.266625
+2025-04                                11212.659875                  4304.996958                  2158.514667                  2974.801417                  4440.361583
+2025-05                                    0.000000                  4689.799250                  2093.656333                  3855.417208                  4735.391292
+2025-06                                    0.000000                  4436.738708                  1430.765667                  4340.208750                  3869.527333
+2025-09-12 18:07:17 - b11267f7 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-12 18:07:18 - 72b8ff1a [INFO] 🔌 Generating One-Pager Report
+2025-09-12 18:07:18 - 72b8ff1a [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_report_20250912_180718.html
+2025-09-12 18:07:18 - 72b8ff1a [INFO] ✅ One-pager report generated successfully
+2025-09-12 18:46:32 - ab21889d [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - 07&08 - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-12 18:46:32 - 272f510b [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-12 18:46:32 - 272f510b [INFO]                     Consumption - Consumption [kWh]  MCB 802 - Consumption [kWh]  MCB 801 - Consumption [kWh]  MCB 701 - Consumption [kWh]  MCB 702 - Consumption [kWh]
+Year-Month-cut-off                                                                                                                                                     
+2025-03                                12499.937250                  4490.119667                  2061.611792                  2838.657000                  3776.266625
+2025-04                                11212.659875                  4304.996958                  2158.514667                  2974.801417                  4440.361583
+2025-05                                    0.000000                  4689.799250                  2093.656333                  3855.417208                  4735.391292
+2025-06                                    0.000000                  4436.738708                  1430.765667                  4340.208750                  3869.527333
+2025-09-12 18:46:32 - ab21889d [INFO] 🔌 Generating One-Pager Report Only
+2025-09-12 18:46:32 - 272f510b [INFO] 🔌 Generating One-Pager Report
+2025-09-12 18:46:33 - 272f510b [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_report_20250912_184633.html
+2025-09-12 18:46:33 - 272f510b [INFO] ✅ One-pager report generated successfully
+2025-09-14 16:29:37 - efb36dac [INFO] 🔌 Generating One-Pager Report
+2025-09-14 16:29:38 - efb36dac [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_report_20250914_162938.html
+2025-09-14 16:29:38 - efb36dac [INFO] ✅ One-pager report generated successfully
+2025-09-14 16:29:38 - 0ee4a5c5 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 16:29:38 - cee35a7e [INFO] 🔌 Generating One-Pager Report
+2025-09-14 16:29:38 - cee35a7e [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_report_20250914_162938.html
+2025-09-14 16:29:38 - cee35a7e [INFO] ✅ One-pager report generated successfully
+2025-09-14 16:29:38 - d76dca79 [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - 07&08 - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-14 16:29:38 - 960ebe24 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 16:29:38 - 960ebe24 [INFO]                     Consumption - Consumption [kWh]  MCB 802 - Consumption [kWh]  MCB 801 - Consumption [kWh]  MCB 701 - Consumption [kWh]  MCB 702 - Consumption [kWh]
+Year-Month-cut-off                                                                                                                                                     
+2025-03                                12499.937250                  4490.119667                  2061.611792                  2838.657000                  3776.266625
+2025-04                                11212.659875                  4304.996958                  2158.514667                  2974.801417                  4440.361583
+2025-05                                    0.000000                  4689.799250                  2093.656333                  3855.417208                  4735.391292
+2025-06                                    0.000000                  4436.738708                  1430.765667                  4340.208750                  3869.527333
+2025-09-14 17:43:28 - 8c8de253 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 17:43:28 - 8c8de253 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_174328.html
+2025-09-14 17:43:28 - 8c8de253 [INFO] ✅ One-pager report generated successfully
+2025-09-14 17:43:28 - 7cac2393 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 17:43:28 - c4278bd7 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 17:43:28 - c4278bd7 [INFO] 🔌 No load specified, using first available: Consumption
+2025-09-14 17:43:28 - c4278bd7 [INFO] 
+=== DRAWING ENERGY PER DAY ===
+2025-09-14 17:43:28 - c4278bd7 [INFO]                 Consumption - Consumption [kWh]
+Year Month Day                                 
+2025 7     1                                0.0
+           2                                0.0
+           3                                0.0
+           4                                0.0
+           5                                0.0
+           6                                0.0
+           7                                0.0
+           8                                0.0
+           9                                0.0
+           10                               0.0
+           11                               0.0
+           12                               0.0
+           13                               0.0
+           14                               0.0
+           15                               0.0
+           16                               0.0
+           17                               0.0
+           18                               0.0
+           19                               0.0
+           20                               0.0
+           21                               0.0
+           22                               0.0
+           23                               0.0
+           24                               0.0
+           25                               0.0
+           26                               0.0
+           27                               0.0
+           28                               0.0
+           29                               0.0
+           30                               0.0
+           31                               0.0
+2025-09-14 17:43:35 - c4278bd7 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 17:43:35 - c4278bd7 [INFO]             Consumption - Consumption [kWh]
+Year Month                                 
+2025 3                          9964.266833
+     4                         13748.330292
+     5                             0.000000
+     6                             0.000000
+     7                             0.000000
+2025-09-14 17:43:35 - c4278bd7 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_174335.html
+2025-09-14 17:43:35 - c4278bd7 [INFO] ✅ One-pager report generated successfully
+2025-09-14 17:43:29 - f4e7a9f2 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 17:43:29 - 4bb7af8d [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 17:43:29 - 4bb7af8d [INFO] 
+=== DRAWING ENERGY PER DAY ===
+2025-09-14 17:43:29 - 4bb7af8d [INFO]                 Consumption - Consumption [kWh]
+Year Month Day                                 
+2025 7     1                                0.0
+           2                                0.0
+           3                                0.0
+           4                                0.0
+           5                                0.0
+           6                                0.0
+           7                                0.0
+           8                                0.0
+           9                                0.0
+           10                               0.0
+           11                               0.0
+           12                               0.0
+           13                               0.0
+           14                               0.0
+           15                               0.0
+           16                               0.0
+           17                               0.0
+           18                               0.0
+           19                               0.0
+           20                               0.0
+           21                               0.0
+           22                               0.0
+           23                               0.0
+           24                               0.0
+           25                               0.0
+           26                               0.0
+           27                               0.0
+           28                               0.0
+           29                               0.0
+           30                               0.0
+           31                               0.0
+2025-09-14 17:43:29 - 4bb7af8d [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 17:43:29 - 4bb7af8d [INFO]             Consumption - Consumption [kWh]
+Year Month                                 
+2025 3                          9964.266833
+     4                         13748.330292
+     5                             0.000000
+     6                             0.000000
+     7                             0.000000
+2025-09-14 17:43:29 - 4bb7af8d [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_174329.html
+2025-09-14 17:43:29 - 4bb7af8d [INFO] ✅ One-pager report generated successfully
+2025-09-14 17:43:29 - 4098efcd [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - 07&08 - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-14 17:43:29 - dc40e910 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 17:43:29 - dc40e910 [INFO]                     Consumption - Consumption [kWh]  MCB 802 - Consumption [kWh]  MCB 801 - Consumption [kWh]  MCB 701 - Consumption [kWh]  MCB 702 - Consumption [kWh]
+Year-Month-cut-off                                                                                                                                                     
+2025-03                                12499.937250                  4490.119667                  2061.611792                  2838.657000                  3776.266625
+2025-04                                11212.659875                  4304.996958                  2158.514667                  2974.801417                  4440.361583
+2025-05                                    0.000000                  4689.799250                  2093.656333                  3855.417208                  4735.391292
+2025-06                                    0.000000                  4436.738708                  1430.765667                  4340.208750                  3869.527333
+2025-09-14 17:46:20 - fa69e5f2 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 17:46:20 - fa69e5f2 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_174620.html
+2025-09-14 17:46:20 - fa69e5f2 [INFO] ✅ One-pager report generated successfully
+2025-09-14 17:46:20 - 01551f0c [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 17:46:20 - 1286edc4 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 17:46:20 - 1286edc4 [INFO] 🔌 No load specified, using first available: Consumption
+2025-09-14 17:46:20 - 1286edc4 [INFO] 
+=== DRAWING ENERGY PER DAY ===
+2025-09-14 17:46:20 - 1286edc4 [INFO]                 Consumption - Consumption [kWh]
+Year Month Day                                 
+2025 7     1                                0.0
+           2                                0.0
+           3                                0.0
+           4                                0.0
+           5                                0.0
+           6                                0.0
+           7                                0.0
+           8                                0.0
+           9                                0.0
+           10                               0.0
+           11                               0.0
+           12                               0.0
+           13                               0.0
+           14                               0.0
+           15                               0.0
+           16                               0.0
+           17                               0.0
+           18                               0.0
+           19                               0.0
+           20                               0.0
+           21                               0.0
+           22                               0.0
+           23                               0.0
+           24                               0.0
+           25                               0.0
+           26                               0.0
+           27                               0.0
+           28                               0.0
+           29                               0.0
+           30                               0.0
+           31                               0.0
+2025-09-14 17:46:21 - 1286edc4 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 17:46:21 - 1286edc4 [INFO]             Consumption - Consumption [kWh]
+Year Month                                 
+2025 3                          9964.266833
+     4                         13748.330292
+     5                             0.000000
+     6                             0.000000
+     7                             0.000000
+2025-09-14 17:46:21 - 1286edc4 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_174621.html
+2025-09-14 17:46:21 - 1286edc4 [INFO] ✅ One-pager report generated successfully
+2025-09-14 17:46:21 - 83d0f97e [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 17:46:21 - 2ab87eaf [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 17:46:21 - 2ab87eaf [INFO] 
+=== DRAWING ENERGY PER DAY ===
+2025-09-14 17:46:21 - 2ab87eaf [INFO]                 Consumption - Consumption [kWh]
+Year Month Day                                 
+2025 7     1                                0.0
+           2                                0.0
+           3                                0.0
+           4                                0.0
+           5                                0.0
+           6                                0.0
+           7                                0.0
+           8                                0.0
+           9                                0.0
+           10                               0.0
+           11                               0.0
+           12                               0.0
+           13                               0.0
+           14                               0.0
+           15                               0.0
+           16                               0.0
+           17                               0.0
+           18                               0.0
+           19                               0.0
+           20                               0.0
+           21                               0.0
+           22                               0.0
+           23                               0.0
+           24                               0.0
+           25                               0.0
+           26                               0.0
+           27                               0.0
+           28                               0.0
+           29                               0.0
+           30                               0.0
+           31                               0.0
+2025-09-14 17:46:21 - 2ab87eaf [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 17:46:21 - 2ab87eaf [INFO]             Consumption - Consumption [kWh]
+Year Month                                 
+2025 3                          9964.266833
+     4                         13748.330292
+     5                             0.000000
+     6                             0.000000
+     7                             0.000000
+2025-09-14 17:46:21 - 2ab87eaf [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_174621.html
+2025-09-14 17:46:21 - 2ab87eaf [INFO] ✅ One-pager report generated successfully
+2025-09-14 17:46:21 - ecd77cb8 [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - 07&08 - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-14 17:46:22 - 863a4577 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 17:46:22 - 863a4577 [INFO]                     Consumption - Consumption [kWh]  MCB 802 - Consumption [kWh]  MCB 801 - Consumption [kWh]  MCB 701 - Consumption [kWh]  MCB 702 - Consumption [kWh]
+Year-Month-cut-off                                                                                                                                                     
+2025-03                                12499.937250                  4490.119667                  2061.611792                  2838.657000                  3776.266625
+2025-04                                11212.659875                  4304.996958                  2158.514667                  2974.801417                  4440.361583
+2025-05                                    0.000000                  4689.799250                  2093.656333                  3855.417208                  4735.391292
+2025-06                                    0.000000                  4436.738708                  1430.765667                  4340.208750                  3869.527333
+2025-09-14 17:48:07 - 28fb7823 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 17:48:07 - 28fb7823 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_174807.html
+2025-09-14 17:48:07 - 28fb7823 [INFO] ✅ One-pager report generated successfully
+2025-09-14 17:48:07 - 39a03bc1 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 17:48:07 - 3dec8f0d [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 17:48:07 - 3dec8f0d [INFO] 🔌 No load specified, using first available: Consumption
+2025-09-14 17:48:07 - 3dec8f0d [INFO] 
+=== DRAWING ENERGY PER DAY ===
+2025-09-14 17:48:07 - 3dec8f0d [INFO]                 Consumption - Consumption [kWh]
+Year Month Day                                 
+2025 7     1                                0.0
+           2                                0.0
+           3                                0.0
+           4                                0.0
+           5                                0.0
+           6                                0.0
+           7                                0.0
+           8                                0.0
+           9                                0.0
+           10                               0.0
+           11                               0.0
+           12                               0.0
+           13                               0.0
+           14                               0.0
+           15                               0.0
+           16                               0.0
+           17                               0.0
+           18                               0.0
+           19                               0.0
+           20                               0.0
+           21                               0.0
+           22                               0.0
+           23                               0.0
+           24                               0.0
+           25                               0.0
+           26                               0.0
+           27                               0.0
+           28                               0.0
+           29                               0.0
+           30                               0.0
+           31                               0.0
+2025-09-14 17:48:09 - 3dec8f0d [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 17:48:09 - 3dec8f0d [INFO]             Consumption - Consumption [kWh]
+Year Month                                 
+2025 3                          9964.266833
+     4                         13748.330292
+     5                             0.000000
+     6                             0.000000
+     7                             0.000000
+2025-09-14 17:48:09 - 3dec8f0d [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_174809.html
+2025-09-14 17:48:09 - 3dec8f0d [INFO] ✅ One-pager report generated successfully
+2025-09-14 17:48:09 - 34da1dda [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 17:48:09 - fe87debb [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 17:48:09 - fe87debb [INFO] 
+=== DRAWING ENERGY PER DAY ===
+2025-09-14 17:48:09 - fe87debb [INFO]                 Consumption - Consumption [kWh]
+Year Month Day                                 
+2025 7     1                                0.0
+           2                                0.0
+           3                                0.0
+           4                                0.0
+           5                                0.0
+           6                                0.0
+           7                                0.0
+           8                                0.0
+           9                                0.0
+           10                               0.0
+           11                               0.0
+           12                               0.0
+           13                               0.0
+           14                               0.0
+           15                               0.0
+           16                               0.0
+           17                               0.0
+           18                               0.0
+           19                               0.0
+           20                               0.0
+           21                               0.0
+           22                               0.0
+           23                               0.0
+           24                               0.0
+           25                               0.0
+           26                               0.0
+           27                               0.0
+           28                               0.0
+           29                               0.0
+           30                               0.0
+           31                               0.0
+2025-09-14 17:48:09 - fe87debb [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 17:48:09 - fe87debb [INFO]             Consumption - Consumption [kWh]
+Year Month                                 
+2025 3                          9964.266833
+     4                         13748.330292
+     5                             0.000000
+     6                             0.000000
+     7                             0.000000
+2025-09-14 17:48:09 - fe87debb [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_174809.html
+2025-09-14 17:48:09 - fe87debb [INFO] ✅ One-pager report generated successfully
+2025-09-14 17:48:09 - 29fce3d0 [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - 07&08 - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-14 17:48:09 - 3261bdec [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 17:48:09 - 3261bdec [INFO]                     Consumption - Consumption [kWh]  MCB 802 - Consumption [kWh]  MCB 801 - Consumption [kWh]  MCB 701 - Consumption [kWh]  MCB 702 - Consumption [kWh]
+Year-Month-cut-off                                                                                                                                                     
+2025-03                                12499.937250                  4490.119667                  2061.611792                  2838.657000                  3776.266625
+2025-04                                11212.659875                  4304.996958                  2158.514667                  2974.801417                  4440.361583
+2025-05                                    0.000000                  4689.799250                  2093.656333                  3855.417208                  4735.391292
+2025-06                                    0.000000                  4436.738708                  1430.765667                  4340.208750                  3869.527333
+2025-09-14 17:58:57 - f446434c [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 17:58:57 - f446434c [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_175857.html
+2025-09-14 17:58:57 - f446434c [INFO] ✅ One-pager report generated successfully
+2025-09-14 17:58:57 - 6ba9cf1f [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 17:58:57 - f506fc56 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 17:58:57 - f506fc56 [INFO] 🔌 No load specified, using first available: Consumption
+2025-09-14 17:58:57 - f506fc56 [INFO] 
+=== DRAWING ENERGY PER DAY ===
+2025-09-14 17:58:57 - f506fc56 [INFO]                 Consumption - Consumption [kWh]
+Year Month Day                                 
+2025 7     1                                0.0
+           2                                0.0
+           3                                0.0
+           4                                0.0
+           5                                0.0
+           6                                0.0
+           7                                0.0
+           8                                0.0
+           9                                0.0
+           10                               0.0
+           11                               0.0
+           12                               0.0
+           13                               0.0
+           14                               0.0
+           15                               0.0
+           16                               0.0
+           17                               0.0
+           18                               0.0
+           19                               0.0
+           20                               0.0
+           21                               0.0
+           22                               0.0
+           23                               0.0
+           24                               0.0
+           25                               0.0
+           26                               0.0
+           27                               0.0
+           28                               0.0
+           29                               0.0
+           30                               0.0
+           31                               0.0
+2025-09-14 17:58:59 - f506fc56 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 17:58:59 - f506fc56 [INFO]             Consumption - Consumption [kWh]
+Year Month                                 
+2025 3                          9964.266833
+     4                         13748.330292
+     5                             0.000000
+     6                             0.000000
+     7                             0.000000
+2025-09-14 17:58:59 - f506fc56 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_175859.html
+2025-09-14 17:58:59 - f506fc56 [INFO] ✅ One-pager report generated successfully
+2025-09-14 17:58:59 - e633100a [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 17:58:59 - a1fe547f [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 17:58:59 - a1fe547f [INFO] 
+=== DRAWING ENERGY PER DAY ===
+2025-09-14 17:58:59 - a1fe547f [INFO]                 Consumption - Consumption [kWh]
+Year Month Day                                 
+2025 7     1                                0.0
+           2                                0.0
+           3                                0.0
+           4                                0.0
+           5                                0.0
+           6                                0.0
+           7                                0.0
+           8                                0.0
+           9                                0.0
+           10                               0.0
+           11                               0.0
+           12                               0.0
+           13                               0.0
+           14                               0.0
+           15                               0.0
+           16                               0.0
+           17                               0.0
+           18                               0.0
+           19                               0.0
+           20                               0.0
+           21                               0.0
+           22                               0.0
+           23                               0.0
+           24                               0.0
+           25                               0.0
+           26                               0.0
+           27                               0.0
+           28                               0.0
+           29                               0.0
+           30                               0.0
+           31                               0.0
+2025-09-14 17:58:59 - a1fe547f [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 17:58:59 - a1fe547f [INFO]             Consumption - Consumption [kWh]
+Year Month                                 
+2025 3                          9964.266833
+     4                         13748.330292
+     5                             0.000000
+     6                             0.000000
+     7                             0.000000
+2025-09-14 17:58:59 - a1fe547f [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_175859.html
+2025-09-14 17:58:59 - a1fe547f [INFO] ✅ One-pager report generated successfully
+2025-09-14 17:58:59 - c34aae30 [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - 07&08 - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-14 17:58:59 - f7924205 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 17:58:59 - f7924205 [INFO]                     Consumption - Consumption [kWh]  MCB 802 - Consumption [kWh]  MCB 801 - Consumption [kWh]  MCB 701 - Consumption [kWh]  MCB 702 - Consumption [kWh]
+Year-Month-cut-off                                                                                                                                                     
+2025-03                                12499.937250                  4490.119667                  2061.611792                  2838.657000                  3776.266625
+2025-04                                11212.659875                  4304.996958                  2158.514667                  2974.801417                  4440.361583
+2025-05                                    0.000000                  4689.799250                  2093.656333                  3855.417208                  4735.391292
+2025-06                                    0.000000                  4436.738708                  1430.765667                  4340.208750                  3869.527333
+2025-09-14 18:11:17 - 4fe4a72b [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 18:11:17 - 4fe4a72b [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_181117.html
+2025-09-14 18:11:17 - 4fe4a72b [INFO] ✅ One-pager report generated successfully
+2025-09-14 18:11:17 - 70c5946c [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 18:11:17 - f0d77336 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 18:11:17 - f0d77336 [INFO] 🔌 No load specified, using first available: Consumption
+2025-09-14 18:11:17 - f0d77336 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 18:11:17 - f0d77336 [INFO]             Consumption - Consumption [kWh]
+Year Month                                 
+2025 3                          9964.266833
+     4                         13748.330292
+     5                             0.000000
+     6                             0.000000
+     7                             0.000000
+2025-09-14 18:11:18 - f0d77336 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_181118.html
+2025-09-14 18:11:18 - f0d77336 [INFO] ✅ One-pager report generated successfully
+2025-09-14 18:11:18 - 7ef55006 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 18:11:18 - f9ce28b4 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 18:11:18 - f9ce28b4 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 18:11:18 - f9ce28b4 [INFO]             Consumption - Consumption [kWh]
+Year Month                                 
+2025 3                          9964.266833
+     4                         13748.330292
+     5                             0.000000
+     6                             0.000000
+     7                             0.000000
+2025-09-14 18:11:18 - f9ce28b4 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_181118.html
+2025-09-14 18:11:18 - f9ce28b4 [INFO] ✅ One-pager report generated successfully
+2025-09-14 18:11:18 - 066f6573 [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - 07&08 - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-14 18:11:18 - 100141a7 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 18:11:18 - 100141a7 [INFO]                     Consumption - Consumption [kWh]  MCB 802 - Consumption [kWh]  MCB 801 - Consumption [kWh]  MCB 701 - Consumption [kWh]  MCB 702 - Consumption [kWh]
+Year-Month-cut-off                                                                                                                                                     
+2025-03                                12499.937250                  4490.119667                  2061.611792                  2838.657000                  3776.266625
+2025-04                                11212.659875                  4304.996958                  2158.514667                  2974.801417                  4440.361583
+2025-05                                    0.000000                  4689.799250                  2093.656333                  3855.417208                  4735.391292
+2025-06                                    0.000000                  4436.738708                  1430.765667                  4340.208750                  3869.527333
+2025-09-14 18:19:47 - f4b63667 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 18:19:47 - f4b63667 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_181947.html
+2025-09-14 18:19:47 - f4b63667 [INFO] ✅ One-pager report generated successfully
+2025-09-14 18:19:47 - e38f696f [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 18:19:47 - 943e0f6d [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 18:19:47 - 943e0f6d [INFO] 🔌 No load specified, using first available: Consumption
+2025-09-14 18:19:47 - 943e0f6d [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 18:19:47 - 943e0f6d [INFO]             Consumption - Consumption [kWh]
+Year Month                                 
+2025 3                          9964.266833
+     4                         13748.330292
+     5                             0.000000
+     6                             0.000000
+     7                             0.000000
+2025-09-14 18:19:48 - 943e0f6d [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_181948.html
+2025-09-14 18:19:48 - 943e0f6d [INFO] ✅ One-pager report generated successfully
+2025-09-14 18:19:48 - cbf30c22 [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - 07&08 - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-14 18:19:48 - 70f87435 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 18:19:48 - 70f87435 [INFO]                     Consumption - Consumption [kWh]  MCB 802 - Consumption [kWh]  MCB 801 - Consumption [kWh]  MCB 701 - Consumption [kWh]  MCB 702 - Consumption [kWh]
+Year-Month-cut-off                                                                                                                                                     
+2025-03                                12499.937250                  4490.119667                  2061.611792                  2838.657000                  3776.266625
+2025-04                                11212.659875                  4304.996958                  2158.514667                  2974.801417                  4440.361583
+2025-05                                    0.000000                  4689.799250                  2093.656333                  3855.417208                  4735.391292
+2025-06                                    0.000000                  4436.738708                  1430.765667                  4340.208750                  3869.527333
+2025-09-14 18:21:57 - 15b52572 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 18:21:57 - 15b52572 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_182157.html
+2025-09-14 18:21:57 - 15b52572 [INFO] ✅ One-pager report generated successfully
+2025-09-14 18:21:57 - 7944078d [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 18:21:58 - 63d166bf [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 18:21:58 - 63d166bf [INFO] 🔌 No load specified, using first available: Consumption
+2025-09-14 18:21:58 - 63d166bf [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 18:21:58 - 63d166bf [INFO]             Consumption - Consumption [kWh]
+Year Month                                 
+2025 3                          9964.266833
+     4                         13748.330292
+     5                             0.000000
+     6                             0.000000
+     7                             0.000000
+2025-09-14 18:21:59 - 63d166bf [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_182159.html
+2025-09-14 18:21:59 - 63d166bf [INFO] ✅ One-pager report generated successfully
+2025-09-14 18:21:59 - 7980baf9 [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - 07&08 - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-14 18:21:59 - e3f81c42 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 18:21:59 - e3f81c42 [INFO]                     Consumption - Consumption [kWh]  MCB 802 - Consumption [kWh]  MCB 801 - Consumption [kWh]  MCB 701 - Consumption [kWh]  MCB 702 - Consumption [kWh]
+Year-Month-cut-off                                                                                                                                                     
+2025-03                                12499.937250                  4490.119667                  2061.611792                  2838.657000                  3776.266625
+2025-04                                11212.659875                  4304.996958                  2158.514667                  2974.801417                  4440.361583
+2025-05                                    0.000000                  4689.799250                  2093.656333                  3855.417208                  4735.391292
+2025-06                                    0.000000                  4436.738708                  1430.765667                  4340.208750                  3869.527333
+2025-09-14 18:23:13 - e1e6490d [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 18:23:13 - e1e6490d [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_182313.html
+2025-09-14 18:23:13 - e1e6490d [INFO] ✅ One-pager report generated successfully
+2025-09-14 18:23:13 - 419c78fd [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 18:23:13 - 8817e5da [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 18:23:13 - 8817e5da [INFO] 🔌 No load specified, using first available: Consumption
+2025-09-14 18:23:19 - 8817e5da [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 18:23:19 - 8817e5da [INFO]             Consumption - Consumption [kWh]
+Year Month                                 
+2025 3                          9964.266833
+     4                         13748.330292
+     5                             0.000000
+     6                             0.000000
+     7                             0.000000
+2025-09-14 18:23:15 - 8817e5da [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_182315.html
+2025-09-14 18:23:15 - 8817e5da [INFO] ✅ One-pager report generated successfully
+2025-09-14 18:23:15 - 2051ad08 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 18:23:15 - 0449ebbc [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 18:23:15 - 0449ebbc [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 18:23:15 - 0449ebbc [INFO]             MCB 801 - Consumption [kWh]
+Year Month                             
+2025 6                      1200.552750
+     7                      1407.249833
+2025-09-14 18:23:15 - 0449ebbc [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_801_20250914_182315.html
+2025-09-14 18:23:15 - 0449ebbc [INFO] ✅ One-pager report generated successfully
+2025-09-14 18:23:15 - efcdb0db [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - 07&08 - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-14 18:23:15 - 610b57e1 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 18:23:15 - 610b57e1 [INFO]                     Consumption - Consumption [kWh]  MCB 802 - Consumption [kWh]  MCB 801 - Consumption [kWh]  MCB 701 - Consumption [kWh]  MCB 702 - Consumption [kWh]
+Year-Month-cut-off                                                                                                                                                     
+2025-03                                12499.937250                  4490.119667                  2061.611792                  2838.657000                  3776.266625
+2025-04                                11212.659875                  4304.996958                  2158.514667                  2974.801417                  4440.361583
+2025-05                                    0.000000                  4689.799250                  2093.656333                  3855.417208                  4735.391292
+2025-06                                    0.000000                  4436.738708                  1430.765667                  4340.208750                  3869.527333
+2025-09-14 20:24:50 - 26c9141f [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 20:24:50 - 26c9141f [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_202450.html
+2025-09-14 20:24:50 - 26c9141f [INFO] ✅ One-pager report generated successfully
+2025-09-14 20:24:50 - 41496cc9 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 20:24:50 - 762904ef [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 20:24:50 - 762904ef [INFO] 🔌 No load specified, using first available: Consumption
+2025-09-14 20:24:51 - 762904ef [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 20:24:51 - 762904ef [INFO]             Consumption - Consumption [kWh]
+Year Month                                 
+2025 3                          9964.266833
+     4                         13748.330292
+     5                             0.000000
+     6                             0.000000
+     7                             0.000000
+2025-09-14 20:24:52 - 762904ef [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_202452.html
+2025-09-14 20:24:52 - 762904ef [INFO] ✅ One-pager report generated successfully
+2025-09-14 20:24:52 - 8496c26b [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 20:24:52 - 730a423b [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 20:24:52 - 730a423b [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 20:24:52 - 730a423b [INFO]             MCB 801 - Consumption [kWh]
+Year Month                             
+2025 6                      1200.552750
+     7                      1407.249833
+2025-09-14 20:24:52 - 730a423b [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_801_20250914_202452.html
+2025-09-14 20:24:52 - 730a423b [INFO] ✅ One-pager report generated successfully
+2025-09-14 20:24:52 - b9e88835 [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - 07&08 - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-14 20:24:53 - 541ce2e9 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 20:24:53 - 541ce2e9 [INFO]                     Consumption - Consumption [kWh]  MCB 802 - Consumption [kWh]  MCB 801 - Consumption [kWh]  MCB 701 - Consumption [kWh]  MCB 702 - Consumption [kWh]
+Year-Month-cut-off                                                                                                                                                     
+2025-03                                12499.937250                  4490.119667                  2061.611792                  2838.657000                  3776.266625
+2025-04                                11212.659875                  4304.996958                  2158.514667                  2974.801417                  4440.361583
+2025-05                                    0.000000                  4689.799250                  2093.656333                  3855.417208                  4735.391292
+2025-06                                    0.000000                  4436.738708                  1430.765667                  4340.208750                  3869.527333
+2025-09-14 20:33:33 - 2b535b16 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 20:33:33 - 2b535b16 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_203333.html
+2025-09-14 20:33:33 - 2b535b16 [INFO] ✅ One-pager report generated successfully
+2025-09-14 20:33:33 - 45f4bf05 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 20:33:33 - a63b2e2f [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 20:33:33 - a63b2e2f [INFO] 🔌 No load specified, using first available: Consumption
+2025-09-14 20:33:33 - a63b2e2f [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 20:33:33 - a63b2e2f [INFO]             Consumption - Consumption [kWh]
+Year Month                                 
+2025 3                          9964.266833
+     4                         13748.330292
+     5                             0.000000
+     6                             0.000000
+     7                             0.000000
+2025-09-14 20:33:34 - a63b2e2f [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_203334.html
+2025-09-14 20:33:34 - a63b2e2f [INFO] ✅ One-pager report generated successfully
+2025-09-14 20:33:34 - 4457d4a6 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 20:33:34 - 61847626 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 20:33:34 - 61847626 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 20:33:34 - 61847626 [INFO]             MCB 801 - Consumption [kWh]
+Year Month                             
+2025 6                      1200.552750
+     7                      1407.249833
+2025-09-14 20:33:34 - 61847626 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_801_20250914_203334.html
+2025-09-14 20:33:34 - 61847626 [INFO] ✅ One-pager report generated successfully
+2025-09-14 20:33:34 - d4203fec [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - 07&08 - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-14 20:33:34 - c71dc0f8 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 20:33:34 - c71dc0f8 [INFO]                     Consumption - Consumption [kWh]  MCB 802 - Consumption [kWh]  MCB 801 - Consumption [kWh]  MCB 701 - Consumption [kWh]  MCB 702 - Consumption [kWh]
+Year-Month-cut-off                                                                                                                                                     
+2025-03                                12499.937250                  4490.119667                  2061.611792                  2838.657000                  3776.266625
+2025-04                                11212.659875                  4304.996958                  2158.514667                  2974.801417                  4440.361583
+2025-05                                    0.000000                  4689.799250                  2093.656333                  3855.417208                  4735.391292
+2025-06                                    0.000000                  4436.738708                  1430.765667                  4340.208750                  3869.527333
+2025-09-14 20:35:05 - 21e59b0f [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 20:35:05 - 21e59b0f [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_203505.html
+2025-09-14 20:35:05 - 21e59b0f [INFO] ✅ One-pager report generated successfully
+2025-09-14 20:35:05 - 3d07ae20 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 20:35:05 - 20fa3abe [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 20:35:05 - 20fa3abe [INFO] 🔌 No load specified, using first available: Consumption
+2025-09-14 20:35:05 - 20fa3abe [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 20:35:05 - 20fa3abe [INFO]             Consumption - Consumption [kWh]
+Year Month                                 
+2025 3                          9964.266833
+     4                         13748.330292
+     5                             0.000000
+     6                             0.000000
+     7                             0.000000
+2025-09-14 20:35:07 - 20fa3abe [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_203507.html
+2025-09-14 20:35:07 - 20fa3abe [INFO] ✅ One-pager report generated successfully
+2025-09-14 20:35:07 - 0a003598 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 20:35:07 - ba84af6c [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 20:35:07 - ba84af6c [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 20:35:07 - ba84af6c [INFO]             MCB 801 - Consumption [kWh]
+Year Month                             
+2025 6                      1200.552750
+     7                      1407.249833
+2025-09-14 20:35:07 - ba84af6c [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_801_20250914_203507.html
+2025-09-14 20:35:07 - ba84af6c [INFO] ✅ One-pager report generated successfully
+2025-09-14 20:35:07 - 4e257bb0 [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - 07&08 - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-14 20:35:07 - 4a5e821b [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 20:35:07 - 4a5e821b [INFO]                     Consumption - Consumption [kWh]  MCB 802 - Consumption [kWh]  MCB 801 - Consumption [kWh]  MCB 701 - Consumption [kWh]  MCB 702 - Consumption [kWh]
+Year-Month-cut-off                                                                                                                                                     
+2025-03                                12499.937250                  4490.119667                  2061.611792                  2838.657000                  3776.266625
+2025-04                                11212.659875                  4304.996958                  2158.514667                  2974.801417                  4440.361583
+2025-05                                    0.000000                  4689.799250                  2093.656333                  3855.417208                  4735.391292
+2025-06                                    0.000000                  4436.738708                  1430.765667                  4340.208750                  3869.527333
+2025-09-14 20:43:19 - c81211a5 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 20:43:19 - c81211a5 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_204319.html
+2025-09-14 20:43:19 - c81211a5 [INFO] ✅ One-pager report generated successfully
+2025-09-14 20:43:19 - bd219725 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 20:43:19 - 127e2095 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 20:43:19 - 127e2095 [INFO] 🔌 No load specified, using first available: Consumption
+2025-09-14 20:43:19 - 127e2095 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 20:43:19 - 127e2095 [INFO]             Consumption - Consumption [kWh]
+Year Month                                 
+2025 3                          9964.266833
+     4                         13748.330292
+     5                             0.000000
+     6                             0.000000
+     7                             0.000000
+2025-09-14 20:43:20 - 127e2095 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_204320.html
+2025-09-14 20:43:20 - 127e2095 [INFO] ✅ One-pager report generated successfully
+2025-09-14 20:43:20 - 90dadb11 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 20:43:20 - 9c1cabac [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 20:43:20 - 9c1cabac [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 20:43:20 - 9c1cabac [INFO]             MCB 801 - Consumption [kWh]
+Year Month                             
+2025 6                      1200.552750
+     7                      1407.249833
+2025-09-14 20:43:20 - 9c1cabac [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_801_20250914_204320.html
+2025-09-14 20:43:20 - 9c1cabac [INFO] ✅ One-pager report generated successfully
+2025-09-14 20:43:20 - 7fc6b5c3 [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - 07&08 - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-14 20:43:21 - 3c81f950 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 20:43:21 - 3c81f950 [INFO]                     Consumption - Consumption [kWh]  MCB 802 - Consumption [kWh]  MCB 801 - Consumption [kWh]  MCB 701 - Consumption [kWh]  MCB 702 - Consumption [kWh]
+Year-Month-cut-off                                                                                                                                                     
+2025-03                                12499.937250                  4490.119667                  2061.611792                  2838.657000                  3776.266625
+2025-04                                11212.659875                  4304.996958                  2158.514667                  2974.801417                  4440.361583
+2025-05                                    0.000000                  4689.799250                  2093.656333                  3855.417208                  4735.391292
+2025-06                                    0.000000                  4436.738708                  1430.765667                  4340.208750                  3869.527333
+2025-09-14 20:54:01 - 4a97d13c [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 20:54:01 - 4a97d13c [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_205401.html
+2025-09-14 20:54:01 - 4a97d13c [INFO] ✅ One-pager report generated successfully
+2025-09-14 20:54:01 - 73f460a3 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 20:54:01 - 2e9e7397 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 20:54:01 - 2e9e7397 [INFO] 🔌 No load specified, using first available: Consumption
+2025-09-14 20:54:01 - 2e9e7397 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 20:54:01 - 2e9e7397 [INFO]             Consumption - Consumption [kWh]
+Year Month                                 
+2025 3                          9964.266833
+     4                         13748.330292
+     5                             0.000000
+     6                             0.000000
+     7                             0.000000
+2025-09-14 20:54:02 - 2e9e7397 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_205402.html
+2025-09-14 20:54:02 - 2e9e7397 [INFO] ✅ One-pager report generated successfully
+2025-09-14 20:54:02 - 623e98a8 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 20:54:02 - f8db8fba [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 20:54:02 - f8db8fba [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 20:54:02 - f8db8fba [INFO]             MCB 801 - Consumption [kWh]
+Year Month                             
+2025 6                      1200.552750
+     7                      1407.249833
+2025-09-14 20:54:02 - f8db8fba [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_801_20250914_205402.html
+2025-09-14 20:54:02 - f8db8fba [INFO] ✅ One-pager report generated successfully
+2025-09-14 20:54:02 - a0d63cb5 [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - 07&08 - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-14 20:54:02 - 690eca7a [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 20:54:02 - 690eca7a [INFO]                     Consumption - Consumption [kWh]  MCB 802 - Consumption [kWh]  MCB 801 - Consumption [kWh]  MCB 701 - Consumption [kWh]  MCB 702 - Consumption [kWh]
+Year-Month-cut-off                                                                                                                                                     
+2025-03                                12499.937250                  4490.119667                  2061.611792                  2838.657000                  3776.266625
+2025-04                                11212.659875                  4304.996958                  2158.514667                  2974.801417                  4440.361583
+2025-05                                    0.000000                  4689.799250                  2093.656333                  3855.417208                  4735.391292
+2025-06                                    0.000000                  4436.738708                  1430.765667                  4340.208750                  3869.527333
+2025-09-14 20:59:49 - 34b05bff [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 20:59:49 - 34b05bff [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_205949.html
+2025-09-14 20:59:49 - 34b05bff [INFO] ✅ One-pager report generated successfully
+2025-09-14 20:59:49 - 4b461470 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 20:59:49 - 2a29faad [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 20:59:49 - 2a29faad [INFO] 🔌 No load specified, using first available: Consumption
+2025-09-14 20:59:49 - 2a29faad [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 20:59:49 - 2a29faad [INFO]             Consumption - Consumption [kWh]
+Year Month                                 
+2025 3                          9964.266833
+     4                         13748.330292
+     5                             0.000000
+     6                             0.000000
+     7                             0.000000
+2025-09-14 20:59:51 - 2a29faad [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_Consumption_20250914_205951.html
+2025-09-14 20:59:51 - 2a29faad [INFO] ✅ One-pager report generated successfully
+2025-09-14 20:59:51 - f6678862 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 20:59:51 - ca1eefbd [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 20:59:51 - ca1eefbd [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 20:59:51 - ca1eefbd [INFO]             MCB 801 - Consumption [kWh]
+Year Month                             
+2025 6                      1200.552750
+     7                      1407.249833
+2025-09-14 20:59:51 - ca1eefbd [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_801_20250914_205951.html
+2025-09-14 20:59:51 - ca1eefbd [INFO] ✅ One-pager report generated successfully
+2025-09-14 20:59:51 - e102397e [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - 07&08 - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-14 20:59:51 - 175b9bc0 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 20:59:51 - 175b9bc0 [INFO]                     Consumption - Consumption [kWh]  MCB 802 - Consumption [kWh]  MCB 801 - Consumption [kWh]  MCB 701 - Consumption [kWh]  MCB 702 - Consumption [kWh]
+Year-Month-cut-off                                                                                                                                                     
+2025-03                                12499.937250                  4490.119667                  2061.611792                  2838.657000                  3776.266625
+2025-04                                11212.659875                  4304.996958                  2158.514667                  2974.801417                  4440.361583
+2025-05                                    0.000000                  4689.799250                  2093.656333                  3855.417208                  4735.391292
+2025-06                                    0.000000                  4436.738708                  1430.765667                  4340.208750                  3869.527333
+2025-09-14 21:24:08 - 92c3b5dd [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 21:24:08 - fbfff10f [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 21:24:08 - 799eb40e [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 21:24:08 - aaa8f706 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 21:24:08 - a482cee2 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 21:24:08 - 3b793d33 [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - 07&08 - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-14 21:24:08 - 0e00b010 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 21:24:08 - 0e00b010 [INFO]                     Consumption - Consumption [kWh]  MCB 802 - Consumption [kWh]  MCB 801 - Consumption [kWh]  MCB 701 - Consumption [kWh]  MCB 702 - Consumption [kWh]
+Year-Month-cut-off                                                                                                                                                     
+2025-03                                12499.937250                  4490.119667                  2061.611792                  2838.657000                  3776.266625
+2025-04                                11212.659875                  4304.996958                  2158.514667                  2974.801417                  4440.361583
+2025-05                                    0.000000                  4689.799250                  2093.656333                  3855.417208                  4735.391292
+2025-06                                    0.000000                  4436.738708                  1430.765667                  4340.208750                  3869.527333
+2025-09-14 21:29:01 - cbae1d69 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 21:29:01 - 3c80ec52 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 21:29:01 - 1f765d08 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 21:29:01 - 0238e531 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 21:29:02 - 27ee002c [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 21:29:02 - b53d91fe [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - 07&08 - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-14 21:29:02 - ee061e15 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 21:29:02 - ee061e15 [INFO]                     Consumption - Consumption [kWh]  MCB 802 - Consumption [kWh]  MCB 801 - Consumption [kWh]  MCB 701 - Consumption [kWh]  MCB 702 - Consumption [kWh]
+Year-Month-cut-off                                                                                                                                                     
+2025-03                                12499.937250                  4490.119667                  2061.611792                  2838.657000                  3776.266625
+2025-04                                11212.659875                  4304.996958                  2158.514667                  2974.801417                  4440.361583
+2025-05                                    0.000000                  4689.799250                  2093.656333                  3855.417208                  4735.391292
+2025-06                                    0.000000                  4436.738708                  1430.765667                  4340.208750                  3869.527333
+2025-09-14 21:53:59 - 9aad3788 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 21:54:00 - 99518a1a [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 21:54:00 - b2a31833 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 21:54:00 - 1b8559d3 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 21:54:00 - f49a55b1 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 21:54:00 - 6fcd5dba [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - 07&08 - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-14 21:54:00 - 6fb806ee [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 21:54:00 - 6fb806ee [INFO]                     Consumption - Consumption [kWh]  MCB 802 - Consumption [kWh]  MCB 801 - Consumption [kWh]  MCB 701 - Consumption [kWh]  MCB 702 - Consumption [kWh]
+Year-Month-cut-off                                                                                                                                                     
+2025-03                                12499.937250                  4490.119667                  2061.611792                  2838.657000                  3776.266625
+2025-04                                11212.659875                  4304.996958                  2158.514667                  2974.801417                  4440.361583
+2025-05                                    0.000000                  4689.799250                  2093.656333                  3855.417208                  4735.391292
+2025-06                                    0.000000                  4436.738708                  1430.765667                  4340.208750                  3869.527333
+2025-09-14 21:54:43 - f66ab9e1 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 21:54:43 - c9c13f0d [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 21:54:43 - f19c0d22 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 21:54:44 - 2b42dbca [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 21:54:44 - bf4ae096 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 21:54:44 - a05a0d00 [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - 07&08 - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-14 21:54:44 - 7062f354 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 21:54:44 - 7062f354 [INFO]                     Consumption - Consumption [kWh]  MCB 802 - Consumption [kWh]  MCB 801 - Consumption [kWh]  MCB 701 - Consumption [kWh]  MCB 702 - Consumption [kWh]
+Year-Month-cut-off                                                                                                                                                     
+2025-03                                12499.937250                  4490.119667                  2061.611792                  2838.657000                  3776.266625
+2025-04                                11212.659875                  4304.996958                  2158.514667                  2974.801417                  4440.361583
+2025-05                                    0.000000                  4689.799250                  2093.656333                  3855.417208                  4735.391292
+2025-06                                    0.000000                  4436.738708                  1430.765667                  4340.208750                  3869.527333
+2025-09-14 22:00:06 - 47ff8a97 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:00:06 - 47ff8a97 [INFO] 🔌 No load specified, using first available: Consumption
+2025-09-14 22:00:07 - 0a1c5c6e [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 22:00:07 - 01240e6d [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:00:07 - 965c90ec [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 22:00:07 - 5b79b26c [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:00:07 - 5b79b26c [INFO] 🔌 No load specified, using first available: MCB 801
+2025-09-14 22:00:07 - 24b0aa24 [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - 07&08 - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-14 22:00:07 - 9f47728e [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 22:00:07 - 9f47728e [INFO]                     Consumption - Consumption [kWh]  MCB 802 - Consumption [kWh]  MCB 801 - Consumption [kWh]  MCB 701 - Consumption [kWh]  MCB 702 - Consumption [kWh]
+Year-Month-cut-off                                                                                                                                                     
+2025-03                                12499.937250                  4490.119667                  2061.611792                  2838.657000                  3776.266625
+2025-04                                11212.659875                  4304.996958                  2158.514667                  2974.801417                  4440.361583
+2025-05                                    0.000000                  4689.799250                  2093.656333                  3855.417208                  4735.391292
+2025-06                                    0.000000                  4436.738708                  1430.765667                  4340.208750                  3869.527333
+2025-09-14 22:01:39 - 7496d5ae [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:01:39 - 3c1a9356 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 22:01:40 - 898c767d [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:01:40 - 11e75581 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 22:01:40 - 7956aa0f [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:01:40 - 7956aa0f [INFO] 🔌 No load specified, using first available: MCB 801
+2025-09-14 22:01:40 - f9e63f88 [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - 07&08 - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-14 22:01:40 - 774e2953 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 22:01:40 - 774e2953 [INFO]                     Consumption - Consumption [kWh]  MCB 802 - Consumption [kWh]  MCB 801 - Consumption [kWh]  MCB 701 - Consumption [kWh]  MCB 702 - Consumption [kWh]
+Year-Month-cut-off                                                                                                                                                     
+2025-03                                12499.937250                  4490.119667                  2061.611792                  2838.657000                  3776.266625
+2025-04                                11212.659875                  4304.996958                  2158.514667                  2974.801417                  4440.361583
+2025-05                                    0.000000                  4689.799250                  2093.656333                  3855.417208                  4735.391292
+2025-06                                    0.000000                  4436.738708                  1430.765667                  4340.208750                  3869.527333
+2025-09-14 22:05:42 - fa5d73a2 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:05:42 - 63a1fd06 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 22:05:42 - f14ab26d [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:05:43 - d01cbbe8 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 22:05:43 - 30971216 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:05:43 - 30971216 [INFO] 🔌 No load specified, using first available: MCB 801
+2025-09-14 22:05:43 - cd7a16af [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - 07&08 - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-14 22:05:43 - 609666b6 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 22:05:43 - 609666b6 [INFO]                     Consumption - Consumption [kWh]  MCB 802 - Consumption [kWh]  MCB 801 - Consumption [kWh]  MCB 701 - Consumption [kWh]  MCB 702 - Consumption [kWh]
+Year-Month-cut-off                                                                                                                                                     
+2025-03                                12499.937250                  4490.119667                  2061.611792                  2838.657000                  3776.266625
+2025-04                                11212.659875                  4304.996958                  2158.514667                  2974.801417                  4440.361583
+2025-05                                    0.000000                  4689.799250                  2093.656333                  3855.417208                  4735.391292
+2025-06                                    0.000000                  4436.738708                  1430.765667                  4340.208750                  3869.527333
+2025-09-14 22:10:27 - 14ec5bcf [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:10:27 - 85a59109 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 22:10:27 - 7fe9de21 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:10:28 - 7963f495 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 22:10:28 - 8a8ad85e [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:10:28 - 8a8ad85e [INFO] 🔌 No load specified, using first available: MCB 801
+2025-09-14 22:10:28 - e66eb6d7 [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - 07&08 - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-14 22:10:28 - 539e28ee [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 22:10:28 - 539e28ee [INFO]                     Consumption - Consumption [kWh]  MCB 802 - Consumption [kWh]  MCB 801 - Consumption [kWh]  MCB 701 - Consumption [kWh]  MCB 702 - Consumption [kWh]
+Year-Month-cut-off                                                                                                                                                     
+2025-03                                12499.937250                  4490.119667                  2061.611792                  2838.657000                  3776.266625
+2025-04                                11212.659875                  4304.996958                  2158.514667                  2974.801417                  4440.361583
+2025-05                                    0.000000                  4689.799250                  2093.656333                  3855.417208                  4735.391292
+2025-06                                    0.000000                  4436.738708                  1430.765667                  4340.208750                  3869.527333
+2025-09-14 22:11:06 - 80d24943 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:11:06 - 1f64dcf3 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 22:11:06 - 193f1d7a [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:11:06 - a237ca21 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 22:11:06 - fd6d905b [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:11:06 - fd6d905b [INFO] 🔌 No load specified, using first available: MCB 801
+2025-09-14 22:11:06 - 8bd8e66e [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - 07&08 - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-14 22:11:07 - eb54ad97 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 22:11:07 - eb54ad97 [INFO]                     Consumption - Consumption [kWh]  MCB 802 - Consumption [kWh]  MCB 801 - Consumption [kWh]  MCB 701 - Consumption [kWh]  MCB 702 - Consumption [kWh]
+Year-Month-cut-off                                                                                                                                                     
+2025-03                                12499.937250                  4490.119667                  2061.611792                  2838.657000                  3776.266625
+2025-04                                11212.659875                  4304.996958                  2158.514667                  2974.801417                  4440.361583
+2025-05                                    0.000000                  4689.799250                  2093.656333                  3855.417208                  4735.391292
+2025-06                                    0.000000                  4436.738708                  1430.765667                  4340.208750                  3869.527333
+2025-09-14 22:15:49 - 70fcde9b [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:15:49 - c52ab369 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 22:15:49 - 0272a042 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:15:49 - 08fbb0e6 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 22:15:49 - 98f35213 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:15:49 - 98f35213 [INFO] 🔌 No load specified, using first available: MCB 801
+2025-09-14 22:15:49 - da4eaec5 [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - FLOOR PARENT - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-14 22:15:49 - 2b26ae61 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 22:15:49 - 2b26ae61 [INFO]                     Consumption - Consumption [kWh]  MCB 1102 - Consumption [kWh]  ...  ECB 2201 150A - Consumption [kWh]  EBC 2401 150A - Consumption [kWh]
+Year-Month-cut-off                                                                 ...                                                                      
+2025-06                                         0.0                        7.0665  ...                        8393.008375                        6128.125958
+
+[1 rows x 20 columns]
+2025-09-14 22:22:15 - bf506b64 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:22:15 - ae9360c4 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 22:22:15 - 7b6fd53b [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:22:15 - 63bd20d8 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 22:22:15 - 2490e154 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:22:15 - 7fc1224b [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - FLOOR PARENT - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-14 22:22:16 - 405c096d [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 22:22:16 - 405c096d [INFO]                     Consumption - Consumption [kWh]  MCB 1102 - Consumption [kWh]  ...  ECB 2201 150A - Consumption [kWh]  EBC 2401 150A - Consumption [kWh]
+Year-Month-cut-off                                                                 ...                                                                      
+2025-06                                         0.0                        7.0665  ...                        8393.008375                        6128.125958
+
+[1 rows x 20 columns]
+2025-09-14 22:26:01 - 81b88d19 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:26:01 - 59c03d7c [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 22:26:01 - 20664a84 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:26:01 - e042dd33 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 22:26:02 - 4b9e3a9d [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:26:02 - d5567938 [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - FLOOR PARENT - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-14 22:26:02 - bbd9ccc7 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 22:26:02 - bbd9ccc7 [INFO]                     Consumption - Consumption [kWh]  MCB 1102 - Consumption [kWh]  ...  ECB 2201 150A - Consumption [kWh]  EBC 2401 150A - Consumption [kWh]
+Year-Month-cut-off                                                                 ...                                                                      
+2025-06                                         0.0                        7.0665  ...                        8393.008375                        6128.125958
+
+[1 rows x 20 columns]
+2025-09-14 22:27:10 - 76e866bc [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:27:10 - 1dc67471 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 22:27:10 - 1b1fa97e [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:27:10 - 9403cecd [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 22:27:11 - 6c528cd5 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:27:11 - e1a5cb90 [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - FLOOR PARENT - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-14 22:27:11 - ec01363f [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 22:27:11 - ec01363f [INFO]                     Consumption - Consumption [kWh]  MCB 1102 - Consumption [kWh]  ...  ECB 2201 150A - Consumption [kWh]  EBC 2401 150A - Consumption [kWh]
+Year-Month-cut-off                                                                 ...                                                                      
+2025-06                                         0.0                        7.0665  ...                        8393.008375                        6128.125958
+
+[1 rows x 20 columns]
+2025-09-14 22:31:08 - 2d13c2a1 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:31:08 - 3df4a283 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 22:31:08 - ad8c2faa [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:31:08 - bf1ae299 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 22:31:08 - db7681c5 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:31:08 - d341eadb [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - FLOOR PARENT - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-14 22:31:08 - cd7bc35e [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 22:31:08 - cd7bc35e [INFO]                     Consumption - Consumption [kWh]  MCB 1102 - Consumption [kWh]  ...  ECB 2201 150A - Consumption [kWh]  EBC 2401 150A - Consumption [kWh]
+Year-Month-cut-off                                                                 ...                                                                      
+2025-06                                         0.0                        7.0665  ...                        8393.008375                        6128.125958
+
+[1 rows x 20 columns]
+2025-09-14 22:32:29 - 90975e21 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:32:29 - 7f0db35e [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 22:32:29 - 7497e930 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:32:29 - 1f5f200b [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 22:32:29 - 63b4dcf1 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:32:29 - 91d78329 [INFO] 🔌 Generating report for: /home/philg/projects/stratcon/downloads/Neo3/NEO3 - FLOOR PARENT - Electricity consumption - 2025-01-01 - 2025-12-31 - 5 minutes.csv
+2025-09-14 22:32:29 - 67047628 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 22:32:29 - 67047628 [INFO]                     Consumption - Consumption [kWh]  MCB 1102 - Consumption [kWh]  ...  ECB 2201 150A - Consumption [kWh]  EBC 2401 150A - Consumption [kWh]
+Year-Month-cut-off                                                                 ...                                                                      
+2025-06                                         0.0                        7.0665  ...                        8393.008375                        6128.125958
+
+[1 rows x 20 columns]
+2025-09-14 22:35:26 - 119a43f4 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 22:35:26 - cb3608c3 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:35:54 - 85d2c2c6 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 22:35:54 - cec6dc10 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:36:19 - 0c9f7af6 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 22:36:20 - c0d54db7 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:39:15 - 27beffce [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 22:39:15 - 623bb75f [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:39:29 - 979ee861 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 22:39:29 - 9edf1da7 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:42:16 - 83f9e1f3 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 22:42:16 - 70feda61 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:42:16 - 70feda61 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 22:42:16 - 70feda61 [INFO]             MCB 801 - Consumption [kWh]
+Year Month                             
+2025 6                      1200.552750
+     7                      1407.249833
+2025-09-14 22:42:17 - 70feda61 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_801_20250914_224217.html
+2025-09-14 22:42:17 - 70feda61 [INFO] ✅ One-pager report generated successfully
+2025-09-14 22:50:28 - f60b86ae [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 22:50:28 - 2d01b17b [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:50:29 - 2d01b17b [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 22:50:29 - 2d01b17b [INFO]             MCB 801 - Consumption [kWh]
+Year Month                             
+2025 6                      1200.552750
+     7                      1407.249833
+2025-09-14 22:50:30 - 2d01b17b [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_801_20250914_225030.html
+2025-09-14 22:50:30 - 2d01b17b [INFO] ✅ One-pager report generated successfully
+2025-09-14 22:52:48 - 558bfb87 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-14 22:52:48 - 49ece466 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-14 22:52:49 - 49ece466 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-14 22:52:49 - 49ece466 [INFO]             MCB 801 - Consumption [kWh]
+Year Month                             
+2025 6                      1200.552750
+     7                      1407.249833
+2025-09-15 08:55:36 - d010cfda [INFO] 🔌 Generating One-Pager Report Only
+2025-09-15 08:55:36 - 6fe093ba [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-15 08:55:37 - 6fe093ba [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-15 08:55:37 - 6fe093ba [INFO]             MCB 801 - Consumption [kWh]
+Year Month                             
+2025 6                      1200.552750
+     7                      1407.249833
+2025-09-15 08:55:38 - 6fe093ba [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_801_20250915_085538.html
+2025-09-15 08:55:38 - 6fe093ba [INFO] ✅ One-pager report generated successfully
+2025-09-15 09:17:16 - 42de3946 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-15 09:17:16 - deaf1e76 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-15 09:17:16 - deaf1e76 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-15 09:17:16 - deaf1e76 [INFO]             MCB 801 - Consumption [kWh]
+Year Month                             
+2025 6                      1200.552750
+     7                      1407.249833
+2025-09-15 09:17:18 - deaf1e76 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_801_20250915_091718.html
+2025-09-15 09:17:18 - deaf1e76 [INFO] ✅ One-pager report generated successfully
+2025-09-15 09:34:51 - 684483da [INFO] 🔌 Generating One-Pager Report Only
+2025-09-15 09:34:51 - c58accd0 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-15 09:34:52 - c58accd0 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-15 09:34:52 - c58accd0 [INFO]             MCB 801 - Consumption [kWh]
+Year Month                             
+2025 6                      1200.552750
+     7                      1407.249833
+2025-09-15 09:34:53 - c58accd0 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_801_20250915_093453.html
+2025-09-15 09:34:53 - c58accd0 [INFO] ✅ One-pager report generated successfully
+2025-09-15 09:45:24 - 725c098c [INFO] 🔌 Generating One-Pager Report Only
+2025-09-15 09:45:24 - 1327e92f [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-15 10:02:35 - 91c9718b [INFO] 🔌 Generating One-Pager Report Only
+2025-09-15 10:02:35 - 8be922b8 [INFO] 🔌 Generating One-Pager Report for Single Load
+2025-09-15 10:02:35 - 8be922b8 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-15 10:02:35 - 8be922b8 [INFO]             MCB 801 - Consumption [kWh]
+Year Month                             
+2025 6                      1200.552750
+     7                      1407.249833
+2025-09-15 10:02:35 - 8be922b8 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_801_20250915_100235.html
+2025-09-15 10:02:35 - 8be922b8 [INFO] ✅ One-pager report generated successfully
+2025-09-15 22:58:10 - 93f2a5de [INFO] 🔌 Generating One-Pager Report Only
+2025-09-15 23:00:36 - 55d00b19 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-15 23:02:03 - b8bad90d [INFO] 🔌 Generating One-Pager Report Only
+2025-09-15 23:05:38 - 5bc33593 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-15 23:09:27 - e00e79b9 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-15 23:10:58 - 4f5b4796 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-15 23:17:23 - 18926220 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-15 23:18:10 - 6e5bcb1c [INFO] 🔌 Generating One-Pager Report Only
+2025-09-15 23:18:49 - 8d5dfb22 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-15 23:19:38 - 5eb0100a [INFO] 🔌 Generating One-Pager Report Only
+2025-09-15 23:20:54 - abb25e54 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-15 23:23:05 - de80b9b9 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-15 23:24:13 - 6ca515ac [INFO] 🔌 Generating One-Pager Report Only
+2025-09-15 23:27:55 - 70aa8343 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-15 23:27:55 - 70aa8343 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_801_20250915_232755.html
+2025-09-15 23:27:55 - 70aa8343 [INFO] ✅ One-pager report generated successfully
+2025-09-15 23:27:55 - 70aa8343 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_801_20250915_232755.html
+2025-09-15 23:32:10 - e9543ee9 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-15 23:32:11 - e9543ee9 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_801_20250915_233211.html
+2025-09-15 23:32:11 - e9543ee9 [INFO] ✅ One-pager report generated successfully
+2025-09-15 23:32:11 - e9543ee9 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_801_20250915_233211.html
+2025-09-15 23:34:11 - 324c7c19 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-15 23:34:12 - 324c7c19 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_801_20250915_233412.html
+2025-09-15 23:34:12 - 324c7c19 [INFO] ✅ One-pager report generated successfully
+2025-09-15 23:39:49 - 86f12cdb [INFO] 🔌 Generating One-Pager Report Only
+2025-09-15 23:39:49 - 86f12cdb [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_1102_20250915_233949.html
+2025-09-15 23:39:49 - 86f12cdb [INFO] ✅ One-pager report generated successfully
+2025-09-15 23:42:58 - de12e43e [INFO] 🔌 Generating One-Pager Report Only
+2025-09-15 23:42:59 - de12e43e [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_ECB_1901_20250915_234259.html
+2025-09-15 23:42:59 - de12e43e [INFO] ✅ One-pager report generated successfully
+2025-09-15 23:47:03 - f85a871e [INFO] 🔌 Generating One-Pager Report Only
+2025-09-15 23:47:04 - f85a871e [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_ECB_1901_20250915_234704.html
+2025-09-15 23:47:04 - f85a871e [INFO] ✅ One-pager report generated successfully
+2025-09-15 23:50:19 - 59be297e [INFO] 🔌 Generating One-Pager Report Only
+2025-09-15 23:50:20 - 59be297e [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_ECB_1901_20250915_235020.html
+2025-09-15 23:50:20 - 59be297e [INFO] ✅ One-pager report generated successfully
+2025-09-15 23:59:03 - d3a50c08 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 00:00:34 - 51b4ca37 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 00:00:35 - 51b4ca37 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_801_20250916_000035.html
+2025-09-16 00:00:35 - 51b4ca37 [INFO] ✅ One-pager report generated successfully
+2025-09-16 00:05:38 - 7772310a [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 00:05:38 - 7772310a [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_801_20250916_000538.html
+2025-09-16 00:05:38 - 7772310a [INFO] ✅ One-pager report generated successfully
+2025-09-16 00:08:49 - fcb76741 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 00:08:49 - fcb76741 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_801_20250916_000849.html
+2025-09-16 00:08:49 - fcb76741 [INFO] ✅ One-pager report generated successfully
+2025-09-16 00:09:40 - 06a4d4e3 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 00:09:41 - 06a4d4e3 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_000941.html
+2025-09-16 00:09:41 - 06a4d4e3 [INFO] ✅ One-pager report generated successfully
+2025-09-16 00:15:33 - f182d065 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 00:15:34 - f182d065 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_001534.html
+2025-09-16 00:15:34 - f182d065 [INFO] ✅ One-pager report generated successfully
+2025-09-16 00:19:42 - 001f2abf [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 00:19:42 - 001f2abf [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_001942.html
+2025-09-16 00:19:42 - 001f2abf [INFO] ✅ One-pager report generated successfully
+2025-09-16 00:26:42 - b7a40645 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 00:26:42 - 36c68170 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 00:26:42 - 36c68170 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 701 - Consumption [kWh] per sqm  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                             2.442476                             3.519531
+1            2025-05                      2107.319458  ...                             2.556256                             3.250555
+2            2025-06                         0.000000  ...                             3.438872                             3.478942
+3            2025-07                         0.000000  ...                             3.472282                             2.952578
+
+[4 rows x 11 columns]
+2025-09-16 00:26:42 - b7a40645 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_002642.html
+2025-09-16 00:26:42 - b7a40645 [INFO] ✅ One-pager report generated successfully
+2025-09-16 00:29:39 - 493916bf [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 00:29:39 - 7928cd76 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 00:29:39 - 7928cd76 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 701 - Consumption [kWh] per sqm  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                             2.442476                             3.519531
+1            2025-05                      2107.319458  ...                             2.556256                             3.250555
+2            2025-06                         0.000000  ...                             3.438872                             3.478942
+3            2025-07                         0.000000  ...                             3.472282                             2.952578
+
+[4 rows x 11 columns]
+2025-09-16 00:29:39 - 493916bf [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_002939.html
+2025-09-16 00:29:39 - 493916bf [INFO] ✅ One-pager report generated successfully
+2025-09-16 00:48:33 - 5e8ddb80 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 00:48:33 - fed70208 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 00:48:33 - fed70208 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 701 - Consumption [kWh] per sqm  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                             2.442476                             3.519531
+1            2025-05                      2107.319458  ...                             2.556256                             3.250555
+2            2025-06                         0.000000  ...                             3.438872                             3.478942
+3            2025-07                         0.000000  ...                             3.472282                             2.952578
+
+[4 rows x 11 columns]
+2025-09-16 00:48:34 - 5e8ddb80 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_004834.html
+2025-09-16 00:48:34 - 5e8ddb80 [INFO] ✅ One-pager report generated successfully
+2025-09-16 00:53:37 - 4afcd996 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 00:53:37 - aedfda36 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 00:53:37 - aedfda36 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 701 - Consumption [kWh] per sqm  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                             2.442476                             3.519531
+1            2025-05                      2107.319458  ...                             2.556256                             3.250555
+2            2025-06                         0.000000  ...                             3.438872                             3.478942
+3            2025-07                         0.000000  ...                             3.472282                             2.952578
+
+[4 rows x 11 columns]
+2025-09-16 00:53:37 - 4afcd996 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_005337.html
+2025-09-16 00:53:37 - 4afcd996 [INFO] ✅ One-pager report generated successfully
+2025-09-16 00:58:20 - 6548cb76 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 00:58:20 - b5d46c70 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 00:58:20 - b5d46c70 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 701 - Consumption [kWh] per sqm  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                             2.442476                             3.519531
+1            2025-05                      2107.319458  ...                             2.556256                             3.250555
+2            2025-06                         0.000000  ...                             3.438872                             3.478942
+3            2025-07                         0.000000  ...                             3.472282                             2.952578
+
+[4 rows x 11 columns]
+2025-09-16 00:58:20 - 6548cb76 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_005820.html
+2025-09-16 00:58:20 - 6548cb76 [INFO] ✅ One-pager report generated successfully
+2025-09-16 01:01:05 - 5c6f911e [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 01:01:05 - bdb763d3 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 01:01:05 - bdb763d3 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 701 - Consumption [kWh] per sqm  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                             2.442476                             3.519531
+1            2025-05                      2107.319458  ...                             2.556256                             3.250555
+2            2025-06                         0.000000  ...                             3.438872                             3.478942
+3            2025-07                         0.000000  ...                             3.472282                             2.952578
+
+[4 rows x 11 columns]
+2025-09-16 01:01:05 - 5c6f911e [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_010105.html
+2025-09-16 01:01:05 - 5c6f911e [INFO] ✅ One-pager report generated successfully
+2025-09-16 01:03:41 - 996b6847 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 01:03:41 - 30aa5aa0 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 01:03:41 - 30aa5aa0 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 701 - Consumption [kWh] per sqm  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                             2.442476                             3.519531
+1            2025-05                      2107.319458  ...                             2.556256                             3.250555
+2            2025-06                         0.000000  ...                             3.438872                             3.478942
+3            2025-07                         0.000000  ...                             3.472282                             2.952578
+
+[4 rows x 11 columns]
+2025-09-16 01:03:41 - 996b6847 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_010341.html
+2025-09-16 01:03:41 - 996b6847 [INFO] ✅ One-pager report generated successfully
+2025-09-16 09:32:21 - 3b4bb6ab [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 09:32:22 - deb26459 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 09:32:22 - deb26459 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 701 - Consumption [kWh] per sqm  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                             2.442476                             3.519531
+1            2025-05                      2107.319458  ...                             2.556256                             3.250555
+2            2025-06                         0.000000  ...                             3.438872                             3.478942
+3            2025-07                         0.000000  ...                             3.472282                             2.952578
+
+[4 rows x 11 columns]
+2025-09-16 09:32:22 - 3b4bb6ab [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_093222.html
+2025-09-16 09:32:22 - 3b4bb6ab [INFO] ✅ One-pager report generated successfully
+2025-09-16 09:33:27 - 847ab9e6 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 09:33:28 - 25e1ac89 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 09:33:28 - 25e1ac89 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 701 - Consumption [kWh] per sqm  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                             2.442476                             3.519531
+1            2025-05                      2107.319458  ...                             2.556256                             3.250555
+2            2025-06                         0.000000  ...                             3.438872                             3.478942
+3            2025-07                         0.000000  ...                             3.472282                             2.952578
+
+[4 rows x 11 columns]
+2025-09-16 09:33:28 - 847ab9e6 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_093328.html
+2025-09-16 09:33:28 - 847ab9e6 [INFO] ✅ One-pager report generated successfully
+2025-09-16 09:35:08 - 9918cb16 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 09:35:08 - a08576de [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 09:35:08 - a08576de [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 701 - Consumption [kWh] per sqm  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                             2.442476                             3.519531
+1            2025-05                      2107.319458  ...                             2.556256                             3.250555
+2            2025-06                         0.000000  ...                             3.438872                             3.478942
+3            2025-07                         0.000000  ...                             3.472282                             2.952578
+
+[4 rows x 11 columns]
+2025-09-16 09:35:08 - 9918cb16 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_093508.html
+2025-09-16 09:35:08 - 9918cb16 [INFO] ✅ One-pager report generated successfully
+2025-09-16 09:37:41 - 8eafebe9 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 09:37:42 - 8c11e20a [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 09:37:42 - 8c11e20a [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 701 - Consumption [kWh] per sqm  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                             2.442476                             3.519531
+1            2025-05                      2107.319458  ...                             2.556256                             3.250555
+2            2025-06                         0.000000  ...                             3.438872                             3.478942
+3            2025-07                         0.000000  ...                             3.472282                             2.952578
+
+[4 rows x 11 columns]
+2025-09-16 09:37:42 - 8eafebe9 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_093742.html
+2025-09-16 09:37:42 - 8eafebe9 [INFO] ✅ One-pager report generated successfully
+2025-09-16 09:40:24 - b38a5341 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 09:48:13 - 51cd5ac3 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 09:51:13 - 0a858652 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 09:52:35 - 2b5b9363 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 09:53:54 - 125974cd [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 10:00:01 - 7a956385 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 10:01:27 - f5a37f1a [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 10:01:28 - 5fb08211 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 10:01:28 - 5fb08211 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 701 - Consumption [kWh] per sqm  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                             2.442476                             3.519531
+1            2025-05                      2107.319458  ...                             2.556256                             3.250555
+2            2025-06                         0.000000  ...                             3.438872                             3.478942
+3            2025-07                         0.000000  ...                             3.472282                             2.952578
+
+[4 rows x 11 columns]
+2025-09-16 10:01:28 - f5a37f1a [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_100128.html
+2025-09-16 10:01:28 - f5a37f1a [INFO] ✅ One-pager report generated successfully
+2025-09-16 10:07:36 - 542e99ab [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 10:07:37 - 38dbb922 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 10:07:37 - 38dbb922 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 701 - Consumption [kWh] per sqm  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                             2.442476                             3.519531
+1            2025-05                      2107.319458  ...                             2.556256                             3.250555
+2            2025-06                         0.000000  ...                             3.438872                             3.478942
+3            2025-07                         0.000000  ...                             3.472282                             2.952578
+
+[4 rows x 11 columns]
+2025-09-16 10:07:37 - 542e99ab [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_100737.html
+2025-09-16 10:07:37 - 542e99ab [INFO] ✅ One-pager report generated successfully
+2025-09-16 10:11:20 - 4f1a1aae [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 10:11:21 - dbab244c [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 10:11:21 - dbab244c [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 701 - Consumption [kWh] per sqm  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                             2.442476                             3.519531
+1            2025-05                      2107.319458  ...                             2.556256                             3.250555
+2            2025-06                         0.000000  ...                             3.438872                             3.478942
+3            2025-07                         0.000000  ...                             3.472282                             2.952578
+
+[4 rows x 11 columns]
+2025-09-16 10:11:21 - 4f1a1aae [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_101121.html
+2025-09-16 10:11:21 - 4f1a1aae [INFO] ✅ One-pager report generated successfully
+2025-09-16 10:22:27 - 09d7fea1 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 10:22:27 - 1aa6ad4d [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 10:22:27 - 1aa6ad4d [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 701 - Consumption [kWh] per sqm  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                             2.442476                             3.519531
+1            2025-05                      2107.319458  ...                             2.556256                             3.250555
+2            2025-06                         0.000000  ...                             3.438872                             3.478942
+3            2025-07                         0.000000  ...                             3.472282                             2.952578
+
+[4 rows x 11 columns]
+2025-09-16 10:22:27 - 09d7fea1 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_102227.html
+2025-09-16 10:22:27 - 09d7fea1 [INFO] ✅ One-pager report generated successfully
+2025-09-16 10:27:14 - 36e1572f [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 10:27:15 - f547f54b [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 10:27:15 - f547f54b [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 701 - Consumption [kWh] per sqm  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                             2.442476                             3.519531
+1            2025-05                      2107.319458  ...                             2.556256                             3.250555
+2            2025-06                         0.000000  ...                             3.438872                             3.478942
+3            2025-07                         0.000000  ...                             3.472282                             2.952578
+
+[4 rows x 11 columns]
+2025-09-16 10:27:15 - 36e1572f [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_102715.html
+2025-09-16 10:27:15 - 36e1572f [INFO] ✅ One-pager report generated successfully
+2025-09-16 10:28:58 - f8f0b4d5 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 10:28:58 - e476c2c1 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 10:28:58 - e476c2c1 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 701 - Consumption [kWh] per sqm  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                             2.442476                             3.519531
+1            2025-05                      2107.319458  ...                             2.556256                             3.250555
+2            2025-06                         0.000000  ...                             3.438872                             3.478942
+3            2025-07                         0.000000  ...                             3.472282                             2.952578
+
+[4 rows x 11 columns]
+2025-09-16 10:28:58 - f8f0b4d5 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_102858.html
+2025-09-16 10:28:58 - f8f0b4d5 [INFO] ✅ One-pager report generated successfully
+2025-09-16 10:32:43 - 20326500 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 10:53:42 - e667a5c9 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 10:54:38 - 98d18b1c [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 10:55:46 - 7e755d6c [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 10:55:46 - 0024930d [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 10:55:46 - 0024930d [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 701 - Consumption [kWh] per sqm  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                             5.694661                             8.516067
+1            2025-05                      2107.319458  ...                             5.959941                             7.865238
+2            2025-06                         0.000000  ...                             8.017772                             8.417856
+3            2025-07                         0.000000  ...                             8.095667                             7.144234
+
+[4 rows x 11 columns]
+2025-09-16 10:55:46 - 7e755d6c [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_105546.html
+2025-09-16 10:55:46 - 7e755d6c [INFO] ✅ One-pager report generated successfully
+2025-09-16 10:57:44 - dfe9d3b3 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 10:57:44 - 34af30ee [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 10:57:44 - 34af30ee [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 701 - Consumption [kWh] per sqm  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                             5.694661                             8.516067
+1            2025-05                      2107.319458  ...                             5.959941                             7.865238
+2            2025-06                         0.000000  ...                             8.017772                             8.417856
+3            2025-07                         0.000000  ...                             8.095667                             7.144234
+
+[4 rows x 11 columns]
+2025-09-16 10:57:44 - dfe9d3b3 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_105744.html
+2025-09-16 10:57:44 - dfe9d3b3 [INFO] ✅ One-pager report generated successfully
+2025-09-16 10:59:16 - 3d02a70c [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 10:59:16 - 33be0cfe [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 10:59:16 - 33be0cfe [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 701 - Consumption [kWh] per sqm  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                             5.694661                             8.516067
+1            2025-05                      2107.319458  ...                             5.959941                             7.865238
+2            2025-06                         0.000000  ...                             8.017772                             8.417856
+3            2025-07                         0.000000  ...                             8.095667                             7.144234
+
+[4 rows x 11 columns]
+2025-09-16 10:59:16 - 3d02a70c [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_105916.html
+2025-09-16 10:59:16 - 3d02a70c [INFO] ✅ One-pager report generated successfully
+2025-09-16 14:47:02 - f18cf31f [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 14:47:03 - bc0341f1 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 14:47:03 - bc0341f1 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 701 - Consumption [kWh] per sqm  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                             5.694661                             8.516067
+1            2025-05                      2107.319458  ...                             5.959941                             7.865238
+2            2025-06                         0.000000  ...                             8.017772                             8.417856
+3            2025-07                         0.000000  ...                             8.095667                             7.144234
+
+[4 rows x 11 columns]
+2025-09-16 14:47:03 - f18cf31f [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_144703.html
+2025-09-16 14:47:03 - f18cf31f [INFO] ✅ One-pager report generated successfully
+2025-09-16 14:49:40 - e8e654f7 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 14:49:41 - e9a92edc [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 14:49:41 - e9a92edc [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 701 - Consumption [kWh] per sqm  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                             5.694661                             8.516067
+1            2025-05                      2107.319458  ...                             5.959941                             7.865238
+2            2025-06                         0.000000  ...                             8.017772                             8.417856
+3            2025-07                         0.000000  ...                             8.095667                             7.144234
+
+[4 rows x 11 columns]
+2025-09-16 14:49:41 - e8e654f7 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_144941.html
+2025-09-16 14:49:41 - e8e654f7 [INFO] ✅ One-pager report generated successfully
+2025-09-16 14:52:53 - 3932c622 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 14:53:54 - 0cc27034 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 14:53:54 - 2367976f [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 14:53:54 - 2367976f [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 701 - Consumption [kWh] per sqm  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                             2.442476                             3.519531
+1            2025-05                      2107.319458  ...                             2.556256                             3.250555
+2            2025-06                         0.000000  ...                             3.438872                             3.478942
+3            2025-07                         0.000000  ...                             3.472282                             2.952578
+
+[4 rows x 11 columns]
+2025-09-16 14:53:54 - 0cc27034 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_145354.html
+2025-09-16 14:53:54 - 0cc27034 [INFO] ✅ One-pager report generated successfully
+2025-09-16 15:10:35 - 8588d724 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 15:10:35 - 59cf214c [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 15:10:35 - 59cf214c [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                  1280                             3.519531
+1            2025-05                      2107.319458  ...                                  1280                             3.250555
+2            2025-06                         0.000000  ...                                  1280                             3.478942
+3            2025-07                         0.000000  ...                                  1280                             2.952578
+
+[4 rows x 16 columns]
+2025-09-16 15:12:05 - ce64c6ac [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 15:12:05 - 9486a4cc [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 15:12:05 - 9486a4cc [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                  1280                             3.519531
+1            2025-05                      2107.319458  ...                                  1280                             3.250555
+2            2025-06                         0.000000  ...                                  1280                             3.478942
+3            2025-07                         0.000000  ...                                  1280                             2.952578
+
+[4 rows x 16 columns]
+2025-09-16 15:12:05 - ce64c6ac [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_151205.html
+2025-09-16 15:12:05 - ce64c6ac [INFO] ✅ One-pager report generated successfully
+2025-09-16 15:36:41 - efb166dd [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 15:36:41 - 23df97be [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 15:36:41 - 23df97be [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 15:36:41 - efb166dd [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_153641.html
+2025-09-16 15:36:41 - efb166dd [INFO] ✅ One-pager report generated successfully
+2025-09-16 16:05:20 - 034e2528 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 16:05:21 - 3db71a16 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 16:05:21 - 3db71a16 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 16:06:04 - 7edc5cb4 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 16:06:04 - d8725b91 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 16:06:04 - d8725b91 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 16:06:04 - 7edc5cb4 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_160604.html
+2025-09-16 16:06:04 - 7edc5cb4 [INFO] ✅ One-pager report generated successfully
+2025-09-16 16:14:05 - 0d5e6027 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 16:14:05 - 26910e7b [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 16:14:05 - 26910e7b [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 16:14:05 - 0d5e6027 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_161405.html
+2025-09-16 16:14:05 - 0d5e6027 [INFO] ✅ One-pager report generated successfully
+2025-09-16 16:16:36 - 506ab9ae [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 16:16:37 - 329498be [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 16:16:37 - 329498be [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 16:16:37 - 506ab9ae [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_161637.html
+2025-09-16 16:16:37 - 506ab9ae [INFO] ✅ One-pager report generated successfully
+2025-09-16 16:18:33 - 40096059 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 16:18:34 - 82735d07 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 16:18:34 - 82735d07 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 16:18:34 - 40096059 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_161834.html
+2025-09-16 16:18:34 - 40096059 [INFO] ✅ One-pager report generated successfully
+2025-09-16 16:21:19 - 795b90fa [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 16:21:20 - d8ab4257 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 16:21:20 - d8ab4257 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 16:21:20 - 795b90fa [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_162120.html
+2025-09-16 16:21:20 - 795b90fa [INFO] ✅ One-pager report generated successfully
+2025-09-16 16:24:44 - ddb0d6a3 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 16:24:44 - e6e9c9f3 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 16:24:44 - e6e9c9f3 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 16:24:44 - ddb0d6a3 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_162444.html
+2025-09-16 16:24:44 - ddb0d6a3 [INFO] ✅ One-pager report generated successfully
+2025-09-16 16:27:58 - b185d5c2 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 16:27:58 - beec3cd3 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 16:27:58 - beec3cd3 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 16:27:58 - b185d5c2 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_162758.html
+2025-09-16 16:27:58 - b185d5c2 [INFO] ✅ One-pager report generated successfully
+2025-09-16 16:37:38 - 79d68922 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 16:37:39 - 61031c5e [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 16:37:39 - 61031c5e [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 16:37:39 - 79d68922 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_163739.html
+2025-09-16 16:37:39 - 79d68922 [INFO] ✅ One-pager report generated successfully
+2025-09-16 17:00:46 - 0ef150ba [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 17:00:46 - ef326772 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 17:00:46 - ef326772 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 17:00:46 - 0ef150ba [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_170046.html
+2025-09-16 17:00:46 - 0ef150ba [INFO] ✅ One-pager report generated successfully
+2025-09-16 17:04:09 - b18c4fa2 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 17:04:10 - aeca2a30 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 17:04:10 - aeca2a30 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 17:04:10 - b18c4fa2 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_170410.html
+2025-09-16 17:04:10 - b18c4fa2 [INFO] ✅ One-pager report generated successfully
+2025-09-16 17:05:12 - d3c0f04f [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 17:05:13 - 9b0d7b21 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 17:05:13 - 9b0d7b21 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 17:05:13 - d3c0f04f [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_170513.html
+2025-09-16 17:05:13 - d3c0f04f [INFO] ✅ One-pager report generated successfully
+2025-09-16 17:06:11 - 06d014e0 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 17:06:12 - 7e4a765e [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 17:06:12 - 7e4a765e [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 17:06:12 - 06d014e0 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_170612.html
+2025-09-16 17:06:12 - 06d014e0 [INFO] ✅ One-pager report generated successfully
+2025-09-16 17:36:37 - e0abb287 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 17:36:37 - 921c4e26 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 17:36:37 - 921c4e26 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 17:36:37 - e0abb287 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_173637.html
+2025-09-16 17:36:37 - e0abb287 [INFO] ✅ One-pager report generated successfully
+2025-09-16 17:38:29 - 96f7b5c2 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 17:38:30 - fe75a19b [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 17:38:30 - fe75a19b [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 17:38:30 - 96f7b5c2 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_173830.html
+2025-09-16 17:38:30 - 96f7b5c2 [INFO] ✅ One-pager report generated successfully
+2025-09-16 17:49:00 - 37b9d36b [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 17:49:01 - 4010618c [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 17:49:01 - 4010618c [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 17:49:01 - 37b9d36b [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_174901.html
+2025-09-16 17:49:01 - 37b9d36b [INFO] ✅ One-pager report generated successfully
+2025-09-16 18:05:47 - 4d99db35 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 18:05:48 - 6e100e20 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 18:05:48 - 6e100e20 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 18:05:48 - 4d99db35 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_180548.html
+2025-09-16 18:05:48 - 4d99db35 [INFO] ✅ One-pager report generated successfully
+2025-09-16 19:52:31 - 3c647029 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 19:52:32 - 77dde76a [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 19:52:32 - 77dde76a [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 19:52:32 - 3c647029 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_195232.html
+2025-09-16 19:52:32 - 3c647029 [INFO] ✅ One-pager report generated successfully
+2025-09-16 20:21:24 - 716d55fd [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 20:21:25 - 51008855 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 20:21:25 - 51008855 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 20:21:25 - 716d55fd [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_202125.html
+2025-09-16 20:21:25 - 716d55fd [INFO] ✅ One-pager report generated successfully
+2025-09-16 20:23:49 - e168e0af [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 20:23:49 - ca19b003 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 20:23:49 - ca19b003 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 20:23:49 - e168e0af [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_202349.html
+2025-09-16 20:23:49 - e168e0af [INFO] ✅ One-pager report generated successfully
+2025-09-16 20:24:24 - 78e3596a [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 20:24:25 - 925c680a [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 20:24:25 - 925c680a [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 20:24:25 - 78e3596a [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_202425.html
+2025-09-16 20:24:25 - 78e3596a [INFO] ✅ One-pager report generated successfully
+2025-09-16 20:26:47 - c2580bf7 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 20:26:47 - e50edb82 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 20:26:47 - e50edb82 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 20:26:47 - c2580bf7 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_202647.html
+2025-09-16 20:26:47 - c2580bf7 [INFO] ✅ One-pager report generated successfully
+2025-09-16 20:39:06 - bc0b6081 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 20:41:24 - 5a2a3032 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 20:41:24 - 50bce871 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 20:41:24 - 50bce871 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 20:41:24 - 5a2a3032 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_204124.html
+2025-09-16 20:41:24 - 5a2a3032 [INFO] ✅ One-pager report generated successfully
+2025-09-16 20:48:32 - 1a0f9c82 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 20:48:32 - 6a69bf02 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 20:48:32 - 6a69bf02 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 20:48:33 - 1a0f9c82 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_204833.html
+2025-09-16 20:48:33 - 1a0f9c82 [INFO] ✅ One-pager report generated successfully
+2025-09-16 20:54:04 - 47aaf93a [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 20:54:04 - 0d718ca6 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 20:54:04 - 0d718ca6 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 20:54:04 - 47aaf93a [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_205404.html
+2025-09-16 20:54:04 - 47aaf93a [INFO] ✅ One-pager report generated successfully
+2025-09-16 20:59:50 - 940dc03b [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 20:59:50 - d76d63bf [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 20:59:50 - d76d63bf [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 20:59:51 - 940dc03b [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_205951.html
+2025-09-16 20:59:51 - 940dc03b [INFO] ✅ One-pager report generated successfully
+2025-09-16 21:01:47 - 098de54e [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 21:01:48 - d0f8b821 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 21:01:48 - d0f8b821 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 21:01:48 - 098de54e [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_210148.html
+2025-09-16 21:01:48 - 098de54e [INFO] ✅ One-pager report generated successfully
+2025-09-16 21:03:30 - ef382082 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 21:03:31 - a7c7b685 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 21:03:31 - a7c7b685 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 21:03:31 - ef382082 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_210331.html
+2025-09-16 21:03:31 - ef382082 [INFO] ✅ One-pager report generated successfully
+2025-09-16 21:05:07 - e5776817 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 21:05:08 - eacff68c [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 21:05:08 - eacff68c [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 21:05:08 - e5776817 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_210508.html
+2025-09-16 21:05:08 - e5776817 [INFO] ✅ One-pager report generated successfully
+2025-09-16 21:11:08 - b58e71c6 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 21:11:08 - 8ea25c3a [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 21:11:08 - 8ea25c3a [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 21:11:08 - b58e71c6 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_211108.html
+2025-09-16 21:11:08 - b58e71c6 [INFO] ✅ One-pager report generated successfully
+2025-09-16 21:14:25 - 5dedc7b7 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 21:14:26 - 9f5ce441 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 21:14:26 - 9f5ce441 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 21:14:26 - 5dedc7b7 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_211426.html
+2025-09-16 21:14:26 - 5dedc7b7 [INFO] ✅ One-pager report generated successfully
+2025-09-16 21:22:13 - ecb64e71 [INFO] 🔌 Generating One-Pager Report Only
+2025-09-16 21:22:14 - 6904c9d0 [INFO] 
+=== DRAWING ENERGY PER MONTH ===
+2025-09-16 21:22:14 - 6904c9d0 [INFO]   Year-Month-cut-off  Consumption - Consumption [kWh]  ...  MCB 702 - Consumption [kWh] sqm_area  MCB 702 - Consumption [kWh] per sqm
+0            2025-04                     14311.288292  ...                                   529                             8.516067
+1            2025-05                      2107.319458  ...                                   529                             7.865238
+2            2025-06                         0.000000  ...                                   529                             8.417856
+3            2025-07                         0.000000  ...                                   529                             7.144234
+
+[4 rows x 14 columns]
+2025-09-16 21:22:14 - ecb64e71 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_212214.html
+2025-09-16 21:22:14 - ecb64e71 [INFO] ✅ One-pager report generated successfully
