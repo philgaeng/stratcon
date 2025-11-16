@@ -3,6 +3,7 @@
 ## Strategy Overview
 
 This project uses a **two-branch strategy**:
+
 - **`main`**: Development branch (WSL) - where you fix things and iterate
 - **`prod`**: Production/demo branch (AWS) - stable demo environment
 
@@ -74,16 +75,19 @@ NEXT_PUBLIC_COGNITO_REGION=ap-southeast-1
 #### 2. AWS Deployment Options
 
 **Option A: EC2 Instance**
+
 - Deploy backend to EC2
 - Use environment variables from Systems Manager Parameter Store
 - Deploy frontend to S3 + CloudFront or AWS Amplify
 
 **Option B: ECS/Fargate**
+
 - Containerize backend (Docker)
 - Use ECS task definitions for environment variables
 - Deploy frontend to Amplify
 
 **Option C: Lambda + API Gateway**
+
 - Convert backend to Lambda functions
 - Use Lambda environment variables
 - Deploy frontend to Amplify
@@ -125,11 +129,13 @@ main branch (WSL dev)
 The `prod` branch is already set up. Use these scripts to manage it:
 
 **Sync main → prod:**
+
 ```bash
 ./scripts/sync-to-prod.sh
 ```
 
 **Check branch status:**
+
 ```bash
 ./scripts/check-branch-status.sh
 ```
@@ -143,16 +149,18 @@ See `BRANCH_WORKFLOW.md` for detailed workflow and best practices.
 ### Backend Deployment
 
 1. **EC2 Instance**
+
    - **Recommended**: Ubuntu 22.04 LTS (matches WSL environment)
    - **Alternative**: Amazon Linux 2023 (better AWS integration)
    - Python 3.13 (via conda, matches dev environment)
    - Use `systemd` service for API
    - Store env vars in `/etc/stratcon/env` or Parameter Store
    - **Instance type**: Start with t3.medium, scale to t3.large or m5.large as needed
-   
+
    > 📖 See `AWS_SERVER_RECOMMENDATIONS.md` for detailed OS comparison and instance type recommendations
 
 2. **Database**
+
    - SQLite for small scale (current)
    - Consider RDS PostgreSQL for production scale
    - Backup strategy: S3 snapshots
@@ -164,6 +172,7 @@ See `BRANCH_WORKFLOW.md` for detailed workflow and best practices.
 ### Frontend Deployment
 
 1. **AWS Amplify** (Recommended)
+
    - Automatic deployments from Git
    - Environment variables in console
    - SSL certificates included
@@ -177,11 +186,13 @@ See `BRANCH_WORKFLOW.md` for detailed workflow and best practices.
 ### Security
 
 1. **Secrets Management**
+
    - Use AWS Secrets Manager for sensitive data
    - Or Systems Manager Parameter Store
    - Never commit secrets to Git
 
 2. **IAM Roles**
+
    - Use IAM roles instead of access keys when possible
    - Least privilege principle
 
@@ -229,16 +240,19 @@ See `BRANCH_WORKFLOW.md` for detailed workflow and best practices.
 ## Quick Start: Deploy to AWS
 
 1. **Set up AWS resources:**
+
    - EC2 instance (for backend)
    - AWS Amplify app (for frontend)
    - RDS (optional, if not using SQLite)
 
 2. **Configure environment variables in AWS:**
+
    - **Backend (EC2)**: Use Parameter Store, Secrets Manager, or `/etc/stratcon/env`
    - **Frontend (Amplify)**: Console → App settings → Environment variables
    - See `env.production.example` and `website/.env.production.example` for templates
 
 3. **Deploy:**
+
    ```bash
    # 1. Develop on main (WSL)
    git checkout main
@@ -246,10 +260,10 @@ See `BRANCH_WORKFLOW.md` for detailed workflow and best practices.
    git add .
    git commit -m "Feature: ..."
    git push origin main
-   
+
    # 2. Sync to prod when ready
    ./scripts/sync-to-prod.sh
-   
+
    # 3. AWS pulls from prod branch
    # - EC2: git pull origin prod (or auto-deploy via CodePipeline)
    # - Amplify: Auto-deploys on prod branch push
@@ -296,4 +310,3 @@ See `BRANCH_WORKFLOW.md` for detailed workflow and best practices.
 3. Configure environment variables
 4. Test deployment process
 5. Set up CI/CD pipeline (optional but recommended)
-
