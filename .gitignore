@@ -140,6 +140,9 @@ logs/
 *.log
 
 # Data files (exclude directories but keep CSV files in resources)
+# Note: backend/services/data/ contains Python code and should be tracked
+# Only ignore backend/data/ (database files)
+backend/data/
 data/
 downloads/
 *.xlsx
