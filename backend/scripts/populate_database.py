@@ -6,11 +6,11 @@ Populate database with initial EPC, client, building, tenant, and user data.
 import sys
 from pathlib import Path
 
-# Add backend to path
-BACKEND_DIR = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(BACKEND_DIR))
+# Add project root to path
+PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(PROJECT_ROOT))
 
-from services.data.db_manager.db_schema import get_db_connection, init_database, create_default_stratcon_epc, populate_entities
+from backend.services.data.db_manager.db_schema import get_db_connection, init_database, create_default_stratcon_epc, populate_entities
 import sqlite3
 
 
@@ -231,7 +231,7 @@ def populate_database():
         print("\n🏠 Creating tenants...")
         
         # Get tenant folder names from NEO directory
-        neo_dir = BACKEND_DIR.parent / "downloads" / "NEO"
+        neo_dir = PROJECT_ROOT / "downloads" / "NEO"
         tenant_folders = sorted([d.name for d in neo_dir.iterdir() if d.is_dir()])
         
         for tenant_folder in tenant_folders:
