@@ -25,15 +25,29 @@ npm install
 
 ### Environment Setup
 
-Copy `.env.local.example` to `.env.local`:
+Create `.env.local` file in the `website/` directory:
 
 ```bash
-cp .env.local.example .env.local
+cd website
+cat > .env.local << EOF
+# API Configuration
+NEXT_PUBLIC_API_URL=http://localhost:8000
+
+# AWS Cognito Configuration
+NEXT_PUBLIC_COGNITO_USER_POOL_ID=ap-southeast-1_xxxxxxxxx
+NEXT_PUBLIC_COGNITO_CLIENT_ID=xxxxxxxxxxxxxxxxxxxxxxxxxx
+NEXT_PUBLIC_COGNITO_REGION=ap-southeast-1
+EOF
 ```
 
-Edit `.env.local` and set:
-- `NEXT_PUBLIC_API_URL`: Backend API URL (default: http://localhost:8000)
-- Cognito credentials (when setting up authentication)
+**Development (WSL):**
+- `NEXT_PUBLIC_API_URL`: `http://localhost:8000`
+- Use development Cognito credentials
+
+**Production (AWS):**
+- `NEXT_PUBLIC_API_URL`: `https://api.stratcon.ph`
+- Use production Cognito credentials
+- Set in AWS Amplify Console → Environment variables
 
 ### Development
 
