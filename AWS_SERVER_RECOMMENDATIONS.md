@@ -93,7 +93,38 @@ Based on your codebase:
 
 ## Recommended EC2 Instance Types
 
-### Option 1: **t3.medium** (Recommended for Start) 💰
+### Option 0: **t3.small** (For Very Low Traffic) 💰💰💰
+
+**Specs:**
+- 2 vCPU (burstable)
+- 2 GB RAM
+- Up to 5 Gbps network
+- Burstable performance
+
+**Cost:** ~$15-18/month (on-demand) - **50% cheaper than t3.medium**
+
+**Best for:**
+- Very low traffic (few uses per month)
+- Demo/prototype environments
+- Cost-sensitive deployments
+- Single user or small team
+
+**Why it works for your project:**
+- Your database: ~1.4M records total, but reports only load 50K-200K records at a time
+- Memory footprint: ~5-20MB per report (very manageable)
+- FastAPI is lightweight (~100-200MB base)
+- SQLite is minimal overhead
+- Reports generated on-demand (not constantly running)
+
+**Limitations:**
+- ⚠️ Tight on RAM (2GB total)
+- ⚠️ May struggle with multiple simultaneous report generations
+- ⚠️ Less headroom for system updates/background processes
+- ⚠️ Consider upgrading if you get more than 5-10 concurrent users
+
+**Recommendation:** Start here if budget is tight, upgrade to t3.medium if you hit memory issues.
+
+### Option 1: **t3.medium** (Recommended for Start) 💰💰
 
 **Specs:**
 - 2 vCPU
@@ -105,10 +136,11 @@ Based on your codebase:
 
 **Best for:**
 - Development/demo environment
-- Low to moderate traffic
+- Low to moderate traffic (10-50 uses/month)
 - Your current project size
+- More comfortable headroom
 
-**Why:** Good balance of cost and performance. Burstable CPU handles your FastAPI + data processing needs.
+**Why:** Good balance of cost and performance. Burstable CPU handles your FastAPI + data processing needs. Comfortable RAM for concurrent operations.
 
 ### Option 2: **t3.large** (If you need more headroom)
 
@@ -234,10 +266,11 @@ pip install -r backend/requirements.txt
 - Better conda support
 - More familiar commands
 
-**Instance:** t3.medium (start) → t3.large (scale up)
-- Good balance of cost and performance
-- Sufficient for FastAPI + data processing
-- Easy to scale up later
+**Instance:** 
+- **Budget option**: t3.small (~$15/month) - for very low traffic
+- **Recommended**: t3.medium (~$30/month) - comfortable headroom
+- **Scale up**: t3.large (~$60/month) if traffic increases
+- Easy to scale up/down as needed
 
 **Storage:** 30 GB gp3 EBS volume
 - Enough for database, logs, reports
@@ -250,10 +283,11 @@ pip install -r backend/requirements.txt
 
 ## Migration Path
 
-1. **Start**: t3.medium Ubuntu 22.04 (demo)
-2. **Scale up**: t3.large if traffic increases
-3. **Production**: m5.large if you need consistent CPU
-4. **Optimize**: Consider t4g (ARM) for cost savings
+1. **Start**: t3.small Ubuntu 22.04 (very low traffic) OR t3.medium (comfortable)
+2. **Monitor**: Watch memory usage and CPU credits
+3. **Scale up**: t3.medium → t3.large if traffic increases
+4. **Production**: m5.large if you need consistent CPU
+5. **Optimize**: Consider t4g (ARM) for cost savings
 
 ---
 
@@ -287,12 +321,33 @@ Both OS options are secure, but:
 
 ## Next Steps
 
-1. Launch EC2 instance: Ubuntu 22.04 LTS, t3.medium
-2. Configure security groups (ports 22, 8000, 443)
-3. Set up environment variables (see `env.production.example`)
-4. Deploy from `prod` branch
-5. Set up systemd service for auto-start
-6. Configure CloudWatch for monitoring
+1. **Choose instance size:**
+   - t3.small (~$15/month) - if budget is tight and traffic is very low
+   - t3.medium (~$30/month) - recommended for comfortable headroom
+2. Launch EC2 instance: Ubuntu 22.04 LTS
+3. Configure security groups (ports 22, 8000, 443)
+4. Set up environment variables (see `env.production.example`)
+5. Deploy from `prod` branch
+6. Set up systemd service for auto-start
+7. Monitor memory usage (especially with t3.small)
+8. Configure CloudWatch for monitoring
 
 See `DEPLOYMENT_GUIDE.md` for detailed deployment steps.
+
+## Memory Usage Estimate
+
+**Base system (idle):**
+- Ubuntu: ~300-500MB
+- FastAPI/Uvicorn: ~100-200MB
+- SQLite: ~10-50MB
+- System processes: ~200-300MB
+- **Total idle: ~1-1.2GB**
+
+**During report generation:**
+- Pandas loading data: +5-20MB per report
+- Plotly chart generation: +10-30MB temporarily
+- **Peak: ~1.2-1.5GB for single report**
+
+**t3.small (2GB RAM):** ✅ Works for single user, ⚠️ Tight for concurrent operations
+**t3.medium (4GB RAM):** ✅ Comfortable for multiple concurrent users
 
