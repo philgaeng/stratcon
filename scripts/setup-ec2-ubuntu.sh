@@ -21,8 +21,8 @@ sudo apt update && sudo apt upgrade -y
 # Install essential tools
 echo -e "${YELLOW}🔧 Installing essential tools...${NC}"
 sudo apt install -y \
-    python3.10 \
-    python3.10-venv \
+    python3 \
+    python3-venv \
     python3-pip \
     build-essential \
     git \
@@ -70,7 +70,7 @@ fi
 echo -e "${YELLOW}🔨 Creating conda environment...${NC}"
 source ~/miniconda3/etc/profile.d/conda.sh
 if ! conda env list | grep -q "datascience"; then
-    conda create -n datascience python=3.10 -y
+    conda create -n datascience python=3.13 -y
 fi
 
 # Clone repository (if not already present)

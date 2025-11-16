@@ -145,7 +145,7 @@ See `BRANCH_WORKFLOW.md` for detailed workflow and best practices.
 1. **EC2 Instance**
    - **Recommended**: Ubuntu 22.04 LTS (matches WSL environment)
    - **Alternative**: Amazon Linux 2023 (better AWS integration)
-   - Python 3.10+ (via conda or venv)
+   - Python 3.13 (via conda, matches dev environment)
    - Use `systemd` service for API
    - Store env vars in `/etc/stratcon/env` or Parameter Store
    - **Instance type**: Start with t3.medium, scale to t3.large or m5.large as needed

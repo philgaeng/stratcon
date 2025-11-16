@@ -74,7 +74,7 @@ sudo apt install nodejs npm
 Based on your codebase:
 
 ### Backend Needs:
-- Python 3.10+ (you're using conda `datascience` environment)
+- Python 3.13 (you're using conda `datascience` environment)
 - FastAPI + Uvicorn
 - Pandas, Plotly (data science libraries)
 - SQLite (built-in, no extra setup)
@@ -197,7 +197,7 @@ Based on your codebase:
 sudo apt update && sudo apt upgrade -y
 
 # 2. Install Python and tools
-sudo apt install -y python3.10 python3.10-venv python3-pip
+sudo apt install -y python3 python3-venv python3-pip
 sudo apt install -y build-essential git curl
 
 # 3. Install Node.js 20 (via NodeSource)
@@ -213,7 +213,7 @@ sudo ./aws/install
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
 # Follow prompts, then:
-conda create -n datascience python=3.10
+conda create -n datascience python=3.13
 conda activate datascience
 pip install -r backend/requirements.txt
 ```
@@ -238,7 +238,7 @@ sudo dnf install -y nodejs
 # 5. Install Miniconda
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh
-conda create -n datascience python=3.11
+conda create -n datascience python=3.13
 conda activate datascience
 pip install -r backend/requirements.txt
 ```
