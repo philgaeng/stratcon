@@ -1,0 +1,197 @@
+meter_id,unit,tenant_name,reading,timestamp,month
+Three/NEO-EM-08851888,Shop 1,QBE Exclusive Lobby,88538.0,2025-09-28 10:20:00,9.0
+Three/NEO-EM-50017916,Shop 1,QBE Exclusive Lobby - AC,212784.0,2025-09-28 10:09:00,9.0
+Three/NEO-EM-17873389,Shop 2,Security Bank,93032.0,2025-09-28 10:20:00,9.0
+Three/NEO-EM-28286903,Shop 2,Security Bank - AC,114435.0,2025-09-28 10:09:00,9.0
+Three/NEO-EM-16871324,Shop 3,7 Eleven,430497.0,2025-09-28 10:20:00,9.0
+Three/NEO-EM-08852422,Shop 3,7 Eleven - AC,385489.0,2025-09-28 10:09:00,9.0
+50017779,PP-Tel,Telco Room Main Meter,286110.0,2025-09-28 10:20:00,9.0
+Three/NEO-EM-350186738, Telco 3 ,"Globe Telco Room (Lighting, Equipment)",121820.0,2025-09-28 10:19:00,9.0
+Three/NEO-EM-85000220, Telco 4 ,"PLDT Telco Room (Lighting, Equipment)",66987.0,2025-09-28 10:19:00,9.0
+Three/NEO-EM-28601725, Telco 6 ,"Bayantel Telco Room (Lighting, Equipment)",84134.0,2025-09-28 10:19:00,9.0
+Three/NEO-EM-21410564,,Sun (Pico Cell),376168.23,,
+Three/NEO-EM-50017915,,Globe (Pico Cell),213065.0,2025-09-28 10:19:00,9.0
+Three/NEO-EM-52940319,,Radius,596.0,2025-09-28 13:56:00,9.0
+Three/NEO-EM-63645614,,FIGARI Podium (Signage),7732.0,2025-09-28 03:45:00,9.0
+Three/NEO-EM-32906998,,QBE (Signage),460.0,2025-09-28 10:57:00,9.0
+Three/NEO-EM-14864628,7-1,LBS Digital Infrastructure Corp - LDIC. (Lighting & Power),188425.0,2025-09-28 10:06:00,9.0
+Three/NEO-EM-14864257,7-1,LBS Digital Infrastructure Corp. - LDIC (ACCU),208084.0,2025-09-28 10:13:00,9.0
+Three/NEO-EM-28693813,7-2,Red Fu (Lighting & Power),1018483.0,2025-09-28 10:06:00,9.0
+Three/NEO-EM-14864627,7-2,Red Fu  (ACCU),110412.0,2025-09-28 10:06:00,9.0
+Three/NEO-EM-16870422,8-1,"Adventure International Tours, Inc. (AITI) (Lighting & Power)",234128.0,2025-09-28 10:05:00,9.0
+Three/NEO-EM-28286864,8-1,"Adventure International Tours, Inc. (AITI) (Lighting & Power)",181415.0,2025-09-28 10:13:00,9.0
+Three/NEO-EM-16871198,8-2,"Adventure International Tours, Inc. (AITI) (Lighting & Power)",34885.0,2025-09-28 10:05:00,9.0
+Three/NEO-EM-16871295,8-2,"Adventure International Tours, Inc. (AITI) (Lighting & Power)",125855.0,2025-09-28 10:13:00,9.0
+Three/NEO-EM-16870424,9-1,Figari (Lighting & Power),222918.0,2025-09-28 10:03:00,9.0
+Three/NEO-EM-16871297,9-1,Figari (ACCU),98503.0,2025-09-28 10:12:00,9.0
+Three/NEO-EM-16870423,9-2,Figari (Lighting & Power),222297.0,2025-09-28 10:03:00,9.0
+Three/NEO-EM-17873386,9-2,Figari (ACCU),419248.0,2025-09-28 10:12:00,9.0
+Three/NEO-EM-15867790,10-1,TDG (Lighting & Power),39622.0,2025-09-28 10:00:00,9.0
+Three/NEO-EM-16871303,10-1,TDG (ACCU),142524.0,2025-09-28 10:12:00,9.0
+Three/NEO-EM-15867792,10-2,Vacant (Lighting & Power),49577.0,2025-09-28 10:00:00,9.0
+Three/NEO-EM-74686521,10-2,Vacant (ACCU),1861.0,2025-09-28 10:12:00,9.0
+Three/NEO-EM-15867791,11-2,Vacant (Lighting & Power),99733.0,2025-09-28 09:58:00,9.0
+Three/NEO-EM-16871305,11-2,Vacant (ACCU),85200.0,2025-09-28 10:12:00,9.0
+Three/NEO-EM-50017872,11-1,Vacant (Lighting & Power),17306.0,2025-09-28 09:58:00,9.0
+Three/NEO-EM-16870419,11-1,Vacant (ACCU),25437.0,2025-09-28 10:12:00,9.0
+Three/NEO-EM-17873388,12-1,Vacant (Lighting & Power),61369.0,2025-09-28 09:57:00,9.0
+Three/NEO-EM-50017871,12-1,Vacant (ACCU),91785.0,2025-09-28 10:11:00,9.0
+Three/NEO-EM-50017870,12-2,Vacant (Lighting & Power),6324.0,2025-09-28 09:57:00,9.0
+Three/NEO-EM-08851932,12-2,Vacant (ACCU),51792.0,2025-09-28 10:11:00,9.0
+Three/NEO-EM-21000454,14-1&2,Regus (Lighting & Power),34520.0,2025-09-28 09:40:00,9.0
+Three/NEO-EM-28377053,14-1,Regus (ACCU),341485.0,2025-09-28 10:11:00,9.0
+Three/NEO-EM-50017914,14-2,Regus (ACCU),298819.0,2025-09-28 10:11:00,9.0
+Three/NEO-EM-47700729,15-1&2,Regus (Lighting & Power),41621.0,2025-09-28 09:54:00,9.0
+Three/NEO-EM-50017869,15-1,Regus (ACCU),286261.0,2025-09-28 10:10:00,9.0
+Three/NEO-EM-16871199,15-2,Regus (ACCU),192924.0,2025-09-28 10:10:00,9.0
+Three/NEO-EM-47702529,16-1&2,Luxasia (Lighting & Power),24541.7,2025-09-28 09:52:00,9.0
+Three/NEO-EM-97286820,16-1&2,Luxasia (ACCU),21612.1,2025-09-28 09:52:00,9.0
+Three/NEO-EM-17759111,17-1&2,Tyler Technologies Philippines. (Lighting & Power),143303.0,2025-09-28 09:50:00,9.0
+Three/NEO-EM-16871296,17-1,Tyler Technologies Philippines. (ACCU),85830.0,2025-09-28 09:28:00,9.0
+Three/NEO-EM-28693827,17-2,Tyler Technologies Philippines.. (ACCU),141194.0,2025-09-28 09:28:00,9.0
+Three/NEO-EM-17759101,18-1&2,Tyler Technologies Philippines. (Lighting & Power),273662.0,2025-09-28 09:49:00,9.0
+Three/NEO-EM-14864259,18-1,Tyler Technologies Philippines. (ACCU),208081.0,2025-09-28 09:28:00,9.0
+Three/NEO-EM-16872661,18-2,Tyler Technologies Philippines.. (ACCU),202352.0,2025-09-28 09:28:00,9.0
+Three/NEO-EM-17759112,19-1&2,HC Consumer Finace Phillippines Inc. (Lighting & Power),233082.0,2025-09-28 09:48:00,9.0
+Three/NEO-EM-15014197,19-1&2,QBE (Additional Plugin Breaker),34163.0,2025-09-28 09:48:00,9.0
+Three/NEO-EM-28930910,19-1,HC Consumer Finace Phillippines Inc. (ACCU),91359.0,2025-09-28 09:33:00,9.0
+Three/NEO-EM-16870425,19-2,HC Consumer Finace Phillippines Inc. (ACCU),251282.0,2025-09-28 09:33:00,9.0
+Three/NEO-EM-10712524,20-1&2,Figari (Lighting & Power),166195.0,2025-09-28 09:46:00,9.0
+Three/NEO-EM-23549655,20-1,Figari (ACCU),150627.0,2025-09-28 09:30:00,9.0
+Three/NEO-EM-14864298,20-2,Figari (ACCU),195640.0,2025-09-28 09:30:00,9.0
+Three/NEO-EM-21384862,21-1&2,Figari (Lighting & Power),589915.19,2025-09-28 09:44:00,9.0
+Three/NEO-EM-28460987,21-1,Figari (ACCU),156911.0,2025-09-28 09:31:00,9.0
+Three/NEO-EM-16871323,21-2,Figari (ACCU),146835.0,2025-09-28 09:31:00,9.0
+Three/NEO-EM-16126238,22-1&2,QBE Group Shared Services Ltd. (Lighting Power),401884.0,2025-09-28 09:42:00,9.0
+Three/NEO-EM-28286899,22-1,QBE Group Shared Services Ltd. (ACCU),304440.0,2025-09-28 09:33:00,9.0
+Three/NEO-EM-08851930,22-2,QBE Group Shared Services Ltd. (ACCU),385356.0,2025-09-28 09:37:00,9.0
+Three/NEO-EM-21393124,23-1&2,QBE Group Shared Services Ltd. (Lighting Power),241759.0,2025-09-28 09:40:00,9.0
+Three/NEO-EM-16871325,23-1,QBE Group Shared Services Ltd. (ACCU),194012.0,2025-09-28 09:40:00,9.0
+Three/NEO-EM-16871266,23-2,QBE Group Shared Services Ltd. (ACCU),364424.0,2025-09-28 09:40:00,9.0
+Three/NEO-EM-59072030,24-1&2,QBE Group Shared Services Ltd. (Lighting Power),161048.0,2025-09-28 09:40:00,9.0
+Three/NEO-EM-50017913,24-1,QBE Group Shared Services Ltd. (ACCU),289504.0,2025-09-28 09:35:00,9.0
+Three/NEO-EM-14864297,24-2,QBE Group Shared Services Ltd. (ACCU),290680.0,2025-09-28 09:35:00,9.0
+Three/NEO-EM-15024618,,QBE/Tyler Technologies Philippines./Acquire (Server Room ACCU),23267.0,2025-09-28 09:39:00,9.0
+Three/NEO-EM-16871267,,QBE/Tyler Technologies Philippines./Acquire (Wall Mounted ACCU),65774.0,2025-09-28 09:28:00,9.0
+Three/NEO-EM-85000291,Telco 2,"MDF Telco Room (Lighting, Equipment)",6269.0,2025-09-28 10:19:00,9.0
+Three/NEO-EM-85000246, Telco 5 ,Telco room 5 (Lighting & Power),5045.0,2025-09-28 10:15:00,9.0
+Three/NEO-EM-28922978,PPX,"Parking, Admin, Lobby",23229.0,2025-09-28 10:19:00,9.0
+Three/NEO-EM-14969058,,CTC Feeder Pumps,2032.0,2025-09-28 10:20:00,9.0
+Three/NEO-EM-14969079,,CTCFeeder Admin,19871.0,2025-09-28 10:20:00,9.0
+Three/NEO-EM-08951809,,Elevator #1-6,3737.0,2025-09-28 10:20:00,9.0
+Three/NEO-EM-09854296,,Spare Meter,5115.0,2025-09-28 10:20:00,9.0
+Three/NEO-EM-85000249,,7th Floor Common Area (Lighting & Power),88375.0,2025-09-28 10:06:00,9.0
+Three/NEO-EM-85000247,,8th Floor Common Area (Lighting & Power),78355.0,2025-09-28 10:05:00,9.0
+Three/NEO-EM-85000248,,9th Floor Common Area (Lighting & Power),81079.0,2025-09-28 10:03:00,9.0
+Three/NEO-EM-85000148,,10th Floor Common Area (Lighting & Power),81268.0,2025-09-28 10:00:00,9.0
+Three/NEO-EM-85000225,,11th Floor Common Area (Lighting & Power),77466.0,2025-09-28 09:59:00,9.0
+Three/NEO-EM-85000228,,12th Floor Common Area (Lighting & Power),75691.0,2025-09-28 09:58:00,9.0
+Three/NEO-EM-85000251,,14th Floor Common Area (Lighting & Power),83204.0,2025-09-28 09:56:00,9.0
+Three/NEO-EM-85000224,,15th Floor Common Area (Lighting & Power),85732.0,2025-09-28 09:55:00,9.0
+Three/NEO-EM-85000250,,16th Floor Common Area (Lighting & Power),84910.0,2025-09-28 09:52:00,9.0
+Three/NEO-EM-85000244,,17th Floor Common Area (Lighting & Power),78294.0,2025-09-28 09:52:00,9.0
+Three/NEO-EM-85000253,,18th Floor Common Area (Lighting & Power),80674.0,2025-09-28 09:50:00,9.0
+Three/NEO-EM-85000252,,19th Floor Common Area (Lighting & Power),85563.0,2025-09-28 09:49:00,9.0
+Three/NEO-EM-85000185,,20th Floor Common Area (Lighting & Power),86926.0,2025-09-28 09:47:00,9.0
+Three/NEO-EM-85000242,,21st Floor Common Area (Lighting & Power),88466.0,2025-09-28 09:45:00,9.0
+Three/NEO-EM-85000241,,22nd Floor Common Area (Lighting & Power),92005.0,2025-09-28 09:43:00,9.0
+Three/NEO-EM-85000245,,23rd Floor Common Area (Lighting & Power),85100.0,2025-09-28 09:41:00,9.0
+Three/NEO-EM-85000243,,Penthouse Common Area (Lighting & Power),63299.0,2025-09-28 09:39:00,9.0
+Three/NEO-EM-08851888,Shop 1,QBE Exclusive Lobby,86714.0,2025-08-26 11:18:00,9.0
+Three/NEO-EM-50017916,Shop 1,QBE Exclusive Lobby - AC,208391.0,2025-08-26 10:14:00,9.0
+Three/NEO-EM-17873389,Shop 2,Security Bank,92135.0,2025-08-26 11:18:00,9.0
+Three/NEO-EM-28286903,Shop 2,Security Bank - AC,112694.0,2025-08-26 10:14:00,9.0
+Three/NEO-EM-16871324,Shop 3,7 Eleven,421106.0,2025-08-26 11:20:00,9.0
+Three/NEO-EM-08852422,Shop 3,7 Eleven - AC,379033.0,2025-08-26 10:08:00,9.0
+50017779,PP-Tel,Telco Room Main Meter,279386.0,2025-08-26 11:18:00,9.0
+Three/NEO-EM-350186738, Telco 3 ,"Globe Telco Room (Lighting, Equipment)",120335.0,2025-08-26 11:37:00,9.0
+Three/NEO-EM-85000220, Telco 4 ,"PLDT Telco Room (Lighting, Equipment)",66051.0,2025-08-26 11:36:00,9.0
+Three/NEO-EM-28601725, Telco 6 ,"Bayantel Telco Room (Lighting, Equipment)",83232.0,2025-08-26 11:17:00,9.0
+Three/NEO-EM-21410564,,Sun (Pico Cell),374045.83,,
+Three/NEO-EM-50017915,,Globe (Pico Cell),209442.0,2025-08-26 11:18:00,9.0
+Three/NEO-EM-52940319,,Radius,566.0,2025-08-26 11:34:00,9.0
+Three/NEO-EM-63645614,,FIGARI Podium (Signage),7691.0,2025-08-26 13:39:00,9.0
+Three/NEO-EM-32906998,,QBE (Signage),453.0,2025-08-26 10:21:00,9.0
+Three/NEO-EM-14864628,7-1,LBS Digital Infrastructure Corp - LDIC. (Lighting & Power),184123.0,2025-08-26 10:10:00,9.0
+Three/NEO-EM-14864257,7-1,LBS Digital Infrastructure Corp. - LDIC (ACCU),203479.0,2025-08-26 10:18:00,9.0
+Three/NEO-EM-28693813,7-2,Red Fu (Lighting & Power),1015441.0,2025-08-26 10:10:00,9.0
+Three/NEO-EM-14864627,7-2,Red Fu  (ACCU),104516.0,2025-08-26 10:18:00,9.0
+Three/NEO-EM-16870422,8-1,"Adventure International Tours, Inc. (AITI) (Lighting & Power)",229187.0,2025-08-26 10:08:00,9.0
+Three/NEO-EM-28286864,8-1,"Adventure International Tours, Inc. (AITI) (Lighting & Power)",177264.0,2025-08-26 10:18:00,9.0
+Three/NEO-EM-16871198,8-2,"Adventure International Tours, Inc. (AITI) (Lighting & Power)",33385.0,2025-08-26 10:08:00,9.0
+Three/NEO-EM-16871295,8-2,"Adventure International Tours, Inc. (AITI) (Lighting & Power)",121315.0,2025-08-26 10:17:00,9.0
+Three/NEO-EM-16870424,9-1,Figari (Lighting & Power),218956.0,2025-08-26 10:06:00,9.0
+Three/NEO-EM-16871297,9-1,Figari (ACCU),93297.0,2025-08-26 10:17:00,9.0
+Three/NEO-EM-16870423,9-2,Figari (Lighting & Power),219497.0,2025-08-26 10:06:00,9.0
+Three/NEO-EM-17873386,9-2,Figari (ACCU),412650.0,2025-08-26 10:17:00,9.0
+Three/NEO-EM-15867790,10-1,TDG (Lighting & Power),39341.0,2025-08-26 10:03:00,9.0
+Three/NEO-EM-16871303,10-1,TDG (ACCU),141966.0,2025-08-26 10:17:00,9.0
+Three/NEO-EM-15867792,10-2,Vacant (Lighting & Power),49182.0,2025-08-26 10:03:00,9.0
+Three/NEO-EM-74686521,10-2,Vacant (ACCU),1565.0,2025-08-26 10:17:00,9.0
+Three/NEO-EM-15867791,11-2,Vacant (Lighting & Power),99706.0,2025-08-26 10:01:00,9.0
+Three/NEO-EM-16871305,11-2,Vacant (ACCU),85153.0,2025-08-26 10:16:00,9.0
+Three/NEO-EM-50017872,11-1,Vacant (Lighting & Power),15603.0,2025-08-26 10:01:00,9.0
+Three/NEO-EM-16870419,11-1,Vacant (ACCU),23742.0,2025-08-26 10:16:00,9.0
+Three/NEO-EM-17873388,12-1,Vacant (Lighting & Power),61088.0,2025-08-26 09:59:00,9.0
+Three/NEO-EM-50017871,12-1,Vacant (ACCU),91117.0,2025-08-26 10:16:00,9.0
+Three/NEO-EM-50017870,12-2,Vacant (Lighting & Power),6080.0,2025-08-26 09:59:00,9.0
+Three/NEO-EM-08851932,12-2,Vacant (ACCU),51136.0,2025-08-26 10:16:00,9.0
+Three/NEO-EM-21000454,14-1&2,Regus (Lighting & Power),34498.0,2025-08-26 09:56:00,9.0
+Three/NEO-EM-28377053,14-1,Regus (ACCU),339412.0,2025-08-26 10:15:00,9.0
+Three/NEO-EM-50017914,14-2,Regus (ACCU),297439.0,2025-08-26 10:15:00,9.0
+Three/NEO-EM-47700729,15-1&2,Regus (Lighting & Power),41483.0,2025-08-26 09:54:00,9.0
+Three/NEO-EM-50017869,15-1,Regus (ACCU),278848.0,2025-08-26 10:15:00,9.0
+Three/NEO-EM-16871199,15-2,Regus (ACCU),188042.0,2025-08-26 10:15:00,9.0
+Three/NEO-EM-47702529,16-1&2,Luxasia (Lighting & Power),24459.5,2025-08-26 09:21:00,9.0
+Three/NEO-EM-97286820,16-1&2,Luxasia (ACCU),21553.3,2025-08-26 09:51:00,9.0
+Three/NEO-EM-17759111,17-1&2,Tyler Technologies Philippines. (Lighting & Power),135978.0,2025-08-26 09:49:00,9.0
+Three/NEO-EM-16871296,17-1,Tyler Technologies Philippines. (ACCU),84230.0,2025-08-26 09:15:00,9.0
+Three/NEO-EM-28693827,17-2,Tyler Technologies Philippines.. (ACCU),139098.0,2025-08-26 09:16:00,9.0
+Three/NEO-EM-17759101,18-1&2,Tyler Technologies Philippines. (Lighting & Power),266794.0,2025-08-26 09:45:00,9.0
+Three/NEO-EM-14864259,18-1,Tyler Technologies Philippines. (ACCU),202572.0,2025-08-26 09:16:00,9.0
+Three/NEO-EM-16872661,18-2,Tyler Technologies Philippines.. (ACCU),197840.0,2025-08-26 09:16:00,9.0
+Three/NEO-EM-17759112,19-1&2,HC Consumer Finace Phillippines Inc. (Lighting & Power),226431.0,2025-08-26 09:43:00,9.0
+Three/NEO-EM-15014197,19-1&2,QBE (Additional Plugin Breaker),34072.0,2025-08-26 09:43:00,9.0
+Three/NEO-EM-28930910,19-1,HC Consumer Finace Phillippines Inc. (ACCU),89137.0,2025-08-26 09:17:00,9.0
+Three/NEO-EM-16870425,19-2,HC Consumer Finace Phillippines Inc. (ACCU),247065.0,2025-08-26 09:17:00,9.0
+Three/NEO-EM-10712524,20-1&2,Figari (Lighting & Power),155226.0,2025-08-26 09:41:00,9.0
+Three/NEO-EM-23549655,20-1,Figari (ACCU),147035.0,2025-08-26 09:17:00,9.0
+Three/NEO-EM-14864298,20-2,Figari (ACCU),191967.0,2025-08-26 09:18:00,9.0
+Three/NEO-EM-21384862,21-1&2,Figari (Lighting & Power),584518.0,2025-08-26 09:38:00,9.0
+Three/NEO-EM-28460987,21-1,Figari (ACCU),151618.0,2025-08-26 09:18:00,9.0
+Three/NEO-EM-16871323,21-2,Figari (ACCU),138699.0,2025-08-26 09:18:00,9.0
+Three/NEO-EM-16126238,22-1&2,QBE Group Shared Services Ltd. (Lighting Power),391829.0,2025-08-26 09:35:00,9.0
+Three/NEO-EM-28286899,22-1,QBE Group Shared Services Ltd. (ACCU),298378.0,2025-08-26 09:19:00,9.0
+Three/NEO-EM-08851930,22-2,QBE Group Shared Services Ltd. (ACCU),378364.0,2025-08-26 09:19:00,9.0
+Three/NEO-EM-21393124,23-1&2,QBE Group Shared Services Ltd. (Lighting Power),234657.0,2025-08-26 09:29:00,9.0
+Three/NEO-EM-16871325,23-1,QBE Group Shared Services Ltd. (ACCU),188753.0,2025-08-26 09:19:00,9.0
+Three/NEO-EM-16871266,23-2,QBE Group Shared Services Ltd. (ACCU),357164.0,2025-08-26 09:20:00,9.0
+Three/NEO-EM-59072030,24-1&2,QBE Group Shared Services Ltd. (Lighting Power),154848.0,2025-08-26 09:25:00,9.0
+Three/NEO-EM-50017913,24-1,QBE Group Shared Services Ltd. (ACCU),284449.0,2025-08-26 09:20:00,9.0
+Three/NEO-EM-14864297,24-2,QBE Group Shared Services Ltd. (ACCU),284796.0,2025-08-26 09:20:00,9.0
+Three/NEO-EM-15024618,,QBE/Tyler Technologies Philippines./Acquire (Server Room ACCU),23203.0,2025-08-26 09:25:00,9.0
+Three/NEO-EM-16871267,,QBE/Tyler Technologies Philippines./Acquire (Wall Mounted ACCU),61224.0,2025-08-26 09:15:00,9.0
+Three/NEO-EM-85000291,Telco 2,"MDF Telco Room (Lighting, Equipment)",6201.0,2025-08-26 11:37:00,9.0
+Three/NEO-EM-85000246, Telco 5 ,Telco room 5 (Lighting & Power),5045.0,2025-08-26 11:36:00,9.0
+Three/NEO-EM-28922978,PPX,"Parking, Admin, Lobby",22819.0,2025-08-26 11:19:00,9.0
+Three/NEO-EM-14969058,,CTC Feeder Pumps,2006.0,2025-08-26 11:22:00,9.0
+Three/NEO-EM-14969079,,CTCFeeder Admin,19588.0,2025-08-26 11:20:00,9.0
+Three/NEO-EM-08951809,,Elevator #1-6,3678.0,2025-08-26 11:19:00,9.0
+Three/NEO-EM-09854296,,Spare Meter,5081.0,2025-08-26 11:17:00,9.0
+Three/NEO-EM-85000249,,7th Floor Common Area (Lighting & Power),87899.0,2025-08-26 10:10:00,9.0
+Three/NEO-EM-85000247,,8th Floor Common Area (Lighting & Power),77981.0,2025-08-26 10:08:00,9.0
+Three/NEO-EM-85000248,,9th Floor Common Area (Lighting & Power),80677.0,2025-08-26 10:06:00,9.0
+Three/NEO-EM-85000148,,10th Floor Common Area (Lighting & Power),81056.0,2025-08-26 10:03:00,9.0
+Three/NEO-EM-85000225,,11th Floor Common Area (Lighting & Power),77210.0,2025-08-26 10:01:00,9.0
+Three/NEO-EM-85000228,,12th Floor Common Area (Lighting & Power),75463.0,2025-08-26 09:59:00,9.0
+Three/NEO-EM-85000251,,14th Floor Common Area (Lighting & Power),82913.0,2025-08-26 09:56:00,9.0
+Three/NEO-EM-85000224,,15th Floor Common Area (Lighting & Power),85271.0,2025-08-26 09:54:00,9.0
+Three/NEO-EM-85000250,,16th Floor Common Area (Lighting & Power),84511.0,2025-08-26 09:51:00,9.0
+Three/NEO-EM-85000244,,17th Floor Common Area (Lighting & Power),78077.0,2025-08-26 09:49:00,9.0
+Three/NEO-EM-85000253,,18th Floor Common Area (Lighting & Power),80316.0,2025-08-26 09:45:00,9.0
+Three/NEO-EM-85000252,,19th Floor Common Area (Lighting & Power),85202.0,2025-08-26 09:43:00,9.0
+Three/NEO-EM-85000185,,20th Floor Common Area (Lighting & Power),86510.0,2025-08-26 09:41:00,9.0
+Three/NEO-EM-85000242,,21st Floor Common Area (Lighting & Power),88053.0,2025-08-26 09:38:00,9.0
+Three/NEO-EM-85000241,,22nd Floor Common Area (Lighting & Power),91544.0,2025-08-26 09:34:00,9.0
+Three/NEO-EM-85000245,,23rd Floor Common Area (Lighting & Power),84711.0,2025-08-26 09:29:00,9.0
+Three/NEO-EM-85000243,,Penthouse Common Area (Lighting & Power),63002.0,2025-08-26 09:25:00,9.0

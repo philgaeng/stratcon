@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;600;700&display=swap");
+@import "tailwindcss";
+
+:root {
+  /* Background and foreground - will be overridden by layout.tsx from config.ts */
+  --background: #efefef; /* Background (warm light grey) */
+  --foreground: #2c2c2c; /* Text Dark */
+
+  /* Font Families - matching backend/services/config.py */
+  --font-heading: Montserrat, Arial, sans-serif;
+  --font-body: Inter, Arial, sans-serif;
+
+  /* Stratcon Colors - will be overridden by layout.tsx from config.ts */
+  --stratcon-dark-green: #2e7d32;
+  --stratcon-medium-green: #388e3c;
+  --stratcon-primary-green: #4caf50;
+  --stratcon-light-green: #8bc34a;
+  --stratcon-yellow: #ffeb3b;
+
+  --stratcon-black: #333;
+  --stratcon-dark-grey: #2c3e50;
+  --stratcon-medium-grey: #6a6a6a;
+  --stratcon-grey: #888;
+  --stratcon-light-grey: #f6f6f6;
+  --stratcon-very-light-grey: #efefef;
+
+  /* UI Colors - will be overridden by layout.tsx from config.ts */
+  --top-bar: #1d342f;
+  --card-background: #ffffff;
+  --card-border: #dddddd;
+  --field-background: #f6f6f6;
+
+  /* Energy Colors */
+  --consumption: #f5b041;
+  --production: #76b7b2;
+  --import: #4e79a7;
+  --export: #333333;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #efefef; /* Keep light background even in dark mode preference */
+    --foreground: #2c2c2c;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  font-size: 14px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+/* Reusable Component Styles */
+@layer components {
+  /* Base Tile - can be extended with color variants */
+  .tile {
+    @apply rounded-lg;
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+    width: 100%; /* Automatically adjusts to container */
+  }
+
+  /* Tile content wrapper - with consistent spacing between containers */
+  .tile-content {
+    @apply p-6;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Consistent spacing between all child containers */
+  }
+
+  /* Tile with spacing between children (for forms with larger spacing) */
+  .tile-spaced {
+    @apply rounded-lg;
+    background: var(--card-background);
+    border: 1px solid var(--card-border);
+    width: 100%;
+  }
+  .tile-spaced .tile-content {
+    @apply p-6;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Same consistent spacing */
+  }
+
+  /* Base Button - primary action button (full width, centered) */
+  .btn-primary {
+    @apply flex items-center justify-center py-3 px-4 rounded-md text-white disabled:opacity-50 disabled:cursor-not-allowed transition-colors shadow-sm text-sm font-medium focus:outline-none focus:ring-2 focus:ring-offset-2;
+    width: 100%;
+    max-width: 100%;
+    background-color: var(--primary-button);
+    --tw-ring-color: var(--primary-button);
+  }
+  .btn-primary:hover:not(:disabled) {
+    background-color: var(--stratcon-medium-green);
+  }
+
+  /* Two-button container - for side-by-side buttons */
+  .btn-group-two {
+    @apply flex;
+    width: 100%;
+    gap: 1.2rem;
+  }
+  .btn-group-two .btn-primary {
+    flex: 1;
+    width: auto;
+  }
+
+  /* Form Input Base */
+  .form-input {
+    @apply w-full px-3 py-2 rounded-md focus:outline-none;
+    background: var(--field-background);
+    border: 1px solid var(--card-border);
+  }
+  .form-input:focus {
+    border-color: var(--stratcon-primary-green);
+    box-shadow: 0 0 0 1px var(--stratcon-primary-green);
+  }
+  .form-input:disabled {
+    background: var(--field-background);
+    opacity: 0.6;
+  }
+
+  /* Form Label */
+  .form-label {
+    @apply block text-sm font-medium mb-1;
+    color: var(--stratcon-medium-grey);
+  }
+
+  .form-label-spaced {
+    @apply block text-sm font-medium mb-2;
+    color: var(--stratcon-medium-grey);
+  }
+
+  /* Form Row - for side-by-side form fields */
+  .form-row {
+    @apply flex;
+    gap: 1rem;
+    width: 100%;
+  }
+  .form-row > div {
+    flex: 1;
+    min-width: 0; /* Prevents flex items from overflowing */
+  }
+}

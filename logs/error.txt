@@ -2962,3 +2962,5 @@ ValueError: ❌ Error generating one-pager report: The truth value of a DataFram
 2025-09-16 18:05:48 - 6e100e20 [ERROR] ❌ Error generating hourly consumption chart: type object 'PlotlyStyle' has no attribute 'STRATCON_DARK_GREEN'
 2025-09-16 18:05:48 - 6e100e20 [ERROR] ❌ Error generating days consumption chart: type object 'PlotlyStyle' has no attribute 'STRATCON_DARK_GREEN'
 2025-09-16 20:39:06 - bc0b6081 [ERROR] ❌ Error while generating one-pager report values and charts: unhashable type: 'dict'
+2025-11-02 15:31:14 - 6eed71d4 [ERROR] ❌ AWS SES error (MessageRejected): Email address is not verified. The following identities failed the check in region US-EAST-1: noreply@stratcon.ph, philgaeng@gmail.com
+2025-11-02 15:35:19 - 3e5b2bd7 [ERROR] ❌ AWS SES error (MessageRejected): Email address is not verified. The following identities failed the check in region US-EAST-1: noreply@stratcon.ph, philgaeng@gmail.com

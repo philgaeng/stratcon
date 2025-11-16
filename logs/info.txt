@@ -14762,3 +14762,5 @@ Year Month
 [4 rows x 14 columns]
 2025-09-16 21:22:14 - ecb64e71 [INFO] ✅ One-pager report written to: /home/philg/projects/stratcon/reports/onepager_MCB_701_20250916_212214.html
 2025-09-16 21:22:14 - ecb64e71 [INFO] ✅ One-pager report generated successfully
+2025-11-02 15:35:28 - 835e4cfa [INFO] ✅ Email sent successfully to philgaeng@gmail.com
+2025-11-02 15:35:28 - 835e4cfa [INFO]    Message ID: 010e019a437e133e-9aafd291-b9a2-4207-b4b5-0863a49a1916-000000

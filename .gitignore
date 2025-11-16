@@ -181,3 +181,6 @@ secrets.json
 # Base64 logo files (since they're large and can be regenerated)
 resources/logos/*_base64.txt
 resources/logos/logo_conversion_results.json
+env.local
+.env
+.env.local

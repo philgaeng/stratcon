@@ -43091,3 +43091,165 @@ max           44.500000     20.183000      11.58800     10.664000     20.802000 
 2025-09-16 21:22:14 - 6904c9d0 [DEBUG] ✅ Energy per month plot generated for MCB 701
 2025-09-16 21:22:14 - 6904c9d0 [DEBUG] ✅ All 3 energy per month plots generated and shown
 2025-09-16 21:22:14 - ecb64e71 [DEBUG] ✅ Logo copied to reports directory: /home/philg/projects/stratcon/reports/Stratcon.ph White.png
+2025-11-03 10:52:38 - 056c8293 [DEBUG] Found client-level settings for NEO
+2025-11-03 10:52:38 - 056c8293 [DEBUG] Created cutoff datetime: 2024-01-26 23:59:59+08:00 (day=26, time=23:59:59)
+2025-11-09 07:01:29 - f870e31f [DEBUG] Tenant summary query for client 1 (building=None) returned 0 rows
+2025-11-09 07:01:30 - cf4d6f21 [DEBUG] Meter assignments for tenant 1: returned 0 meters
+2025-11-09 07:51:22 - c8a0dfe8 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 07:51:22 - 8cdf5fc2 [DEBUG] Tenant summary query for client 1 (building=None) returned 0 rows
+2025-11-09 07:51:32 - a6ef473a [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 07:51:32 - 6ebe28ac [DEBUG] Meter assignments for tenant 1: returned 0 meters
+2025-11-09 07:51:24 - 4dd4dc6d [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 07:51:24 - 9d9689a0 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 07:51:25 - 3d0f81ea [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 07:53:05 - e5fae87f [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 07:53:05 - 1b29819e [DEBUG] Tenant summary query for client 1 (building=None) returned 0 rows
+2025-11-09 07:53:05 - 51cfd2a9 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 07:53:05 - de1b621e [DEBUG] Meter assignments for tenant 1: returned 0 meters
+2025-11-09 07:53:06 - 12d4d30a [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 07:53:07 - 02d3ee82 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 07:53:08 - e1ebc7a1 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 08:17:15 - aad43075 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 08:17:15 - 99f8a912 [DEBUG] Tenant summary query for client 1 (building=None) returned 0 rows
+2025-11-09 08:17:16 - 684104f6 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 08:17:16 - e92091ae [DEBUG] Meter assignments for tenant 1: returned 0 meters
+2025-11-09 08:17:17 - fae12115 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 08:17:17 - 62b6c3eb [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 08:17:18 - 1edbe3fc [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 14:49:36 - 48016f3b [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 14:49:36 - 8d3c1afe [DEBUG] Tenant summary query for client 1 (building=None) returned 0 rows
+2025-11-09 14:49:37 - 8c868d01 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 14:49:37 - bf0fb777 [DEBUG] Meter assignments for tenant 1: returned 0 meters
+2025-11-09 14:49:46 - 03a000de [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 14:49:39 - c369a90e [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 14:49:40 - 8ec407b6 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 14:53:48 - ddb03b4e [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 14:53:48 - 7145074f [DEBUG] Meter assignments for tenant 1: returned 1 meters
+2025-11-09 14:54:23 - 106efb16 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 14:54:23 - 4a5ee92d [DEBUG] Tenant summary query for client 1 (building=None) returned 0 rows
+2025-11-09 14:54:32 - ffe406dc [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 14:54:32 - ca39411c [DEBUG] Meter assignments for tenant 1: returned 0 meters
+2025-11-09 14:54:25 - a67891e6 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 14:54:26 - f99b97a9 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 14:54:28 - c2a2dc55 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 14:57:50 - 71a6f838 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 14:57:50 - 5ab741dc [DEBUG] Tenant summary query for client 1 (building=None) returned 0 rows
+2025-11-09 14:57:52 - c3142690 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 14:57:52 - 27a9dcc5 [DEBUG] Tenant summary query for client 1 (building=None) returned 0 rows
+2025-11-09 14:57:53 - 3e0532cf [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 14:57:53 - ca32c124 [DEBUG] Tenant summary query for client 1 (building=None) returned 0 rows
+2025-11-09 14:57:54 - 48990492 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 14:57:54 - 1275c56c [DEBUG] Tenant summary query for client 1 (building=None) returned 0 rows
+2025-11-09 14:57:55 - 73f419d8 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 14:57:55 - b2a000b6 [DEBUG] Tenant summary query for client 1 (building=None) returned 0 rows
+2025-11-09 15:01:32 - ba63bdae [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:01:32 - 11c320fb [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:01:32 - e4f5143a [DEBUG] Tenant summary query for client 1 (building=None) returned 0 rows
+2025-11-09 15:01:33 - 68bbc819 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:01:33 - 02a8ac59 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:01:33 - 7408df5c [DEBUG] Tenant summary query for client 1 (building=None) returned 0 rows
+2025-11-09 15:01:34 - 1222e4e1 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:01:34 - 1d2737e0 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:01:34 - 925aad69 [DEBUG] Tenant summary query for client 1 (building=None) returned 0 rows
+2025-11-09 15:01:35 - 6b6a4709 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:01:35 - 8610623b [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:01:35 - f8ccde02 [DEBUG] Tenant summary query for client 1 (building=None) returned 0 rows
+2025-11-09 15:01:37 - 4b860362 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:01:37 - a4c83fb9 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:01:37 - 0ab39b40 [DEBUG] Tenant summary query for client 1 (building=None) returned 0 rows
+2025-11-09 15:04:13 - 096de0a8 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:04:13 - 4f841274 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:04:13 - d6a6ae97 [DEBUG] Tenant summary query for client 1 (building=None) returned 0 rows
+2025-11-09 15:04:14 - 078ab86a [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:04:14 - 3b1dbb73 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:04:14 - 516df1e2 [DEBUG] Tenant summary query for client 1 (building=None) returned 0 rows
+2025-11-09 15:04:24 - 8d3c40a7 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:04:24 - e29a16a6 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:04:24 - fc84af02 [DEBUG] Tenant summary query for client 1 (building=None) returned 0 rows
+2025-11-09 15:04:17 - 617c56ee [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:04:17 - 7cd90b34 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:04:17 - 92a35251 [DEBUG] Tenant summary query for client 1 (building=None) returned 0 rows
+2025-11-09 15:04:18 - 69ba28a0 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:04:18 - 2fd6f9b4 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:04:18 - 060b7b4c [DEBUG] Tenant summary query for client 1 (building=None) returned 0 rows
+2025-11-09 15:08:46 - 6219db3f [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:08:46 - 5cb4d3f7 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:08:46 - 013e4f49 [DEBUG] Tenant summary query for client 1 (building=None) returned 0 rows
+2025-11-09 15:08:47 - 03f01cc2 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:08:47 - 00425e45 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:08:47 - 9b1088e6 [DEBUG] Tenant summary query for client 1 (building=None) returned 0 rows
+2025-11-09 15:08:48 - ea8e83e5 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:08:48 - 20d07c22 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:08:48 - 2ba64319 [DEBUG] Tenant summary query for client 1 (building=None) returned 0 rows
+2025-11-09 15:08:50 - d751f5cb [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:08:50 - 71f48abb [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:08:50 - 5efe2243 [DEBUG] Tenant summary query for client 1 (building=None) returned 0 rows
+2025-11-09 15:08:51 - c9f11ec0 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:08:51 - e9cd3544 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:08:51 - ef1a3468 [DEBUG] Tenant summary query for client 1 (building=None) returned 0 rows
+2025-11-09 15:09:30 - 760467f8 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:09:30 - 9bc5736a [DEBUG] Tenant summary query for client 1 (building=None) returned 0 rows
+2025-11-09 15:09:31 - 2be431c0 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:09:31 - 67f32b0d [DEBUG] Meter assignments for tenant 1: returned 0 meters
+2025-11-09 15:09:32 - b07ee60b [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:09:33 - b1121cba [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:09:35 - 820fccd7 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:11:51 - e954f202 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:28:30 - 942d7bc7 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:28:53 - 45551ec4 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:41:03 - 50cb7aae [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:41:03 - 409c1c3b [DEBUG] Inserted meter records for tenant 1, session session-123: 1 accepted, 0 duplicate, 0 warnings
+2025-11-09 15:41:03 - c4ece9ae [DEBUG] Inserted meter records for tenant 1, session session-123: 0 accepted, 1 duplicate, 0 warnings
+2025-11-09 15:41:03 - c5ffbe64 [DEBUG] Inserted meter records for tenant 1, session session-123: 0 accepted, 0 duplicate, 1 warnings
+2025-11-09 15:41:18 - 2112923f [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:41:18 - cd7ec21d [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:41:20 - 73a7482f [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:41:20 - b2c8a01c [DEBUG] Meter assignments for tenant 1: returned 1 meters
+2025-11-09 15:41:21 - 534c1078 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:41:21 - 96eb5609 [DEBUG] Inserted meter records for tenant 1, session session-123: 1 accepted, 0 duplicate, 0 warnings
+2025-11-09 15:41:21 - b468e9b9 [DEBUG] Inserted meter records for tenant 1, session session-123: 0 accepted, 1 duplicate, 0 warnings
+2025-11-09 15:41:21 - 5a7458e0 [DEBUG] Inserted meter records for tenant 1, session session-123: 0 accepted, 0 duplicate, 1 warnings
+2025-11-09 15:41:22 - d30c8562 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:41:22 - e6ec889a [DEBUG] Inserted meter records for tenant 1, session session-approval: 1 accepted, 0 duplicate, 0 warnings
+2025-11-09 15:41:22 - e0754aec [DEBUG] Approval metadata applied to 1 records for tenant 1, session session-approval
+2025-11-09 15:41:22 - 4cb72a42 [DEBUG] Fetched 2 meter records (tenant=1, meter=None)
+2025-11-09 15:41:23 - 83444393 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:41:54 - ccba764d [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:41:54 - f8f00e5c [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:41:56 - 1a5a2bc0 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:41:56 - 6ad248c9 [DEBUG] Meter assignments for tenant 1: returned 1 meters
+2025-11-09 15:41:57 - 6c0ef4d6 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:41:57 - f687540a [DEBUG] Inserted meter records for tenant 1, session session-123: 1 accepted, 0 duplicate, 0 warnings
+2025-11-09 15:41:57 - fe37e3dc [DEBUG] Inserted meter records for tenant 1, session session-123: 0 accepted, 1 duplicate, 0 warnings
+2025-11-09 15:41:57 - da6c4ee8 [DEBUG] Inserted meter records for tenant 1, session session-123: 0 accepted, 0 duplicate, 1 warnings
+2025-11-09 15:42:06 - 8b5791f3 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:41:58 - 099a86c3 [DEBUG] Inserted meter records for tenant 1, session session-approval: 1 accepted, 0 duplicate, 0 warnings
+2025-11-09 15:41:58 - 6c0dee98 [DEBUG] Approval metadata applied to 1 records for tenant 1, session session-approval
+2025-11-09 15:41:58 - ea80a844 [DEBUG] Fetched 2 meter records (tenant=1, meter=None)
+2025-11-09 15:41:59 - 9300addd [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:53:33 - 914d386b [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:53:33 - 99b3930e [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:53:35 - 3df06482 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:53:35 - e89e23b9 [DEBUG] Meter assignments for tenant 1: returned 1 meters
+2025-11-09 15:53:44 - 25fc084d [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:53:44 - 22176e6b [DEBUG] Inserted meter records for tenant 1, session session-123: 1 accepted, 0 duplicate, 0 warnings
+2025-11-09 15:53:35 - 2c2bd5eb [DEBUG] Inserted meter records for tenant 1, session session-123: 0 accepted, 1 duplicate, 0 warnings
+2025-11-09 15:53:35 - f1f75a91 [DEBUG] Inserted meter records for tenant 1, session session-123: 0 accepted, 0 duplicate, 1 warnings
+2025-11-09 15:53:37 - 107fb8ed [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 15:53:37 - 13797789 [DEBUG] Inserted meter records for tenant 1, session session-approval: 1 accepted, 0 duplicate, 0 warnings
+2025-11-09 15:53:37 - 61091347 [DEBUG] Approval metadata applied to 1 records for tenant 1, session session-approval
+2025-11-09 15:53:37 - cf111b31 [DEBUG] Fetched 2 meter records (tenant=1, meter=None)
+2025-11-09 15:53:38 - 9f3d591b [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 16:04:14 - ba87cd83 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 16:04:14 - 6238177f [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 16:04:15 - 5133eb6a [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 16:04:15 - dcef5b30 [DEBUG] Meter assignments for tenant 1: returned 1 meters
+2025-11-09 16:04:16 - 026cf65d [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 16:04:16 - 6678e710 [DEBUG] Inserted meter records for tenant 1, session session-123: 1 accepted, 0 duplicate, 0 warnings
+2025-11-09 16:04:16 - 14309d94 [DEBUG] Inserted meter records for tenant 1, session session-123: 0 accepted, 1 duplicate, 0 warnings
+2025-11-09 16:04:16 - 595ab757 [DEBUG] Inserted meter records for tenant 1, session session-123: 0 accepted, 0 duplicate, 1 warnings
+2025-11-09 16:04:17 - c662d702 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows
+2025-11-09 16:04:17 - a1577ccc [DEBUG] Inserted meter records for tenant 1, session session-approval: 1 accepted, 0 duplicate, 0 warnings
+2025-11-09 16:04:17 - 762d4ef6 [DEBUG] Approval metadata applied to 1 records for tenant 1, session session-approval
+2025-11-09 16:04:17 - b6518760 [DEBUG] Fetched 2 meter records (tenant=1, meter=None)
+2025-11-09 16:04:18 - 7bd8ffb9 [DEBUG] Tenant summary query for client 1 (building=None) returned 1 rows

@@ -1,0 +1,34 @@
+tenant,floor,level,load,cutoff_day,floor_area
+Client_1,Floor 19-20,1,Consumption [kW],26,1280
+Client_2,Floor 19-20,1,DKS PD / PTP  17 Fl [kW],26,199
+Client_3,Floor 19-20,1,EBC 2401 150A [kW],26,480
+Client_4,Floor 19-20,1,ECB 20F [kW],26,717
+Client_5,Floor 19-20,1,PH 1 [kW],26,845
+Client_6,Floor 19-20,1,PH 2 [kW],26,917
+Client_7,Floor 18-19,1,ECB 1801 150A [kW],26,818
+Client_8,Floor 18-19,1,ECB 1901 [kW],26,1100
+Client_9,Floor 22-23-24,1,ECB 2201 150A [kW],26,1102
+Client_10,Floor 22-23-24,1,ECB 225 -  21F [kW],26,1132
+Client_11,Floor 22-23-24,1,ECB 2301 150A [kW],26,937
+Client_12,Floor 22-23-24,1,MCB - 2201 [kW],26,954
+Client_13,Floor 22-23-24,1,MCB - 2202 [kW],26,629
+Client_14,Floor 22-23-24,1,MCB - 2301 [kW],26,579
+Client_15,Floor 22-23-24,1,MCB - 2302 [kW],26,258
+Client_16,Floor 20-21,1,MCB - 2002 [kW],26,529
+Client_17,Floor 20-21,1,MCB - 2101 [kW],26,852
+Client_18,Floor 20-21,1,MCB - 2102 [kW],26,642
+Client_19,Floor 09-10,1,MCB 1001 [kW],26,1224
+Client_20,Floor 09-10,1,MCB 1002 [kW],26,1245
+Client_21,Floor 09-10,1,MCB 901 [kW],26,720
+Client_22,Floor 09-10,1,MCB 902 [kW],26,1138
+Client_23,Floor 11-12,1,MCB 1101 [kW],26,337
+Client_24,Floor 11-12,1,MCB 1102 [kW],26,191
+Client_25,Floor 14-15,1,MCB 1201 [kW],26,277
+Client_26,Floor 14-15,1,MCB 1202 [kW],26,1284
+Client_27,Floor 14-15,1,MCB 1401 [kW],26,1048
+Client_28,Floor 14-15,1,MCB 1501 [kW],26,131
+Client_29,Floor 16-17,1,MCB 1601 [kW],26,907
+Client_30,Floor 07-08,1,MCB 701 [kW],26,549
+Client_31,Floor 07-08,1,MCB 702 [kW],26,529
+Client_32,Floor 07-08,1,MCB 801 [kW],26,164
+Client_33,Floor 07-08,1,MCB 802 [kW],26,850

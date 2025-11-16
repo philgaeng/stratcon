@@ -1,0 +1,8 @@
+# Backend API Requirements
+fastapi>=0.100.0
+uvicorn[standard]>=0.20.0
+pydantic>=2.0.0
+
+# AWS SES for email functionality (optional)
+boto3>=1.26.0
+
