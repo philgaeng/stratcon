@@ -143,10 +143,14 @@ See `BRANCH_WORKFLOW.md` for detailed workflow and best practices.
 ### Backend Deployment
 
 1. **EC2 Instance**
-   - Ubuntu 22.04 LTS
-   - Python 3.12 (via conda or pyenv)
+   - **Recommended**: Ubuntu 22.04 LTS (matches WSL environment)
+   - **Alternative**: Amazon Linux 2023 (better AWS integration)
+   - Python 3.10+ (via conda or venv)
    - Use `systemd` service for API
    - Store env vars in `/etc/stratcon/env` or Parameter Store
+   - **Instance type**: Start with t3.medium, scale to t3.large or m5.large as needed
+   
+   > 📖 See `AWS_SERVER_RECOMMENDATIONS.md` for detailed OS comparison and instance type recommendations
 
 2. **Database**
    - SQLite for small scale (current)
