@@ -10,6 +10,10 @@ function LoginContent() {
   const search = useSearchParams();
   const [redirectAttempted, setRedirectAttempted] = useState(false);
   const [callbackProcessed, setCallbackProcessed] = useState(false);
+  
+  // Extract error parameters from URL (available in render scope)
+  const error = search.get("error");
+  const errorDescription = search.get("error_description");
 
   useEffect(() => {
     // If already authenticated, go to reports
@@ -21,8 +25,6 @@ function LoginContent() {
     // Check if this is a callback from Cognito
     const code = search.get("code");
     const state = search.get("state");
-    const error = search.get("error");
-    const errorDescription = search.get("error_description");
     const isCallback = !!code && !!state;
     
     // Log any OAuth errors from Cognito
