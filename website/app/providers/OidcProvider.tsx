@@ -62,13 +62,22 @@ export default function OidcProvider({ children }: OidcProviderProps) {
   // This ensures we get the correct value based on the actual browser location
   const redirectUri = getRedirectUri();
   
+  // Explicitly set metadata URL for OIDC discovery
+  // This ensures the library uses the correct endpoint for discovery
+  const metadataUrl = `${cognitoIssuer}/.well-known/openid-configuration`;
+  
   const cognitoAuthConfig = {
     ...getBaseConfig(),
     redirect_uri: redirectUri,
+    metadataUrl: metadataUrl,
   };
   
   if (typeof window !== 'undefined') {
-    console.log('[OIDC] Final config redirect_uri:', redirectUri);
+    console.log('[OIDC] Final config:', {
+      redirect_uri: redirectUri,
+      authority: cognitoIssuer,
+      metadataUrl: metadataUrl,
+    });
   }
   
   return <AuthProvider {...cognitoAuthConfig}>{children}</AuthProvider>;
