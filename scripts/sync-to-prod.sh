@@ -12,6 +12,7 @@ fi
 echo "🔄 Syncing main → prod branch..."
 
 # Ensure we're on main and up to date
+# Always switch to main first (in case we're on prod or another branch)
 git checkout main
 git pull origin main
 
