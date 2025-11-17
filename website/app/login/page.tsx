@@ -21,7 +21,14 @@ function LoginContent() {
     // Check if this is a callback from Cognito
     const code = search.get("code");
     const state = search.get("state");
+    const error = search.get("error");
+    const errorDescription = search.get("error_description");
     const isCallback = !!code && !!state;
+    
+    // Log any OAuth errors from Cognito
+    if (error) {
+      console.error("[OIDC] Cognito error:", error, errorDescription);
+    }
 
     // If callback, let AuthProvider handle it automatically
     // Don't interfere - the library will process it
@@ -80,10 +87,17 @@ function LoginContent() {
         <p className="text-gray-600">
           {auth.isLoading ? "Processing..." : "Redirecting to sign in..."}
         </p>
-        {auth.error && (
+        {(auth.error || error) && (
           <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded text-red-700 text-sm">
-            <p className="font-semibold">Error: {auth.error.message}</p>
-            <p className="mt-1 text-xs">Check console for details</p>
+            <p className="font-semibold">
+              {error ? `Cognito Error: ${error}` : `Error: ${auth.error?.message}`}
+            </p>
+            {errorDescription && (
+              <p className="mt-1 text-xs">{errorDescription}</p>
+            )}
+            {auth.error && (
+              <p className="mt-1 text-xs">Check console for details</p>
+            )}
           </div>
         )}
       </div>
