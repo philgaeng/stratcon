@@ -20,12 +20,18 @@ const clientId =
 const getRedirectUri = (): string => {
   // 1. Explicit environment variable (highest priority)
   if (process.env.NEXT_PUBLIC_REDIRECT_URI) {
-    return process.env.NEXT_PUBLIC_REDIRECT_URI;
+    const uri = process.env.NEXT_PUBLIC_REDIRECT_URI;
+    if (typeof window !== 'undefined') {
+      console.log('[OIDC] Using redirect URI from env:', uri);
+    }
+    return uri;
   }
   
   // 2. Auto-detect from browser (works in both dev and prod)
   if (typeof window !== 'undefined') {
-    return `${window.location.origin}/login`;
+    const uri = `${window.location.origin}/login`;
+    console.log('[OIDC] Auto-detected redirect URI:', uri, '(from:', window.location.origin, ')');
+    return uri;
   }
   
   // 3. Server-side default (fallback to localhost for SSR)
