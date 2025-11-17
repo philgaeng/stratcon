@@ -18,6 +18,7 @@ lib/
 lib64/
 # Exception: website/lib should be tracked (Next.js frontend utilities)
 !website/lib/
+!website/lib/**
 parts/
 sdist/
 var/
@@ -133,6 +134,9 @@ dmypy.json
 # Project-specific files
 # Reports and outputs
 reports/
+# Exception: website/app/reports should be tracked (Next.js frontend pages)
+!website/app/reports/
+!website/app/reports/**
 exports/
 *.html
 *.pdf
