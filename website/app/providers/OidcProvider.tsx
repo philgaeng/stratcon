@@ -9,10 +9,11 @@ type OidcProviderProps = {
 
 // Cognito configuration - use issuer URL for OIDC discovery
 // The library will discover endpoints from the issuer
-// Use the Cognito domain URL for OIDC discovery (more reliable)
+// Use the issuer URL (not domain) for proper OIDC discovery
+// The issuer URL points to the correct metadata endpoint
 const cognitoIssuer =
   process.env.NEXT_PUBLIC_COGNITO_ISSUER ||
-  "https://ap-southeast-1htvo9y0bb.auth.ap-southeast-1.amazoncognito.com";
+  "https://cognito-idp.ap-southeast-1.amazonaws.com/ap-southeast-1_HtVo9Y0BB";
 const clientId =
   process.env.NEXT_PUBLIC_COGNITO_CLIENT_ID || "384id7i8oh9vci2ck2afip4vsn";
 
