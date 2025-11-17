@@ -16,6 +16,8 @@ eggs/
 .eggs/
 lib/
 lib64/
+# Exception: website/lib should be tracked (Next.js frontend utilities)
+!website/lib/
 parts/
 sdist/
 var/
