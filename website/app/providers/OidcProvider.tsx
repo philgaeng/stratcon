@@ -15,12 +15,29 @@ const cognitoIssuer =
 const clientId =
   process.env.NEXT_PUBLIC_COGNITO_CLIENT_ID || "384id7i8oh9vci2ck2afip4vsn";
 
+// Get redirect URI - automatically detects environment
+// Priority: 1) Environment variable, 2) Auto-detect from browser, 3) Default to localhost
+const getRedirectUri = (): string => {
+  // 1. Explicit environment variable (highest priority)
+  if (process.env.NEXT_PUBLIC_REDIRECT_URI) {
+    return process.env.NEXT_PUBLIC_REDIRECT_URI;
+  }
+  
+  // 2. Auto-detect from browser (works in both dev and prod)
+  if (typeof window !== 'undefined') {
+    return `${window.location.origin}/login`;
+  }
+  
+  // 3. Server-side default (fallback to localhost for SSR)
+  return "http://localhost:3000/login";
+};
+
 const cognitoAuthConfig = {
   // Use the Cognito issuer URL for OIDC discovery
   // This allows the library to discover authorization/token endpoints
   authority: cognitoIssuer,
   client_id: clientId,
-  redirect_uri: "http://localhost:3000/login",
+  redirect_uri: getRedirectUri(),
   response_type: "code",
   scope: "openid email",
   // Enable automatic silent signin to handle callbacks
