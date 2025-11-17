@@ -38,13 +38,13 @@ const getRedirectUri = (): string => {
   return "http://localhost:3000/login";
 };
 
-const cognitoAuthConfig = {
+// Base config - redirect_uri will be set dynamically in the component
+const getBaseConfig = () => ({
   // Use the Cognito issuer URL for OIDC discovery
   // This allows the library to discover authorization/token endpoints
   authority: cognitoIssuer,
   client_id: clientId,
-  redirect_uri: getRedirectUri(),
-  response_type: "code",
+  response_type: "code" as const,
   scope: "openid email profile", // Include profile scope (matches Cognito allowed scopes)
   // Enable automatic silent signin to handle callbacks
   automaticSilentRenew: true,
@@ -53,8 +53,21 @@ const cognitoAuthConfig = {
   // PKCE is enabled by default in react-oidc-context for security
   // Use sessionStorage for state (more reliable across redirects)
   // The library will automatically handle callback processing
-};
+});
 
 export default function OidcProvider({ children }: OidcProviderProps) {
+  // Compute redirect_uri at component render time (not module load time)
+  // This ensures we get the correct value based on the actual browser location
+  const redirectUri = getRedirectUri();
+  
+  const cognitoAuthConfig = {
+    ...getBaseConfig(),
+    redirect_uri: redirectUri,
+  };
+  
+  if (typeof window !== 'undefined') {
+    console.log('[OIDC] Final config redirect_uri:', redirectUri);
+  }
+  
   return <AuthProvider {...cognitoAuthConfig}>{children}</AuthProvider>;
 }
