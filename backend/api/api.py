@@ -46,6 +46,7 @@ app.add_middleware(
         "http://52.221.59.184:3000",  # If frontend runs on same server (HTTP)
         "http://52.221.59.184:8000",  # Direct API access (HTTP)
         "https://52.221.59.184",  # AWS server IP (HTTPS via nginx)
+        "https://stratcon.facets-ai.com",  # Production domain (HTTPS)
         # Add more origins as needed for demo
     ],
     allow_credentials=True,
