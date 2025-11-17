@@ -2,7 +2,7 @@
 
 import api from "@/lib/api-client";
 import { useCallback, useEffect, useState } from "react";
-import { useAuth } from "react-oidc-context";
+import { useAuthCompat } from "./useAuthCompat";
 
 export interface UserInfo {
   user_id: number;
@@ -32,18 +32,19 @@ export interface UserInfo {
  * ```
  */
 export function useUserInfo() {
-  const auth = useAuth();
+  const auth = useAuthCompat();
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   const fetchUserInfo = useCallback(async () => {
-    if (!auth.isAuthenticated || !auth.user?.profile?.email) {
+    // Get email from user object (works for both mock and real auth)
+    const email = auth.user?.email || auth.user?.profile?.email;
+    
+    if (!auth.isAuthenticated || !email) {
       setIsLoading(false);
       return;
     }
-
-    const email = auth.user.profile.email;
 
     // Check localStorage first for quick initial render
     const storedUserInfo = localStorage.getItem("userInfo");
@@ -86,7 +87,7 @@ export function useUserInfo() {
     } finally {
       setIsLoading(false);
     }
-  }, [auth.isAuthenticated, auth.user?.profile?.email]);
+  }, [auth.isAuthenticated, auth.user]);
 
   // Fetch user info when authenticated
   useEffect(() => {

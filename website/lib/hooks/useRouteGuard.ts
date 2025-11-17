@@ -2,7 +2,7 @@
 
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { useAuth } from "react-oidc-context";
+import { useAuthCompat } from "./useAuthCompat";
 import { useUserInfo } from "./useUserInfo";
 
 // Role definitions matching backend
@@ -47,7 +47,7 @@ export function useRouteGuard(
 ) {
   const router = useRouter();
   const pathname = usePathname();
-  const auth = useAuth();
+  const auth = useAuthCompat();
   const { userInfo, isLoading } = useUserInfo();
 
   useEffect(() => {
