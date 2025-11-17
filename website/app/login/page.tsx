@@ -2,10 +2,10 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
-import { useAuth } from "react-oidc-context";
+import { useAuthCompat } from "@/lib/hooks/useAuthCompat";
 
 function LoginContent() {
-  const auth = useAuth();
+  const auth = useAuthCompat();
   const router = useRouter();
   const search = useSearchParams();
   const [redirectAttempted, setRedirectAttempted] = useState(false);
