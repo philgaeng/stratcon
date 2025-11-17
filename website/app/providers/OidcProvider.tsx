@@ -7,92 +7,52 @@ type OidcProviderProps = {
   children: React.ReactNode;
 };
 
-// Cognito configuration - use issuer URL for OIDC discovery
-// The library will discover endpoints from the issuer
-// Use the issuer URL (not domain) for proper OIDC discovery
-// The issuer URL points to the correct metadata endpoint
+// Cognito configuration - simplified for localhost development
+// Revert to simple configuration that works with localhost
 const cognitoIssuer =
   process.env.NEXT_PUBLIC_COGNITO_ISSUER ||
   "https://cognito-idp.ap-southeast-1.amazonaws.com/ap-southeast-1_HtVo9Y0BB";
 const clientId =
   process.env.NEXT_PUBLIC_COGNITO_CLIENT_ID || "384id7i8oh9vci2ck2afip4vsn";
 
-// Get redirect URI - automatically detects environment
-// Priority: 1) Environment variable, 2) Auto-detect from browser, 3) Default to localhost
+// Simple redirect URI - default to localhost for local development
 const getRedirectUri = (): string => {
   // 1. Explicit environment variable (highest priority)
   if (process.env.NEXT_PUBLIC_REDIRECT_URI) {
-    const uri = process.env.NEXT_PUBLIC_REDIRECT_URI;
-    if (typeof window !== 'undefined') {
-      console.log('[OIDC] Using redirect URI from env:', uri);
-    }
-    return uri;
+    return process.env.NEXT_PUBLIC_REDIRECT_URI;
   }
   
-  // 2. Auto-detect from browser (works in both dev and prod)
+  // 2. Auto-detect from browser (for production)
   if (typeof window !== 'undefined') {
-    const uri = `${window.location.origin}/login`;
-    console.log('[OIDC] Auto-detected redirect URI:', uri, '(from:', window.location.origin, ')');
-    return uri;
+    const origin = window.location.origin;
+    // If accessing from localhost, use localhost
+    if (origin.includes('localhost') || origin.includes('127.0.0.1')) {
+      return "http://localhost:3000/login";
+    }
+    // Otherwise use the detected origin
+    return `${origin}/login`;
   }
   
-  // 3. Server-side default (fallback to localhost for SSR)
+  // 3. Default to localhost for SSR/local development
   return "http://localhost:3000/login";
 };
 
-// Base config - redirect_uri will be set dynamically in the component
-const getBaseConfig = () => ({
+const cognitoAuthConfig = {
   // Use the Cognito issuer URL for OIDC discovery
-  // This allows the library to discover authorization/token endpoints
   authority: cognitoIssuer,
   client_id: clientId,
+  redirect_uri: getRedirectUri(),
   response_type: "code" as const,
-  scope: "openid email profile", // Include profile scope (matches Cognito allowed scopes)
-  // Enable automatic silent signin to handle callbacks
+  scope: "openid email profile",
   automaticSilentRenew: true,
-  // Additional settings for better state management
   loadUserInfo: true,
-  // PKCE is enabled by default in react-oidc-context for security
-  // Use sessionStorage for state (more reliable across redirects)
-  // The library will automatically handle callback processing
-});
+};
 
 export default function OidcProvider({ children }: OidcProviderProps) {
-  // Compute redirect_uri at component render time (not module load time)
-  // This ensures we get the correct value based on the actual browser location
-  const redirectUri = getRedirectUri();
-  
-  // Explicitly set metadata URL for OIDC discovery
-  // This ensures the library uses the correct endpoint for discovery
-  const metadataUrl = `${cognitoIssuer}/.well-known/openid-configuration`;
-  
-  // Explicitly set authorization endpoint to use OAuth2 endpoint, not Hosted UI
-  // The Hosted UI /login endpoint might not support PKCE properly
-  // We need to provide this in the metadata object for oidc-client-ts
-  const authorizationEndpoint = "https://ap-southeast-1htvo9y0bb.auth.ap-southeast-1.amazoncognito.com/oauth2/authorize";
-  const tokenEndpoint = "https://ap-southeast-1htvo9y0bb.auth.ap-southeast-1.amazoncognito.com/oauth2/token";
-  
-  const cognitoAuthConfig = {
-    ...getBaseConfig(),
-    redirect_uri: redirectUri,
-    metadataUrl: metadataUrl,
-    // Override metadata to use OAuth2 endpoints instead of Hosted UI
-    metadata: {
-      authorization_endpoint: authorizationEndpoint,
-      token_endpoint: tokenEndpoint,
-      issuer: cognitoIssuer,
-      jwks_uri: `${cognitoIssuer}/.well-known/jwks.json`,
-      userinfo_endpoint: "https://ap-southeast-1htvo9y0bb.auth.ap-southeast-1.amazoncognito.com/oauth2/userInfo",
-      end_session_endpoint: "https://ap-southeast-1htvo9y0bb.auth.ap-southeast-1.amazoncognito.com/logout",
-    },
-  };
-  
   if (typeof window !== 'undefined') {
-    console.log('[OIDC] Final config:', {
-      redirect_uri: redirectUri,
+    console.log('[OIDC] Config:', {
+      redirect_uri: cognitoAuthConfig.redirect_uri,
       authority: cognitoIssuer,
-      metadataUrl: metadataUrl,
-      authorization_endpoint: authorizationEndpoint,
     });
   }
   
