@@ -39,11 +39,12 @@ const cognitoAuthConfig = {
   client_id: clientId,
   redirect_uri: getRedirectUri(),
   response_type: "code",
-  scope: "openid email",
+  scope: "openid email profile", // Include profile scope (matches Cognito allowed scopes)
   // Enable automatic silent signin to handle callbacks
   automaticSilentRenew: true,
   // Additional settings for better state management
   loadUserInfo: true,
+  // PKCE is enabled by default in react-oidc-context for security
   // Use sessionStorage for state (more reliable across redirects)
   // The library will automatically handle callback processing
 };
