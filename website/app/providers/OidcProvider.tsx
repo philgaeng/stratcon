@@ -68,14 +68,23 @@ export default function OidcProvider({ children }: OidcProviderProps) {
   
   // Explicitly set authorization endpoint to use OAuth2 endpoint, not Hosted UI
   // The Hosted UI /login endpoint might not support PKCE properly
+  // We need to provide this in the metadata object for oidc-client-ts
   const authorizationEndpoint = "https://ap-southeast-1htvo9y0bb.auth.ap-southeast-1.amazoncognito.com/oauth2/authorize";
+  const tokenEndpoint = "https://ap-southeast-1htvo9y0bb.auth.ap-southeast-1.amazoncognito.com/oauth2/token";
   
   const cognitoAuthConfig = {
     ...getBaseConfig(),
     redirect_uri: redirectUri,
     metadataUrl: metadataUrl,
-    // Override authorization endpoint to use OAuth2 instead of Hosted UI
-    authorization_endpoint: authorizationEndpoint,
+    // Override metadata to use OAuth2 endpoints instead of Hosted UI
+    metadata: {
+      authorization_endpoint: authorizationEndpoint,
+      token_endpoint: tokenEndpoint,
+      issuer: cognitoIssuer,
+      jwks_uri: `${cognitoIssuer}/.well-known/jwks.json`,
+      userinfo_endpoint: "https://ap-southeast-1htvo9y0bb.auth.ap-southeast-1.amazoncognito.com/oauth2/userInfo",
+      end_session_endpoint: "https://ap-southeast-1htvo9y0bb.auth.ap-southeast-1.amazoncognito.com/logout",
+    },
   };
   
   if (typeof window !== 'undefined') {
