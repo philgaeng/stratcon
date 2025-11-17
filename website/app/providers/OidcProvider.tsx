@@ -66,10 +66,16 @@ export default function OidcProvider({ children }: OidcProviderProps) {
   // This ensures the library uses the correct endpoint for discovery
   const metadataUrl = `${cognitoIssuer}/.well-known/openid-configuration`;
   
+  // Explicitly set authorization endpoint to use OAuth2 endpoint, not Hosted UI
+  // The Hosted UI /login endpoint might not support PKCE properly
+  const authorizationEndpoint = "https://ap-southeast-1htvo9y0bb.auth.ap-southeast-1.amazoncognito.com/oauth2/authorize";
+  
   const cognitoAuthConfig = {
     ...getBaseConfig(),
     redirect_uri: redirectUri,
     metadataUrl: metadataUrl,
+    // Override authorization endpoint to use OAuth2 instead of Hosted UI
+    authorization_endpoint: authorizationEndpoint,
   };
   
   if (typeof window !== 'undefined') {
@@ -77,6 +83,7 @@ export default function OidcProvider({ children }: OidcProviderProps) {
       redirect_uri: redirectUri,
       authority: cognitoIssuer,
       metadataUrl: metadataUrl,
+      authorization_endpoint: authorizationEndpoint,
     });
   }
   
