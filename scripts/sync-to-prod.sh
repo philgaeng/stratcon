@@ -48,11 +48,16 @@ fi
 echo "📤 Pushing prod branch to remote..."
 git push origin prod
 
+# Switch back to main branch (so we end where we started)
+echo "🔄 Switching back to main branch..."
+git checkout main
+
 echo "✅ Successfully synced main → prod!"
 echo ""
 echo "📋 Summary:"
 echo "   - Merged latest changes from main"
 echo "   - Pushed to origin/prod"
+echo "   - Switched back to main branch"
 echo ""
 echo "🚀 Next steps:"
 echo "   - AWS deployment should pull from prod branch"
