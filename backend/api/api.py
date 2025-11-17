@@ -42,6 +42,10 @@ app.add_middleware(
         "http://localhost:3000",
         "http://127.0.0.1:3000",
         "http://localhost:3001",
+        "http://52.221.59.184",  # AWS server IP
+        "http://52.221.59.184:3000",  # If frontend runs on same server
+        "http://52.221.59.184:8000",  # Direct API access
+        # Add more origins as needed for demo
     ],
     allow_credentials=True,
     allow_methods=["*"],
