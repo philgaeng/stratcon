@@ -16,12 +16,12 @@ This document defines the REST endpoints that power the V1 manual meter logging 
 
 ## 2. Domain Objects
 
-| Object | Source Table(s) | Key Fields |
-| ------ | ---------------- | ---------- |
-| `TenantSummary` | `tenants`, `unit_tenants_history`, `units` | `tenant_id`, `tenant_name`, `building_id`, `building_name`, `floor` (new column), `active_unit_count` |
-| `MeterAssignment` | `unit_meters_history`, `meters`, `unit_loads_history` | `meter_id`, `meter_ref`, `unit_id`, `load_ids[]`, `last_record` |
-| `MeterRecord` | `meter_records` | `meter_record_id`, `meter_id`, `timestamp_record`, `meter_kW`, `encoder_user_id`, `approver_name`, `approver_signature_blob (optional)`, `created_at` |
-| `BulkSession` (client-side construct) | n/a | `session_id`, array of `MeterRecordInput`, `approver_signature` |
+| Object                                | Source Table(s)                                       | Key Fields                                                                                                                                             |
+| ------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `TenantSummary`                       | `tenants`, `unit_tenants_history`, `units`            | `tenant_id`, `tenant_name`, `building_id`, `building_name`, `floor` (new column), `active_unit_count`                                                  |
+| `MeterAssignment`                     | `unit_meters_history`, `meters`, `unit_loads_history` | `meter_id`, `meter_ref`, `unit_id`, `load_ids[]`, `last_record`                                                                                        |
+| `MeterRecord`                         | `meter_records`                                       | `meter_record_id`, `meter_id`, `timestamp_record`, `meter_kWh`, `encoder_user_id`, `approver_name`, `approver_signature_blob (optional)`, `created_at` |
+| `BulkSession` (client-side construct) | n/a                                                   | `session_id`, array of `MeterRecordInput`, `approver_signature`                                                                                        |
 
 ---
 
@@ -38,6 +38,7 @@ GET /meters/v1/tenants?client_id={id}&building_id={optional}
 Returns tenants the encoder can act on. Response includes building metadata and floor to support the “search tenant by building + floor” workflow.
 
 **Response**
+
 ```json
 {
   "tenants": [
@@ -58,6 +59,7 @@ Returns tenants the encoder can act on. Response includes building metadata and 
 ```
 
 Filtering rules:
+
 - Encoders see tenants within their assigned client/building scope.
 - Super admins can pass `client_id` or omit for all.
 
@@ -70,6 +72,7 @@ GET /meters/v1/tenants/{tenant_id}/meters
 Returns active meters linked to the tenant’s units. Includes last reading for context.
 
 **Response**
+
 ```json
 {
   "tenant_id": 123,
@@ -85,7 +88,7 @@ Returns active meters linked to the tenant’s units. Includes last reading for 
       "loads": [321, 322],
       "last_record": {
         "timestamp_record": "2024-10-05T06:30:00Z",
-        "meter_kW": 345.7
+        "meter_kWh": 345.7
       }
     }
   ]
@@ -102,6 +105,7 @@ Content-Type: application/json
 Accepts one or multiple readings grouped by tenant/session. Designed for online and offline replay (idempotency via client-provided UUID).
 
 **Request**
+
 ```json
 {
   "tenant_id": 123,
@@ -111,13 +115,14 @@ Accepts one or multiple readings grouped by tenant/session. Designed for online 
       "client_record_id": "rec-001",
       "meter_id": 555,
       "timestamp_record": "2024-10-06T08:15:00+08:00",
-      "meter_kW": 356.2
+      "meter_kWh": 356.2
     }
   ]
 }
 ```
 
 **Response**
+
 ```json
 {
   "tenant_id": 123,
@@ -140,6 +145,7 @@ Accepts one or multiple readings grouped by tenant/session. Designed for online 
 ```
 
 Notes:
+
 - Server enforces non-decreasing rule (hard block per requirements).
 - For offline mode, timestamps are taken from device payload; server records ingestion time separately.
 - If a `client_record_id` reappears, the existing record is returned (idempotent).
@@ -153,6 +159,7 @@ POST /meters/v1/approvals
 Stores the approver’s signature metadata for audit. For V1 where approval happens on the encoder’s device, payload is lightweight.
 
 **Request**
+
 ```json
 {
   "session_id": "c05f1f2b-3115-4b4d-b10d-af2f5e5e9aad",
@@ -176,6 +183,7 @@ GET /meters/v1/meter-records?tenant_id=123&from=2024-09-01&to=2024-10-01
 Supports charting and quick verification. Encoders see records they created; admins see any.
 
 **Response**
+
 ```json
 {
   "records": [
@@ -184,7 +192,7 @@ Supports charting and quick verification. Encoders see records they created; adm
       "meter_id": 555,
       "tenant_id": 123,
       "timestamp_record": "2024-10-06T08:15:00+08:00",
-      "meter_kW": 356.2,
+      "meter_kWh": 356.2,
       "encoder_user_id": 77,
       "approver_name": "Juan Dela Cruz",
       "created_at": "2024-10-06T00:15:03Z"
@@ -214,14 +222,14 @@ Returns enums, validation thresholds (e.g., `max_reading_delta`), and system tim
 
 ## 5. Error Codes
 
-| HTTP | Code | Description |
-| ---- | ---- | ----------- |
-| 400 | `invalid_payload` | Missing/invalid fields, malformed timestamps |
-| 401 | `unauthorized` | No valid session/token |
-| 403 | `forbidden` | Tenant/meter outside encoder scope |
-| 404 | `not_found` | Tenant or meter not found/active |
-| 409 | `reading_conflict` | Decreasing reading or record already exists |
-| 422 | `validation_failed` | Domain rule violation (e.g., record too old) |
+| HTTP | Code                | Description                                  |
+| ---- | ------------------- | -------------------------------------------- |
+| 400  | `invalid_payload`   | Missing/invalid fields, malformed timestamps |
+| 401  | `unauthorized`      | No valid session/token                       |
+| 403  | `forbidden`         | Tenant/meter outside encoder scope           |
+| 404  | `not_found`         | Tenant or meter not found/active             |
+| 409  | `reading_conflict`  | Decreasing reading or record already exists  |
+| 422  | `validation_failed` | Domain rule violation (e.g., record too old) |
 
 ---
 
@@ -243,4 +251,3 @@ Returns enums, validation thresholds (e.g., `max_reading_delta`), and system tim
 ---
 
 **Last updated:** 2025-11-07
-

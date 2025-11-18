@@ -8,7 +8,7 @@ import sqlite3
 from collections import defaultdict  # noqa: F401  # Needed when subclasses mix in meter logging queries
 from datetime import datetime
 from typing import Any, Dict, List, Optional, Sequence, cast
-from backend.services.core.config import verify_source_type
+from backend.services.core.config import PHILIPPINES_TZ, verify_source_type
 
 from backend.services.data.db_manager.db_schema import get_db_connection
 from backend.services.core.utils import ReportLogger
@@ -128,6 +128,39 @@ class ReportingDbQueries:
                 WHERE b.client_id = ? AND luh.is_active = 1
                 """,
                 (client_id,),
+            )
+            rows = cursor.fetchall()
+            return [row["load_id"] for row in rows]
+        finally:
+            if close_conn:
+                conn.close()
+
+    @staticmethod
+    def find_load_ids_by_tenant_floor(
+        tenant_id: int,
+        floor: int,
+        conn: Optional[sqlite3.Connection] = None,
+    ) -> List[int]:
+        """Find load IDs for a tenant restricted to a specific floor."""
+        close_conn = False
+        if conn is None:
+            conn = get_db_connection()
+            close_conn = True
+        try:
+            cursor = conn.cursor()
+            cursor.execute(
+                """
+                SELECT DISTINCT ulh.load_id
+                FROM unit_loads_history AS ulh
+                JOIN units AS u ON u.id = ulh.unit_id
+                JOIN unit_tenants_history AS uth
+                    ON uth.unit_id = u.id
+                   AND uth.is_active = 1
+                WHERE ulh.is_active = 1
+                  AND uth.tenant_id = ?
+                  AND u.floor = ?
+                """,
+                (tenant_id, floor),
             )
             rows = cursor.fetchall()
             return [row["load_id"] for row in rows]
@@ -368,6 +401,7 @@ class ReportingDbQueries:
         end_date: Optional[datetime] = None,
         conn: Optional[sqlite3.Connection] = None,
         logger: Optional[ReportLogger] = None,
+        load_ids: Optional[List[int]] = None,
     ) -> pd.DataFrame:
         """Load aggregated consumption or manual meter data for the given tenants."""
         if logger is None:
@@ -385,13 +419,28 @@ class ReportingDbQueries:
         try:
             timestamp_column = "c.timestamp"
             params: List[object] = [tenant_id]
+            load_filter = ""
+            filtered_loads: Optional[List[int]] = None
+            if load_ids:
+                filtered_loads = sorted({int(load_id) for load_id in load_ids})
+                if not filtered_loads:
+                    logger_obj.warning(
+                        f"Provided load_ids for tenant_id {tenant_id} are empty after filtering."
+                    )
+                    empty_df = pd.DataFrame({col: [] for col in ["tenant_id", "load_id", "meter_id", "load_kW"]})
+                    empty_df.index = pd.DatetimeIndex([], name="timestamp")
+                    return empty_df
+                placeholders = ",".join(["?"] * len(filtered_loads))
+                load_filter = f" AND ulh.load_id IN ({placeholders})"
+                params.extend(filtered_loads)
             query = f"""
                 SELECT
                     uth.tenant_id,
                     ulh.load_id,
                     NULL AS meter_id,
                     {timestamp_column} AS timestamp,
-                    c.load_kW AS load_kW
+                    c.load_kW AS load_kW,
+                    c.consumption_kWh AS consumption_kWh
                 FROM unit_tenants_history AS uth
                 JOIN unit_loads_history AS ulh
                     ON ulh.unit_id = uth.unit_id
@@ -401,6 +450,7 @@ class ReportingDbQueries:
                     AND ulh.is_active = 1
                     AND uth.tenant_id = ?
             """
+            query += load_filter
 
             if start_date:
                 query += f" AND {timestamp_column} >= ?"
@@ -414,7 +464,8 @@ class ReportingDbQueries:
 
             logger_obj.debug(
                 f"Loading power data for tenant_id: {tenant_id} "
-                f"between {start_date} and {end_date}"
+                f"between {start_date} and {end_date} "
+                + (f"for loads {filtered_loads}" if filtered_loads else "(all loads)")
             )
 
             df = pd.read_sql_query(query, conn, params=params, parse_dates=["timestamp"])
@@ -982,7 +1033,7 @@ class ReportingDbQueries:
                         m.meter_ref,
                         m.description,
                         mr.timestamp_record,
-                        mr.meter_kW,
+                        mr.meter_kWh,
                         ROW_NUMBER() OVER (
                             PARTITION BY m.id 
                             ORDER BY mr.timestamp_record DESC
@@ -1003,7 +1054,7 @@ class ReportingDbQueries:
                     meter_ref,
                     description,
                     timestamp_record,
-                    meter_kW
+                    meter_kWh
                 FROM ranked_records
                 WHERE rn in ({list_rn_str})
                 ORDER BY building_name ASC, tenant_name ASC, unit_number ASC, timestamp_record DESC
@@ -1012,6 +1063,51 @@ class ReportingDbQueries:
             cursor.execute(query, (client_id,))
             rows = cursor.fetchall()
             return pd.DataFrame(rows)
+        finally:
+            if close_conn:
+                conn.close()
+
+
+    @staticmethod
+    def get_consumptions_for_loads_during_period(load_ids: List[int], timestamp_start: datetime, timestamp_end: datetime, conn: Optional[sqlite3.Connection] = None) -> pd.DataFrame:
+        """Return the consumptions for the given loads during the given period."""
+        close_conn = False
+        if conn is None:
+            conn = get_db_connection()
+            close_conn = True
+            placeholders = ",".join("?" for _ in load_ids)
+        try:
+            cursor = conn.cursor()
+            query = f"""
+                SELECT c.load_id, SUM(c.consumption_kWh) as consumption_kWh
+                FROM consumptions c
+                WHERE c.load_id IN ({placeholders}) AND c.timestamp >= ? AND c.timestamp <= ?
+                GROUP BY c.load_id 
+            """
+            start = timestamp_start.strftime("%Y-%m-%d %H:%M:%S")
+            end = timestamp_end.strftime("%Y-%m-%d %H:%M:%S")
+            cursor.execute(query, (*load_ids, start, end))
+            row = cursor.fetchall()
+            return pd.DataFrame([row], columns=['load_id', 'smappy_consumption_kWh']) if row else pd.DataFrame(columns=['load_id', 'smappy_consumption_kWh']).astype({'load_id': int, 'smappy_consumption_kWh': float})
+        finally:
+            if close_conn:
+                conn.close()
+
+    @staticmethod
+    def get_load_info(load_ids: List[int], conn: Optional[sqlite3.Connection] = None) -> pd.DataFrame:
+        """Return the load info for the given load ids."""
+        close_conn = False
+        parameters = ",".join("?" for _ in load_ids)
+        if conn is None:
+            conn = get_db_connection()
+            close_conn = True
+        try:
+            cursor = conn.cursor()
+            cursor.execute(f"SELECT l.id as id, l.load_name, l.description as load_description, u.floor, u.unit_number as unit_number FROM loads l JOIN unit_loads_history ulh ON l.id = ulh.load_id JOIN units u on ulh.unit_id = u.id WHERE ulh.is_active = 1 AND l.id IN ({parameters})", (*load_ids,))
+            rows = cursor.fetchall()
+            # Explicitly set column names since SQLite may return tuples or dicts
+            df = pd.DataFrame(rows, columns=['id', 'load_name', 'load_description', 'floor', 'unit_number'])
+            return df
         finally:
             if close_conn:
                 conn.close()

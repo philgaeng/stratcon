@@ -1,10 +1,15 @@
 "use client";
 
 import { useSelection } from "@/app/providers/SelectionProvider";
-import api, { ClientReportRequest, ReportRequest } from "@/lib/api-client";
+import api, {
+  ClientReportRequest,
+  FloorSummary,
+  ReportRequest,
+  TenantUnit,
+} from "@/lib/api-client";
+import { useAuthCompat } from "@/lib/hooks/useAuthCompat";
 import { format } from "date-fns";
 import { useCallback, useEffect, useState } from "react";
-import { useAuth } from "react-oidc-context";
 
 const resolveErrorMessage = (error: unknown): string => {
   if (error instanceof Error) return error.message;
@@ -17,21 +22,30 @@ const resolveErrorMessage = (error: unknown): string => {
 };
 
 export default function ReportsPage() {
-  const auth = useAuth();
+  const auth = useAuthCompat();
   const { selection, setClient, setTenant } = useSelection();
   const [clients, setClients] = useState<string[]>([]);
   const [tenants, setTenants] = useState<string[]>([]);
   const [selectedClient, setSelectedClient] = useState<string>("");
   const [selectedTenant, setSelectedTenant] = useState<string>("");
   const [selectedMonth, setSelectedMonth] = useState<string>("");
+  const [selectedFloor, setSelectedFloor] = useState<string>("");
+  const [selectedUnitId, setSelectedUnitId] = useState<string>("");
   const [startDate, setStartDate] = useState<string>("");
   const [startTime, setStartTime] = useState<string>("23:59");
   const [endDate, setEndDate] = useState<string>("");
   const [endTime, setEndTime] = useState<string>("23:59");
   const [isLoading, setIsLoading] = useState(false);
+  const [isFiltersLoading, setIsFiltersLoading] = useState(false);
+  const [floors, setFloors] = useState<FloorSummary[]>([]);
+  const [units, setUnits] = useState<TenantUnit[]>([]);
 
-  // Get authenticated user's email
-  const userEmail = auth.user?.profile?.email || "";
+  // Get authenticated user's email (works for both mock and real auth)
+  const authUser = auth.user as {
+    email?: string;
+    profile?: { email?: string };
+  } | null;
+  const userEmail = authUser?.email || authUser?.profile?.email || "";
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isBuildingSubmitting, setIsBuildingSubmitting] = useState(false);
   const [successMessage, setSuccessMessage] = useState<string>("");
@@ -54,20 +68,77 @@ export default function ReportsPage() {
     }
   }, []);
 
-  const loadTenants = useCallback(async (clientToken: string) => {
-    try {
-      setIsLoading(true);
-      const response = await api.getTenants(clientToken);
-      setTenants(response.tenants);
-      if (response.tenants.length > 0) {
-        setSelectedTenant(response.tenants[0]);
+  const loadFloorsForTenant = useCallback(
+    async (clientToken: string, tenantToken: string) => {
+      const response = await api.getReportTenantFloors(
+        clientToken,
+        tenantToken
+      );
+      setFloors(response.floors ?? []);
+    },
+    []
+  );
+
+  const loadUnitsForTenant = useCallback(
+    async (clientToken: string, tenantToken: string, floorValue?: number) => {
+      const response = await api.getReportTenantUnits(
+        clientToken,
+        tenantToken,
+        floorValue
+      );
+      setUnits(response.units ?? []);
+    },
+    []
+  );
+
+  const refreshFiltersForTenant = useCallback(
+    async (clientToken: string, tenantToken: string) => {
+      if (!clientToken || !tenantToken) {
+        setFloors([]);
+        setUnits([]);
+        return;
       }
-    } catch (error: unknown) {
-      setErrorMessage(`Failed to load tenants: ${resolveErrorMessage(error)}`);
-    } finally {
-      setIsLoading(false);
-    }
-  }, []);
+      setIsFiltersLoading(true);
+      try {
+        await loadFloorsForTenant(clientToken, tenantToken);
+        await loadUnitsForTenant(clientToken, tenantToken);
+      } catch (error: unknown) {
+        setFloors([]);
+        setUnits([]);
+        setErrorMessage(
+          `Failed to load floor/unit filters: ${resolveErrorMessage(error)}`
+        );
+      } finally {
+        setIsFiltersLoading(false);
+      }
+    },
+    [loadFloorsForTenant, loadUnitsForTenant]
+  );
+
+  const loadTenants = useCallback(
+    async (clientToken: string) => {
+      try {
+        setIsLoading(true);
+        const response = await api.getTenants(clientToken);
+        setTenants(response.tenants);
+        if (response.tenants.length > 0) {
+          const defaultTenant = response.tenants[0];
+          setSelectedTenant(defaultTenant);
+          await refreshFiltersForTenant(clientToken, defaultTenant);
+        } else {
+          setFloors([]);
+          setUnits([]);
+        }
+      } catch (error: unknown) {
+        setErrorMessage(
+          `Failed to load tenants: ${resolveErrorMessage(error)}`
+        );
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [refreshFiltersForTenant]
+  );
 
   // Protect route - redirect to login if not authenticated
   useEffect(() => {
@@ -90,18 +161,66 @@ export default function ReportsPage() {
     } else {
       setTenants([]);
       setSelectedTenant("");
+      setFloors([]);
+      setUnits([]);
+      setSelectedFloor("");
+      setSelectedUnitId("");
     }
   }, [auth.isLoading, auth.isAuthenticated, selectedClient, loadTenants]);
+
+  useEffect(() => {
+    const fetchFilters = async () => {
+      if (
+        auth.isLoading ||
+        !auth.isAuthenticated ||
+        !selectedClient ||
+        !selectedTenant
+      ) {
+        setFloors([]);
+        setUnits([]);
+        setSelectedFloor("");
+        setSelectedUnitId("");
+        return;
+      }
+      setSelectedFloor("");
+      setSelectedUnitId("");
+      await refreshFiltersForTenant(selectedClient, selectedTenant);
+    };
+    void fetchFilters();
+  }, [
+    auth.isLoading,
+    auth.isAuthenticated,
+    selectedClient,
+    selectedTenant,
+    refreshFiltersForTenant,
+  ]);
 
   // Sync from explorer selection to form
   useEffect(() => {
     if (selection.client && selection.client !== selectedClient) {
       setSelectedClient(selection.client);
     }
+
     if (selection.tenant && selection.tenant !== selectedTenant) {
       setSelectedTenant(selection.tenant);
+      if (selection.client) {
+        void refreshFiltersForTenant(selection.client, selection.tenant);
+      }
     }
-  }, [selection.client, selection.tenant, selectedClient, selectedTenant]);
+
+    if (!selection.tenant) {
+      setFloors([]);
+      setUnits([]);
+      setSelectedFloor("");
+      setSelectedUnitId("");
+    }
+  }, [
+    selection.client,
+    selection.tenant,
+    selectedClient,
+    selectedTenant,
+    refreshFiltersForTenant,
+  ]);
 
   // Sync form changes back to explorer (so user can also select from dropdowns)
   const handleClientChange = (client: string) => {
@@ -112,10 +231,96 @@ export default function ReportsPage() {
   const handleTenantChange = (tenant: string) => {
     setSelectedTenant(tenant);
     setTenant(tenant);
+    setSelectedFloor("");
+    setSelectedUnitId("");
+
+    if (!tenant || !selectedClient) {
+      setFloors([]);
+      setUnits([]);
+      return;
+    }
+
+    void refreshFiltersForTenant(selectedClient, tenant);
   };
 
+  const handleFloorChange = async (value: string) => {
+    setSelectedFloor(value);
+    setSelectedUnitId("");
+    if (!selectedClient || !selectedTenant) {
+      return;
+    }
+    setIsFiltersLoading(true);
+    try {
+      const floorValue = value ? parseInt(value, 10) : undefined;
+      await loadUnitsForTenant(selectedClient, selectedTenant, floorValue);
+    } finally {
+      setIsFiltersLoading(false);
+    }
+  };
+
+  const renderFloorUnitSelectors = () => (
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div>
+        <label className="form-label">Floor (Optional)</label>
+        <select
+          value={selectedFloor}
+          onChange={(e) => void handleFloorChange(e.target.value)}
+          disabled={
+            isLoading ||
+            isFiltersLoading ||
+            !selectedClient ||
+            !selectedTenant ||
+            floors.length === 0
+          }
+          className="form-input"
+        >
+          <option value="">All floors</option>
+          {floors.map((floor) => (
+            <option
+              key={`floor-${floor.floor ?? "unknown"}`}
+              value={floor.floor ?? ""}
+            >
+              {floor.floor !== null ? `Floor ${floor.floor}` : "No floor"}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div>
+        <label className="form-label">Unit (Optional)</label>
+        <select
+          value={selectedUnitId}
+          onChange={(e) => setSelectedUnitId(e.target.value)}
+          disabled={
+            isLoading ||
+            isFiltersLoading ||
+            !selectedClient ||
+            !selectedTenant ||
+            units.length === 0
+          }
+          className="form-input"
+        >
+          <option value="">
+            {selectedFloor ? "All units on selected floor" : "All units"}
+          </option>
+          {units.map((unit) => {
+            const label =
+              unit.name || unit.unit_number || `Unit ${unit.unit_id}`;
+            const floorSuffix =
+              unit.floor !== null ? ` (Floor ${unit.floor})` : "";
+            return (
+              <option key={unit.unit_id} value={unit.unit_id}>
+                {label}
+                {floorSuffix}
+              </option>
+            );
+          })}
+        </select>
+      </div>
+    </div>
+  );
+
   const handleBuildingReport = async (
-    reportType: "billing-info" | "latest-records"
+    reportType: "billing-info" | "latest-records" | "billing-comparison"
   ) => {
     setErrorMessage("");
     setSuccessMessage("");
@@ -137,13 +342,24 @@ export default function ReportsPage() {
         user_email: userEmail,
       };
 
-      const response =
+      let response;
+      if (reportType === "billing-info") {
+        response = await api.generateBillingInfo(request);
+      } else if (reportType === "latest-records") {
+        response = await api.generateLastRecords(request);
+      } else {
+        response = await api.generateBillingComparison(request);
+      }
+
+      const readableName =
         reportType === "billing-info"
-          ? await api.generateBillingInfo(request)
-          : await api.generateLastRecords(request);
+          ? "Billing info"
+          : reportType === "latest-records"
+          ? "Last records"
+          : "Billing comparison";
 
       setSuccessMessage(
-        `Report generation started! ${response.message}. You will receive an email at ${userEmail} when the report is ready.`
+        `${readableName} report generation started! ${response.message}. You will receive an email at ${userEmail} when the report is ready.`
       );
     } catch (error: unknown) {
       setErrorMessage(
@@ -184,6 +400,12 @@ export default function ReportsPage() {
       if (endDate && endTime) {
         request.end_date = endDate;
         request.end_time = endTime;
+      }
+      if (selectedFloor) {
+        request.floor = parseInt(selectedFloor, 10);
+      }
+      if (selectedUnitId) {
+        request.unit_id = parseInt(selectedUnitId, 10);
       }
 
       const response = await api.generateReport(request);
@@ -256,12 +478,17 @@ export default function ReportsPage() {
               <div className="tile-content">
                 {/* h2 uses Montserrat - standard font for headings */}
                 <h2 className="text-lg font-semibold text-gray-800">
-                  Generate Month Report
+                  Monthly Energy Analysis Report
                 </h2>
                 {/* p uses Inter via globals.css body font */}
                 <p className="text-sm text-gray-700">
-                  Generates reports for the last complete cutoff month for the
-                  selected scope.
+                  Generates an energy analysis report for the last complete
+                  cutoff month for the selected scope.
+                  <br />
+                  The report includes energy consumption, energy intensity, peak
+                  power, always on power, and energy per load.
+                  <br />
+                  The report is emailed to you.
                 </p>
                 {selection.client && (
                   <div className="text-xs text-gray-600">
@@ -322,6 +549,7 @@ export default function ReportsPage() {
                     ))}
                   </select>
                 </div>
+                {renderFloorUnitSelectors()}
                 <button
                   type="button"
                   disabled={
@@ -356,6 +584,12 @@ export default function ReportsPage() {
                       if (selectedMonth) {
                         request.month = selectedMonth;
                       }
+                      if (selectedFloor) {
+                        request.floor = parseInt(selectedFloor, 10);
+                      }
+                      if (selectedUnitId) {
+                        request.unit_id = parseInt(selectedUnitId, 10);
+                      }
                       const res = await api.generateReport(request);
                       setSuccessMessage(
                         `Report generation started! ${res.message}. You will receive an email at ${userEmail} when the report is ready.`
@@ -372,7 +606,7 @@ export default function ReportsPage() {
                   }}
                   className="btn-primary"
                 >
-                  {isSubmitting ? "Working…" : "Generate Last Complete Month"}
+                  {isSubmitting ? "Working…" : "Generate Report"}
                 </button>
               </div>
             </section>
@@ -381,8 +615,16 @@ export default function ReportsPage() {
             <form onSubmit={handleSubmit} className="tile-spaced">
               <div className="tile-content">
                 <h2 className="text-lg font-semibold text-gray-800">
-                  Generate Custom Report
+                  Custom Energy Analysis Report
                 </h2>
+                <p className="text-sm text-gray-700">
+                  Generates an energy analysis report for the selected scope.
+                  <br />
+                  The report includes energy consumption, energy intensity, peak
+                  power, always on power, and energy per load.
+                  <br />
+                  The report is emailed to you.
+                </p>
                 {/* Client Selection */}
                 <div>
                   <label htmlFor="client" className="form-label-spaced">
@@ -424,6 +666,8 @@ export default function ReportsPage() {
                     ))}
                   </select>
                 </div>
+
+                {renderFloorUnitSelectors()}
 
                 {/* Start Date and Time - side by side */}
                 <div className="form-row">
@@ -535,55 +779,109 @@ export default function ReportsPage() {
             </form>
           </div>
           {/* Client Reports column */}
-          <section
-            className="tile-spaced"
+          <div
             style={{
               flex: "0 0 calc(40% - 1rem)",
+              display: "flex",
+              flexDirection: "column",
+              gap: "1.2rem",
             }}
           >
-            <div className="tile-content">
-              <div>
-                <h2 className="text-lg font-semibold text-gray-800">
-                  Generate Client Reports
-                </h2>
-                <p className="text-sm text-gray-700">
-                  Generate CSV reports for all tenants in the selected client.
-                  Reports will be emailed to you.
-                </p>
-              </div>
+            <section className="tile-spaced">
+              <div className="tile-content">
+                <div>
+                  <h2 className="text-lg font-semibold text-gray-800">
+                    Accounting - Client Reports
+                  </h2>
+                  <p className="text-sm text-gray-700">
+                    Generate CSV reports for all tenants of the selected
+                    clients.
+                    <br />
+                    The billing info report is used to generate the billing info
+                    for the client. The last records report is used for data
+                    entry.
+                    <br />
+                    Reports will be emailed to you.
+                  </p>
+                </div>
 
-              <div className="btn-group-two">
-                <button
-                  type="button"
-                  onClick={() => handleBuildingReport("billing-info")}
-                  disabled={
-                    isBuildingSubmitting ||
-                    isLoading ||
-                    !selectedClient ||
-                    !auth.isAuthenticated ||
-                    !userEmail
-                  }
-                  className="btn-primary"
-                >
-                  {isBuildingSubmitting ? "Working…" : "Generate Billing Info"}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => handleBuildingReport("latest-records")}
-                  disabled={
-                    isBuildingSubmitting ||
-                    isLoading ||
-                    !selectedClient ||
-                    !auth.isAuthenticated ||
-                    !userEmail
-                  }
-                  className="btn-primary"
-                >
-                  {isBuildingSubmitting ? "Working…" : "Generate Last Records"}
-                </button>
+                <div className="btn-group-two">
+                  <button
+                    type="button"
+                    onClick={() => handleBuildingReport("billing-info")}
+                    disabled={
+                      isBuildingSubmitting ||
+                      isLoading ||
+                      !selectedClient ||
+                      !auth.isAuthenticated ||
+                      !userEmail
+                    }
+                    className="btn-primary"
+                  >
+                    {isBuildingSubmitting
+                      ? "Working…"
+                      : "Generate Billing Report"}
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleBuildingReport("latest-records")}
+                    disabled={
+                      isBuildingSubmitting ||
+                      isLoading ||
+                      !selectedClient ||
+                      !auth.isAuthenticated ||
+                      !userEmail
+                    }
+                    className="btn-primary"
+                  >
+                    {isBuildingSubmitting
+                      ? "Working…"
+                      : "Generate Last Records"}
+                  </button>
+                </div>
               </div>
-            </div>
-          </section>
+            </section>
+            <section className="tile-spaced">
+              <div className="tile-content">
+                <div>
+                  <h2 className="text-lg font-semibold text-gray-800">
+                    Billing - Energy Analysis Comparison
+                  </h2>
+                  <div className="text-sm text-gray-700">
+                    <p>
+                      Compare the values between meter readings and Smappy
+                      consumption records for all the tenants of the selected
+                      client.
+                    </p>
+                    <p>The report includes the following information:</p>
+                    <ul>
+                      <li> - meter reading</li>
+                      <li> - Smappy consumption</li>
+                      <li> - difference</li>
+                      <li> - percentage difference</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="mt-4 flex flex-col gap-3">
+                  <button
+                    type="button"
+                    onClick={() => handleBuildingReport("billing-comparison")}
+                    disabled={
+                      isBuildingSubmitting ||
+                      isLoading ||
+                      !selectedClient ||
+                      !auth.isAuthenticated ||
+                      !userEmail
+                    }
+                    className="btn-primary"
+                  >
+                    {isBuildingSubmitting ? "Working…" : "Generate Comparison"}
+                  </button>
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
         {(errorMessage || successMessage) && (
           <div className="mt-6 space-y-4">

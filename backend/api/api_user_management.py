@@ -14,7 +14,7 @@ from datetime import datetime
 from fastapi import APIRouter, HTTPException, Query, Request, status
 from pydantic import BaseModel, EmailStr, Field
 
-from backend.services.auth.permissions import UserRole, require_roles, get_user_role_from_request
+from backend.services.auth.permissions import UserRole, require_roles, get_user_role_from_request, APP_PERMISSIONS
 from backend.services.data.db_manager.db_schema import get_db_connection
 from backend.services.settings.app_config import AppConfigManager
 
@@ -96,7 +96,7 @@ class RolesResponse(BaseModel):
 # ============================================================================
 
 @user_router.get("/", response_model=UserListResponse)
-@require_roles(UserRole.SUPER_ADMIN, UserRole.CLIENT_ADMIN)
+@require_roles(*APP_PERMISSIONS["settings"])
 async def list_users(
     request: Request,
     active_only: bool = Query(True, description="Filter to active users only"),
@@ -172,7 +172,7 @@ async def list_users(
 
 
 @user_router.get("/{user_id}", response_model=UserResponse)
-@require_roles(UserRole.SUPER_ADMIN, UserRole.CLIENT_ADMIN)
+@require_roles(*APP_PERMISSIONS["settings"])
 async def get_user(request: Request, user_id: int):
     """
     Get a specific user by ID.
@@ -222,7 +222,7 @@ async def get_user(request: Request, user_id: int):
 
 
 @user_router.post("/", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
-@require_roles(UserRole.SUPER_ADMIN, UserRole.CLIENT_ADMIN)
+@require_roles(*APP_PERMISSIONS["settings"])
 async def create_user(request: Request, user_data: UserCreateRequest):
     """
     Create a new user.
@@ -321,7 +321,7 @@ async def create_user(request: Request, user_data: UserCreateRequest):
 
 
 @user_router.put("/{user_id}", response_model=UserResponse)
-@require_roles(UserRole.SUPER_ADMIN, UserRole.CLIENT_ADMIN)
+@require_roles(*APP_PERMISSIONS["settings"])
 async def update_user(request: Request, user_id: int, user_data: UserUpdateRequest):
     """
     Update an existing user.
@@ -452,7 +452,7 @@ async def update_user(request: Request, user_id: int, user_data: UserUpdateReque
 
 
 @user_router.delete("/{user_id}", status_code=status.HTTP_204_NO_CONTENT)
-@require_roles(UserRole.SUPER_ADMIN)
+@require_roles(*APP_PERMISSIONS["settings/super_admin"])
 async def delete_user(request: Request, user_id: int):
     """
     Delete a user (soft delete by setting active=False).
@@ -496,7 +496,7 @@ async def delete_user(request: Request, user_id: int):
 # ============================================================================
 
 @user_router.get("/roles", response_model=RolesResponse)
-@require_roles(UserRole.SUPER_ADMIN, UserRole.CLIENT_ADMIN, UserRole.CLIENT_MANAGER)
+@require_roles(*APP_PERMISSIONS["settings/roles"])
 async def get_roles(request: Request):
     """
     Get all available roles and their permissions from JSON config.
@@ -520,7 +520,7 @@ async def get_roles(request: Request):
 
 
 @user_router.get("/roles/{role_name}", response_model=RoleInfoResponse)
-@require_roles(UserRole.SUPER_ADMIN, UserRole.CLIENT_ADMIN, UserRole.CLIENT_MANAGER)
+@require_roles(*APP_PERMISSIONS["settings/roles"])
 async def get_role(request: Request, role_name: str):
     """
     Get information about a specific role.

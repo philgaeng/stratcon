@@ -330,10 +330,14 @@ def init_database() -> None:
                 load_id INTEGER NOT NULL,
                 load_name TEXT NOT NULL,
                 load_kW REAL NOT NULL,
+                consumption_kWh REAL,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 FOREIGN KEY (load_id) REFERENCES loads(id) ON DELETE CASCADE
             )
         """)
+
+        if not _table_has_columns(cursor, "consumptions", {"consumption_kWh"}):
+            cursor.execute("ALTER TABLE consumptions ADD COLUMN consumption_kWh REAL")
         
         # 16. Files Compiled
         cursor.execute("""
@@ -354,11 +358,19 @@ def init_database() -> None:
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 meter_id INTEGER NOT NULL,
                 timestamp_record TIMESTAMP NOT NULL,
-                meter_kW REAL NOT NULL,
+                meter_kWh REAL NOT NULL,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 FOREIGN KEY (meter_id) REFERENCES meters(id) ON DELETE CASCADE
             )
         """)
+
+        cursor.execute("PRAGMA table_info(meter_records)")
+        meter_records_columns = {row[1] for row in cursor.fetchall()}
+        if "meter_kWh" not in meter_records_columns:
+            if "meter_kW" in meter_records_columns:
+                cursor.execute("ALTER TABLE meter_records RENAME COLUMN meter_kW TO meter_kWh")
+            else:
+                cursor.execute("ALTER TABLE meter_records ADD COLUMN meter_kWh REAL")
         
         # ============================================================================
         # Indexes

@@ -237,7 +237,7 @@ class CutoffSettingsManager:
                 return None
             
             # Create cutoff datetime from settings
-            from ..domain.data_preparation.cutoff_manager import CutoffManager
+            from backend.services.domain.data_preparation.cutoff_manager import CutoffManager
             
             cutoff_datetime = CutoffManager.create_cutoff_datetime(cutoff_day, cutoff_hour, cutoff_minute, cutoff_second)
             

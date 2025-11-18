@@ -4,17 +4,28 @@
 from __future__ import annotations
 
 from pathlib import Path
-from dataclasses import dataclass
-from typing import Any, Dict, List, Optional, cast
+from typing import Any, Dict, List, Optional
 
 from fastapi import APIRouter, BackgroundTasks, HTTPException, Request
 from pydantic import BaseModel
 
+from backend.api.api_helpers import (
+    AUTH_BYPASS_SCOPE,
+    UserScope,
+    _ensure_client_access,
+    _execute_report_job,
+    _get_user_scope,
+    _resolve_client,
+    _resolve_tenant_for_client,
+)
+from backend.services.core.config import DEFAULT_CLIENT
+from backend.services.core.utils import ReportLogger
+from backend.services.data.db_manager import DbQueries
 from backend.services.domain.reporting import (
-    generate_report_for_tenant_artifacts,
     generate_reports_for_client,
     execute_last_records_job,
     execute_billing_info_job,
+    execute_billing_comparison_job,
 )
 from backend.services.domain.reporting.settings_helpers import (
     get_all_client_settings,
@@ -22,153 +33,6 @@ from backend.services.domain.reporting.settings_helpers import (
     set_client_settings,
     set_tenant_settings,
 )
-from backend.services.core.config import DEFAULT_CLIENT
-from backend.services.data.db_manager import DbQueries
-from backend.services.services.email import send_report_email
-from backend.services.core.utils import ReportLogger
-
-
-@dataclass
-class UserScope:
-    user_id: Optional[int]
-    epc_ids: List[int]
-    client_ids: List[int]
-    tenant_ids: List[int]
-
-
-def _normalize_ids(value: Optional[Any]) -> List[int]:
-    if value is None:
-        return []
-    if isinstance(value, (list, tuple, set)):
-        result: List[int] = []
-        for item in value:
-            if item is None:
-                continue
-            try:
-                result.append(int(cast(Any, item)))
-            except (TypeError, ValueError):
-                continue
-        return result
-    try:
-        return [int(cast(Any, value))]
-    except (TypeError, ValueError):
-        return []
-
-
-def _parse_user_id(raw_value: Optional[str], *, source: str) -> Optional[int]:
-    if raw_value is None:
-        return None
-    candidate = raw_value.strip()
-    if not candidate:
-        return None
-    try:
-        return int(candidate)
-    except ValueError as exc:  # pragma: no cover - input validation
-        raise HTTPException(status_code=400, detail=f"Invalid {source}: {raw_value}") from exc
-
-
-def _get_user_scope(request: Request) -> UserScope:
-    header_user_id = request.headers.get("x-user-id") or request.headers.get("x-userid")
-    user_id = _parse_user_id(header_user_id, source="X-User-Id header")
-    if user_id is None:
-        query_user_id = request.query_params.get("user_id")
-        user_id = _parse_user_id(query_user_id, source="user_id query parameter")
-
-    if user_id is None:
-        return UserScope(user_id=None, epc_ids=[], client_ids=[], tenant_ids=[])
-
-    info = DbQueries.get_info_for_user(user_id)
-    epc_ids = sorted(set(_normalize_ids(info.get("epc_id"))))
-    client_ids = _normalize_ids(info.get("client_id"))
-    tenant_ids = sorted(set(_normalize_ids(info.get("tenant_id"))))
-
-    for tenant_id in tenant_ids:
-        client_id = DbQueries.get_client_id_for_tenant(tenant_id)
-        if client_id is not None:
-            client_ids.append(client_id)
-
-    client_ids = sorted({client_id for client_id in client_ids if client_id is not None})
-
-    return UserScope(
-        user_id=user_id,
-        epc_ids=epc_ids,
-        client_ids=client_ids,
-        tenant_ids=tenant_ids,
-    )
-
-
-def _resolve_client(client_token: str) -> Dict[str, Any]:
-    lookup: Optional[Dict[str, Any]] = None
-    if client_token.isdigit():
-        lookup = DbQueries.get_client_by_id(int(client_token))
-    if lookup is None:
-        lookup = DbQueries.get_client_by_name(client_token)
-    if lookup is None:
-        raise HTTPException(status_code=404, detail=f"Client '{client_token}' not found.")
-    return lookup
-
-
-def _ensure_client_access(scope: UserScope, client_id: int) -> None:
-    if scope.user_id is None:
-        return
-    if not scope.client_ids:
-        raise HTTPException(
-            status_code=403,
-            detail="Current user does not have access to any clients.",
-        )
-    if client_id not in scope.client_ids:
-        raise HTTPException(
-            status_code=403,
-            detail="Current user does not have access to the requested client.",
-        )
-
-
-def _execute_report_job(
-    *,
-    tenant_id: int,
-    client_id: int,
-    client_name: str,
-    tenant_name: str,
-    user_email: Optional[str],
-    source: str,
-    output_dir: Optional[Path],
-    start_date: Optional[Any],
-    end_date: Optional[Any],
-    month: Optional[str],
-    cutoff_datetime: Optional[Any],
-) -> None:
-    """Background task that generates a report and emails it if requested."""
-    logger = ReportLogger()
-    try:
-        report_path, metadata, _html = generate_report_for_tenant_artifacts(
-            tenant_id=tenant_id,
-            client_id=client_id,
-            output_dir=output_dir,
-            start_date=start_date,
-            end_date=end_date,
-            source=source,
-            logger=logger,
-        )
-        logger.info(
-            f"✅ Report generated for tenant {metadata.get('tenant_name', tenant_name)} ({tenant_id}) at {report_path}"
-        )
-
-        if user_email:
-            logger.debug(f"sending report email to {user_email} for client {metadata.get('client_name') or client_name} and tenant {metadata.get('tenant_name') or tenant_name} with last month {metadata.get('last_month') or month}")
-            success = send_report_email(
-                email=user_email,
-                client_name=metadata.get("client_name") or client_name,
-                tenant_name=metadata.get("tenant_name") or tenant_name,
-                last_month=metadata.get("last_month") or month,
-                attachments=[report_path],
-                logger=logger,
-            )
-            if success:
-                logger.info(f"📬 Email sent to {user_email}")
-            else:
-                logger.warning(f"⚠️ Failed to send report email to {user_email}")
-    except Exception as exc:  # pragma: no cover - defensive logging
-        logger.error(f"❌ Error generating report for tenant {tenant_id}: {exc}")
 
 
 reporting_router = APIRouter(tags=["Reporting"])
@@ -186,6 +50,9 @@ class TenantReportRequest(BaseModel):
     end_date: Optional[str] = None  # Format: YYYY-MM-DD
     end_time: Optional[str] = None  # Format: HH:mm
     user_email: Optional[str] = None  # Email to send report to
+    floor: Optional[int] = None
+    unit_id: Optional[int] = None
+    load_ids: Optional[List[int]] = None
 
 
 class ClientReportRequest(BaseModel):
@@ -196,7 +63,7 @@ class ClientReportRequest(BaseModel):
 @reporting_router.get("/clients", response_model=dict)
 async def get_clients(request: Request):
     scope = _get_user_scope(request)
-    client_filter = None if scope.user_id is None else scope.client_ids
+    client_filter = None if not scope.client_ids else scope.client_ids
     try:
         clients = DbQueries.list_clients(client_ids=client_filter)
         return {
@@ -272,6 +139,73 @@ async def get_tenants(request: Request, client_token: str = DEFAULT_CLIENT):
         raise HTTPException(status_code=500, detail=f"Failed to list tenants: {exc}")
 
 
+@reporting_router.get("/tenant/floors", response_model=dict)
+async def get_tenant_floors_for_reports(
+    request: Request,
+    client_token: str = DEFAULT_CLIENT,
+    tenant_token: str = "",
+):
+    if not tenant_token:
+        raise HTTPException(status_code=400, detail="tenant_token is required")
+
+    scope = _get_user_scope(request)
+    client_row = _resolve_client(client_token)
+    _ensure_client_access(scope, client_row["id"])
+    tenant_row = _resolve_tenant_for_client(
+        scope=scope,
+        client_row=client_row,
+        tenant_token=tenant_token,
+    )
+    tenant_id = tenant_row["id"]
+    try:
+        floors = DbQueries.get_floors_for_tenant(
+            tenant_id,
+            tenant_token=tenant_token,
+        )
+        return {
+            "tenant_id": tenant_id,
+            "tenant": tenant_row["name"],
+            "floors": floors,
+        }
+    except Exception as exc:  # pragma: no cover
+        raise HTTPException(status_code=500, detail=f"Failed to list floors: {exc}")
+
+
+@reporting_router.get("/tenant/units", response_model=dict)
+async def get_tenant_units_for_reports(
+    request: Request,
+    client_token: str = DEFAULT_CLIENT,
+    tenant_token: str = "",
+    floor: Optional[int] = None,
+):
+    if not tenant_token:
+        raise HTTPException(status_code=400, detail="tenant_token is required")
+
+    scope = _get_user_scope(request)
+    client_row = _resolve_client(client_token)
+    _ensure_client_access(scope, client_row["id"])
+    tenant_row = _resolve_tenant_for_client(
+        scope=scope,
+        client_row=client_row,
+        tenant_token=tenant_token,
+    )
+    tenant_id = tenant_row["id"]
+
+    try:
+        units = DbQueries.get_units_for_tenant(
+            tenant_id,
+            floor=floor,
+            tenant_token=tenant_token,
+        )
+        return {
+            "tenant_id": tenant_id,
+            "tenant": tenant_row["name"],
+            "units": units,
+        }
+    except Exception as exc:  # pragma: no cover
+        raise HTTPException(status_code=500, detail=f"Failed to list units: {exc}")
+
+
 @reporting_router.post("/reports/tenant", response_model=dict)
 async def generate_tenant_reports(
     request: TenantReportRequest,
@@ -284,29 +218,12 @@ async def generate_tenant_reports(
     _ensure_client_access(scope, client_id)
     logger = ReportLogger()
 
-    tenant_token = request.tenant_token
-    tenant_row: Optional[Dict[str, Any]] = None
-    if tenant_token.isdigit():
-        tenant_row = DbQueries.get_tenant_by_id(int(tenant_token))
-        if tenant_row is None or tenant_row["client_id"] != client_id:
-            raise HTTPException(
-                status_code=404,
-                detail=f"Tenant '{tenant_token}' not found for client '{client_row['name']}'.",
-            )
-    else:
-        tenant_row = DbQueries.get_tenant_by_name(client_id=client_id, tenant_name=tenant_token)
-        if tenant_row is None:
-            raise HTTPException(
-                status_code=404,
-                detail=f"Tenant '{tenant_token}' not found for client '{client_row['name']}'.",
-            )
-
+    tenant_row = _resolve_tenant_for_client(
+        scope=scope,
+        client_row=client_row,
+        tenant_token=request.tenant_token,
+    )
     tenant_id = tenant_row["id"]
-    if scope.tenant_ids and tenant_id not in scope.tenant_ids:
-        raise HTTPException(
-            status_code=403,
-            detail="Current user does not have access to the requested tenant.",
-        )
 
     try:
         loads_summary_path = (
@@ -352,10 +269,39 @@ async def generate_tenant_reports(
                     detail=f"Invalid end_date or end_time format: {exc}",
                 ) from exc
 
+        selected_load_ids: Optional[List[int]] = None
+        if request.load_ids:
+            selected_load_ids = [
+                int(load_id)
+                for load_id in request.load_ids
+                if load_id is not None
+            ]
+            if not selected_load_ids:
+                raise HTTPException(status_code=400, detail="load_ids cannot be empty")
+        elif request.unit_id is not None:
+            selected_load_ids = DbQueries.find_load_ids_by_unit(request.unit_id)
+            if not selected_load_ids:
+                raise HTTPException(
+                    status_code=404,
+                    detail=f"No loads found for unit_id={request.unit_id}",
+                )
+        elif request.floor is not None:
+            selected_load_ids = DbQueries.find_load_ids_by_tenant_floor(
+                tenant_id=tenant_id,
+                floor=request.floor,
+            )
+            if not selected_load_ids:
+                raise HTTPException(
+                    status_code=404,
+                    detail=f"No loads found for tenant '{tenant_row['name']}' on floor {request.floor}",
+                )
+
         logger.debug(
             f"Queueing tenant report job for client {client_row['name']} ({client_id}), "
             f"tenant {tenant_row['name']} ({tenant_id}), month={request.month or 'all'}, "
-            f"user_email={request.user_email or 'none'}"
+            f"user_email={request.user_email or 'none'}, "
+            f"floor={request.floor if request.floor is not None else 'all'}, "
+            f"unit_id={request.unit_id if request.unit_id is not None else 'all'}"
         )
         background_tasks.add_task(
             _execute_report_job,
@@ -370,6 +316,7 @@ async def generate_tenant_reports(
             end_date=end_datetime,
             month=request.month,
             cutoff_datetime=cutoff_datetime,
+            load_ids=selected_load_ids,
         )
 
         logger.info(
@@ -392,7 +339,9 @@ async def generate_tenant_reports(
 async def generate_client_reports(
     request: ClientReportRequest,
     background_tasks: BackgroundTasks,
+    fastapi_request: Request,
 ):
+    scope = _get_user_scope(fastapi_request)
     try:
         loads_summary_path = (
             Path(request.loads_summary_path) if request.loads_summary_path else None
@@ -425,6 +374,11 @@ class LastRecordsRequest(BaseModel):
 class BillingInfoRequest(BaseModel):
     client_token: str = DEFAULT_CLIENT
     user_email: str  # Email to send report to
+
+
+class BillingComparisonRequest(BaseModel):
+    client_token: str = DEFAULT_CLIENT
+    user_email: str
 
 
 @reporting_router.post("/reports/generate_last_records", response_model=dict)
@@ -487,6 +441,43 @@ async def generate_billing_info(
     return {
         "status": "started",
         "message": f"Billing info generation started for client: {client_row['name']}",
+        "client": client_row["name"],
+    }
+
+
+@reporting_router.get("/debug/auth-scope")
+async def debug_auth_scope():
+    return {"AUTH_BYPASS_SCOPE": AUTH_BYPASS_SCOPE}
+
+
+@reporting_router.post("/reports/generate_billing_comparison", response_model=dict)
+async def generate_billing_comparison(
+    request: BillingComparisonRequest,
+    background_tasks: BackgroundTasks,
+    fastapi_request: Request,
+):
+    """Generate and email the billing comparison CSV for a client."""
+    scope = _get_user_scope(fastapi_request)
+    client_row = _resolve_client(request.client_token or DEFAULT_CLIENT)
+    client_id = client_row["id"]
+    _ensure_client_access(scope, client_id)
+
+    logger = ReportLogger()
+    logger.info(
+        f"Queueing billing comparison job for client {client_row['name']} ({client_id}), "
+        f"email={request.user_email}"
+    )
+
+    background_tasks.add_task(
+        execute_billing_comparison_job,
+        client_id=client_id,
+        client_name=client_row["name"],
+        user_email=request.user_email,
+    )
+
+    return {
+        "status": "started",
+        "message": f"Billing comparison generation started for client: {client_row['name']}",
         "client": client_row["name"],
     }
 

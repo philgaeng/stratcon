@@ -1,10 +1,10 @@
 "use client";
 
 import api from "@/lib/api-client";
+import { useAuthCompat } from "@/lib/hooks/useAuthCompat";
 import { formatMeterId, generateSessionId } from "@/lib/meter-utils";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { useAuth } from "react-oidc-context";
 
 const resolveErrorMessage = (error: unknown): string => {
   if (error instanceof Error) return error.message;
@@ -26,7 +26,7 @@ interface ReadingEntry {
 }
 
 export default function ReviewPage() {
-  const auth = useAuth();
+  const auth = useAuthCompat();
   const router = useRouter();
   const params = useParams();
   const searchParams = useSearchParams();
@@ -204,7 +204,7 @@ export default function ReviewPage() {
         (entry) => ({
           meter_id: entry.meterId,
           timestamp_record: entry.timestamp.toISOString(),
-          meter_kW: entry.reading,
+          meter_kWh: entry.reading,
           client_record_id: `${sessionId}:${
             entry.meterPk
           }:${entry.timestamp.toISOString()}`,
@@ -259,7 +259,7 @@ export default function ReviewPage() {
   const readingsWithDeltas = entriesWithReadings.map((entry) => {
     const meter = meters.find((m) => m.meter_pk === entry.meterPk);
     const lastReading = meter?.last_record;
-    const delta = lastReading ? entry.reading - lastReading.meter_kW : null;
+    const delta = lastReading ? entry.reading - lastReading.meter_kWh : null;
     return { entry, meter, delta, lastReading };
   });
 
@@ -311,7 +311,7 @@ export default function ReviewPage() {
                   {formatMeterId(entry.meterId)}
                 </td>
                 <td className="p-2 text-right text-gray-600">
-                  {lastReading ? lastReading.meter_kW.toFixed(1) : "—"}
+                  {lastReading ? lastReading.meter_kWh.toFixed(1) : "—"}
                 </td>
                 <td className="p-2 text-right">{entry.reading.toFixed(1)}</td>
                 <td

@@ -15,6 +15,7 @@ from dateutil.relativedelta import relativedelta
 from backend.services.core.config import PHILIPPINES_TZ, verify_source_type
 from backend.services.core.utils import ReportLogger
 from backend.services.data.db_manager import DbQueries
+from backend.services.domain.utils import normalize_month_year
 
 _DEFAULT_CUTOFF_VALUES: Dict[str, int] = {
     "cutoff_day": 1,
@@ -149,7 +150,8 @@ class CutoffManager:
             try:
                 month_cutoff = part_df['timestamp'].dt.month.value_counts().idxmax()
                 year_cutoff = part_df['timestamp'].dt.year.value_counts().idxmax()
-                month_year_cutoff = f"{year_cutoff}-{month_cutoff}"
+                # Normalize to YYYY-MM format (with leading zero for month)
+                month_year_cutoff = normalize_month_year(f"{year_cutoff}-{month_cutoff}")
                 tagged_part_df = part_df.assign(**{"Year-Month-cut-off": month_year_cutoff})
                 result_frames.append(tagged_part_df)
             except Exception as tagging_error:  # pragma: no cover - defensive
@@ -316,7 +318,7 @@ class CutoffManager:
                 if self.valid_mapping(mapping) == False:
                     self.logger.debug(f"invalid mapping found for tenant {tenant_id}, falling back to default cutoff values")
                     return self.generate_cutoff_month_column_for_tenant_from_default_values(df, tenant_id, "building")
-                return self.generate_cutoff_month_column_for_tenant_from_meter_records(df, tenant_id, mapping)
+                return self.generate_cutoff_month_column_for_tenant_from_meter_records(df, mapping)
         except Exception as e:
             self.logger.error(f"❌ Error generating cutoff month column for tenant {tenant_id}: {e}")
             raise ValueError(f"Error generating cutoff month column for tenant {tenant_id}: {e}") from e
@@ -378,7 +380,9 @@ class CutoffManager:
             raise ValueError("Cannot extract last month from empty cutoff column")
         periods = pd.PeriodIndex(valid.astype(str), freq="M")
         last_period = periods.max()
-        return str(last_period)
+        # Normalize to YYYY-MM format (with leading zero for month)
+        # Cast to Period to satisfy type checker
+        return normalize_month_year(cast(pd.Period, last_period))
 
 
 __all__ = ["CutoffManager"]

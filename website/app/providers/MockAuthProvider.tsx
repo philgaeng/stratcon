@@ -20,6 +20,14 @@ interface MockAuthContextType {
 
 const MockAuthContext = createContext<MockAuthContextType | null>(null);
 
+const DEFAULT_USER_ID = "6";
+const DEFAULT_USER: MockUser = {
+  sub: "mock-user-123",
+  email: "philippe@stratcon.ph",
+  email_verified: true,
+  name: "Philippe Stratcon",
+};
+
 export function useMockAuth() {
   const context = useContext(MockAuthContext);
   if (!context) {
@@ -45,12 +53,24 @@ export default function MockAuthProvider({ children }: MockAuthProviderProps) {
       const storedUser = sessionStorage.getItem("mock_user");
       if (storedUser) {
         try {
-          setUser(JSON.parse(storedUser));
+          const parsedUser: MockUser = JSON.parse(storedUser);
+          const hydratedUser: MockUser = {
+            ...parsedUser,
+            email: DEFAULT_USER.email,
+            name: parsedUser.name ?? DEFAULT_USER.name,
+            sub: parsedUser.sub ?? DEFAULT_USER.sub,
+            email_verified:
+              parsedUser.email_verified ?? DEFAULT_USER.email_verified,
+          };
+          setUser(hydratedUser);
           setIsAuthenticated(true);
+          localStorage.setItem("userId", DEFAULT_USER_ID);
+          sessionStorage.setItem("mock_user", JSON.stringify(hydratedUser));
         } catch (e) {
           // Invalid stored user, clear it
           sessionStorage.removeItem("mock_auth");
           sessionStorage.removeItem("mock_user");
+          localStorage.removeItem("userId");
         }
       }
     }
@@ -61,16 +81,12 @@ export default function MockAuthProvider({ children }: MockAuthProviderProps) {
     setIsLoading(true);
     try {
       // Simulate a login - just set authenticated state
-      const mockUser: MockUser = {
-        sub: "mock-user-123",
-        email: "demo@stratcon.ph",
-        email_verified: true,
-        name: "Demo User",
-      };
+      const mockUser: MockUser = { ...DEFAULT_USER };
       setUser(mockUser);
       setIsAuthenticated(true);
       sessionStorage.setItem("mock_auth", "true");
       sessionStorage.setItem("mock_user", JSON.stringify(mockUser));
+      localStorage.setItem("userId", DEFAULT_USER_ID);
       setError(null);
     } catch (err) {
       const error = err instanceof Error ? err : new Error("Mock auth failed");
@@ -85,6 +101,7 @@ export default function MockAuthProvider({ children }: MockAuthProviderProps) {
     setUser(null);
     sessionStorage.removeItem("mock_auth");
     sessionStorage.removeItem("mock_user");
+    localStorage.removeItem("userId");
     setError(null);
   };
 
@@ -98,7 +115,8 @@ export default function MockAuthProvider({ children }: MockAuthProviderProps) {
   };
 
   return (
-    <MockAuthContext.Provider value={value}>{children}</MockAuthContext.Provider>
+    <MockAuthContext.Provider value={value}>
+      {children}
+    </MockAuthContext.Provider>
   );
 }
-

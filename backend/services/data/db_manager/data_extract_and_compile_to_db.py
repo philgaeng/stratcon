@@ -15,7 +15,7 @@ from __future__ import annotations
 import argparse
 import sys
 from pathlib import Path
-from typing import Optional, Tuple, Iterable, List
+from typing import Optional, Tuple, Iterable, List, Any
 from datetime import datetime
 
 import pandas as pd
@@ -29,6 +29,8 @@ if str(BACKEND_DIR) not in sys.path:
 
 from backend.services.data.db_manager.db_schema import get_db_connection, init_database
 from backend.services.settings.legacy import _find_or_create_client, _find_or_create_load
+from backend.services.domain.electricity_analysis import Computations
+from backend.services.core.utils import ReportLogger
 
 PROJECT_ROOT = BACKEND_DIR.parent
 DOWNLOADS_ROOT = PROJECT_ROOT / "downloads"
@@ -235,6 +237,99 @@ def record_file_compiled(client_name: str, building_name: str, file_path: Path, 
     """, (client_name, building_name, str(file_path)))
 
 
+def compute_missing_energy_for_load(
+    load_id: int,
+    conn: sqlite3.Connection,
+    computations: Computations,
+    earliest_inserted_timestamp: Optional[Any] = None,
+) -> int:
+    """
+    Compute consumption_kWh for readings of a specific load, starting from the oldest
+    newly inserted timestamp (plus the reading immediately before it for continuity).
+    
+    If no new timestamps are provided, falls back to the earliest NULL consumption row.
+    """
+    cursor = conn.cursor()
+
+    def _normalize_ts(value: Any) -> str:
+        if isinstance(value, pd.Timestamp):
+            return value.to_pydatetime().strftime('%Y-%m-%d %H:%M:%S')
+        if isinstance(value, datetime):
+            return value.strftime('%Y-%m-%d %H:%M:%S')
+        return str(value)
+
+    start_ts: Optional[str] = None
+    if earliest_inserted_timestamp is not None:
+        start_ts = _normalize_ts(earliest_inserted_timestamp)
+    else:
+        cursor.execute(
+            """
+            SELECT MIN(timestamp) AS min_missing_ts
+            FROM consumptions
+            WHERE load_id = ?
+              AND consumption_kWh IS NULL
+            """,
+            (load_id,),
+        )
+        row = cursor.fetchone()
+        if row and row["min_missing_ts"]:
+            start_ts = row["min_missing_ts"]
+
+    if start_ts is None:
+        return 0
+
+    cursor.execute(
+        """
+        SELECT timestamp
+        FROM consumptions
+        WHERE load_id = ?
+          AND timestamp < ?
+        ORDER BY timestamp DESC
+        LIMIT 1
+        """,
+        (load_id, start_ts),
+    )
+    prev_row = cursor.fetchone()
+    fetch_from_ts = prev_row["timestamp"] if prev_row and prev_row["timestamp"] else start_ts
+
+    cursor.execute(
+        """
+        SELECT id, timestamp, load_id, load_kW
+        FROM consumptions
+        WHERE load_id = ?
+          AND timestamp >= ?
+        ORDER BY timestamp
+        """,
+        (load_id, fetch_from_ts),
+    )
+    rows = cursor.fetchall()
+    if not rows:
+        return 0
+
+    df = pd.DataFrame([dict(r) for r in rows])
+    if df.empty:
+        return 0
+
+    df["timestamp"] = pd.to_datetime(df["timestamp"])
+
+    computed_df = computations.compute_energy(df)
+    updates = 0
+    for _, record in computed_df[["id", "consumption_kWh"]].iterrows():
+        consumption_val_raw = record.get("consumption_kWh")
+        consumption_val = (
+            float(consumption_val_raw)
+            if consumption_val_raw is not None and not pd.isna(consumption_val_raw)
+            else None
+        )
+        cursor.execute(
+            "UPDATE consumptions SET consumption_kWh = ? WHERE id = ?",
+            (consumption_val, int(record["id"])),
+        )
+        updates += 1
+
+    return updates
+
+
 def compile_floor_to_db(folder_token: str, conn: sqlite3.Connection) -> None:
     """
     Compile data from CSV files in a tenant folder to the database.
@@ -267,6 +362,12 @@ def compile_floor_to_db(folder_token: str, conn: sqlite3.Connection) -> None:
     
     total_insert_count = 0
     
+    computations_logger = ReportLogger()
+    computations_service = Computations(
+        logger=computations_logger,
+        conn=conn,
+    )
+
     # Process each CSV file
     for csv_file in csv_files:
         print(f"\n   📄 Processing: {csv_file.name}")
@@ -304,12 +405,13 @@ def compile_floor_to_db(folder_token: str, conn: sqlite3.Connection) -> None:
             
             # Get data for this load
             load_data = df_long[df_long['load_name_full'] == load_name_full].copy()
+            new_timestamps: List[str] = []
             
             # Insert consumptions (with duplicate check)
             for _, cons_row in load_data.iterrows():
                 # Convert pandas timestamp to string format for SQLite
                 timestamp = cons_row['timestamp']
-                if isinstance(timestamp, pd.timestamp):
+                if isinstance(timestamp, pd.Timestamp):
                     timestamp_str = timestamp.strftime('%Y-%m-%d %H:%M:%S')
                 elif isinstance(timestamp, datetime):
                     timestamp_str = timestamp.strftime('%Y-%m-%d %H:%M:%S')
@@ -343,7 +445,18 @@ def compile_floor_to_db(folder_token: str, conn: sqlite3.Connection) -> None:
                     # Unique constraint violation - skip this record
                     continue
                 insert_count += 1
+                new_timestamps.append(timestamp_str)
         
+            earliest_new_ts = min(new_timestamps) if new_timestamps else None
+            energy_updates = compute_missing_energy_for_load(
+                load_id,
+                conn,
+                computations_service,
+                earliest_inserted_timestamp=earliest_new_ts,
+            )
+            if energy_updates:
+                print(f"      ⚡ Computed energy for {load_name_std}: {energy_updates} rows updated")
+
         # Record file as compiled
         record_file_compiled(client_name, building_name, csv_file, conn)
         

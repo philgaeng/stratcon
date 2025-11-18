@@ -22,6 +22,7 @@ from backend.services.core.config import (
     NIGHT_HOURS,
     WEEKDAYS,
 )
+from backend.services.domain.utils import normalize_month_year
 from backend.services.domain.data_preparation.dataframe_preparer import DataFramePreparer
 from backend.services.core.utils import ReportLogger, raise_with_context
 
@@ -64,13 +65,13 @@ class Computations(ServiceContext):
                 else:
                     raise ValueError("Dataframe must contain a 'timestamp' column.")
 
-            if "power_kW" not in df.columns:
+            if "load_kW" not in df.columns:
                 if "load_kW" in df.columns:
-                    df["power_kW"] = df["load_kW"]
-                elif "meter_kW" in df.columns:
-                    df["power_kW"] = df["meter_kW"]
+                    df["load_kW"] = df["load_kW"]
+                elif "meter_kWh" in df.columns:
+                    df["load_kW"] = df["meter_kWh"]
                 else:
-                    raise ValueError("No power column found (expected 'load_kW' or 'meter_kW').")
+                    raise ValueError("No power column found (expected 'load_kW' or 'meter_kWh').")
 
             frames: List[pd.DataFrame] = []
             for load_id in df["load_id"].unique():
@@ -81,8 +82,8 @@ class Computations(ServiceContext):
                 )
                 df_part["interval_dt"] = df_part["timestamp"].diff().dt.total_seconds()
                 df_part["interval_dt"] = df_part["interval_dt"].bfill()
-                df_part["mean_kW"] = df_part["power_kW"].rolling(window=2).mean().shift(-1)
-                df_part["mean_kW"] = df_part["mean_kW"].fillna(df_part["power_kW"])
+                df_part["mean_kW"] = df_part["load_kW"].rolling(window=2).mean().shift(-1)
+                df_part["mean_kW"] = df_part["mean_kW"].fillna(df_part["load_kW"])
                 df_part["consumption_kWh"] = (df_part["mean_kW"] * df_part["interval_dt"]) / 3600.0
                 frames.append(df_part)
 
@@ -131,19 +132,28 @@ class Computations(ServiceContext):
             df_monthly = df_filtered.groupby(['tenant_id', 'Year-Month-cut-off'])['consumption_kWh'].sum().reset_index()
             self.logger.debug(f"🔍 DEBUG df_monthly: len():: {len(df_monthly)} \n {df_monthly.head(3)}")
             
-            self.logger.debug(f"🔍 DEBUG df_daily columns: {list(df_daily.columns)}")
-            self.logger.debug(f"🔍 DEBUG df_hourly columns: {list(df_hourly.columns)}")
-            self.logger.debug(f"🔍 DEBUG df_monthly columns: {list(df_monthly.columns)}")
+            self.logger.debug(f"🔍 DEBUG df_daily columns: {list(df_daily.columns)} - len():: {len(df_daily)}")
+            self.logger.debug(f"🔍 DEBUG df_hourly columns: {list(df_hourly.columns)} - len():: {len(df_hourly)}")
+            self.logger.debug(f"🔍 DEBUG df_monthly columns: {list(df_monthly.columns)} - len():: {len(df_monthly)}")
             
             # Filter by time periods
             df_night = df_hourly[df_hourly['Hour'].isin(NIGHT_HOURS)]
             df_day = df_hourly[df_hourly['Hour'].isin(DAY_HOURS)]
             df_weekdays = df_daily[df_daily['DayOfWeek'].isin(WEEKDAYS)]
             df_weekends = df_daily[~df_daily['DayOfWeek'].isin(WEEKDAYS)]
+
+            self.logger.debug(f"🔍 DEBUG df_night: len():: {len(df_night)} \n {df_night.head(3)}")
+            self.logger.debug(f"🔍 DEBUG df_day: len():: {len(df_day)} \n {df_day.head(3)}")
+            self.logger.debug(f"🔍 DEBUG df_weekdays: len():: {len(df_weekdays)} \n {df_weekdays.head(3)}")
+            self.logger.debug(f"🔍 DEBUG df_weekends: len():: {len(df_weekends)} \n {df_weekends.head(3)}")
             
             # Compute averages
             df_avg_hourly_consumption = self.compute_avg_hourly_consumption(df_hourly, ['consumption_kWh'])
             df_avg_daily_consumption = self.compute_avg_daily_consumption(df_daily, ['consumption_kWh'])
+
+            self.logger.debug(f"🔍 DEBUG df_avg_hourly_consumption: len():: {len(df_avg_hourly_consumption)} \n {df_avg_hourly_consumption.head(3)}")
+            self.logger.debug(f"🔍 DEBUG df_avg_daily_consumption: len():: {len(df_avg_daily_consumption)} \n {df_avg_daily_consumption.head(3)}")
+
             
             return (df_daily, df_hourly, df_monthly, df_night, df_day, df_weekdays, 
                     df_weekends, df_avg_hourly_consumption, df_avg_daily_consumption)
@@ -285,12 +295,12 @@ class Computations(ServiceContext):
                 df_part = df[df[level] == partition_id]
                 for month in df_part['Year-Month-cut-off'].unique():
                     df_month = df_part[df_part['Year-Month-cut-off'] == month]
-                    df_month = df_month[df_month['power_kW'] > 0].sort_values(by='power_kW', ascending=False).reset_index(drop=True)
+                    df_month = df_month[df_month['load_kW'] > 0].sort_values(by='load_kW', ascending=False).reset_index(drop=True)
                     if df_month.empty:
                         continue
                     slice_size = max(1, int(len(df_month) * 0.1))
-                    peak_power = df_month['power_kW'].nlargest(slice_size).mean()
-                    always_on_power = df_month['power_kW'].nsmallest(slice_size).mean()
+                    peak_power = df_month['load_kW'].nlargest(slice_size).mean()
+                    always_on_power = df_month['load_kW'].nsmallest(slice_size).mean()
                     result_dict = {
                         level: partition_id,
                         'Year-Month-cut-off': month,
@@ -428,10 +438,20 @@ class Computations(ServiceContext):
                 'consumption_per_sqm_yearly': None,
                 'percentile_position': None,
             }
+            self.logger.warning(f"🔍 WARNING compute_kpis: df_monthly is empty")
 
         tenant_monthly = df_monthly[df_monthly['tenant_id'] == tenant_id]
         if tenant_monthly.empty:
-            raise ValueError(f"No monthly data found for tenant_id={tenant_id}")
+            self.logger.warning(f"🔍 WARNING compute_kpis: No monthly data found for tenant_id={tenant_id}")
+            return {
+                'last_month_energy_consumption': 0.0,
+                'average_monthly_consumption_energy': 0.0,
+                'last_month_co2_emissions': 0.0,
+                'sqm_area': None,
+                'consumption_per_sqm_last': None,
+                'consumption_per_sqm_yearly': None,
+                'percentile_position': None,
+            }
 
         last_month_mask = tenant_monthly['Year-Month-cut-off'] == last_month
         last_month_energy = float(tenant_monthly[last_month_mask]['consumption_kWh'].sum())
@@ -449,12 +469,7 @@ class Computations(ServiceContext):
             energy_per_sqm_last = None
             energy_per_sqm_yearly = None
         #TODO: Aggregate the consumption data monthly for all tenants in a specific table for easy retrieval
-        # Compute percentile among the provided tenants (if data available)
-        # comparison_df = df_monthly[df_monthly['Year-Month-cut-off'] == last_month].copy()
-        # comparison_ids = comparison_df['tenant_id'].unique().tolist()
-        # comparison_df['sqm'] = comparison_df['tenant_id'].map(sqm_map)
-        # comparison_df = comparison_df[comparison_df['sqm'] > 0]
-        # comparison_df['per_sqm'] = comparison_df['consumption_kWh'] / comparison_df['sqm']
+
 
         percentile_position = .11
         # if not comparison_df.empty and tenant_id in comparison_df['tenant_id'].values:
@@ -554,3 +569,41 @@ class Computations(ServiceContext):
             'last_month_nighttime_consumption': _last_month_sum(night_subset),
             'yearly_average_nighttime_consumption': _yearly_average(night_subset),
         }
+
+    def compute_energy_per_load(
+        self,
+        df,
+        load_ids: List[int], #optional
+        last_month: str, #optional
+    ) -> Dict[str, float]:
+        """
+        Compute energy per load for a single tenant.
+        """
+        try:
+            #use filters if they are provided
+            if load_ids:
+                df = df[df['load_id'].isin(load_ids)]
+            if last_month:
+                # Normalize last_month format to YYYY-MM (with leading zero for month)
+                # This ensures consistency with Year-Month-cut-off column format
+                normalized_last_month = normalize_month_year(last_month)
+                self.logger.debug(f"🔍 DEBUG compute_energy_per_load: Filtering by last_month={last_month} (normalized={normalized_last_month})")
+                self.logger.debug(f"🔍 DEBUG compute_energy_per_load: Available Year-Month-cut-off values: {df['Year-Month-cut-off'].unique()}")
+                df = df[df['Year-Month-cut-off'] == normalized_last_month]
+                self.logger.debug(f"🔍 DEBUG compute_energy_per_load: After filtering, df shape: {df.shape}")
+
+            #compute energy per load
+            df_energy_per_load = df.groupby('load_id')['consumption_kWh'].sum().reset_index()
+            load_info = self.db.get_load_info(load_ids=df_energy_per_load['load_id'].tolist(), conn=self.conn)
+            df_energy_per_load = df_energy_per_load.merge(load_info, left_on='load_id', right_on='id', how='left')
+            # Derive load_type from description (AC if 'ac' in description, otherwise 'Other')
+            df_energy_per_load['load_type'] = df_energy_per_load.apply(
+                lambda x: 'AC' if x.get('load_description') and 'ac' in str(x.get('load_description', '')).lower() else 'Other', 
+                axis=1
+            )
+            return df_energy_per_load
+        except Exception as e:
+            self.logger.error(f"❌ Error while computing energy per load: {e}")
+            raise ValueError(f"❌ Error while computing energy per load: {e}")
+
+        

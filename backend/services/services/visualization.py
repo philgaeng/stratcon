@@ -281,18 +281,7 @@ def draw_energy_kWh_per_day(
         raise ValueError(f"❌ Error while drawing energy per day: {e}")
 
 
-def draw_energy_kWh_per_day_production(
-    day_data: pd.DataFrame,
-    logger: Optional[ReportLogger] = None
-) -> go.Figure:
-    """Draw bar charts for production/consumption per day (placeholder)"""
-    if logger is None:
-        logger = ReportLogger()
-    
-    logger.info("\n=== DRAWING ENERGY PER DAY (PRODUCTION) ===")
-    logger.debug(str(day_data))
-    # TODO: Implement production daily chart
-    return None
+
 
 
 def generate_daily_consumption_chart_html(
@@ -305,8 +294,9 @@ def generate_daily_consumption_chart_html(
     
     try:
         if daily_data.empty:
+            logger.warning(f"🔍 WARNING generate_daily_consumption_chart_html: daily_data is empty")
             return "<p>No data available for daily consumption chart.</p>"
-        
+        logger.debug(f"🔍 Debug: daily_data columns: {daily_data.columns} - len():: {len(daily_data)}")
         daily_consumption = daily_data["consumption_kWh"]
         
         # Format date labels
@@ -378,7 +368,9 @@ def generate_monthly_history_chart_html(
     
     try:
         if monthly_data.empty:
+            logger.warning(f"🔍 WARNING generate_monthly_history_chart_html: monthly_data is empty")
             return "<p>No data available for monthly history chart.</p>"
+        logger.debug(f"🔍 Debug: monthly_data columns: {monthly_data.columns} - len():: {len(monthly_data)}")
         
         selected_column = "consumption_kWh"
         
@@ -419,8 +411,7 @@ def draw_hourly_consumption_chart_html(
         logger = ReportLogger()
     
     try:
-        logger.debug(f"🔍 Debug: Hourly data columns: {hourly_data.columns}")
-        logger.debug(f"🔍 Debug: Hourly data index: {hourly_data.index}")
+        logger.debug(f"🔍 Debug: Hourly data columns: {hourly_data.columns} - len():: {len(hourly_data)}")
         
         if hourly_data.empty:
             return "<p>No data available for hourly consumption chart.</p>"
@@ -476,3 +467,68 @@ def draw_days_consumption_chart_html(
         return "<p>Error generating days consumption chart.</p>"
 
 
+def draw_pie_chart_energy_per_load_chart_html(
+    df: pd.DataFrame,
+    logger: Optional[ReportLogger] = None
+) -> str:
+    """Generate pie chart energy per load chart HTML"""
+    if logger is None:
+        logger = ReportLogger()
+
+    try:
+        logger.debug(f"🔍 Debug: Energy per load data columns: {df.columns} - len():: {len(df)}")
+
+        if df.empty:
+            logger.warning(f"🔍 WARNING draw_pie_chart_energy_per_load_chart_html: df is empty")
+            return "<p>No data available for pie chart energy per load chart.</p>"
+
+        # prepare the labels and values for the pie chart
+        # If more than 8 slices, aggregate by floor and load_type to reduce granularity
+        if len(df) > 8:
+            df = df.groupby(['floor', 'load_type'], as_index=False).agg({
+                'consumption_kWh': 'sum'
+            })
+            df = df.sort_values(['floor', 'load_type'], ascending=True)
+            df['labels'] = df['floor'].astype(str) + ' - ' + df['load_type'].astype(str)
+        else:
+            df = df.sort_values(['floor', 'unit_number', 'load_type'], ascending=True)
+            df['labels'] = df['floor'].astype(str) + ' - ' + df['unit_number'].astype(str) + ' - ' + df['load_type'].astype(str)
+        labels = df['labels'].tolist()
+        values = df['consumption_kWh'].tolist()
+        
+        # Create color palette using standard Stratcon colors
+        # Cycle through green shades and other colors for multiple slices
+        color_palette = [
+            PlotlyStyle.STRATCON_DARK_GREEN,
+            PlotlyStyle.STRATCON_MEDIUM_GREEN,
+            PlotlyStyle.STRATCON_PRIMARY_GREEN,
+            PlotlyStyle.STRATCON_LIGHT_GREEN,
+            PlotlyStyle.CONSUMPTION_COLOR,
+            PlotlyStyle.PRODUCTION_COLOR,
+            PlotlyStyle.IMPORT_COLOR,
+            PlotlyStyle.STRATCON_YELLOW,
+            PlotlyStyle.STRATCON_MEDIUM_GREY,
+            PlotlyStyle.STRATCON_GREY,
+        ]
+        # Cycle through colors if we have more slices than colors
+        colors = [color_palette[i % len(color_palette)] for i in range(len(labels))]
+        
+        fig = go.Figure()
+        fig.add_trace(go.Pie(
+            labels=labels,
+            values=values,
+            texttemplate='%{label}<br>%{value:,.2f} kWh',
+            textposition='outside',
+            hovertemplate='<b>%{label}</b><br>Value: %{value:,.2f} kWh<br>Percentage: %{percent}<extra></extra>',
+            marker=dict(colors=colors)
+        ))
+        fig.update_layout(
+            showlegend=False,  # Labels on slices are clearer than legend for 3-10 slices
+            template="plotly_white",
+            margin=dict(l=50, r=50, t=30, b=30),
+            font=PlotlyStyle.update_font
+        )
+        return pio.to_html(fig, full_html=False, include_plotlyjs=True)
+    except Exception as e:
+        logger.error(f"❌ Error generating pie chart energy per load chart: {e}")
+        return "<p>Error generating pie chart energy per load chart.</p>"

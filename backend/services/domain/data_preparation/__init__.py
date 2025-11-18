@@ -91,6 +91,7 @@ class DataPreparationOrchestrator(ServiceContext):
         source: str = 'meter_records',
         start_date: Optional[datetime] = None,
         end_date: Optional[datetime] = None,
+        load_ids: Optional[List[int]] = None,
     ) -> pd.DataFrame:
         """
         Load electricity consumption data from database and prepare it for analysis.
@@ -106,6 +107,7 @@ class DataPreparationOrchestrator(ServiceContext):
                 end_date=end_date,
                 conn=self.conn,
                 logger=self.logger,
+                load_ids=load_ids,
             )
             self.logger.debug("✅ Data loaded successfully from db!")
             self.logger.debug(f"Dataset shape: {df.shape}")

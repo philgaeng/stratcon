@@ -19,6 +19,7 @@ from .config import (
     MAX_PERCENTAGE_MISSING_TIMESTAMPS_PER_MONTH,
 )
 from .utils import ReportLogger, raise_with_context
+from backend.services.domain.utils import normalize_month_year
 
 
 def load_and_prepare_data_legacy(
@@ -609,8 +610,10 @@ def select_full_months(
         
         list_df = []
         for year, month in month_year_tuples:
-            df_month = df[(df['Year-Month-cut-off'] == f"{year}-{month}")]
-            logger.debug(f"🔍 DEBUG select_full_months: Adding df_month for {year}-{month}, shape: {df_month.shape}")
+            # Normalize to YYYY-MM format (with leading zero for month)
+            month_year_str = normalize_month_year(f"{year}-{month}")
+            df_month = df[(df['Year-Month-cut-off'] == month_year_str)]
+            logger.debug(f"🔍 DEBUG select_full_months: Adding df_month for {month_year_str}, shape: {df_month.shape}")
             list_df.append(df_month)
         
         if list_df:

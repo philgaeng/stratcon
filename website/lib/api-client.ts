@@ -13,18 +13,21 @@ const apiClient = axios.create({
   },
 });
 
-// Request interceptor to add auth tokens if needed
+// Request interceptor to add auth-related metadata if available
 apiClient.interceptors.request.use(
   (config) => {
-    // TODO: Add Cognito JWT token when auth is implemented
-    // const token = getAuthToken();
-    // if (token) {
-    //   config.headers.Authorization = `Bearer ${token}`;
-    // }
-    // Add user ID from localStorage if available (for meter logging endpoints)
-    const userId = localStorage.getItem("userId");
-    if (userId) {
-      config.headers["x-user-id"] = userId;
+    if (typeof window !== "undefined") {
+      const userId = localStorage.getItem("userId");
+      if (userId) {
+        if (!config.headers) {
+          config.headers = {};
+        }
+        config.headers["x-user-id"] = userId;
+        config.params = {
+          ...(config.params || {}),
+          user_id: userId,
+        };
+      }
     }
     return config;
   },
@@ -69,6 +72,9 @@ export interface ReportRequest {
   end_date?: string; // Format: YYYY-MM-DD
   end_time?: string; // Format: HH:mm
   user_email?: string;
+  floor?: number;
+  unit_id?: number;
+  load_ids?: number[];
 }
 
 export interface ReportResponse {
@@ -128,6 +134,25 @@ export interface FloorsResponse {
   floors: FloorSummary[];
 }
 
+export interface TenantUnitsResponse {
+  tenant_id: number;
+  tenant: string;
+  units: TenantUnit[];
+}
+
+export interface TenantUnit {
+  unit_id: number;
+  unit_number: string | null;
+  floor: number | null;
+  name?: string | null;
+}
+
+export interface TenantFloorsResponse {
+  tenant_id: number;
+  tenant: string;
+  floors: FloorSummary[];
+}
+
 export interface MeterAssignment {
   meter_id: string;
   meter_pk: number;
@@ -139,7 +164,7 @@ export interface MeterAssignment {
   loads: number[];
   last_record: {
     timestamp_record: string;
-    meter_kW: number;
+    meter_kWh: number;
   } | null;
 }
 
@@ -152,7 +177,7 @@ export interface MeterRecordInput {
   client_record_id?: string;
   meter_id: string;
   timestamp_record: string; // ISO datetime string
-  meter_kW: number;
+  meter_kWh: number;
 }
 
 export interface MeterRecordBatchRequest {
@@ -200,7 +225,7 @@ export interface MeterRecordHistoryItem {
   session_id: string | null;
   client_record_id: string | null;
   timestamp_record: string;
-  meter_kW: number;
+  meter_kWh: number;
   encoder_user_id: number | null;
   approver_name: string | null;
   approver_signature: string | null;
@@ -254,6 +279,41 @@ export const api = {
   },
 
   /**
+   * Get floors available for reporting for a specific tenant
+   */
+  getReportTenantFloors: async (
+    clientToken: string,
+    tenantToken: string
+  ): Promise<TenantFloorsResponse> => {
+    const response = await apiClient.get<TenantFloorsResponse>(
+      "/tenant/floors",
+      { params: { client_token: clientToken, tenant_token: tenantToken } }
+    );
+    return response.data;
+  },
+
+  /**
+   * Get units available for reporting for a specific tenant (optional floor filter)
+   */
+  getReportTenantUnits: async (
+    clientToken: string,
+    tenantToken: string,
+    floor?: number
+  ): Promise<TenantUnitsResponse> => {
+    const params: Record<string, string | number> = {
+      client_token: clientToken,
+      tenant_token: tenantToken,
+    };
+    if (floor !== undefined) {
+      params.floor = floor;
+    }
+    const response = await apiClient.get<TenantUnitsResponse>("/tenant/units", {
+      params,
+    });
+    return response.data;
+  },
+
+  /**
    * Generate billing info report for a building (deprecated - use generateBillingInfo)
    */
   generateBuildingBillingInfo: async (
@@ -287,6 +347,19 @@ export const api = {
   ): Promise<ReportResponse> => {
     const response = await apiClient.post<ReportResponse>(
       "/reports/generate_billing_info",
+      request
+    );
+    return response.data;
+  },
+
+  /**
+   * Generate billing comparison CSV for a client.
+   */
+  generateBillingComparison: async (
+    request: ClientReportRequest
+  ): Promise<ReportResponse> => {
+    const response = await apiClient.post<ReportResponse>(
+      "/reports/generate_billing_comparison",
       request
     );
     return response.data;

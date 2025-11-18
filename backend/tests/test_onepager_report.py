@@ -8,8 +8,8 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from backend.services.reporting import ReportingOrchestrator
-from backend.services.utils import ReportLogger
+from backend.services.domain.reporting import ReportingOrchestrator
+from backend.services.core.utils import ReportLogger
 
 
 def _fake_analysis_bundle():
@@ -67,6 +67,8 @@ def _fake_analysis_bundle():
             'selected_load_sqm_area': 100.0,
             'selected_load_energy_per_sqm': 3.0,
             'selected_load_yearly_average_energy_per_sqm': 2.5,
+            'consumption_per_sqm_last': 3.0,
+            'consumption_per_sqm_yearly': 2.8,
             'percentile_position': 40.0,
         },
         'power_metrics': {
@@ -90,7 +92,7 @@ def _fake_analysis_bundle():
 
 def test_reporting_orchestrator_generate_onepager(monkeypatch, tmp_path):
     monkeypatch.setattr(
-        "backend.services.data_preparation.cutoff_manager.CutoffManager.get_cutoff_default_values_dict_for_client",
+        "backend.services.domain.data_preparation.cutoff_manager.CutoffManager.get_cutoff_default_values_for_client",
         lambda self: {},
     )
 
@@ -100,7 +102,7 @@ def test_reporting_orchestrator_generate_onepager(monkeypatch, tmp_path):
     dummy_df = pd.DataFrame({
         'timestamp': pd.date_range('2024-01-01', periods=3, freq='h'),
         'load_id': [1, 1, 1],
-        'power_kW': [5.0, 7.0, 6.0],
+        'load_kW': [5.0, 7.0, 6.0],
         'tenant_id': [1, 1, 1],
     }).set_index('timestamp')
 

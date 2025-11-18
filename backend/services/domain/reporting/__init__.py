@@ -68,6 +68,7 @@ class ReportingOrchestrator(ServiceContext):
         source: str = "meter_records",
         start_date: Optional[datetime] = None,
         end_date: Optional[datetime] = None,
+        load_ids: Optional[List[int]] = None,
     ) -> Dict[str, Any]:
         """
         Generate the complete data/metrics/chart/html bundle for a tenant.
@@ -77,6 +78,7 @@ class ReportingOrchestrator(ServiceContext):
             source=source,
             start_date=start_date,
             end_date=end_date,
+            load_ids=load_ids,
         )
         tenant_info = self.db.get_tenant_info(tenant_id)
         self.logger.debug(f"Tenant info: {tenant_info}")
@@ -94,6 +96,7 @@ class ReportingOrchestrator(ServiceContext):
             df_avg_hourly_consumption=analysis['df_avg_hourly_consumption'],
             df_avg_daily_consumption=analysis['df_avg_daily_consumption'],
             last_month=analysis['last_month'],
+            df_energy_per_load=analysis['df_energy_per_load'],
             logger=self.logger,
         )
 
@@ -125,6 +128,7 @@ __all__ = [
     "generate_report_for_tenant_artifacts",
     "execute_last_records_job",
     "execute_billing_info_job",
+    "execute_billing_comparison_job",
 ]
 
 
@@ -142,6 +146,7 @@ def generate_report_for_tenant_artifacts(
     end_date: Optional[datetime] = None,
     source: str = "meter_records",
     logger: Optional[ReportLogger] = None,
+    load_ids: Optional[List[int]] = None,
 ) -> tuple[Path, Dict[str, Any], str]:
     """
     Generate report artifacts for a tenant.
@@ -164,6 +169,7 @@ def generate_report_for_tenant_artifacts(
         source=source,
         start_date=start_date,
         end_date=end_date,
+        load_ids=load_ids,
     )
 
     html_content = bundle["html"]
@@ -210,6 +216,7 @@ def generate_report_for_tenant(
     end_date: Optional[datetime] = None,
     source: str = "meter_records",
     logger: Optional[ReportLogger] = None,
+    load_ids: Optional[List[int]] = None,
 ) -> Path:
     report_path, _, _ = generate_report_for_tenant_artifacts(
         tenant_id=tenant_id,
@@ -219,6 +226,7 @@ def generate_report_for_tenant(
         end_date=end_date,
         source=source,
         logger=logger,
+        load_ids=load_ids,
     )
     return report_path
 
@@ -277,7 +285,7 @@ def execute_last_records_job(
             'meter_ref',
             'description',
             'timestamp_record',
-            'meter_kW'
+            'meter_kWh'
         ]
         
         # Create CSV file in temp directory
@@ -306,6 +314,88 @@ def execute_last_records_job(
     except Exception as exc:  # pragma: no cover - defensive logging
         logger.error(f"❌ Error generating last records for client {client_id}: {exc}")
 
+def prepare_billing_df(client_id: int) -> pd.DataFrame:
+    """Prepare the billing dataframe for a client."""
+    logger = ReportLogger()
+    logger.info(f"Fetching billing info for client ({client_id})")
+    df = DbQueries.get_last_n_records_for_client(client_id=client_id, n=2)
+    
+    if df.empty:
+        logger.warning(f"No records found for client ({client_id})")
+        return pd.DataFrame()
+    
+    # Set column names
+    df.columns = [
+        'building_name',
+        'tenant_name',
+        'unit_number',
+        'meter_ref',
+        'description',
+        'timestamp_record',
+        'meter_kWh'
+    ]
+    
+    # Convert timestamp_record to datetime
+    df['timestamp_record'] = pd.to_datetime(df['timestamp_record'])
+    
+    # Sort by building, tenant, unit, and timestamp
+    df = df.sort_values(['building_name', 'tenant_name', 'unit_number', 'timestamp_record'], 
+                        ascending=[True, True, True, False])
+    
+    # Group by building, tenant, unit and calculate differences
+    df_grouped = df.groupby(['building_name', 'tenant_name', 'unit_number', 'meter_ref'])
+    
+    # Create a new dataframe with the most recent record and previous record
+    billing_records = []
+    for group_key, group in df_grouped:
+        # group_key is a tuple when grouping by multiple columns
+        if isinstance(group_key, tuple) and len(group_key) == 4:
+            building, tenant, unit, meter_ref = group_key
+        else:
+            logger.warning(f"Unexpected group_key format: {group_key}")
+            continue
+        if len(group) >= 2:
+            # Get the two most recent records
+            recent = group.iloc[0]
+            previous = group.iloc[1]
+            
+            # Calculate consumption difference
+            consumption_kWh = recent['meter_kWh'] - previous['meter_kWh']
+            days_diff = (recent['timestamp_record'] - previous['timestamp_record']).days
+            
+            billing_records.append({
+                'building_name': building,
+                'tenant_name': tenant,
+                'unit_number': unit,
+                'meter_ref': meter_ref,
+                'description': recent['description'],
+                'current_reading': recent['meter_kWh'],
+                'current_date': recent['timestamp_record'].strftime('%Y-%m-%d %H:%M:%S'),
+                'previous_reading': previous['meter_kWh'],
+                'previous_date': previous['timestamp_record'].strftime('%Y-%m-%d %H:%M:%S'),
+                'consumption_kWh': consumption_kWh,
+                'days_between_readings': days_diff,
+            })
+        elif len(group) == 1:
+            # Only one reading available
+            recent = group.iloc[0]
+            billing_records.append({
+                'building_name': building,
+                'tenant_name': tenant,
+                'unit_number': unit,
+                'meter_ref': meter_ref,
+                'description': recent['description'],
+                'current_reading': recent['meter_kWh'],
+                'current_date': recent['timestamp_record'].strftime('%Y-%m-%d %H:%M:%S'),
+                'previous_reading': None,
+                'previous_date': None,
+                'consumption_kWh': None,
+                'days_between_readings': None,
+            })
+    
+    # Create DataFrame from billing records
+    return pd.DataFrame(billing_records)
+
 
 def execute_billing_info_job(
     *,
@@ -317,85 +407,12 @@ def execute_billing_info_job(
     logger = ReportLogger()
     try:
         # Get data from query with n=2
-        logger.info(f"Fetching billing info for client {client_name} ({client_id})")
-        df = DbQueries.get_last_n_records_for_client(client_id=client_id, n=2)
-        
-        if df.empty:
-            logger.warning(f"No records found for client {client_name}")
+        billing_df = prepare_billing_df(client_id=client_id)
+
+        if billing_df.empty:
+            logger.warning(f"No billing info found for client ({client_id})")
             return
-        
-        # Set column names
-        df.columns = [
-            'building_name',
-            'tenant_name',
-            'unit_number',
-            'meter_ref',
-            'description',
-            'timestamp_record',
-            'meter_kW'
-        ]
-        
-        # Convert timestamp_record to datetime
-        df['timestamp_record'] = pd.to_datetime(df['timestamp_record'])
-        
-        # Sort by building, tenant, unit, and timestamp
-        df = df.sort_values(['building_name', 'tenant_name', 'unit_number', 'timestamp_record'], 
-                           ascending=[True, True, True, False])
-        
-        # Group by building, tenant, unit and calculate differences
-        df_grouped = df.groupby(['building_name', 'tenant_name', 'unit_number', 'meter_ref'])
-        
-        # Create a new dataframe with the most recent record and previous record
-        billing_records = []
-        for group_key, group in df_grouped:
-            # group_key is a tuple when grouping by multiple columns
-            if isinstance(group_key, tuple) and len(group_key) == 4:
-                building, tenant, unit, meter_ref = group_key
-            else:
-                logger.warning(f"Unexpected group_key format: {group_key}")
-                continue
-            if len(group) >= 2:
-                # Get the two most recent records
-                recent = group.iloc[0]
-                previous = group.iloc[1]
-                
-                # Calculate consumption difference
-                consumption_kWh = recent['meter_kW'] - previous['meter_kW']
-                days_diff = (recent['timestamp_record'] - previous['timestamp_record']).days
-                
-                billing_records.append({
-                    'building_name': building,
-                    'tenant_name': tenant,
-                    'unit_number': unit,
-                    'meter_ref': meter_ref,
-                    'description': recent['description'],
-                    'current_reading': recent['meter_kW'],
-                    'current_date': recent['timestamp_record'].strftime('%Y-%m-%d %H:%M:%S'),
-                    'previous_reading': previous['meter_kW'],
-                    'previous_date': previous['timestamp_record'].strftime('%Y-%m-%d %H:%M:%S'),
-                    'consumption_kWh': consumption_kWh,
-                    'days_between_readings': days_diff,
-                })
-            elif len(group) == 1:
-                # Only one reading available
-                recent = group.iloc[0]
-                billing_records.append({
-                    'building_name': building,
-                    'tenant_name': tenant,
-                    'unit_number': unit,
-                    'meter_ref': meter_ref,
-                    'description': recent['description'],
-                    'current_reading': recent['meter_kW'],
-                    'current_date': recent['timestamp_record'].strftime('%Y-%m-%d %H:%M:%S'),
-                    'previous_reading': None,
-                    'previous_date': None,
-                    'consumption_kWh': None,
-                    'days_between_readings': None,
-                })
-        
-        # Create DataFrame from billing records
-        billing_df = pd.DataFrame(billing_records)
-        
+
         # Create CSV file in temp directory
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         filename = f"billing_info_{client_name.replace(' ', '_')}_{timestamp}.csv"
@@ -421,4 +438,59 @@ def execute_billing_info_job(
             
     except Exception as exc:  # pragma: no cover - defensive logging
         logger.error(f"❌ Error generating billing info for client {client_id}: {exc}")
+
+
+def execute_billing_comparison_job(
+    *,
+    client_id: int,
+    client_name: str,
+    user_email: str,
+) -> None:
+    """
+    Background task that generates a billing comparison CSV (detail + summary) and emails it.
+
+    This report highlights the delta between the most recent and previous readings as well as the
+    percentage change so finance teams can quickly spot anomalies.
+    """
+    logger = ReportLogger()
+    try:
+        logger.info(f"Fetching billing comparison data for client {client_name} ({client_id})")
+        df = prepare_billing_df(client_id=client_id)
+
+        if df.empty:
+            logger.warning(f"No billing comparison data found for client ({client_id})")
+            return
+
+        #fetch the consumption data for the client from the table consumptions
+        list_dfs = []
+        for meter_id in df['meter_id'].unique():
+            timestamp_start = df['timestamp_record'].min()
+            timestamp_end = df['timestamp_record'].max()
+            load_ids = df['load_id'].unique().tolist()
+            part_df = DbQueries.get_consumptions_for_loads_during_period(load_ids=load_ids, timestamp_start=timestamp_start, timestamp_end=timestamp_end)
+            list_dfs.append(part_df)
+        
+        consumption_df = pd.concat(list_dfs)
+        df = df.merge(consumption_df, on='load_id', how='left')
+
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        detail_filename = f"billing_comparison_smappy_{client_name.replace(' ', '_')}_{timestamp}.csv"
+        detail_path = Path(tempfile.gettempdir()) / detail_filename
+        df.to_csv(detail_path, index=False)
+        logger.info(f"✅ Billing comparison Smappy CSV generated at {detail_path}")
+
+        success = send_report_email(
+            email=user_email,
+            client_name=client_name,
+            tenant_name="All Tenants",
+            last_month=None,
+            attachments=[detail_path],
+            logger=logger,
+        )
+        if success:
+            logger.info(f"📬 Billing comparison Smappy email sent to {user_email}")
+        else:
+            logger.warning(f"⚠️ Failed to send billing comparison Smappy email to {user_email}")
+    except Exception as exc:  # pragma: no cover
+        logger.error(f"❌ Error generating billing comparison Smappy for client {client_id}: {exc}")
 

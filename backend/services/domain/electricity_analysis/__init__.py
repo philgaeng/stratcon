@@ -121,9 +121,8 @@ class ElectricityAnalysisOrchestrator(ServiceContext):
             - df_avg_hourly_consumption: Average hourly consumption DataFrame
             - df_avg_daily_consumption: Average daily consumption DataFrame
             - df_power_analysis: Power analysis DataFrame
+            - df_energy_per_load: Energy per load DataFrame
             - last_month: Last month string (YYYY-MM)
-            - load_energy_col: Selected load energy column name
-            - load_power_col: Selected load power column name
             - kpis: Dictionary of KPI metrics
             - power_metrics: Dictionary of power metrics
             - time_consumption: Dictionary of time-based consumption metrics
@@ -142,10 +141,19 @@ class ElectricityAnalysisOrchestrator(ServiceContext):
                 date_range = f"{date_min:%B %d, %Y} - {date_max:%B %d, %Y}"
             else:
                 date_range = ""
-            # Compute energy
-            df = self.computations.compute_energy(df)
+            # Compute energy only when needed (fallback for legacy datasets)
+            has_consumption_column = "consumption_kWh" in df.columns
+            missing_or_empty_consumption = (
+                True if not has_consumption_column else bool(df["consumption_kWh"].isnull().any())
+            )
+            if missing_or_empty_consumption:
+                df = self.computations.compute_energy(df)
         
-            
+            # Compute energy per load
+            df_energy_per_load = self.computations.compute_energy_per_load(df, load_ids=None, last_month=last_month)
+            # get load info for each load_id
+
+
             # Prepare aggregated tables
             (df_daily, df_hourly, df_monthly, df_night, df_day, 
              df_weekdays, df_weekends, df_avg_hourly_consumption, 
@@ -187,6 +195,7 @@ class ElectricityAnalysisOrchestrator(ServiceContext):
                 'power_metrics': power_metrics,
                 'time_consumption': time_consumption,
                 'date_range': date_range,
+                'df_energy_per_load': df_energy_per_load,
             }
             
         except Exception as e:

@@ -4,12 +4,18 @@
 from __future__ import annotations
 
 from datetime import datetime, timezone
-from typing import Dict, List, Optional, cast
+from typing import Dict, List, Optional
 
 from fastapi import APIRouter, HTTPException, Query, Request, status
 from pydantic import BaseModel, ConfigDict
 
-from backend.services.data.db_manager import MeterLoggingDbQueries, ReportingDbQueries
+from backend.api.api_helpers import (
+    _normalize_ids,
+    _normalize_timestamp,
+    _parse_user_id,
+    _resolve_meter_pk_or_404,
+)
+from backend.services.data.db_manager import MeterLoggingDbQueries
 from backend.services.auth.permissions import require_roles, UserRole
 
 
@@ -44,7 +50,7 @@ class UnitSummary(BaseModel):
 
 class MeterAssignmentLastRecord(BaseModel):
     timestamp_record: str
-    meter_kW: float
+    meter_kWh: float
 
 
 class MeterAssignment(BaseModel):
@@ -64,7 +70,7 @@ class MeterRecordInput(BaseModel):
     client_record_id: Optional[str] = None
     meter_id: str
     timestamp_record: datetime
-    meter_kW: float
+    meter_kWh: float
 
     model_config = ConfigDict(
         json_schema_extra={
@@ -72,7 +78,7 @@ class MeterRecordInput(BaseModel):
                 "client_record_id": "rec-001",
                 "meter_id": "MTR-NEO3-1801",
                 "timestamp_record": "2024-10-06T08:15:00+08:00",
-                "meter_kW": 356.2,
+                "meter_kWh": 356.2,
             }
         }
     )
@@ -123,7 +129,7 @@ class MeterRecordHistoryItem(BaseModel):
     session_id: Optional[str] = None
     client_record_id: Optional[str] = None
     timestamp_record: str
-    meter_kW: float
+    meter_kWh: float
     encoder_user_id: Optional[int] = None
     approver_name: Optional[str] = None
     approver_signature: Optional[str] = None
@@ -161,92 +167,6 @@ class FloorsResponse(BaseModel):
     floors: list[FloorSummary]
 
 
-def _normalize_ids(value: Optional[object]) -> List[int]:
-    """Normalize various input types to a list of integers."""
-    if value is None:
-        return []
-    if isinstance(value, (list, tuple, set)):
-        result: List[int] = []
-        for item in value:
-            if item is None:
-                continue
-            try:
-                result.append(int(cast(object, item)))
-            except (TypeError, ValueError):
-                continue
-        return result
-    try:
-        return [int(cast(object, value))]
-    except (TypeError, ValueError):
-        return []
-
-
-def _parse_user_id(raw_value: Optional[str], *, source: str) -> Optional[int]:
-    """Parse user ID from header or query parameter."""
-    if raw_value is None:
-        return None
-    candidate = raw_value.strip()
-    if not candidate:
-        return None
-    try:
-        return int(candidate)
-    except ValueError as exc:
-        raise HTTPException(
-            status_code=400, detail=f"Invalid {source}: {raw_value}"
-        ) from exc
-
-
-def _get_user_scope(request: Request) -> Dict[str, List[int]]:
-    """Get user scope (client_ids, tenant_ids) from request headers."""
-    header_user_id = request.headers.get("x-user-id") or request.headers.get("x-userid")
-    user_id = _parse_user_id(header_user_id, source="X-User-Id header")
-    if user_id is None:
-        query_user_id = request.query_params.get("user_id")
-        user_id = _parse_user_id(query_user_id, source="user_id query parameter")
-
-    if user_id is None:
-        return {"client_ids": [], "tenant_ids": []}
-
-    info = ReportingDbQueries.get_info_for_user(user_id)
-    client_ids = sorted(set(_normalize_ids(info.get("client_id"))))
-    tenant_ids = sorted(set(_normalize_ids(info.get("tenant_id"))))
-
-    # Add client_ids from tenants
-    for tenant_id in tenant_ids:
-        client_id = ReportingDbQueries.get_client_id_for_tenant(tenant_id)
-        if client_id is not None:
-            client_ids.append(client_id)
-
-    client_ids = sorted({client_id for client_id in client_ids if client_id is not None})
-
-    return {
-        "user_id": user_id,
-        "client_ids": client_ids,
-        "tenant_ids": tenant_ids,
-    }
-
-
-def _normalize_timestamp(value: Optional[object]) -> Optional[str]:
-    if value is None:
-        return None
-    if isinstance(value, datetime):
-        return value.isoformat()
-    value_str = str(value).strip()
-    if not value_str:
-        return None
-    candidate = value_str.replace(" ", "T")
-    candidate = candidate.replace("Z", "+00:00") if candidate.endswith("Z") else candidate
-    try:
-        return datetime.fromisoformat(candidate).isoformat()
-    except ValueError:
-        return value_str.replace(" ", "T")
-
-
-def _resolve_meter_pk_or_404(meter_identifier: str) -> int:
-    try:
-        return MeterLoggingDbQueries.get_meter_pk_for_identifier(meter_identifier)
-    except ValueError as exc:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(exc))
 
 
 @meter_router.get("/buildings", response_model=BuildingsResponse)
@@ -416,7 +336,7 @@ async def get_tenant_meter_assignments(
                             timestamp_record=_normalize_timestamp(
                                 last_record.get("timestamp_record")
                             ),
-                            meter_kW=float(last_record.get("meter_kW")),
+                            meter_kWh=float(last_record.get("meter_kWh")),
                         )
                         if last_record
                         else None
@@ -453,10 +373,10 @@ async def submit_meter_records(payload: MeterRecordBatchRequest):
                 status_code=status.HTTP_400_BAD_REQUEST,
                 detail="timestamp_record must include timezone information",
             )
-        if record.meter_kW < 0:
+        if record.meter_kWh < 0:
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
-                detail="meter_kW must be non-negative",
+                detail="meter_kWh must be non-negative",
             )
         meter_identifier = record.meter_id
         if meter_identifier in meter_cache:
@@ -470,7 +390,7 @@ async def submit_meter_records(payload: MeterRecordBatchRequest):
                 "meter_id": meter_pk,
                 "meter_identifier": meter_identifier,
                 "timestamp_record": record.timestamp_record.isoformat(),
-                "meter_kW": record.meter_kW,
+                "meter_kWh": record.meter_kWh,
             }
         )
 
@@ -549,7 +469,7 @@ async def get_meter_records(
                 session_id=row["session_id"],
                 client_record_id=row["client_record_id"],
                 timestamp_record=_normalize_timestamp(row["timestamp_record"]),
-                meter_kW=float(row["meter_kW"]),
+                meter_kWh=float(row["meter_kWh"]),
                 encoder_user_id=row["encoder_user_id"],
                 approver_name=row["approver_name"],
                 approver_signature=row["approver_signature"],

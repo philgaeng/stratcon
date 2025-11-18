@@ -42,6 +42,10 @@ ROLE_HIERARCHY = {
 APP_PERMISSIONS = {
     "reports": {UserRole.SUPER_ADMIN, UserRole.CLIENT_ADMIN, UserRole.CLIENT_MANAGER, UserRole.VIEWER},
     "meters": {UserRole.SUPER_ADMIN, UserRole.CLIENT_ADMIN, UserRole.ENCODER},
+    "settings": {UserRole.SUPER_ADMIN, UserRole.CLIENT_ADMIN},
+    "meters/approvals": {UserRole.SUPER_ADMIN, UserRole.CLIENT_ADMIN, UserRole.TENANT_APPROVER},
+    "settings/roles": {UserRole.SUPER_ADMIN, UserRole.CLIENT_ADMIN, UserRole.CLIENT_MANAGER},
+    "settings/super_admin": {UserRole.SUPER_ADMIN},
 }
 
 # Route permissions mapping
@@ -50,13 +54,25 @@ ROUTE_PERMISSIONS = {
     "/clients": APP_PERMISSIONS["reports"],
     "/buildings": APP_PERMISSIONS["reports"],
     "/tenants": APP_PERMISSIONS["reports"],
+    "/tenant/floors": APP_PERMISSIONS["reports"],
+    "/tenant/units": APP_PERMISSIONS["reports"],
     "/reports/tenant": APP_PERMISSIONS["reports"],
-    "/reports/client": {UserRole.SUPER_ADMIN, UserRole.CLIENT_ADMIN},
+    "/reports/client": APP_PERMISSIONS["reports"],
     "/reports/generate_last_records": APP_PERMISSIONS["reports"],
     "/reports/generate_billing_info": APP_PERMISSIONS["reports"],
-    "/settings/client": {UserRole.SUPER_ADMIN, UserRole.CLIENT_ADMIN},
-    "/settings/tenant": {UserRole.SUPER_ADMIN, UserRole.CLIENT_ADMIN},
+    "/reports/generate_billing_comparison": APP_PERMISSIONS["reports"],
+    "/settings/client": APP_PERMISSIONS["settings"],
+    "/settings/client/{client_token}": APP_PERMISSIONS["settings"],
+    "/settings/tenant": APP_PERMISSIONS["settings"],
     "/settings/cutoff": APP_PERMISSIONS["reports"],
+    "/debug/auth-scope": APP_PERMISSIONS["settings"],  # Debug endpoint, restricted to settings roles
+    
+    # User management routes
+    # Note: DELETE /settings/users/{user_id} uses APP_PERMISSIONS["settings/super_admin"] enforced via @require_roles decorator
+    "/settings/users": APP_PERMISSIONS["settings"],  # GET/POST - requires SUPER_ADMIN or CLIENT_ADMIN
+    "/settings/users/{user_id}": APP_PERMISSIONS["settings"],  # GET/PUT - requires SUPER_ADMIN or CLIENT_ADMIN (DELETE uses settings/super_admin via decorator)
+    "/settings/users/roles": APP_PERMISSIONS["settings/roles"],  # GET - requires SUPER_ADMIN, CLIENT_ADMIN, or CLIENT_MANAGER
+    "/settings/users/roles/{role_name}": APP_PERMISSIONS["settings/roles"],  # GET - requires SUPER_ADMIN, CLIENT_ADMIN, or CLIENT_MANAGER
     
     # Meter logging routes (all accessible to meters app roles)
     "/meters/v1/buildings": APP_PERMISSIONS["meters"],
@@ -65,10 +81,10 @@ ROUTE_PERMISSIONS = {
     "/meters/v1/tenants/{tenant_id}/floors": APP_PERMISSIONS["meters"],
     "/meters/v1/tenants/{tenant_id}/meters": APP_PERMISSIONS["meters"],
     "/meters/v1/records": APP_PERMISSIONS["meters"],
-    "/meters/v1/approvals": {UserRole.SUPER_ADMIN, UserRole.CLIENT_ADMIN, UserRole.TENANT_APPROVER},
+    "/meters/v1/approvals": APP_PERMISSIONS["meters/approvals"],
     "/meters/v1/meter-records": APP_PERMISSIONS["meters"],
-    "/meters/v1/user-id": APP_PERMISSIONS["meters"],  # Used by frontend to get user info
-    "/meters/v1/user-info": APP_PERMISSIONS["meters"],  # Used by frontend to get user info
+    # Note: /meters/v1/user-id, /meters/v1/user-info, and /meters/v1/meta are public endpoints
+    # (marked as public_paths in AuthMiddleware), so they don't need permissions here
 }
 
 

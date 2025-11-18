@@ -188,6 +188,7 @@ echo ""
 # Step 3: Start backend server
 if [ "$SKIP_BACKEND" != "true" ]; then
     echo -e "${YELLOW}🔧 Step 3: Starting backend server...${NC}"
+    export AUTH_BYPASS_SCOPE=${AUTH_BYPASS_SCOPE:-1}
     (
         if command -v conda >/dev/null 2>&1; then
             source "$(conda info --base)/etc/profile.d/conda.sh" 2>/dev/null || true
