@@ -36,6 +36,12 @@ app = FastAPI(
 )
 
 # Add CORS middleware first (runs last, wraps everything to ensure CORS headers on all responses)
+# Register authentication middleware first (it should run inside CORS so that
+# CORS headers are still applied even when auth rejects a request).
+app.add_middleware(AuthMiddleware)
+
+# CORS middleware must be added last so it wraps every response, including
+# those generated inside other middleware like AuthMiddleware.
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -53,9 +59,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-# Add authentication middleware (runs before CORS, but CORS wraps it)
-app.add_middleware(AuthMiddleware)
 
 app.include_router(reporting_router)
 app.include_router(meter_router)

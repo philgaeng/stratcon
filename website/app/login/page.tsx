@@ -22,6 +22,18 @@ function LoginContent() {
       return;
     }
 
+    // Currently using mock auth - auto-authenticate on login page
+    // TODO: Add back Cognito flow when switching from mock auth
+    if (!auth.isLoading && !auth.isAuthenticated && !redirectAttempted) {
+      setRedirectAttempted(true);
+      console.log("[MOCK AUTH] Auto-authenticating...");
+      auth.signinRedirect().catch((error) => {
+        console.error("Mock auth error:", error);
+      });
+      return;
+    }
+
+    // Real Cognito flow
     // Check if this is a callback from Cognito
     const code = search.get("code");
     const state = search.get("state");
@@ -33,13 +45,11 @@ function LoginContent() {
     }
 
     // If callback, let AuthProvider handle it automatically
-    // Don't interfere - the library will process it
     if (isCallback && !callbackProcessed) {
       setCallbackProcessed(true);
       console.log(
         "Callback detected, AuthProvider will process automatically..."
       );
-      // Just wait for the library to handle it
       return;
     }
 

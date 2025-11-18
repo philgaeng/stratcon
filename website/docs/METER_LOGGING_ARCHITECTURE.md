@@ -96,7 +96,7 @@ The following tables are available:
 
 - `meters` - Manual meters (meter_ref, description)
 - `unit_meters_history` - History of meter assignments to units
-- `meter_records` - Manual meter readings (meter_id, timestamp_record, meter_kW)
+- `meter_records` - Manual meter readings (meter_id, timestamp_record, meter_kWh)
 
 ## Architecture Options
 

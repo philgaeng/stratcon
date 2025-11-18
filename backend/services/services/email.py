@@ -56,7 +56,7 @@ def send_report_email(
         ses_client = boto3.client('ses', region_name=os.getenv('AWS_REGION', 'us-east-1'))
         
         # Get sender email from environment or use default
-        sender_email = os.getenv('SES_SENDER_EMAIL', 'noreply@stratcon.ph')
+        sender_email = os.getenv('SES_SENDER_EMAIL', 'philgaeng@project.com.ph')
         
         # Validate sender email is verified in SES
         try:
@@ -65,8 +65,14 @@ def send_report_email(
             logger.warning(f"⚠️ Sender email {sender_email} may not be verified in SES")
         
         # Build email subject
+        # Distinguish between Energy Analysis Report (HTML) and Billing Info (CSV)
         subject_period = last_month or "Latest"
-        subject = f"Electricity Report - {client_name} - {tenant_name} - {subject_period}"
+        if attachments and any(att.suffix.lower() == '.html' for att in attachments):
+            subject = f"Energy Analysis Report - {client_name} - {tenant_name} - {subject_period}"
+        elif attachments and any(att.suffix.lower() == '.csv' for att in attachments):
+            subject = f"Billing Information - {client_name} - {subject_period}"
+        else:
+            subject = f"Electricity Report - {client_name} - {tenant_name} - {subject_period}"
         
         # Build email body (HTML)
         body_html = f"""
@@ -87,7 +93,8 @@ def send_report_email(
                 <p><strong>Client:</strong> {client_name}</p>
                 <p><strong>Tenant:</strong> {tenant_name}</p>
                 <p><strong>Period:</strong> {subject_period}</p>
-                <p>The report is attached to this email.</p>
+                <p>The report is attached to this email as an HTML file. Please download and open it in your web browser.</p>
+                <p><em>Note: If you don't see the attachment, please check your spam/junk folder. Some email providers may filter HTML attachments.</em></p>
                 <p>Best regards,<br>Stratcon</p>
                 <div class="footer">
                     <p>This is an automated email. Please do not reply.</p>

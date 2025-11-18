@@ -55,7 +55,7 @@ def seed_meter_logging_data() -> None:
         """
         INSERT INTO meter_records (
             meter_id, tenant_id, session_id, client_record_id,
-            timestamp_record, meter_kW
+            timestamp_record, meter_kWh
         ) VALUES (?, ?, ?, ?, ?, ?)
         """,
         (
@@ -81,12 +81,12 @@ def fetch_meter_records(meter_id: int) -> List[Tuple[float, str]]:
     conn = db_schema.get_db_connection()
     cursor = conn.cursor()
     cursor.execute(
-        "SELECT meter_kW, timestamp_record FROM meter_records WHERE meter_id = ? ORDER BY created_at",
+        "SELECT meter_kWh, timestamp_record FROM meter_records WHERE meter_id = ? ORDER BY created_at",
         (meter_id,),
     )
     rows = cursor.fetchall()
     conn.close()
-    return [(row["meter_kW"], row["timestamp_record"]) for row in rows]
+    return [(row["meter_kWh"], row["timestamp_record"]) for row in rows]
 
 
 @pytest.fixture
@@ -127,7 +127,7 @@ def test_meter_assignments(api_client):
     assert meter["meter_pk"] == 1
     assert meter["unit"]["floor"] == 18
     assert meter["loads"] == [1]
-    assert meter["last_record"]["meter_kW"] == 100.0
+    assert meter["last_record"]["meter_kWh"] == 100.0
 
 
 def test_submit_meter_records_flow(api_client):
@@ -149,7 +149,7 @@ def test_submit_meter_records_flow(api_client):
                     "client_record_id": "rec-001",
                     "meter_id": "MTR-1",
                     "timestamp_record": later_time,
-                    "meter_kW": 150.5,
+                    "meter_kWh": 150.5,
                 }
             ],
         },
@@ -173,7 +173,7 @@ def test_submit_meter_records_flow(api_client):
                     "client_record_id": "rec-001",
                     "meter_id": "MTR-1",
                     "timestamp_record": later_time,
-                    "meter_kW": 150.5,
+                    "meter_kWh": 150.5,
                 }
             ],
         },
@@ -193,7 +193,7 @@ def test_submit_meter_records_flow(api_client):
                     "client_record_id": "rec-002",
                     "meter_id": "MTR-1",
                     "timestamp_record": earlier_time,
-                    "meter_kW": 120.0,
+                    "meter_kWh": 120.0,
                 }
             ],
         },
@@ -217,7 +217,7 @@ def test_attach_approval_and_history(api_client):
                     "client_record_id": "rec-approval",
                     "meter_id": "MTR-1",
                     "timestamp_record": now_iso,
-                    "meter_kW": 180.0,
+                    "meter_kWh": 180.0,
                 }
             ],
         },

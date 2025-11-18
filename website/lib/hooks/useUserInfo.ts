@@ -2,7 +2,7 @@
 
 import api from "@/lib/api-client";
 import { useCallback, useEffect, useState } from "react";
-import { useAuth } from "react-oidc-context";
+import { useAuthCompat } from "./useAuthCompat";
 
 export interface UserInfo {
   user_id: number;
@@ -32,18 +32,43 @@ export interface UserInfo {
  * ```
  */
 export function useUserInfo() {
-  const auth = useAuth();
+  const auth = useAuthCompat();
   const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   const fetchUserInfo = useCallback(async () => {
-    if (!auth.isAuthenticated || !auth.user?.profile?.email) {
+    // Get email from user object (works for both mock and real auth)
+    const email = auth.user?.email || auth.user?.profile?.email;
+    
+    if (!auth.isAuthenticated || !email) {
       setIsLoading(false);
       return;
     }
 
-    const email = auth.user.profile.email;
+    // Check if using mock auth (demo mode)
+    const isMockAuth = process.env.NEXT_PUBLIC_BYPASS_AUTH === "true" || 
+                       email === "demo@stratcon.ph" ||
+                       auth.user?.sub === "mock-user-123";
+
+    // For mock auth, provide default demo user info
+    if (isMockAuth) {
+      const mockUserInfo: UserInfo = {
+        user_id: 6, // Demo user ID
+        role: 7, // super_admin role for demo (highest permission)
+        entity_id: null,
+        email: email,
+        company: "Demo Company",
+      };
+      setUserInfo(mockUserInfo);
+      setIsLoading(false);
+      setError(null);
+      // Store in localStorage for consistency
+      localStorage.setItem("userInfo", JSON.stringify(mockUserInfo));
+      localStorage.setItem("userId", mockUserInfo.user_id.toString());
+      console.log("[MOCK AUTH] Using demo user info:", mockUserInfo);
+      return;
+    }
 
     // Check localStorage first for quick initial render
     const storedUserInfo = localStorage.getItem("userInfo");
@@ -79,14 +104,23 @@ export function useUserInfo() {
       // Also store userId separately for backward compatibility
       localStorage.setItem("userId", info.user_id.toString());
     } catch (err) {
-      const errorMessage =
-        err instanceof Error ? err.message : "Failed to fetch user info";
-      setError(errorMessage);
-      console.error("Failed to fetch user info:", err);
+      // Handle 404 gracefully - user might not exist in database yet
+      const is404 = err && typeof err === 'object' && 'response' in err && 
+                    (err as any).response?.status === 404;
+      
+      if (is404) {
+        console.warn(`User ${email} not found in database. This is normal for new users or demo mode.`);
+        setError(null); // Don't show error for 404, just log it
+      } else {
+        const errorMessage =
+          err instanceof Error ? err.message : "Failed to fetch user info";
+        setError(errorMessage);
+        console.error("Failed to fetch user info:", err);
+      }
     } finally {
       setIsLoading(false);
     }
-  }, [auth.isAuthenticated, auth.user?.profile?.email]);
+  }, [auth.isAuthenticated, auth.user]);
 
   // Fetch user info when authenticated
   useEffect(() => {

@@ -12,9 +12,13 @@ from typing import Optional
 from datetime import datetime
 import sqlite3
 
-from .config import PHILIPPINES_TZ, DEFAULT_CLIENT
-from .utils import ReportLogger
-from .db_manager.db_schema import get_db_connection, init_database, create_default_stratcon_epc
+from backend.services.core.config import PHILIPPINES_TZ, DEFAULT_CLIENT
+from backend.services.core.utils import ReportLogger
+from backend.services.data.db_manager.db_schema import (
+    get_db_connection,
+    init_database,
+    create_default_stratcon_epc,
+)
 
 SERVICES_DIR = Path(__file__).resolve().parent
 BACKEND_DIR = SERVICES_DIR.parent
@@ -236,7 +240,7 @@ def get_cutoff_datetime(
             return None
         
         # Create cutoff datetime from settings
-        from .data_preparation.cutoff_manager import CutoffManager
+        from backend.services.domain.data_preparation.cutoff_manager import CutoffManager
 
         cutoff_datetime = CutoffManager.create_cutoff_datetime(cutoff_day, cutoff_hour, cutoff_minute, cutoff_second)
         

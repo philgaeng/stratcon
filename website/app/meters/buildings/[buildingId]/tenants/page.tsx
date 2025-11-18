@@ -4,7 +4,7 @@ import api, { type TenantSummary } from "@/lib/api-client";
 import { format } from "date-fns";
 import { useParams, useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
-import { useAuth } from "react-oidc-context";
+import { useAuthCompat } from "@/lib/hooks/useAuthCompat";
 
 const resolveErrorMessage = (error: unknown): string => {
   if (error instanceof Error) return error.message;
@@ -17,7 +17,7 @@ const resolveErrorMessage = (error: unknown): string => {
 };
 
 export default function TenantsPage() {
-  const auth = useAuth();
+  const auth = useAuthCompat();
   const router = useRouter();
   const params = useParams();
   const buildingId = parseInt(params.buildingId as string, 10);

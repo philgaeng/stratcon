@@ -1,32 +1,14 @@
 "use client";
 
+import { useMockAuth } from "@/app/providers/MockAuthProvider";
+
 /**
- * Unified auth hook that works with both real Cognito and mock auth
+ * Auth hook - Currently using mock auth for demo
  * 
- * This hook tries to use the appropriate auth provider based on which one
- * is actually rendered in the component tree (via AuthProviderWrapper)
+ * TODO: Make this conditional after demo to support both mock and real Cognito
  */
 export function useAuthCompat() {
-  const bypassAuth = process.env.NEXT_PUBLIC_BYPASS_AUTH === "true";
-
-  if (bypassAuth) {
-    // Use mock auth when bypass is enabled
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const { useMockAuth } = require("@/app/providers/MockAuthProvider");
-    return useMockAuth();
-  } else {
-    // Use real Cognito auth
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const { useAuth } = require("react-oidc-context");
-    const oidcAuth = useAuth();
-    return {
-      isAuthenticated: oidcAuth.isAuthenticated,
-      isLoading: oidcAuth.isLoading,
-      user: oidcAuth.user,
-      error: oidcAuth.error,
-      signinRedirect: oidcAuth.signinRedirect,
-      signoutRedirect: oidcAuth.signoutRedirect,
-    };
-  }
+  // Force mock auth for demo
+  return useMockAuth();
 }
 

@@ -160,6 +160,18 @@ downloads/*.csv
 reports/*.csv
 exports/*.csv
 
+# Exception: Track Python modules in backend/services/data (database queries and schema)
+!backend/services/data/
+!backend/services/data/**/*.py
+!backend/services/data/**/__init__.py
+# But still ignore database files and other data files
+backend/services/data/*.db
+backend/services/data/*.sqlite
+backend/services/data/*.sqlite3
+backend/services/data/**/*.csv
+backend/services/data/**/*.xlsx
+backend/services/data/**/*.xls
+
 # IDE files
 .vscode/
 .idea/

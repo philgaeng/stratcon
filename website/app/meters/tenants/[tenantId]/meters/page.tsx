@@ -1,11 +1,11 @@
 "use client";
 
 import api, { type MeterAssignment } from "@/lib/api-client";
+import { useAuthCompat } from "@/lib/hooks/useAuthCompat";
 import { formatMeterId } from "@/lib/meter-utils";
 import { format } from "date-fns";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
-import { useAuth } from "react-oidc-context";
 
 const resolveErrorMessage = (error: unknown): string => {
   if (error instanceof Error) return error.message;
@@ -27,7 +27,7 @@ interface ReadingEntry {
 }
 
 export default function MetersPage() {
-  const auth = useAuth();
+  const auth = useAuthCompat();
   const router = useRouter();
   const params = useParams();
   const searchParams = useSearchParams();
@@ -289,7 +289,7 @@ export default function MetersPage() {
                           {lastReading && (
                             <>
                               {" "}
-                              • Last: {lastReading.meter_kW.toFixed(1)} kWh (
+                              • Last: {lastReading.meter_kWh.toFixed(1)} kWh (
                               {format(
                                 new Date(lastReading.timestamp_record),
                                 "MMM d"

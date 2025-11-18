@@ -5,7 +5,7 @@ import { useRouteGuard } from "@/lib/hooks/useRouteGuard";
 import { useUserInfo } from "@/lib/hooks/useUserInfo";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
-import { useAuth } from "react-oidc-context";
+import { useAuthCompat } from "@/lib/hooks/useAuthCompat";
 
 const resolveErrorMessage = (error: unknown): string => {
   if (error instanceof Error) return error.message;
@@ -18,7 +18,7 @@ const resolveErrorMessage = (error: unknown): string => {
 };
 
 export default function MetersPage() {
-  const auth = useAuth();
+  const auth = useAuthCompat();
   const router = useRouter();
   const { userInfo, isLoading: isLoadingUserInfo } = useUserInfo();
   const [buildings, setBuildings] = useState<api.Building[]>([]);

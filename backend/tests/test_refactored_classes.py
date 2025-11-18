@@ -25,7 +25,7 @@ def _build_power_dataframe() -> pd.DataFrame:
             "timestamp": timestamps,
             "load_id": [1] * len(timestamps),
             "tenant_id": [1] * len(timestamps),
-            "power_kW": [5.0 + i for i in range(len(timestamps))],
+            "load_kW": [5.0 + i for i in range(len(timestamps))],
         }
     )
 

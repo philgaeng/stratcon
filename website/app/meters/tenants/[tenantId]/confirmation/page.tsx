@@ -2,10 +2,10 @@
 
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
-import { useAuth } from "react-oidc-context";
+import { useAuthCompat } from "@/lib/hooks/useAuthCompat";
 
 export default function ConfirmationPage() {
-  const auth = useAuth();
+  const auth = useAuthCompat();
   const router = useRouter();
   const params = useParams();
   const searchParams = useSearchParams();

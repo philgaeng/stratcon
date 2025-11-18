@@ -143,18 +143,34 @@ def generate_onepager_styles() -> str:
         .stratcon-logo {{ max-height: {logo_max_height}px; width: auto; }}
         .section-title {{ font-size: 1.8rem; font-weight: 600; color: {PlotlyStyle.STRATCON_DARK_GREY};
                          margin-bottom: 1.5rem; border-bottom: 3px solid {PlotlyStyle.STRATCON_PRIMARY_GREEN}; padding-bottom: 0.5rem; }}
+        .metrics-section {{ padding: 0.5rem; }}
+        .chart-section {{ padding: 0.5rem; }}
         .metric-card {{ background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
                         padding: 1.5rem; border-radius: 12px; text-align: center;
                         box-shadow: 0 4px 6px rgba(0,0,0,0.1); border-left: 4px solid {PlotlyStyle.STRATCON_PRIMARY_GREEN}; }}
+        .metric-card-row {{ display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }}
+        .metric-card-row .metric-card {{ margin: 0; }}
         .metric-value {{ font-size: 2.5rem; font-weight: 700; color: {PlotlyStyle.STRATCON_DARK_GREY}; margin-bottom: 0.25rem; }}
         .chart-container {{ background: white; padding: 1.5rem; border-radius: 8px;
                             box-shadow: 0 2px 8px rgba(0,0,0,0.1); }}
+        .metrics-two-columns {{ display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }}
+        .metrics-column {{ display: flex; flex-direction: column; gap: 1rem; }}
         .three-column-layout {{ display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }}
         .one-thirds-two-thirds-layout {{ display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; margin-bottom: 2rem; }}
         .metrics-three-columns {{ display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }}
         .footer {{ background: {PlotlyStyle.STRATCON_DARK_GREEN}; color: white; padding: 1.5rem 2rem; text-align: center; }}
     </style>
     """
+
+
+def _safe_format(value: Any, format_str: str = ".1f", default: str = "N/A") -> str:
+    """Safely format a value, handling None and other edge cases."""
+    if value is None:
+        return default
+    try:
+        return format(value, format_str)
+    except (ValueError, TypeError):
+        return default
 
 
 def generate_onepager_html(
@@ -174,9 +190,15 @@ def generate_onepager_html(
     chart_monthly = charts.get("monthly", "")
     chart_hourly = charts.get("hourly", "")
     chart_days = charts.get("days", "")
+    chart_pie_energy_per_load = charts.get("pie_energy_per_load", "")
 
     logo_url = get_base64_logo("white", logger) or ""
     logo_tag = build_logo_img(logo_url)
+    
+    # Safely format values that might be None
+    consumption_per_sqm_last = _safe_format(values_for_html.get('consumption_per_sqm_last'), ".1f", "N/A")
+    consumption_per_sqm_yearly = _safe_format(values_for_html.get('consumption_per_sqm_yearly'), ".1f", "N/A")
+    percentile_position = _safe_format(values_for_html.get('percentile_position'), ".1f", "N/A")
 
     return f"""
     <!DOCTYPE html>
@@ -204,39 +226,39 @@ def generate_onepager_html(
 
             <section class="metrics-section">
                 <h2 class="section-title">Energy Analysis Report</h2>
-                <div class="metrics-three-columns">
+                <div class="metrics-two-columns">
                     <div class="metrics-column">
                         <div class="metric-card main-metric">
                             <div class="metric-label">Energy Consumption (kWh)</div>
                             <div class="metric-value">{values_for_html['last_month_energy_consumption']:,.0f}</div>
                             <div class="metric-reference">(Yearly average: {values_for_html['average_monthly_consumption_energy']:,.0f} kWh)</div>
                         </div>
-                    </div>
-                    <div class="metrics-column">
-                        <div class="metric-card">
-                            <div class="metric-label">Peak Power (kW)</div>
-                            <div class="metric-value">{values_for_html['last_month_peak_power']:.1f}</div>
-                            <div class="metric-reference">(Yearly average: {values_for_html['yearly_average_peak_power']:.1f} kW)</div>
+                        <div class="metric-card-row">
+                            <div class="metric-card">
+                                <div class="metric-label">Peak Power (kW)</div>
+                                <div class="metric-value">{values_for_html['last_month_peak_power']:.1f}</div>
+                                <div class="metric-reference">(Yearly average: {values_for_html['yearly_average_peak_power']:.1f} kW)</div>
+                            </div><div class="metric-card">
+                                <div class="metric-label">Always On (kW)</div>
+                                <div class="metric-value">{values_for_html['last_month_always_on_power']:.1f}</div>
+                                <div class="metric-reference">(Yearly average: {values_for_html['yearly_average_always_on_power']:.1f} kW)</div>
+                            </div>
                         </div>
-                        <div class="metric-card">
-                            <div class="metric-label">Always On Power (kW)</div>
-                            <div class="metric-value">{values_for_html['last_month_always_on_power']:.1f}</div>
-                            <div class="metric-reference">(Yearly average: {values_for_html['yearly_average_always_on_power']:.1f} kW)</div>
-                        </div>
-                    </div>
-                    <div class="metrics-column">
-                        <div class="metrics-grid">
+                        <div class="metric-card-row">
+                            <div class="metric-card">
+                                <div class="metric-label">Energy intensity (kWh/m²)</div>
+                                <div class="metric-value">{consumption_per_sqm_last}</div>
+                                <div class="metric-reference">(Percentile position: {percentile_position}%)</div>
+                            </div>
                             <div class="metric-card">
                                 <div class="metric-label">CO₂ Emissions (kg)</div>
                                 <div class="metric-value">{values_for_html['last_month_co2_emissions']:,.0f}</div>
                             </div>
-                            <div class="metric-card">
-                                <div class="metric-label">Energy intensity per sq.m (kWh/m²)</div>
-                                <div class="metric-value">{values_for_html['consumption_per_sqm_last']:.1f} </div>
-                                <div class="metric-reference">(Yearly average: {values_for_html['consumption_per_sqm_yearly']:.1f} kWh/m²)</div>
-                                <div class="metric-reference">(Percentile position: {values_for_html['percentile_position']:.1f}%)</div>
-                            </div>
                         </div>
+                    </div>
+                    <div class="metrics-column">
+                        <h3 class="subsection-title">Energy per Load</h3>
+                        <div class="chart-container">{chart_pie_energy_per_load}</div>
                     </div>
                 </div>
             </section>

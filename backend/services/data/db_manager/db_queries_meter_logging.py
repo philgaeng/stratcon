@@ -12,6 +12,22 @@ from backend.services.data.db_manager.db_schema import get_db_connection
 from backend.services.core.utils import ReportLogger
 
 
+def _get_units_table_columns(cursor: sqlite3.Cursor) -> set[str]:
+    """
+    Return the set of column names available on the `units` table.
+
+    Helpful for installations that added `tenant_id`/`name` columns directly on the table.
+    """
+    cursor.execute("PRAGMA table_info(units)")
+    columns: set[str] = set()
+    for row in cursor.fetchall():
+        if isinstance(row, sqlite3.Row):
+            columns.add(row["name"])
+        else:
+            columns.add(row[1])
+    return columns
+
+
 class MeterLoggingDbQueries:
     """Static helpers for meter logging related database access."""
 
@@ -269,6 +285,7 @@ class MeterLoggingDbQueries:
     @staticmethod
     def get_floors_for_tenant(
         tenant_id: int,
+        tenant_token: Optional[str] = None,
         conn: Optional[sqlite3.Connection] = None,
         logger: Optional[ReportLogger] = None,
     ) -> List[Dict[str, object]]:
@@ -287,25 +304,57 @@ class MeterLoggingDbQueries:
 
         try:
             cursor = conn.cursor()
-            cursor.execute(
-                """
-                SELECT
-                    u.floor,
-                    COUNT(DISTINCT u.id) AS unit_count,
-                    COUNT(DISTINCT umh.meter_id) AS meter_count
-                FROM unit_tenants_history AS uth
-                JOIN units AS u ON u.id = uth.unit_id
-                LEFT JOIN unit_meters_history AS umh
-                  ON umh.unit_id = u.id
-                 AND umh.is_active = 1
-                WHERE uth.tenant_id = ?
-                  AND uth.is_active = 1
-                  AND u.floor IS NOT NULL
-                GROUP BY u.floor
-                ORDER BY u.floor
-                """,
-                (tenant_id,),
-            )
+            units_columns = _get_units_table_columns(cursor)
+
+            if "tenant_id" in units_columns:
+                filters: List[str] = []
+                params: List[object] = []
+                if tenant_id is not None:
+                    filters.append("u.tenant_id = ?")
+                    params.append(tenant_id)
+                if tenant_token:
+                    filters.append("LOWER(u.tenant_id) = LOWER(?)")
+                    params.append(tenant_token)
+                if not filters:
+                    raise ValueError("Could not determine tenant filter for floors query.")
+
+                cursor.execute(
+                    f"""
+                    SELECT
+                        u.floor,
+                        COUNT(DISTINCT u.id) AS unit_count,
+                        COUNT(DISTINCT umh.meter_id) AS meter_count
+                    FROM units AS u
+                    LEFT JOIN unit_meters_history AS umh
+                      ON umh.unit_id = u.id
+                     AND umh.is_active = 1
+                    WHERE ({' OR '.join(filters)})
+                      AND u.floor IS NOT NULL
+                    GROUP BY u.floor
+                    ORDER BY u.floor
+                    """,
+                    params,
+                )
+            else:
+                cursor.execute(
+                    """
+                    SELECT
+                        u.floor,
+                        COUNT(DISTINCT u.id) AS unit_count,
+                        COUNT(DISTINCT umh.meter_id) AS meter_count
+                    FROM unit_tenants_history AS uth
+                    JOIN units AS u ON u.id = uth.unit_id
+                    LEFT JOIN unit_meters_history AS umh
+                      ON umh.unit_id = u.id
+                     AND umh.is_active = 1
+                    WHERE uth.tenant_id = ?
+                      AND uth.is_active = 1
+                      AND u.floor IS NOT NULL
+                    GROUP BY u.floor
+                    ORDER BY u.floor
+                    """,
+                    (tenant_id,),
+                )
 
             rows = cursor.fetchall()
             floors = []
@@ -328,6 +377,107 @@ class MeterLoggingDbQueries:
                 f"Found {len(floors)} floors for tenant {tenant_id}"
             )
             return floors
+        finally:
+            if close_conn:
+                conn.close()
+
+    @staticmethod
+    def get_units_for_tenant(
+        tenant_id: int,
+        floor: Optional[int] = None,
+        *,
+        tenant_token: Optional[str] = None,
+        conn: Optional[sqlite3.Connection] = None,
+        logger: Optional[ReportLogger] = None,
+    ) -> List[Dict[str, object]]:
+        """Return active units for a tenant, optionally filtered by floor."""
+        if tenant_id is None:
+            raise ValueError("tenant_id cannot be None")
+
+        if logger is None:
+            logger = ReportLogger()
+        logger_obj: ReportLogger = cast(ReportLogger, logger)
+
+        close_conn = False
+        if conn is None:
+            conn = get_db_connection()
+            close_conn = True
+
+        try:
+            cursor = conn.cursor()
+            params: List[object] = []
+            floor_filter = ""
+            if floor is not None:
+                floor_filter = "AND u.floor = ?"
+                params.append(floor)
+
+            units_columns = _get_units_table_columns(cursor)
+
+            if "tenant_id" in units_columns:
+                select_name = "u.name" if "name" in units_columns else "NULL"
+                filters: List[str] = []
+                tenant_params: List[object] = []
+                if tenant_id is not None:
+                    filters.append("u.tenant_id = ?")
+                    tenant_params.append(tenant_id)
+                if tenant_token:
+                    filters.append("LOWER(u.tenant_id) = LOWER(?)")
+                    tenant_params.append(tenant_token)
+                if not filters:
+                    raise ValueError("Could not determine tenant filter for units query.")
+
+                cursor.execute(
+                    f"""
+                    SELECT DISTINCT
+                        u.id AS unit_id,
+                        u.unit_number,
+                        {select_name} AS unit_name,
+                        u.floor
+                    FROM units AS u
+                    WHERE ({' OR '.join(filters)})
+                      {floor_filter}
+                    ORDER BY
+                        CASE WHEN u.unit_number IS NULL THEN 1 ELSE 0 END,
+                        u.unit_number COLLATE NOCASE
+                    """,
+                    [*tenant_params, *params],
+                )
+            else:
+                cursor.execute(
+                    f"""
+                    SELECT DISTINCT
+                        u.id AS unit_id,
+                        u.unit_number,
+                        NULL AS unit_name,
+                        u.floor
+                    FROM unit_tenants_history AS uth
+                    JOIN units AS u ON u.id = uth.unit_id
+                    WHERE uth.tenant_id = ?
+                      AND uth.is_active = 1
+                      {floor_filter}
+                    ORDER BY
+                        CASE WHEN u.unit_number IS NULL THEN 1 ELSE 0 END,
+                        u.unit_number COLLATE NOCASE
+                    """,
+                    [tenant_id, *params],
+                )
+
+            rows = cursor.fetchall()
+            units: List[Dict[str, object]] = []
+            for row in rows:
+                units.append(
+                    {
+                        "unit_id": row["unit_id"],
+                        "unit_number": row["unit_number"],
+                        "name": row["unit_name"],
+                        "floor": row["floor"],
+                    }
+                )
+            logger_obj.debug(
+                f"Found {len(units)} units for tenant {tenant_id}"
+                + (f" on floor {floor}" if floor is not None else "")
+            )
+            return units
         finally:
             if close_conn:
                 conn.close()
@@ -423,7 +573,7 @@ class MeterLoggingDbQueries:
                         "last_record": (
                             {
                                 "timestamp_record": record["timestamp_record"],
-                                "meter_kW": record["meter_kW"],
+                                "meter_kWh": record["meter_kWh"],
                             }
                             if record
                             else None
@@ -678,16 +828,16 @@ class MeterLoggingDbQueries:
                     except ValueError as exc:
                         raise ValueError(f"Invalid ISO timestamp: {timestamp_iso}") from exc
 
-                meter_kw = float(record["meter_kW"])
+                meter_kwh = float(record["meter_kWh"])
                 previous = latest_by_meter.get(meter_id)
-                if previous is not None and meter_kw < float(previous["meter_kW"]):
+                if previous is not None and meter_kwh < float(previous["meter_kWh"]):
                     warnings.append(
                         {
                             "client_record_id": client_record_id,
                             "type": "decreasing_reading",
                             "message": (
-                                f"New reading ({meter_kw}) is below previous value "
-                                f"({previous['meter_kW']}). Record skipped."
+                                f"New reading ({meter_kwh}) is below previous value "
+                                f"({previous['meter_kWh']}). Record skipped."
                             ),
                         }
                     )
@@ -701,7 +851,7 @@ class MeterLoggingDbQueries:
                         session_id,
                         client_record_id,
                         timestamp_record,
-                        meter_kW,
+                        meter_kWh,
                         encoder_user_id
                     ) VALUES (?, ?, ?, ?, ?, ?, ?)
                     ON CONFLICT(session_id, client_record_id) DO NOTHING
@@ -713,7 +863,7 @@ class MeterLoggingDbQueries:
                         session_id,
                         client_record_id,
                         timestamp_iso,
-                        meter_kw,
+                        meter_kwh,
                         encoder_user_id,
                     ),
                 )
@@ -724,7 +874,7 @@ class MeterLoggingDbQueries:
                     latest_by_meter[meter_id] = {
                         "meter_id": meter_id,
                         "timestamp_record": timestamp_iso,
-                        "meter_kW": meter_kw,
+                        "meter_kWh": meter_kwh,
                     }
                     accepted.append(
                         {
@@ -736,7 +886,7 @@ class MeterLoggingDbQueries:
                 else:
                     cursor.execute(
                         """
-                        SELECT id, meter_kW, timestamp_record
+                        SELECT id, meter_kWh, timestamp_record
                         FROM meter_records
                         WHERE session_id = ? AND client_record_id = ?
                         """,
@@ -856,7 +1006,7 @@ class MeterLoggingDbQueries:
                     mr.session_id,
                     mr.client_record_id,
                     mr.timestamp_record,
-                    mr.meter_kW,
+                    mr.meter_kWh,
                     mr.encoder_user_id,
                     mr.approver_name,
                     mr.approver_signature,

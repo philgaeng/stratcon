@@ -263,19 +263,19 @@ Junction table linking contacts to clients with role-specific information
 
 Manual meter readings (records of manual meter readings entered by users)
 
-| Column             | Type                | Description                                  |
-| ------------------ | ------------------- | -------------------------------------------- |
-| id                 | INTEGER PRIMARY KEY | Unique identifier                            |
-| meter_id           | INTEGER NOT NULL    | Foreign key to meters (manual meters)        |
-| tenant_id          | INTEGER NOT NULL    | Foreign key to tenants                       |
-| session_id         | TEXT                | Client-provided bulk session identifier      |
-| client_record_id   | TEXT                | Client-generated record identifier           |
-| timestamp_record   | TIMESTAMP NOT NULL  | Timestamp when the reading was taken         |
-| meter_kW           | REAL NOT NULL       | Power reading in kilowatts                   |
-| encoder_user_id    | INTEGER             | Foreign key to users (encoder)               |
-| approver_name      | TEXT                | Name captured from tenant approver signature |
-| approver_signature | TEXT                | Base64 signature blob (optional)             |
-| created_at         | TIMESTAMP           | Creation timestamp                           |
+| Column             | Type                | Description                                   |
+| ------------------ | ------------------- | --------------------------------------------- |
+| id                 | INTEGER PRIMARY KEY | Unique identifier                             |
+| meter_id           | INTEGER NOT NULL    | Foreign key to meters (manual meters)         |
+| tenant_id          | INTEGER NOT NULL    | Foreign key to tenants                        |
+| session_id         | TEXT                | Client-provided bulk session identifier       |
+| client_record_id   | TEXT                | Client-generated record identifier            |
+| timestamp_record   | TIMESTAMP NOT NULL  | Timestamp when the reading was taken          |
+| meter_kWh          | REAL NOT NULL       | Energy reading in kilowatt-hours (cumulative) |
+| encoder_user_id    | INTEGER             | Foreign key to users (encoder)                |
+| approver_name      | TEXT                | Name captured from tenant approver signature  |
+| approver_signature | TEXT                | Base64 signature blob (optional)              |
+| created_at         | TIMESTAMP           | Creation timestamp                            |
 
 **Notes**:
 
