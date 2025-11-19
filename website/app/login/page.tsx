@@ -53,7 +53,10 @@ function LoginContent() {
       
       // For Cognito, manually construct the authorization URL to use /oauth2/authorize
       // This bypasses the library's metadata discovery which finds /login endpoint
-      if (process.env.NEXT_PUBLIC_BYPASS_AUTH !== "true") {
+      const bypassAuth = process.env.NEXT_PUBLIC_BYPASS_AUTH === "true";
+      console.log("[AUTH] Bypass auth:", bypassAuth, "isLoading:", auth.isLoading, "isAuthenticated:", auth.isAuthenticated);
+      
+      if (!bypassAuth) {
         const cognitoDomain = "ap-southeast-1htvo9y0bb.auth.ap-southeast-1.amazoncognito.com";
         const clientId = process.env.NEXT_PUBLIC_COGNITO_CLIENT_ID || "384id7i8oh9vci2ck2afip4vsn";
         const redirectUri = `${window.location.origin}/login`;
@@ -70,8 +73,9 @@ function LoginContent() {
           `redirect_uri=${encodeURIComponent(redirectUri)}&` +
           `state=${encodeURIComponent(state)}`;
         
-        console.log("[AUTH] Redirecting to Cognito OAuth2 endpoint:", authUrl);
-        window.location.href = authUrl;
+        console.log("[AUTH] MANUAL REDIRECT - Using /oauth2/authorize endpoint:", authUrl);
+        // Use replace to prevent back button issues
+        window.location.replace(authUrl);
         return;
       }
       
