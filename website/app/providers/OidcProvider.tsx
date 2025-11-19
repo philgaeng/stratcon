@@ -38,8 +38,9 @@ export default function OidcProvider({ children }: OidcProviderProps) {
 
   const cognitoAuthConfig = useMemo(
     () => ({
-      // Use the Cognito issuer URL for OIDC discovery
-      authority: cognitoIssuer,
+      // Use the domain as authority to prevent automatic OIDC discovery
+      // This forces the library to use our custom metadata instead of discovering /login endpoint
+      authority: `https://${cognitoDomain}`,
       client_id: clientId,
       redirect_uri: redirectUri,
       response_type: "code" as const,
@@ -48,11 +49,8 @@ export default function OidcProvider({ children }: OidcProviderProps) {
       automaticSilentRenew: true,
       // Additional settings for better state management
       loadUserInfo: true,
-      // Disable metadata discovery and use custom endpoints
-      // This prevents the library from discovering the Hosted UI /login endpoint
-      metadataUrl: undefined, // Disable metadata discovery
-      skipIssuerCheck: true, // Skip issuer validation since we're providing custom endpoints
-      // Override metadata to use OAuth2 endpoints directly (not Hosted UI /login)
+      // Provide custom metadata to override any discovery
+      // This ensures we use /oauth2/authorize instead of /login
       metadata: {
         issuer: cognitoIssuer,
         authorization_endpoint: authorizationEndpoint,
@@ -60,10 +58,12 @@ export default function OidcProvider({ children }: OidcProviderProps) {
         userinfo_endpoint: `https://${cognitoDomain}/oauth2/userInfo`,
         end_session_endpoint: `https://${cognitoDomain}/logout`,
         jwks_uri: `${cognitoIssuer}/.well-known/jwks.json`,
-        // Disable PKCE by not including code_challenge_method in metadata
       },
-      // Explicitly disable PKCE
+      // Disable PKCE - Cognito App Client should not require PKCE for this flow
       code_challenge_method: undefined,
+      // Disable metadata discovery by providing a non-standard authority
+      // The library will use our metadata instead of trying to discover
+      skipIssuerCheck: true,
     }),
     [redirectUri]
   );
