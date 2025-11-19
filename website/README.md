@@ -41,10 +41,12 @@ EOF
 ```
 
 **Development (WSL):**
+
 - `NEXT_PUBLIC_API_URL`: `http://localhost:8000`
 - Use development Cognito credentials
 
 **Production (AWS):**
+
 - `NEXT_PUBLIC_API_URL`: `https://stratcon.facets-ai.com/api`
 - Use production Cognito credentials
 - Set in `.env.local` on the server or via systemd environment variables
@@ -88,6 +90,7 @@ website/
 ## Next Steps
 
 1. **Configure AWS Cognito**
+
    - Create Cognito User Pool
    - Set up OAuth redirect URLs
    - Add credentials to `.env.local`
