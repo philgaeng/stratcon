@@ -58,8 +58,9 @@ export default function OidcProvider({ children }: OidcProviderProps) {
         redirect_uri: redirectUri,
         response_type: "code" as const,
         scope: "openid email",
-        // Enable automatic silent signin to handle callbacks
-        automaticSilentRenew: true,
+        // Disable automatic silent renew - we handle redirects manually in login page
+        // This prevents the library from automatically redirecting to /login endpoint
+        automaticSilentRenew: false,
         // Additional settings for better state management
         loadUserInfo: true,
         // CRITICAL: Provide metadata to override discovery
