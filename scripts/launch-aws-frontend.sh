@@ -46,13 +46,20 @@ FRONTEND_DIR="$PROJECT_ROOT/website"
 
 # AWS Server Configuration
 AWS_SERVER_IP="${AWS_SERVER_IP:-52.221.59.184}"
-API_URL="http://${AWS_SERVER_IP}:8000"
+AWS_DOMAIN="${AWS_DOMAIN:-stratcon.facets-ai.com}"
+# Use domain with HTTPS if available, otherwise fall back to IP
+if [ -n "$AWS_DOMAIN" ] && [ "$AWS_DOMAIN" != "none" ]; then
+    API_URL="https://${AWS_DOMAIN}/api"
+else
+    API_URL="http://${AWS_SERVER_IP}:8000"
+fi
 
 echo -e "${BLUE}🚀 Stratcon AWS Frontend Launcher${NC}"
 echo "======================================"
 echo ""
 echo -e "${YELLOW}Configuration:${NC}"
 echo "   Server IP: $AWS_SERVER_IP"
+echo "   Domain: ${AWS_DOMAIN:-none}"
 echo "   API URL: $API_URL"
 echo "   Mode: $([ "$PRODUCTION_MODE" = true ] && echo "Production" || echo "Development")"
 echo ""

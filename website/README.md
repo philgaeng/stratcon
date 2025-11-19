@@ -45,9 +45,9 @@ EOF
 - Use development Cognito credentials
 
 **Production (AWS):**
-- `NEXT_PUBLIC_API_URL`: `https://api.stratcon.ph`
+- `NEXT_PUBLIC_API_URL`: `https://stratcon.facets-ai.com/api`
 - Use production Cognito credentials
-- Set in AWS Amplify Console → Environment variables
+- Set in `.env.local` on the server or via systemd environment variables
 
 ### Development
 
