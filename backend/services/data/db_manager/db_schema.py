@@ -13,13 +13,34 @@ BACKEND_DIR = SERVICES_DIR.parent.parent  # Go up two levels: services -> backen
 
 # Use DATABASE_PATH environment variable if set, otherwise use default location
 _DEFAULT_DB_PATH = BACKEND_DIR / "data" / "settings.db"
-DB_PATH = Path(os.getenv("DATABASE_PATH", str(_DEFAULT_DB_PATH)))
+
+# DB_PATH can be overridden by:
+# 1. DATABASE_PATH environment variable (checked at import time and in get_db_connection)
+# 2. Monkeypatching in tests (monkeypatch.setattr(db_schema, "DB_PATH", test_path))
+# get_db_connection() always checks DATABASE_PATH env var first for production use
+_env_db_path = os.getenv("DATABASE_PATH")
+if _env_db_path:
+    DB_PATH = Path(_env_db_path)
+else:
+    DB_PATH = _DEFAULT_DB_PATH
 DB_PATH.parent.mkdir(parents=True, exist_ok=True)
 
 
 def get_db_connection() -> sqlite3.Connection:
-    """Get a database connection with row factory."""
-    conn = sqlite3.connect(DB_PATH)
+    """Get a database connection with row factory.
+    
+    Respects DATABASE_PATH environment variable if set (even if DB_PATH was set differently).
+    This ensures production uses the correct database path from environment config.
+    """
+    # Check env var first (for production), fall back to DB_PATH (for tests/backward compat)
+    env_path = os.getenv("DATABASE_PATH")
+    if env_path:
+        db_path = Path(env_path)
+        db_path.parent.mkdir(parents=True, exist_ok=True)
+    else:
+        db_path = DB_PATH
+    
+    conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
     return conn
 
