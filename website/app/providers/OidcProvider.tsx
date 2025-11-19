@@ -48,10 +48,18 @@ export default function OidcProvider({ children }: OidcProviderProps) {
       automaticSilentRenew: true,
       // Additional settings for better state management
       loadUserInfo: true,
+      // Disable metadata discovery and use custom endpoints
+      // This prevents the library from discovering the Hosted UI /login endpoint
+      metadataUrl: undefined, // Disable metadata discovery
+      skipIssuerCheck: true, // Skip issuer validation since we're providing custom endpoints
       // Override metadata to use OAuth2 endpoints directly (not Hosted UI /login)
       metadata: {
+        issuer: cognitoIssuer,
         authorization_endpoint: authorizationEndpoint,
         token_endpoint: tokenEndpoint,
+        userinfo_endpoint: `https://${cognitoDomain}/oauth2/userInfo`,
+        end_session_endpoint: `https://${cognitoDomain}/logout`,
+        jwks_uri: `${cognitoIssuer}/.well-known/jwks.json`,
         // Disable PKCE by not including code_challenge_method in metadata
       },
       // Explicitly disable PKCE
