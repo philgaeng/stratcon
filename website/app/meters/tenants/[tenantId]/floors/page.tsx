@@ -1,6 +1,6 @@
 "use client";
 
-import api from "@/lib/api-client";
+import api, { type FloorSummary } from "@/lib/api-client";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { useAuthCompat } from "@/lib/hooks/useAuthCompat";
@@ -25,7 +25,7 @@ export default function FloorsPage() {
   const buildingName = searchParams.get("building") || "";
   const tenantName = searchParams.get("tenant") || "";
 
-  const [floors, setFloors] = useState<api.FloorSummary[]>([]);
+  const [floors, setFloors] = useState<FloorSummary[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [searchQuery, setSearchQuery] = useState<string>("");
