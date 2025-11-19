@@ -6,7 +6,7 @@ import { useAuthCompat } from "./useAuthCompat";
 
 export interface UserInfo {
   user_id: number;
-  role: number | string; // Role as number (hierarchy value) or string (e.g., "super_admin", "encoder")
+  role: number | string; // Role as number (hierarchy value) or string (e.g., "super_admin", "client_encoder")
   entity_id: number | null;
   email: string;
   company: string | null;
@@ -41,16 +41,17 @@ export function useUserInfo() {
     // Get email from user object (works for both mock and real auth)
     // MockUser has email at top level, real auth may have it in profile
     const email = auth.user?.email || (auth.user as any)?.profile?.email;
-    
+
     if (!auth.isAuthenticated || !email) {
       setIsLoading(false);
       return;
     }
 
     // Check if using mock auth (demo mode)
-    const isMockAuth = process.env.NEXT_PUBLIC_BYPASS_AUTH === "true" || 
-                       email === "philippe@stratcon.ph" ||
-                       auth.user?.sub === "mock-user-123";
+    const isMockAuth =
+      process.env.NEXT_PUBLIC_BYPASS_AUTH === "true" ||
+      email === "philippe@stratcon.ph" ||
+      auth.user?.sub === "mock-user-123";
 
     // For mock auth, provide default demo user info
     if (isMockAuth) {
@@ -106,11 +107,16 @@ export function useUserInfo() {
       localStorage.setItem("userId", info.user_id.toString());
     } catch (err) {
       // Handle 404 gracefully - user might not exist in database yet
-      const is404 = err && typeof err === 'object' && 'response' in err && 
-                    (err as any).response?.status === 404;
-      
+      const is404 =
+        err &&
+        typeof err === "object" &&
+        "response" in err &&
+        (err as any).response?.status === 404;
+
       if (is404) {
-        console.warn(`User ${email} not found in database. This is normal for new users or demo mode.`);
+        console.warn(
+          `User ${email} not found in database. This is normal for new users or demo mode.`
+        );
         setError(null); // Don't show error for 404, just log it
       } else {
         const errorMessage =

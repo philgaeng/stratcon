@@ -22,38 +22,26 @@ function LoginContent() {
       return;
     }
 
-    // Currently using mock auth - auto-authenticate on login page
-    // TODO: Add back Cognito flow when switching from mock auth
-    if (!auth.isLoading && !auth.isAuthenticated && !redirectAttempted) {
-      setRedirectAttempted(true);
-      console.log("[MOCK AUTH] Auto-authenticating...");
-      auth.signinRedirect().catch((error) => {
-        console.error("Mock auth error:", error);
-      });
-      return;
-    }
-
-    // Real Cognito flow
-    // Check if this is a callback from Cognito
+    // Check if this is a callback from Cognito (or mock auth)
     const code = search.get("code");
     const state = search.get("state");
     const isCallback = !!code && !!state;
     
-    // Log any OAuth errors from Cognito
+    // Log any OAuth errors
     if (error) {
-      console.error("[OIDC] Cognito error:", error, errorDescription);
+      console.error("[AUTH] OAuth error:", error, errorDescription);
     }
 
     // If callback, let AuthProvider handle it automatically
     if (isCallback && !callbackProcessed) {
       setCallbackProcessed(true);
       console.log(
-        "Callback detected, AuthProvider will process automatically..."
+        "[AUTH] Callback detected, AuthProvider will process automatically..."
       );
       return;
     }
 
-    // Otherwise, redirect to Cognito Hosted UI immediately
+    // Otherwise, redirect to sign in (Cognito or mock auth)
     if (
       !auth.isLoading &&
       !auth.isAuthenticated &&
@@ -61,14 +49,14 @@ function LoginContent() {
       !isCallback
     ) {
       setRedirectAttempted(true);
-      console.log("Attempting redirect to Cognito...");
+      console.log("[AUTH] Attempting redirect to sign in...");
       auth
         .signinRedirect()
         .then(() => {
-          console.log("Redirect initiated successfully");
+          console.log("[AUTH] Redirect initiated successfully");
         })
         .catch((error) => {
-          console.error("Redirect error:", error);
+          console.error("[AUTH] Redirect error:", error);
           alert(
             `Redirect failed: ${
               error.message || error
@@ -102,7 +90,7 @@ function LoginContent() {
         {(auth.error || error) && (
           <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded text-red-700 text-sm">
             <p className="font-semibold">
-              {error ? `Cognito Error: ${error}` : `Error: ${auth.error?.message}`}
+              {error ? `Authentication Error: ${error}` : `Error: ${auth.error?.message}`}
             </p>
             {errorDescription && (
               <p className="mt-1 text-xs">{errorDescription}</p>

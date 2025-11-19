@@ -12,7 +12,7 @@ export enum UserRole {
   CLIENT_MANAGER = "client_manager",
   VIEWER = "viewer",
   TENANT_USER = "tenant_user",
-  ENCODER = "encoder",
+  ENCODER = "client_encoder",
   TENANT_APPROVER = "tenant_approver",
 }
 

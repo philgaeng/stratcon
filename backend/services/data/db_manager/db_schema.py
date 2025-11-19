@@ -200,7 +200,7 @@ def init_database() -> None:
                 active BOOLEAN DEFAULT 1,
                 user_group TEXT NOT NULL CHECK(user_group IN (
                     'super_admin', 'client_admin', 'client_manager', 'viewer', 'tenant_user',
-                    'encoder', 'tenant_approver'
+                    'client_encoder', 'tenant_approver'
                 )),
                 receive_reports_email BOOLEAN DEFAULT 0,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
