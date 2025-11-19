@@ -28,8 +28,11 @@ export default function AuthButtons() {
   }
 
   // Get email from user object (works for both mock and real auth)
-  // MockUser has email at top level, real auth may have it in profile
-  const userEmail = auth.user?.email || (auth.user as any)?.profile?.email || "";
+  // MockUser has email at top level, real auth has it in profile
+  const userEmail = 
+    (auth.user as any)?.email || // Mock auth
+    (auth.user as any)?.profile?.email || // Cognito auth
+    "";
 
   return auth.isAuthenticated ? (
     <div className="flex items-center gap-3">
