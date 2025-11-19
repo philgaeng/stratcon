@@ -20,7 +20,7 @@ apiClient.interceptors.request.use(
       const userId = localStorage.getItem("userId");
       if (userId) {
         if (!config.headers) {
-          config.headers = {};
+          config.headers = {} as any;
         }
         config.headers["x-user-id"] = userId;
         config.params = {

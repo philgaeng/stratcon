@@ -39,7 +39,8 @@ export function useUserInfo() {
 
   const fetchUserInfo = useCallback(async () => {
     // Get email from user object (works for both mock and real auth)
-    const email = auth.user?.email || auth.user?.profile?.email;
+    // MockUser has email at top level, real auth may have it in profile
+    const email = auth.user?.email || (auth.user as any)?.profile?.email;
     
     if (!auth.isAuthenticated || !email) {
       setIsLoading(false);

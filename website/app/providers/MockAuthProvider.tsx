@@ -7,6 +7,12 @@ interface MockUser {
   email: string;
   email_verified: boolean;
   name?: string;
+  // Optional profile for compatibility with real auth providers
+  profile?: {
+    email?: string;
+    name?: string;
+    sub?: string;
+  };
 }
 
 interface MockAuthContextType {
