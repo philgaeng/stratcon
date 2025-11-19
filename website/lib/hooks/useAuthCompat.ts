@@ -1,14 +1,22 @@
 "use client";
 
+import { useAuth } from "react-oidc-context";
 import { useMockAuth } from "@/app/providers/MockAuthProvider";
 
 /**
- * Auth hook - Currently using mock auth for demo
+ * Auth hook - Compatible with both Cognito and Mock Auth
  * 
- * TODO: Make this conditional after demo to support both mock and real Cognito
+ * Uses Cognito by default, falls back to Mock Auth if NEXT_PUBLIC_BYPASS_AUTH=true
  */
 export function useAuthCompat() {
-  // Force mock auth for demo
-  return useMockAuth();
+  // Check if mock auth is enabled via environment variable
+  const useMockAuthMode = process.env.NEXT_PUBLIC_BYPASS_AUTH === "true";
+  
+  if (useMockAuthMode) {
+    return useMockAuth();
+  }
+  
+  // Use Cognito auth
+  return useAuth();
 }
 
