@@ -41,7 +41,7 @@ main branch (WSL Development)
 AWS_REGION=ap-southeast-1
 AWS_ACCESS_KEY_ID=dev_key
 AWS_SECRET_ACCESS_KEY=dev_secret
-SES_SENDER_EMAIL=dev@stratcon.ph
+SES_SENDER_EMAIL=philippe@stratcon.ph
 DATABASE_PATH=./backend/data/settings.db
 API_URL=http://localhost:8000
 DEBUG=true
@@ -50,7 +50,7 @@ DEBUG=true
 AWS_REGION=ap-southeast-1
 AWS_ACCESS_KEY_ID=prod_key  # Or use IAM roles
 AWS_SECRET_ACCESS_KEY=prod_secret  # Or use IAM roles
-SES_SENDER_EMAIL=noreply@stratcon.ph
+SES_SENDER_EMAIL=philippe@stratcon.ph
 DATABASE_PATH=/var/lib/stratcon/settings.db
 API_URL=https://api.stratcon.ph
 DEBUG=false

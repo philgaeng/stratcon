@@ -68,7 +68,7 @@ def populate_database():
             ('jovs.carcido@stratcon.asia', 'Jovs', 'Carcido', None, None, 'client_admin', 'Stratcon'),
             ('sam.suppiah@stratcon.ph', 'Sam', 'Suppiah', None, None, 'client_admin', 'Stratcon'),
             ('mark.nania@stratcon.ph', 'Mark', 'Nania', None, None, 'client_admin', 'Stratcon'),
-            ('philgaeng@pm.me', 'Philippe', 'Gaeng', '+639175330841', None, 'super_admin', 'Stratcon'),
+            ('philippe@stratcon.ph', 'Philippe', 'Gaeng', '+639175330841', None, 'super_admin', 'Stratcon'),
             ('jherald.casipit@aboitizpower.com', 'Jherald', 'Casipit', None, None, 'client_manager', 'Aboitiz Power'),
             ('antonette.torres@aboitizpower.com', 'Mary Antonette', 'Torres', None, None, 'client_manager', 'Aboitiz Power'),
         ]
@@ -97,7 +97,7 @@ def populate_database():
             ('Jovs', 'Carcido', None, None, 'jovs.carcido@stratcon.asia', None, 'jovs.carcido@stratcon.asia'),
             ('Sam', 'Suppiah', None, None, 'sam.suppiah@stratcon.ph', None, 'sam.suppiah@stratcon.ph'),
             ('Mark', 'Nania', None, None, 'mark.nania@stratcon.ph', None, 'mark.nania@stratcon.ph'),
-            ('Philippe', 'Gaeng', None, '+639175330841', 'philgaeng@pm.me', None, 'philgaeng@pm.me'),
+            ('Philippe', 'Gaeng', None, '+639175330841', 'philippe@stratcon.ph', None, 'philippe@stratcon.ph'),
             ('Jherald', 'Casipit', None, None, 'jherald.casipit@aboitizpower.com', None, 'jherald.casipit@aboitizpower.com'),
             ('Mary Antonette', 'Torres', None, None, 'antonette.torres@aboitizpower.com', None, 'antonette.torres@aboitizpower.com'),
             ('Richard', 'De Borja', None, None, 'richard.deborja@neooffice.ph', None, None),  # NEO contact, not a user
@@ -130,7 +130,7 @@ def populate_database():
             ('jovs.carcido@stratcon.asia', None, False, True),
             ('sam.suppiah@stratcon.ph', None, False, True),
             ('mark.nania@stratcon.ph', None, False, True),
-            ('philgaeng@pm.me', 'System Administrator', True, True),
+            ('philippe@stratcon.ph', 'System Administrator', True, True),
         ]
         
         for email, position, main_contact, receive_reports in stratcon_contacts:
@@ -270,7 +270,7 @@ def populate_database():
             'jovs.carcido@stratcon.asia',
             'sam.suppiah@stratcon.ph',
             'mark.nania@stratcon.ph',
-            'philgaeng@pm.me',
+            'philippe@stratcon.ph',
         ]
         
         for email in stratcon_user_emails:

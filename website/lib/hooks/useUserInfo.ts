@@ -49,7 +49,7 @@ export function useUserInfo() {
 
     // Check if using mock auth (demo mode)
     const isMockAuth = process.env.NEXT_PUBLIC_BYPASS_AUTH === "true" || 
-                       email === "demo@stratcon.ph" ||
+                       email === "philippe@stratcon.ph" ||
                        auth.user?.sub === "mock-user-123";
 
     // For mock auth, provide default demo user info

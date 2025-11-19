@@ -45,7 +45,7 @@ aws configure
 2. Navigate to "Verified identities" 
 3. Click "Create identity"
 4. Choose "Email address"
-5. Enter your sender email (e.g., `noreply@stratcon.ph`)
+5. Enter your sender email (e.g., `philippe@stratcon.ph`)
 6. Confirm verification email
 
 ### 3. Verify Recipient (If in Sandbox Mode)
@@ -58,7 +58,7 @@ SES sandbox mode only allows sending to verified emails:
 
 Set the sender email that will be used:
 ```bash
-export SES_SENDER_EMAIL=noreply@stratcon.ph
+export SES_SENDER_EMAIL=philippe@stratcon.ph
 ```
 
 ## Testing

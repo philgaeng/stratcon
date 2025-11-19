@@ -80,7 +80,7 @@ AWS_ACCESS_KEY_ID=your_prod_access_key
 AWS_SECRET_ACCESS_KEY=your_prod_secret_key
 
 # SES Email
-SES_SENDER_EMAIL=noreply@stratcon.ph
+SES_SENDER_EMAIL=philippe@stratcon.ph
 
 # Database
 DATABASE_PATH=/var/lib/stratcon/data/settings.db

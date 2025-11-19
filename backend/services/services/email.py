@@ -56,7 +56,7 @@ def send_report_email(
         ses_client = boto3.client('ses', region_name=os.getenv('AWS_REGION', 'us-east-1'))
         
         # Get sender email from environment or use default
-        sender_email = os.getenv('SES_SENDER_EMAIL', 'philgaeng@project.com.ph')
+        sender_email = os.getenv('SES_SENDER_EMAIL', 'philippe@stratcon.ph')
         
         # Validate sender email is verified in SES
         try:

@@ -336,7 +336,7 @@ Located at: `/etc/stratcon/env`
 
 ```bash
 AWS_REGION=ap-southeast-1
-SES_SENDER_EMAIL=noreply@stratcon.ph
+SES_SENDER_EMAIL=philippe@stratcon.ph
 DATABASE_PATH=/var/lib/stratcon/data/settings.db
 API_URL=http://52.221.59.184:8000
 API_PORT=8000

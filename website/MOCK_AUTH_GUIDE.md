@@ -29,7 +29,7 @@ When `NEXT_PUBLIC_BYPASS_AUTH=true`:
 
 ## Mock User Details
 
-- **Email**: `demo@stratcon.ph`
+- **Email**: `philippe@stratcon.ph`
 - **Name**: `Demo User`
 - **User ID**: `mock-user-123`
 
