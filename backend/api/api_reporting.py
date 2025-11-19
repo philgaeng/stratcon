@@ -62,8 +62,18 @@ class ClientReportRequest(BaseModel):
 
 @reporting_router.get("/clients", response_model=dict)
 async def get_clients(request: Request):
-    scope = _get_user_scope(request)
-    client_filter = None if not scope.client_ids else scope.client_ids
+    # Check if user is super_admin - if so, return all clients
+    from backend.services.auth.permissions import get_user_role_from_request, UserRole
+    user_role = get_user_role_from_request(request)
+    
+    if user_role == UserRole.SUPER_ADMIN:
+        # Super admin sees all clients
+        client_filter = None
+    else:
+        # Regular users see only their assigned clients
+        scope = _get_user_scope(request)
+        client_filter = None if not scope.client_ids else scope.client_ids
+    
     try:
         clients = DbQueries.list_clients(client_ids=client_filter)
         return {
