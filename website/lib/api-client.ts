@@ -102,7 +102,7 @@ export interface Building {
   client_id: number;
 }
 
-export interface BuildingsResponse {
+export interface MeterBuildingsResponse {
   buildings: Building[];
 }
 
@@ -382,8 +382,8 @@ export const api = {
   /**
    * Get buildings assigned to a user
    */
-  getMeterBuildings: async (userId: number): Promise<BuildingsResponse> => {
-    const response = await apiClient.get<BuildingsResponse>(
+  getMeterBuildings: async (userId: number): Promise<MeterBuildingsResponse> => {
+    const response = await apiClient.get<MeterBuildingsResponse>(
       "/meters/v1/buildings",
       { params: { user_id: userId } }
     );
