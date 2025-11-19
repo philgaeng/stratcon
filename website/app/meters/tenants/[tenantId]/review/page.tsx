@@ -1,6 +1,6 @@
 "use client";
 
-import api from "@/lib/api-client";
+import api, { type MeterAssignment, type MeterRecordInput } from "@/lib/api-client";
 import { useAuthCompat } from "@/lib/hooks/useAuthCompat";
 import { formatMeterId, generateSessionId } from "@/lib/meter-utils";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
@@ -34,7 +34,7 @@ export default function ReviewPage() {
   const floorParam = searchParams.get("floor");
   const floor = floorParam ? parseInt(floorParam, 10) : undefined;
 
-  const [meters, setMeters] = useState<api.MeterAssignment[]>([]);
+  const [meters, setMeters] = useState<MeterAssignment[]>([]);
   const [readings, setReadings] = useState<Map<number, ReadingEntry>>(
     new Map()
   );
@@ -200,7 +200,7 @@ export default function ReviewPage() {
       const sessionId = generateSessionId(tenantId);
 
       // Submit meter records
-      const records: api.MeterRecordInput[] = entriesWithReadings.map(
+      const records: MeterRecordInput[] = entriesWithReadings.map(
         (entry) => ({
           meter_id: entry.meterId,
           timestamp_record: entry.timestamp.toISOString(),
