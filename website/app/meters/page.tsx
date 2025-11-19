@@ -1,11 +1,11 @@
 "use client";
 
 import api, { type Building } from "@/lib/api-client";
+import { useAuthCompat } from "@/lib/hooks/useAuthCompat";
 import { useRouteGuard } from "@/lib/hooks/useRouteGuard";
 import { useUserInfo } from "@/lib/hooks/useUserInfo";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
-import { useAuthCompat } from "@/lib/hooks/useAuthCompat";
 
 const resolveErrorMessage = (error: unknown): string => {
   if (error instanceof Error) return error.message;
@@ -26,7 +26,7 @@ export default function MetersPage() {
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [searchQuery, setSearchQuery] = useState<string>("");
 
-  // Protect route - only allow super_admin, client_admin, encoder
+  // Protect route - only allow super_admin, client_admin, client_encoder
   useRouteGuard("meters");
 
   const shouldRedirect = !auth.isLoading && !auth.isAuthenticated;

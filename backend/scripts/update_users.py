@@ -3,7 +3,7 @@
 Update users in the database.
 
 Updates:
-- User 6: user_group from 'encoder' to 'super_admin', first_name='Philippe', last_name='Gaeng'
+- User 6: user_group from 'client_encoder' to 'super_admin', first_name='Philippe', last_name='Gaeng'
 - User 9: entity_id from 1 to 3
 - Create new user: first_name='Pipo', last_name='Inzaghi', user_group='client_manager', entity_id=3
 """
