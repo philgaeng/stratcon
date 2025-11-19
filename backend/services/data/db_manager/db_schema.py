@@ -3,13 +3,17 @@
 Database schema definitions and initialization.
 """
 
+import os
 import sqlite3
 from pathlib import Path
 
 DB_MANAGER_DIR = Path(__file__).resolve().parent
 SERVICES_DIR = DB_MANAGER_DIR.parent
 BACKEND_DIR = SERVICES_DIR.parent.parent  # Go up two levels: services -> backend
-DB_PATH = BACKEND_DIR / "data" / "settings.db"
+
+# Use DATABASE_PATH environment variable if set, otherwise use default location
+_DEFAULT_DB_PATH = BACKEND_DIR / "data" / "settings.db"
+DB_PATH = Path(os.getenv("DATABASE_PATH", str(_DEFAULT_DB_PATH)))
 DB_PATH.parent.mkdir(parents=True, exist_ok=True)
 
 
