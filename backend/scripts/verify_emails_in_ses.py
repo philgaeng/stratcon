@@ -100,7 +100,7 @@ def main():
     
     # Get AWS configuration
     aws_region = os.getenv('AWS_REGION', 'ap-southeast-1')
-    sender_email = os.getenv('SES_SENDER_EMAIL', 'noreply@stratcon.ph')
+    sender_email = os.getenv('SES_SENDER_EMAIL', 'philippe@stratcon.ph')
     
     if not BOTO3_AVAILABLE:
         print("❌ boto3 is not available")
