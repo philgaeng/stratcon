@@ -37,34 +37,40 @@ export default function OidcProvider({ children }: OidcProviderProps) {
   }, []);
 
   const cognitoAuthConfig = useMemo(
-    () => ({
-      // Use the domain as authority to prevent automatic OIDC discovery
-      // This forces the library to use our custom metadata instead of discovering /login endpoint
-      authority: `https://${cognitoDomain}`,
-      client_id: clientId,
-      redirect_uri: redirectUri,
-      response_type: "code" as const,
-      scope: "openid email",
-      // Enable automatic silent signin to handle callbacks
-      automaticSilentRenew: true,
-      // Additional settings for better state management
-      loadUserInfo: true,
-      // Provide custom metadata to override any discovery
-      // This ensures we use /oauth2/authorize instead of /login
-      metadata: {
+    () => {
+      // Create a custom metadata object that uses /oauth2/authorize instead of /login
+      const customMetadata = {
         issuer: cognitoIssuer,
-        authorization_endpoint: authorizationEndpoint,
+        authorization_endpoint: authorizationEndpoint, // Use /oauth2/authorize, not /login
         token_endpoint: tokenEndpoint,
         userinfo_endpoint: `https://${cognitoDomain}/oauth2/userInfo`,
         end_session_endpoint: `https://${cognitoDomain}/logout`,
         jwks_uri: `${cognitoIssuer}/.well-known/jwks.json`,
-      },
-      // Disable PKCE - Cognito App Client should not require PKCE for this flow
-      code_challenge_method: undefined,
-      // Disable metadata discovery by providing a non-standard authority
-      // The library will use our metadata instead of trying to discover
-      skipIssuerCheck: true,
-    }),
+        response_types_supported: ["code"],
+        subject_types_supported: ["public"],
+        id_token_signing_alg_values_supported: ["RS256"],
+      };
+
+      return {
+        // Use issuer as authority (required for token validation)
+        authority: cognitoIssuer,
+        client_id: clientId,
+        redirect_uri: redirectUri,
+        response_type: "code" as const,
+        scope: "openid email",
+        // Enable automatic silent signin to handle callbacks
+        automaticSilentRenew: true,
+        // Additional settings for better state management
+        loadUserInfo: true,
+        // CRITICAL: Provide metadata to override discovery
+        // The library will use this instead of discovering from issuer
+        metadata: customMetadata,
+        // Disable PKCE - Cognito App Client should not require PKCE for this flow  
+        code_challenge_method: undefined,
+        // Skip issuer check to allow custom metadata
+        skipIssuerCheck: true, // Set to true to prevent validation issues with custom metadata
+      };
+    },
     [redirectUri]
   );
 
