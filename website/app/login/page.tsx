@@ -81,7 +81,7 @@ function LoginContent() {
         {(auth.error || error) && (
           <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded text-red-700 text-sm">
             <p className="font-semibold">
-              {error ? `Authentication Error: ${error}` : `Error: ${auth.error?.message}`}
+              {error ? `Authentication Error: ${error}` : auth.error ? `Error: ${auth.error}` : "Authentication error"}
             </p>
             {errorDescription && (
               <p className="mt-1 text-xs">{errorDescription}</p>
