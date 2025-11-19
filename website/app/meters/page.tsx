@@ -1,6 +1,6 @@
 "use client";
 
-import api from "@/lib/api-client";
+import api, { type Building } from "@/lib/api-client";
 import { useRouteGuard } from "@/lib/hooks/useRouteGuard";
 import { useUserInfo } from "@/lib/hooks/useUserInfo";
 import { useRouter } from "next/navigation";
@@ -21,7 +21,7 @@ export default function MetersPage() {
   const auth = useAuthCompat();
   const router = useRouter();
   const { userInfo, isLoading: isLoadingUserInfo } = useUserInfo();
-  const [buildings, setBuildings] = useState<api.Building[]>([]);
+  const [buildings, setBuildings] = useState<Building[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string>("");
   const [searchQuery, setSearchQuery] = useState<string>("");
