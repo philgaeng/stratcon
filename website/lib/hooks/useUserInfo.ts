@@ -38,11 +38,8 @@ export function useUserInfo() {
   const [error, setError] = useState<string | null>(null);
 
   const fetchUserInfo = useCallback(async () => {
-        // Get email from user object (works for both mock and real auth)
-        // MockUser has email at top level, real auth has it in profile
-        const email = 
-          (auth.user as any)?.email || // Mock auth
-          (auth.user as any)?.profile?.email; // Cognito auth
+        // Get email from user object (works for both mock and Cognito auth)
+        const email = auth.user?.email;
 
     if (!auth.isAuthenticated || !email) {
       setIsLoading(false);
@@ -50,10 +47,10 @@ export function useUserInfo() {
     }
 
     // Check if using mock auth (demo mode)
-    const isMockAuth =
+        const isMockAuth =
       process.env.NEXT_PUBLIC_BYPASS_AUTH === "true" ||
       email === "philippe@stratcon.ph" ||
-      (auth.user as any)?.sub === "mock-user-123";
+      auth.user?.sub === "mock-user-123";
 
     // For mock auth, provide default demo user info
     if (isMockAuth) {

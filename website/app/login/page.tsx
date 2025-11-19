@@ -51,48 +51,9 @@ function LoginContent() {
       setRedirectAttempted(true);
       console.log("[AUTH] Attempting redirect to sign in...");
       
-      // For Cognito, manually construct the authorization URL to use /oauth2/authorize
-      // This bypasses the library's metadata discovery which finds /login endpoint
-      const bypassAuth = process.env.NEXT_PUBLIC_BYPASS_AUTH === "true";
-      console.log("[AUTH] Bypass auth:", bypassAuth, "isLoading:", auth.isLoading, "isAuthenticated:", auth.isAuthenticated);
-      
-      if (!bypassAuth) {
-        const cognitoDomain = "ap-southeast-1htvo9y0bb.auth.ap-southeast-1.amazoncognito.com";
-        const clientId = process.env.NEXT_PUBLIC_COGNITO_CLIENT_ID || "384id7i8oh9vci2ck2afip4vsn";
-        const redirectUri = `${window.location.origin}/login`;
-        const state = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-        
-        // Store state in sessionStorage for validation on callback
-        sessionStorage.setItem("oidc_state", state);
-        
-        // Construct authorization URL with /oauth2/authorize (not /login)
-        const authUrl = `https://${cognitoDomain}/oauth2/authorize?` +
-          `client_id=${encodeURIComponent(clientId)}&` +
-          `response_type=code&` +
-          `scope=${encodeURIComponent("openid email")}&` +
-          `redirect_uri=${encodeURIComponent(redirectUri)}&` +
-          `state=${encodeURIComponent(state)}`;
-        
-        console.log("[AUTH] MANUAL REDIRECT - Using /oauth2/authorize endpoint:", authUrl);
-        // Use replace to prevent back button issues
-        window.location.replace(authUrl);
-        return;
-      }
-      
-      // For mock auth, use the library's signinRedirect
-      auth
-        .signinRedirect()
-        .then(() => {
-          console.log("[AUTH] Redirect initiated successfully");
-        })
-        .catch((error) => {
-          console.error("[AUTH] Redirect error:", error);
-          alert(
-            `Redirect failed: ${
-              error.message || error
-            }. Check console for details.`
-          );
-        });
+      // Use the auth provider's signinRedirect method
+      // This will use /oauth2/authorize for Cognito or mock auth for bypass mode
+      auth.signinRedirect();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import OidcProvider from "./OidcProvider";
+import { CognitoAuthProvider } from "@/lib/auth/CognitoAuthProvider";
 import MockAuthProvider from "./MockAuthProvider";
 
 type AuthProviderWrapperProps = {
@@ -9,7 +9,7 @@ type AuthProviderWrapperProps = {
 };
 
 /**
- * Auth Provider - Uses Cognito by default, falls back to Mock Auth if bypass is enabled
+ * Auth Provider - Uses custom Cognito implementation by default, falls back to Mock Auth if bypass is enabled
  * 
  * To use mock auth: Set NEXT_PUBLIC_BYPASS_AUTH=true in environment variables
  */
@@ -22,7 +22,7 @@ export default function AuthProviderWrapper({ children }: AuthProviderWrapperPro
     return <MockAuthProvider>{children}</MockAuthProvider>;
   }
   
-  console.log("[AUTH] Using Cognito authentication");
-  return <OidcProvider>{children}</OidcProvider>;
+  console.log("[AUTH] Using custom Cognito authentication");
+  return <CognitoAuthProvider>{children}</CognitoAuthProvider>;
 }
 

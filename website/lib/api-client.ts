@@ -17,6 +17,16 @@ const apiClient = axios.create({
 apiClient.interceptors.request.use(
   (config) => {
     if (typeof window !== "undefined") {
+      // Add Cognito access token if available
+      const accessToken = localStorage.getItem("cognito_access_token");
+      if (accessToken) {
+        if (!config.headers) {
+          config.headers = {} as any;
+        }
+        config.headers["Authorization"] = `Bearer ${accessToken}`;
+      }
+      
+      // Add user ID if available (for backward compatibility)
       const userId = localStorage.getItem("userId");
       if (userId) {
         if (!config.headers) {
