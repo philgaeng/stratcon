@@ -81,9 +81,9 @@ server {
     listen 443 ssl;
     server_name stratcon.facets-ai.com 52.221.59.184;
 
-    # SSL configuration (self-signed for now)
-    ssl_certificate /etc/nginx/ssl/stratcon.crt;
-    ssl_certificate_key /etc/nginx/ssl/stratcon.key;
+    # SSL configuration
+    ssl_certificate /etc/letsencrypt/live/stratcon.facets-ai.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/stratcon.facets-ai.com/privkey.pem;
 
     # Frontend proxy
     location / {
@@ -118,22 +118,22 @@ else
     echo -e "${GREEN}  ✓ Nginx configuration exists${NC}"
 fi
 
-# Check if SSL certificates exist
-if [ ! -d "/etc/nginx/ssl" ]; then
-    echo -e "${YELLOW}  ⚠️  SSL directory not found, creating self-signed certificate...${NC}"
-    sudo mkdir -p /etc/nginx/ssl
-    
-    # Generate self-signed certificate
-    sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
-        -keyout /etc/nginx/ssl/stratcon.key \
-        -out /etc/nginx/ssl/stratcon.crt \
-        -subj "/C=PH/ST=MetroManila/L=Taguig/O=Stratcon/CN=stratcon.facets-ai.com" 2>/dev/null
-    
-    if [ $? -eq 0 ]; then
-        echo -e "${GREEN}  ✓ Self-signed certificate created${NC}"
-    else
-        echo -e "${RED}  ✗ Failed to create certificate${NC}"
-    fi
+# Check SSL certificates
+SSL_CERT=""
+SSL_KEY=""
+
+# Check for Let's Encrypt certificate first
+if [ -f "/etc/letsencrypt/live/stratcon.facets-ai.com/fullchain.pem" ]; then
+    SSL_CERT="/etc/letsencrypt/live/stratcon.facets-ai.com/fullchain.pem"
+    SSL_KEY="/etc/letsencrypt/live/stratcon.facets-ai.com/privkey.pem"
+    echo -e "${GREEN}  ✓ Found Let's Encrypt certificate${NC}"
+elif [ -d "/etc/nginx/ssl" ] && [ -f "/etc/nginx/ssl/stratcon.crt" ]; then
+    SSL_CERT="/etc/nginx/ssl/stratcon.crt"
+    SSL_KEY="/etc/nginx/ssl/stratcon.key"
+    echo -e "${GREEN}  ✓ Found self-signed certificate${NC}"
+else
+    echo -e "${YELLOW}  ⚠️  No SSL certificate found${NC}"
+    echo "  You may need to run: sudo certbot --nginx -d stratcon.facets-ai.com"
 fi
 
 # Test nginx configuration
