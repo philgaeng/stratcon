@@ -1,4 +1,4 @@
-# Cognito Authentication Setup
+# Authentication Setup
 
 ## Current Configuration
 
@@ -7,29 +7,24 @@
 - **Client ID:** `384id7i8oh9vci2ck2afip4vsn`
 - **Domain:** `ap-southeast-1htvo9y0bb.auth.ap-southeast-1.amazoncognito.com`
 
-## Required Setup
+## Cognito Hosted UI Setup
 
 ### 1. Enable Hosted UI
 
-**Location:** AWS Cognito Console → User Pool → **App integration** → **App clients and analytics** → Click app client → **Hosted UI** → **Edit**
+**Location:** AWS Cognito Console → User Pool → **App integration** → **App clients** → Click app client → **Hosted UI** → **Edit**
 
-**Status:** Should show as "Available" (not "Unavailable")
-
-If unavailable:
-- Ensure callback URLs are configured (see below)
-- Ensure OAuth scopes are configured (see below)
-- Save changes and wait a few seconds
+**Status:** Should show as "Available"
 
 ### 2. Configure Callback URLs
 
-**Callback URLs** (add all environments):
+**Callback URLs:**
 ```
 http://localhost:3000/login
 https://52.221.59.184/login
 https://stratcon.facets-ai.com/login
 ```
 
-**Sign-out URLs** (add all environments):
+**Sign-out URLs:**
 ```
 http://localhost:3000/login
 https://52.221.59.184/login
@@ -46,9 +41,7 @@ https://stratcon.facets-ai.com/login
 - ✅ `openid`
 - ✅ `profile`
 
-**Custom scopes:** (none required)
-
-### 4. User Groups (Optional but Recommended)
+## User Groups
 
 Create these groups in Cognito Console → **Users and groups** → **Groups**:
 
@@ -61,7 +54,7 @@ Create these groups in Cognito Console → **Users and groups** → **Groups**:
 ## How It Works
 
 1. User visits `/login` page
-2. Page automatically redirects to Cognito Hosted UI (`/login` endpoint)
+2. Page automatically redirects to Cognito Hosted UI
 3. User signs in on Cognito's managed login page
 4. Cognito redirects back to `/login` with authorization code
 5. App exchanges code for tokens and redirects to `/reports`
@@ -85,12 +78,12 @@ cd website && npm run dev
 **"Status: Unavailable" in Hosted UI:**
 - Verify callback URLs are configured
 - Verify OAuth scopes include `openid` and `email`
-- Save changes and wait 10-30 seconds for propagation
+- Save changes and wait 10-30 seconds
 
 **"Invalid redirect URI" error:**
-- Check callback URLs match exactly (including `/login` at the end)
+- Check callback URLs match exactly (including `/login`)
 - Verify URLs are added in App Client settings
-- Clear browser cache and try again
+- Clear browser cache
 
 **Still redirecting to wrong URL:**
 - Check browser console for errors
