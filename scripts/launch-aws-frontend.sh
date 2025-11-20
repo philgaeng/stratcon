@@ -5,10 +5,13 @@
 # Usage:
 #   ./scripts/launch-aws-frontend.sh                    # Development mode (npm run dev)
 #   ./scripts/launch-aws-frontend.sh --production        # Production mode (npm run build && npm start)
-#   ./scripts/launch-aws-frontend.sh --restart          # Auto-restart mode (kills existing frontend)
+#   ./scripts/launch-aws-frontend.sh --restart          # Auto-restart mode (kills existing frontend, non-interactive)
+#   ./scripts/launch-aws-frontend.sh --production --restart  # Production + auto-restart (non-interactive)
 #   ./scripts/launch-aws-frontend.sh --systemd          # Create systemd service instead of running directly
+#   ./scripts/launch-aws-frontend.sh --yes              # Non-interactive mode (auto-answer all prompts)
 
-set -e  # Exit on error
+# Don't exit on error - we want to handle errors gracefully
+set +e
 
 # Colors for output
 RED='\033[0;31m'
@@ -21,11 +24,13 @@ NC='\033[0m' # No Color
 AUTO_RESTART=false
 PRODUCTION_MODE=false
 CREATE_SYSTEMD=false
+NON_INTERACTIVE=false
 
 for arg in "$@"; do
     case "$arg" in
         --restart|-r)
             AUTO_RESTART=true
+            NON_INTERACTIVE=true
             echo -e "${BLUE}   Auto-restart mode: will kill existing frontend${NC}"
             ;;
         --production|-p)
@@ -35,6 +40,10 @@ for arg in "$@"; do
         --systemd|-s)
             CREATE_SYSTEMD=true
             echo -e "${BLUE}   Systemd mode: will create systemd service${NC}"
+            ;;
+        --yes|-y|--non-interactive)
+            NON_INTERACTIVE=true
+            echo -e "${BLUE}   Non-interactive mode: auto-answering prompts${NC}"
             ;;
     esac
 done
@@ -74,12 +83,16 @@ if systemctl is-active --quiet stratcon-api; then
         echo -e "${YELLOW}   ⚠️  Backend service running but not responding yet${NC}"
     fi
 else
-    echo -e "${RED}   ⚠️  Backend service is not running${NC}"
-    echo "   Start it with: sudo systemctl start stratcon-api"
-    read -p "   Continue anyway? (y/N) " -n 1 -r
-    echo
-    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-        exit 1
+    echo -e "${YELLOW}   ⚠️  Backend service is not running${NC}"
+    if [ "$NON_INTERACTIVE" = true ]; then
+        echo "   Non-interactive mode: continuing anyway (frontend can start independently)"
+    else
+        echo "   Start it with: sudo systemctl start stratcon-api"
+        read -p "   Continue anyway? (y/N) " -n 1 -r
+        echo
+        if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+            exit 1
+        fi
     fi
 fi
 
@@ -96,7 +109,7 @@ if lsof -Pi :3000 -sTCP:LISTEN -t >/dev/null 2>&1 ; then
     # Test if it's actually responding
     if curl -s http://localhost:3000 > /dev/null 2>&1; then
         echo -e "${GREEN}   ✓ Frontend is responding${NC}"
-        if [ "$AUTO_RESTART" = true ]; then
+        if [ "$AUTO_RESTART" = true ] || [ "$NON_INTERACTIVE" = true ]; then
             echo "   Auto-restart mode: killing existing frontend..."
             REPLY="y"
         else
@@ -120,7 +133,7 @@ if lsof -Pi :3000 -sTCP:LISTEN -t >/dev/null 2>&1 ; then
         fi
     else
         echo -e "${RED}   ⚠️  Frontend port in use but not responding (zombie process?)${NC}"
-        if [ "$AUTO_RESTART" = true ]; then
+        if [ "$AUTO_RESTART" = true ] || [ "$NON_INTERACTIVE" = true ]; then
             echo "   Auto-restart mode: killing unresponsive frontend..."
             REPLY="y"
         else
