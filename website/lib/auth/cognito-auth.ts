@@ -42,7 +42,8 @@ function generateState(): string {
 }
 
 /**
- * Get the authorization URL for Cognito OAuth2
+ * Get the authorization URL for Cognito Hosted UI
+ * Uses the /login endpoint for managed login pages
  */
 export function getAuthorizationUrl(): string {
   const state = generateState();
@@ -55,12 +56,13 @@ export function getAuthorizationUrl(): string {
   const params = new URLSearchParams({
     client_id: CLIENT_ID,
     response_type: "code",
-    scope: "openid email",
+    scope: "openid email profile",
     redirect_uri: REDIRECT_URI,
     state: state,
   });
   
-  return `https://${COGNITO_DOMAIN}/oauth2/authorize?${params.toString()}`;
+  // Use Hosted UI /login endpoint for managed login pages
+  return `https://${COGNITO_DOMAIN}/login?${params.toString()}`;
 }
 
 /**
