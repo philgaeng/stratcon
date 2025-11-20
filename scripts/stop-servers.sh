@@ -34,16 +34,42 @@ echo ""
 
 # Stop backend
 if [ "$STOP_BACKEND" = true ]; then
-    echo -e "${YELLOW}🔧 Stopping backend service...${NC}"
-    if systemctl is-active --quiet stratcon-api 2>/dev/null; then
-        sudo systemctl stop stratcon-api
-        if [ $? -eq 0 ]; then
-            echo -e "${GREEN}✅ Backend service stopped${NC}"
+    echo -e "${YELLOW}🔧 Stopping backend...${NC}"
+    
+    # Try systemd first
+    if command -v systemctl >/dev/null 2>&1 && systemctl list-unit-files | grep -q "stratcon-api.service" 2>/dev/null; then
+        if systemctl is-active --quiet stratcon-api 2>/dev/null; then
+            sudo systemctl stop stratcon-api
+            if [ $? -eq 0 ]; then
+                echo -e "${GREEN}✅ Backend service stopped${NC}"
+            else
+                echo -e "${RED}❌ Failed to stop backend service${NC}"
+            fi
         else
-            echo -e "${RED}❌ Failed to stop backend service${NC}"
+            echo -e "${YELLOW}   Backend service is not running${NC}"
         fi
-    else
-        echo -e "${YELLOW}   Backend service is not running${NC}"
+    fi
+    
+    # Also check for direct processes (local development)
+    if lsof -Pi :8000 -sTCP:LISTEN -t >/dev/null 2>&1 ; then
+        echo "   Killing backend process on port 8000..."
+        if [ -f /tmp/stratcon_backend.pid ]; then
+            PID=$(cat /tmp/stratcon_backend.pid)
+            if ps -p "$PID" > /dev/null 2>&1; then
+                kill "$PID" 2>/dev/null
+                sleep 2
+                if ps -p "$PID" > /dev/null 2>&1; then
+                    kill -9 "$PID" 2>/dev/null
+                fi
+            fi
+            rm -f /tmp/stratcon_backend.pid
+        fi
+        pkill -f "uvicorn.*api:app" || pkill -f "uvicorn.*backend.api.api" || true
+        sleep 2
+        if lsof -Pi :8000 -sTCP:LISTEN -t >/dev/null 2>&1 ; then
+            pkill -9 -f "uvicorn.*api:app" || pkill -9 -f "uvicorn.*backend.api.api" || true
+        fi
+        echo -e "${GREEN}✅ Backend stopped${NC}"
     fi
     echo ""
 fi

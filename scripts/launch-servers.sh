@@ -70,51 +70,88 @@ echo ""
 # Step 1: Check and start backend
 echo -e "${YELLOW}🔍 Step 1: Checking backend status...${NC}"
 SKIP_BACKEND=false
+USE_SYSTEMD=false
 
-if systemctl is-active --quiet stratcon-api 2>/dev/null; then
-    echo -e "${GREEN}   ✓ Backend service is running (systemd)${NC}"
+# Check if systemd service exists and systemctl is available
+if command -v systemctl >/dev/null 2>&1 && systemctl list-unit-files | grep -q "stratcon-api.service" 2>/dev/null; then
+    USE_SYSTEMD=true
+fi
+
+# Check if backend is already running on port 8000
+if lsof -Pi :8000 -sTCP:LISTEN -t >/dev/null 2>&1 ; then
     if curl -s http://localhost:8000/ > /dev/null 2>&1; then
-        echo -e "${GREEN}   ✓ Backend API is responding${NC}"
+        echo -e "${GREEN}   ✓ Backend is already running on port 8000${NC}"
         if [ "$AUTO_RESTART" = true ]; then
-            echo "   Auto-restart mode: restarting backend service..."
-            sudo systemctl restart stratcon-api
-            sleep 3
+            echo "   Auto-restart mode: stopping existing backend..."
+            if [ "$USE_SYSTEMD" = true ] && systemctl is-active --quiet stratcon-api 2>/dev/null; then
+                sudo systemctl stop stratcon-api
+            else
+                pkill -f "uvicorn.*api:app" || pkill -f "uvicorn.*backend.api.api" || true
+            fi
+            sleep 2
         else
             SKIP_BACKEND=true
         fi
     else
-        echo -e "${YELLOW}   ⚠️  Backend service running but not responding${NC}"
+        echo -e "${YELLOW}   ⚠️  Port 8000 in use but not responding${NC}"
         if [ "$AUTO_RESTART" = true ] || [ "$NON_INTERACTIVE" = true ]; then
-            echo "   Restarting backend service..."
-            sudo systemctl restart stratcon-api
-            sleep 3
-        else
-            read -p "   Restart backend service? (Y/n) " -n 1 -r
-            echo
-            if [[ ! $REPLY =~ ^[Nn]$ ]]; then
-                sudo systemctl restart stratcon-api
-                sleep 3
+            echo "   Killing unresponsive backend..."
+            pkill -9 -f "uvicorn.*api:app" || pkill -9 -f "uvicorn.*backend.api.api" || true
+            if [ "$USE_SYSTEMD" = true ] && systemctl is-active --quiet stratcon-api 2>/dev/null; then
+                sudo systemctl stop stratcon-api
             fi
+            sleep 2
         fi
     fi
-else
-    echo -e "${YELLOW}   ⚠️  Backend service is not running${NC}"
-    if [ "$NON_INTERACTIVE" = true ] || [ "$AUTO_RESTART" = true ]; then
-        echo "   Starting backend service..."
-        sudo systemctl start stratcon-api
+fi
+
+# Start backend if needed
+if [ "$SKIP_BACKEND" != "true" ]; then
+    if [ "$USE_SYSTEMD" = true ]; then
+        # Use systemd service (AWS server)
+        echo "   Using systemd service..."
+        if systemctl is-active --quiet stratcon-api 2>/dev/null; then
+            if [ "$AUTO_RESTART" = true ]; then
+                echo "   Restarting backend service..."
+                sudo systemctl restart stratcon-api
+            fi
+        else
+            echo "   Starting backend service..."
+            sudo systemctl start stratcon-api
+        fi
         sleep 3
         if systemctl is-active --quiet stratcon-api 2>/dev/null; then
             echo -e "${GREEN}   ✓ Backend service started${NC}"
         else
             echo -e "${RED}   ❌ Failed to start backend service${NC}"
-            echo "   Check status: sudo systemctl status stratcon-api"
+            echo "   Falling back to direct start..."
+            USE_SYSTEMD=false
         fi
-    else
-        read -p "   Start backend service? (Y/n) " -n 1 -r
-        echo
-        if [[ ! $REPLY =~ ^[Nn]$ ]]; then
-            sudo systemctl start stratcon-api
-            sleep 3
+    fi
+    
+    if [ "$USE_SYSTEMD" != "true" ]; then
+        # Start backend directly (local development)
+        echo "   Starting backend directly (local mode)..."
+        export AUTH_BYPASS_SCOPE=${AUTH_BYPASS_SCOPE:-1}
+        (
+            if command -v conda >/dev/null 2>&1; then
+                source "$(conda info --base)/etc/profile.d/conda.sh" 2>/dev/null || true
+                conda activate datascience >/dev/null 2>&1 || true
+            fi
+            cd "$PROJECT_ROOT"
+            PYTHONPATH="$PROJECT_ROOT${PYTHONPATH:+:$PYTHONPATH}" \
+            uvicorn backend.api.api:app --host 0.0.0.0 --port 8000 --reload \
+                > /tmp/stratcon_backend.log 2>&1 &
+            echo $! > /tmp/stratcon_backend.pid
+        )
+        sleep 3
+        if curl -s http://localhost:8000/ > /dev/null 2>&1; then
+            echo -e "${GREEN}   ✓ Backend started on http://localhost:8000${NC}"
+            echo "   Logs: /tmp/stratcon_backend.log"
+            echo "   PID: $(cat /tmp/stratcon_backend.pid)"
+        else
+            echo -e "${YELLOW}   ⚠️  Backend may still be starting...${NC}"
+            echo "   Check logs: /tmp/stratcon_backend.log"
         fi
     fi
 fi
@@ -271,7 +308,11 @@ echo "To stop servers:"
 echo "  ./scripts/stop-servers.sh"
 echo ""
 echo "To view logs:"
-echo "  Backend:  sudo journalctl -u stratcon-api -f"
+if [ "$USE_SYSTEMD" = true ]; then
+    echo "  Backend:  sudo journalctl -u stratcon-api -f"
+else
+    echo "  Backend:  tail -f /tmp/stratcon_backend.log"
+fi
 echo "  Frontend: tail -f /tmp/stratcon_frontend.log"
 echo ""
 
