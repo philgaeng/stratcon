@@ -67,7 +67,7 @@ function LoginContent() {
           <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-left">
             <p className="font-semibold text-red-800 mb-2">Authentication Error</p>
             <p className="text-sm text-red-700">
-              {errorDescription || auth.error || error || "An error occurred during authentication"}
+              {errorDescription || (auth.error ? String(auth.error) : null) || error || "An error occurred during authentication"}
             </p>
           </div>
           <button

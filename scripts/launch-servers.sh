@@ -1,14 +1,15 @@
 #!/bin/bash
-# AWS-specific launch script for Stratcon frontend
-# Launches only the frontend server (backend is managed by systemd)
+# Launch both backend and frontend servers for Stratcon
 #
 # Usage:
-#   ./scripts/launch-aws-frontend.sh                    # Development mode (npm run dev)
-#   ./scripts/launch-aws-frontend.sh --production        # Production mode (npm run build && npm start)
-#   ./scripts/launch-aws-frontend.sh --restart          # Auto-restart mode (kills existing frontend)
-#   ./scripts/launch-aws-frontend.sh --systemd          # Create systemd service instead of running directly
+#   ./scripts/launch-servers.sh                    # Development mode (npm run dev)
+#   ./scripts/launch-servers.sh --production        # Production mode (npm run build && npm start)
+#   ./scripts/launch-servers.sh --restart          # Auto-restart mode (kills existing servers, non-interactive)
+#   ./scripts/launch-servers.sh --production --restart  # Production + auto-restart (non-interactive)
+#   ./scripts/launch-servers.sh --yes              # Non-interactive mode (auto-answer all prompts)
 
-set -e  # Exit on error
+# Don't exit on error - we want to handle errors gracefully
+set +e
 
 # Colors for output
 RED='\033[0;31m'
@@ -20,21 +21,22 @@ NC='\033[0m' # No Color
 # Parse arguments
 AUTO_RESTART=false
 PRODUCTION_MODE=false
-CREATE_SYSTEMD=false
+NON_INTERACTIVE=false
 
 for arg in "$@"; do
     case "$arg" in
         --restart|-r)
             AUTO_RESTART=true
-            echo -e "${BLUE}   Auto-restart mode: will kill existing frontend${NC}"
+            NON_INTERACTIVE=true
+            echo -e "${BLUE}   Auto-restart mode: will kill existing servers${NC}"
             ;;
         --production|-p)
             PRODUCTION_MODE=true
             echo -e "${BLUE}   Production mode: will build and start${NC}"
             ;;
-        --systemd|-s)
-            CREATE_SYSTEMD=true
-            echo -e "${BLUE}   Systemd mode: will create systemd service${NC}"
+        --yes|-y|--non-interactive)
+            NON_INTERACTIVE=true
+            echo -e "${BLUE}   Non-interactive mode: auto-answering prompts${NC}"
             ;;
     esac
 done
@@ -43,6 +45,7 @@ done
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 FRONTEND_DIR="$PROJECT_ROOT/website"
+BACKEND_DIR="$PROJECT_ROOT/backend"
 
 # AWS Server Configuration
 AWS_SERVER_IP="${AWS_SERVER_IP:-52.221.59.184}"
@@ -54,7 +57,7 @@ else
     API_URL="http://${AWS_SERVER_IP}:8000"
 fi
 
-echo -e "${BLUE}🚀 Stratcon AWS Frontend Launcher${NC}"
+echo -e "${BLUE}🚀 Stratcon Server Launcher${NC}"
 echo "======================================"
 echo ""
 echo -e "${YELLOW}Configuration:${NC}"
@@ -64,22 +67,92 @@ echo "   API URL: $API_URL"
 echo "   Mode: $([ "$PRODUCTION_MODE" = true ] && echo "Production" || echo "Development")"
 echo ""
 
-# Step 1: Check backend status (should be running via systemd)
+# Step 1: Check and start backend
 echo -e "${YELLOW}🔍 Step 1: Checking backend status...${NC}"
-if systemctl is-active --quiet stratcon-api; then
-    echo -e "${GREEN}   ✓ Backend service is running (systemd)${NC}"
+SKIP_BACKEND=false
+USE_SYSTEMD=false
+
+# Check if systemd service exists and systemctl is available
+if command -v systemctl >/dev/null 2>&1 && systemctl list-unit-files | grep -q "stratcon-api.service" 2>/dev/null; then
+    USE_SYSTEMD=true
+fi
+
+# Check if backend is already running on port 8000
+if lsof -Pi :8000 -sTCP:LISTEN -t >/dev/null 2>&1 ; then
     if curl -s http://localhost:8000/ > /dev/null 2>&1; then
-        echo -e "${GREEN}   ✓ Backend API is responding${NC}"
+        echo -e "${GREEN}   ✓ Backend is already running on port 8000${NC}"
+        if [ "$AUTO_RESTART" = true ]; then
+            echo "   Auto-restart mode: stopping existing backend..."
+            if [ "$USE_SYSTEMD" = true ] && systemctl is-active --quiet stratcon-api 2>/dev/null; then
+                sudo systemctl stop stratcon-api
+            else
+                pkill -f "uvicorn.*api:app" || pkill -f "uvicorn.*backend.api.api" || true
+            fi
+            sleep 2
+        else
+            SKIP_BACKEND=true
+        fi
     else
-        echo -e "${YELLOW}   ⚠️  Backend service running but not responding yet${NC}"
+        echo -e "${YELLOW}   ⚠️  Port 8000 in use but not responding${NC}"
+        if [ "$AUTO_RESTART" = true ] || [ "$NON_INTERACTIVE" = true ]; then
+            echo "   Killing unresponsive backend..."
+            pkill -9 -f "uvicorn.*api:app" || pkill -9 -f "uvicorn.*backend.api.api" || true
+            if [ "$USE_SYSTEMD" = true ] && systemctl is-active --quiet stratcon-api 2>/dev/null; then
+                sudo systemctl stop stratcon-api
+            fi
+            sleep 2
+        fi
     fi
-else
-    echo -e "${RED}   ⚠️  Backend service is not running${NC}"
-    echo "   Start it with: sudo systemctl start stratcon-api"
-    read -p "   Continue anyway? (y/N) " -n 1 -r
-    echo
-    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
-        exit 1
+fi
+
+# Start backend if needed
+if [ "$SKIP_BACKEND" != "true" ]; then
+    if [ "$USE_SYSTEMD" = true ]; then
+        # Use systemd service (AWS server)
+        echo "   Using systemd service..."
+        if systemctl is-active --quiet stratcon-api 2>/dev/null; then
+            if [ "$AUTO_RESTART" = true ]; then
+                echo "   Restarting backend service..."
+                sudo systemctl restart stratcon-api
+            fi
+        else
+            echo "   Starting backend service..."
+            sudo systemctl start stratcon-api
+        fi
+        sleep 3
+        if systemctl is-active --quiet stratcon-api 2>/dev/null; then
+            echo -e "${GREEN}   ✓ Backend service started${NC}"
+        else
+            echo -e "${RED}   ❌ Failed to start backend service${NC}"
+            echo "   Falling back to direct start..."
+            USE_SYSTEMD=false
+        fi
+    fi
+    
+    if [ "$USE_SYSTEMD" != "true" ]; then
+        # Start backend directly (local development)
+        echo "   Starting backend directly (local mode)..."
+        export AUTH_BYPASS_SCOPE=${AUTH_BYPASS_SCOPE:-1}
+        (
+            if command -v conda >/dev/null 2>&1; then
+                source "$(conda info --base)/etc/profile.d/conda.sh" 2>/dev/null || true
+                conda activate datascience >/dev/null 2>&1 || true
+            fi
+            cd "$PROJECT_ROOT"
+            PYTHONPATH="$PROJECT_ROOT${PYTHONPATH:+:$PYTHONPATH}" \
+            uvicorn backend.api.api:app --host 0.0.0.0 --port 8000 --reload \
+                > /tmp/stratcon_backend.log 2>&1 &
+            echo $! > /tmp/stratcon_backend.pid
+        )
+        sleep 3
+        if curl -s http://localhost:8000/ > /dev/null 2>&1; then
+            echo -e "${GREEN}   ✓ Backend started on http://localhost:8000${NC}"
+            echo "   Logs: /tmp/stratcon_backend.log"
+            echo "   PID: $(cat /tmp/stratcon_backend.pid)"
+        else
+            echo -e "${YELLOW}   ⚠️  Backend may still be starting...${NC}"
+            echo "   Check logs: /tmp/stratcon_backend.log"
+        fi
     fi
 fi
 
@@ -96,7 +169,7 @@ if lsof -Pi :3000 -sTCP:LISTEN -t >/dev/null 2>&1 ; then
     # Test if it's actually responding
     if curl -s http://localhost:3000 > /dev/null 2>&1; then
         echo -e "${GREEN}   ✓ Frontend is responding${NC}"
-        if [ "$AUTO_RESTART" = true ]; then
+        if [ "$AUTO_RESTART" = true ] || [ "$NON_INTERACTIVE" = true ]; then
             echo "   Auto-restart mode: killing existing frontend..."
             REPLY="y"
         else
@@ -120,7 +193,7 @@ if lsof -Pi :3000 -sTCP:LISTEN -t >/dev/null 2>&1 ; then
         fi
     else
         echo -e "${RED}   ⚠️  Frontend port in use but not responding (zombie process?)${NC}"
-        if [ "$AUTO_RESTART" = true ]; then
+        if [ "$AUTO_RESTART" = true ] || [ "$NON_INTERACTIVE" = true ]; then
             echo "   Auto-restart mode: killing unresponsive frontend..."
             REPLY="y"
         else
@@ -141,8 +214,8 @@ fi
 
 echo ""
 
-# Step 3: Setup environment variables
-echo -e "${YELLOW}📝 Step 3: Setting up environment variables...${NC}"
+# Step 3: Setup frontend environment variables
+echo -e "${YELLOW}📝 Step 3: Setting up frontend environment variables...${NC}"
 cd "$FRONTEND_DIR"
 
 # Create or update .env.local
@@ -173,8 +246,8 @@ fi
 echo -e "${GREEN}✅ Environment variables configured${NC}"
 echo ""
 
-# Step 4: Install dependencies if needed
-echo -e "${YELLOW}📦 Step 4: Checking dependencies...${NC}"
+# Step 4: Install frontend dependencies if needed
+echo -e "${YELLOW}📦 Step 4: Checking frontend dependencies...${NC}"
 if [ ! -d "node_modules" ]; then
     echo -e "${YELLOW}   Installing npm dependencies...${NC}"
     npm install
@@ -185,75 +258,23 @@ fi
 
 echo ""
 
-# Step 5: Create systemd service or start directly
-if [ "$CREATE_SYSTEMD" = true ]; then
-    echo -e "${YELLOW}⚙️  Step 5: Creating systemd service...${NC}"
-    
-    SERVICE_FILE="/etc/systemd/system/stratcon-frontend.service"
-    
-    if [ "$PRODUCTION_MODE" = true ]; then
-        # Production service (build first, then start)
-        sudo tee "$SERVICE_FILE" > /dev/null << EOF
-[Unit]
-Description=Stratcon Next.js Frontend
-After=network.target stratcon-api.service
-
-[Service]
-Type=simple
-User=ubuntu
-WorkingDirectory=$FRONTEND_DIR
-Environment="NEXT_PUBLIC_API_URL=$API_URL"
-ExecStartPre=/usr/bin/npm run build
-ExecStart=/usr/bin/npm start
-Restart=always
-RestartSec=10
-StandardOutput=journal
-StandardError=journal
-
-[Install]
-WantedBy=multi-user.target
-EOF
-    else
-        # Development service
-        sudo tee "$SERVICE_FILE" > /dev/null << EOF
-[Unit]
-Description=Stratcon Next.js Frontend (Development)
-After=network.target stratcon-api.service
-
-[Service]
-Type=simple
-User=ubuntu
-WorkingDirectory=$FRONTEND_DIR
-Environment="NEXT_PUBLIC_API_URL=$API_URL"
-ExecStart=/usr/bin/npm run dev
-Restart=always
-RestartSec=10
-StandardOutput=journal
-StandardError=journal
-
-[Install]
-WantedBy=multi-user.target
-EOF
-    fi
-    
-    sudo systemctl daemon-reload
-    sudo systemctl enable stratcon-frontend
-    echo -e "${GREEN}✅ Systemd service created${NC}"
-    echo ""
-    echo "   Start service: sudo systemctl start stratcon-frontend"
-    echo "   Check status: sudo systemctl status stratcon-frontend"
-    echo "   View logs: sudo journalctl -u stratcon-frontend -f"
-    
-elif [ "$SKIP_FRONTEND" != "true" ]; then
+# Step 5: Start frontend server
+if [ "$SKIP_FRONTEND" != "true" ]; then
     echo -e "${YELLOW}🎨 Step 5: Starting frontend server...${NC}"
     
     if [ "$PRODUCTION_MODE" = true ]; then
         echo "   Building for production..."
         npm run build
-        echo -e "${GREEN}✅ Build complete${NC}"
-        echo "   Starting production server..."
-        npm start > /tmp/stratcon_frontend.log 2>&1 &
-        echo $! > /tmp/stratcon_frontend.pid
+        if [ $? -eq 0 ]; then
+            echo -e "${GREEN}✅ Build complete${NC}"
+            echo "   Starting production server..."
+            npm start > /tmp/stratcon_frontend.log 2>&1 &
+            echo $! > /tmp/stratcon_frontend.pid
+        else
+            echo -e "${RED}❌ Build failed${NC}"
+            echo "   Check the output above for errors"
+            exit 1
+        fi
     else
         echo "   Starting development server..."
         npm run dev > /tmp/stratcon_frontend.log 2>&1 &
@@ -283,17 +304,15 @@ echo ""
 echo "Backend:  http://$AWS_SERVER_IP:8000 (systemd service)"
 echo "Frontend: http://$AWS_SERVER_IP:3000"
 echo ""
-if [ "$CREATE_SYSTEMD" = false ]; then
-    echo "To stop frontend:"
-    echo "  pkill -f 'next'"
-    echo "  Or: kill \$(cat /tmp/stratcon_frontend.pid)"
-    echo ""
-fi
+echo "To stop servers:"
+echo "  ./scripts/stop-servers.sh"
+echo ""
 echo "To view logs:"
-if [ "$CREATE_SYSTEMD" = true ]; then
-    echo "  sudo journalctl -u stratcon-frontend -f"
+if [ "$USE_SYSTEMD" = true ]; then
+    echo "  Backend:  sudo journalctl -u stratcon-api -f"
 else
-    echo "  tail -f /tmp/stratcon_frontend.log"
+    echo "  Backend:  tail -f /tmp/stratcon_backend.log"
 fi
+echo "  Frontend: tail -f /tmp/stratcon_frontend.log"
 echo ""
 
