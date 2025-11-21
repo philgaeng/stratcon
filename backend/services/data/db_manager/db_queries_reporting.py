@@ -1029,9 +1029,11 @@ class ReportingDbQueries:
                     SELECT 
                         b.name as building_name,
                         t.name as tenant_name,
+                        u.id as unit_id,
                         u.unit_number,
                         m.meter_ref,
                         m.description,
+                        m.multiplier,
                         mr.timestamp_record,
                         mr.meter_kWh,
                         ROW_NUMBER() OVER (
@@ -1050,11 +1052,13 @@ class ReportingDbQueries:
                 SELECT 
                     building_name,
                     tenant_name,
+                    unit_id,
                     unit_number,
                     meter_ref,
                     description,
                     timestamp_record,
-                    meter_kWh
+                    meter_kWh,
+                    multiplier
                 FROM ranked_records
                 WHERE rn in ({list_rn_str})
                 ORDER BY building_name ASC, tenant_name ASC, unit_number ASC, timestamp_record DESC
@@ -1069,26 +1073,30 @@ class ReportingDbQueries:
 
 
     @staticmethod
-    def get_consumptions_for_loads_during_period(load_ids: List[int], timestamp_start: datetime, timestamp_end: datetime, conn: Optional[sqlite3.Connection] = None) -> pd.DataFrame:
+    def get_consumptions_for_units_during_period(client_id: int, timestamp_start: datetime, timestamp_end: datetime, conn: Optional[sqlite3.Connection] = None) -> pd.DataFrame:
         """Return the consumptions for the given loads during the given period."""
         close_conn = False
         if conn is None:
             conn = get_db_connection()
             close_conn = True
-            placeholders = ",".join("?" for _ in load_ids)
         try:
             cursor = conn.cursor()
             query = f"""
-                SELECT c.load_id, SUM(c.consumption_kWh) as consumption_kWh
+                SELECT ulh.unit_id, c.load_id, l.load_name as smappy_load_name, SUM(c.consumption_kWh) as consumption_kWh
                 FROM consumptions c
-                WHERE c.load_id IN ({placeholders}) AND c.timestamp >= ? AND c.timestamp <= ?
-                GROUP BY c.load_id 
+                JOIN unit_loads_history ulh ON c.load_id = ulh.load_id
+                JOIN loads l ON c.load_id = l.id
+                JOIN units u ON ulh.unit_id = u.id
+                JOIN buildings b ON u.building_id = b.id
+                JOIN clients cl ON b.client_id = cl.id
+                WHERE cl.id = ? AND c.timestamp >= ? AND c.timestamp <= ?
+                GROUP BY ulh.unit_id
             """
             start = timestamp_start.strftime("%Y-%m-%d %H:%M:%S")
             end = timestamp_end.strftime("%Y-%m-%d %H:%M:%S")
             cursor.execute(query, (*load_ids, start, end))
             row = cursor.fetchall()
-            return pd.DataFrame([row], columns=['load_id', 'smappy_consumption_kWh']) if row else pd.DataFrame(columns=['load_id', 'smappy_consumption_kWh']).astype({'load_id': int, 'smappy_consumption_kWh': float})
+            return pd.DataFrame([row], columns=['unit_id', 'load_id', 'smappy_load_name', 'smappy_consumption_kWh']) if row else pd.DataFrame(columns=['unit_id', 'load_id', 'smappy_load_name', 'smappy_consumption_kWh']).astype({'unit_id': int, 'load_id': int, 'smappy_load_name': str, 'smappy_consumption_kWh': float})
         finally:
             if close_conn:
                 conn.close()

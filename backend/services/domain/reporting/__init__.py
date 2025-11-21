@@ -328,11 +328,13 @@ def prepare_billing_df(client_id: int) -> pd.DataFrame:
     df.columns = [
         'building_name',
         'tenant_name',
+        'unit_id',
         'unit_number',
         'meter_ref',
         'description',
         'timestamp_record',
-        'meter_kWh'
+        'meter_kWh',
+        'multiplier'
     ]
     
     # Convert timestamp_record to datetime
@@ -343,14 +345,14 @@ def prepare_billing_df(client_id: int) -> pd.DataFrame:
                         ascending=[True, True, True, False])
     
     # Group by building, tenant, unit and calculate differences
-    df_grouped = df.groupby(['building_name', 'tenant_name', 'unit_number', 'meter_ref'])
+    df_grouped = df.groupby(['building_name', 'tenant_name', 'unit_id', 'unit_number', 'meter_ref', 'multiplier'])
     
     # Create a new dataframe with the most recent record and previous record
     billing_records = []
     for group_key, group in df_grouped:
         # group_key is a tuple when grouping by multiple columns
-        if isinstance(group_key, tuple) and len(group_key) == 4:
-            building, tenant, unit, meter_ref = group_key
+        if isinstance(group_key, tuple) and len(group_key) == 6:
+            building, tenant, unit_id, unit_number, meter_ref, multiplier = group_key
         else:
             logger.warning(f"Unexpected group_key format: {group_key}")
             continue
@@ -360,19 +362,23 @@ def prepare_billing_df(client_id: int) -> pd.DataFrame:
             previous = group.iloc[1]
             
             # Calculate consumption difference
-            consumption_kWh = recent['meter_kWh'] - previous['meter_kWh']
+            delta_reading = recent['meter_kWh'] - previous['meter_kWh']
+            consumption_kWh = delta_reading * multiplier
             days_diff = (recent['timestamp_record'] - previous['timestamp_record']).days
             
             billing_records.append({
                 'building_name': building,
                 'tenant_name': tenant,
-                'unit_number': unit,
+                'unit_id': unit_id,
+                'unit_number': unit_number,
                 'meter_ref': meter_ref,
+                'multiplier': multiplier,
                 'description': recent['description'],
                 'current_reading': recent['meter_kWh'],
                 'current_date': recent['timestamp_record'].strftime('%Y-%m-%d %H:%M:%S'),
                 'previous_reading': previous['meter_kWh'],
                 'previous_date': previous['timestamp_record'].strftime('%Y-%m-%d %H:%M:%S'),
+                'delta_reading': delta_reading,
                 'consumption_kWh': consumption_kWh,
                 'days_between_readings': days_diff,
             })
@@ -382,13 +388,16 @@ def prepare_billing_df(client_id: int) -> pd.DataFrame:
             billing_records.append({
                 'building_name': building,
                 'tenant_name': tenant,
-                'unit_number': unit,
+                'unit_id': unit_id,
+                'unit_number': unit_number,
                 'meter_ref': meter_ref,
+                'multiplier': multiplier,
                 'description': recent['description'],
                 'current_reading': recent['meter_kWh'],
                 'current_date': recent['timestamp_record'].strftime('%Y-%m-%d %H:%M:%S'),
                 'previous_reading': None,
                 'previous_date': None,
+                'delta_reading': None,
                 'consumption_kWh': None,
                 'days_between_readings': None,
             })
@@ -460,22 +469,18 @@ def execute_billing_comparison_job(
         if df.empty:
             logger.warning(f"No billing comparison data found for client ({client_id})")
             return
-
         #fetch the consumption data for the client from the table consumptions
-        list_dfs = []
-        for meter_id in df['meter_id'].unique():
-            timestamp_start = df['timestamp_record'].min()
-            timestamp_end = df['timestamp_record'].max()
-            load_ids = df['load_id'].unique().tolist()
-            part_df = DbQueries.get_consumptions_for_loads_during_period(load_ids=load_ids, timestamp_start=timestamp_start, timestamp_end=timestamp_end)
-            list_dfs.append(part_df)
-        
-        consumption_df = pd.concat(list_dfs)
-        df = df.merge(consumption_df, on='load_id', how='left')
+        consumption_df = DbQueries.get_consumptions_for_units_during_period(client_id=client_id, timestamp_start=df['timestamp_record'].min(), timestamp_end=df['timestamp_record'].max())
+        df = df.merge(consumption_df, on='unit_id', how='left')
 
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         detail_filename = f"billing_comparison_smappy_{client_name.replace(' ', '_')}_{timestamp}.csv"
         detail_path = Path(tempfile.gettempdir()) / detail_filename
+        df = df[['building_name', 'tenant_name', 'unit_number', 'meter_ref', 'description', 'current_reading', 'current_date', 'previous_reading', 'previous_date', 'delta_reading', 'consumption_kWh', 'days_between_readings', 'smappy_load_name', 'smappy_consumption_kWh']]
+        df['delta_smappy_meter_reading'] = df['smappy_consumption_kWh'] - df['current_reading']
+        df['delta_smappy_meter_reading'] = df['delta_smappy_meter_reading'].round(2)
+        df['percentage_change_smappy_meter_reading'] = df['delta_smappy_meter_reading'] / df['current_reading'] * 100
+        df['percentage_change_smappy_meter_reading'] = df['percentage_change_smappy_meter_reading'].round(2)
         df.to_csv(detail_path, index=False)
         logger.info(f"✅ Billing comparison Smappy CSV generated at {detail_path}")
 
