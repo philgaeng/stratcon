@@ -467,16 +467,32 @@ async def generate_billing_comparison(
     fastapi_request: Request,
 ):
     """Generate and email the billing comparison CSV for a client."""
-    scope = _get_user_scope(fastapi_request)
-    client_row = _resolve_client(request.client_token or DEFAULT_CLIENT)
-    client_id = client_row["id"]
-    _ensure_client_access(scope, client_id)
-
+    # Print to stdout (visible in server terminal) for immediate debugging
+    print(f"[DEBUG] generate_billing_comparison called - client_token: {request.client_token}, user_email: {request.user_email}")
+    
     logger = ReportLogger()
-    logger.info(
-        f"Queueing billing comparison job for client {client_row['name']} ({client_id}), "
-        f"email={request.user_email}"
-    )
+    logger.info(f"🔔 generate_billing_comparison endpoint called - client_token: {request.client_token}, user_email: {request.user_email}")
+    
+    try:
+        scope = _get_user_scope(fastapi_request)
+        logger.debug(f"User scope resolved: {scope}")
+        
+        client_row = _resolve_client(request.client_token or DEFAULT_CLIENT)
+        client_id = client_row["id"]
+        logger.debug(f"Client resolved: {client_row['name']} (ID: {client_id})")
+        
+        _ensure_client_access(scope, client_id)
+        logger.debug(f"Client access verified for user scope")
+
+        logger.info(
+            f"Queueing billing comparison job for client {client_row['name']} ({client_id}), "
+            f"email={request.user_email}"
+        )
+    except Exception as exc:
+        logger.error(f"❌ Error in generate_billing_comparison: {exc}")
+        import traceback
+        logger.error(f"Traceback: {traceback.format_exc()}")
+        raise
 
     background_tasks.add_task(
         execute_billing_comparison_job,
