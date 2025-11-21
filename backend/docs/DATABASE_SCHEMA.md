@@ -135,6 +135,7 @@ Manual meters (non-digital meters that require manual reading)
 | id          | INTEGER PRIMARY KEY  | Unique identifier                 |
 | meter_ref   | TEXT NOT NULL UNIQUE | Meter reference number/identifier |
 | description | TEXT                 | Meter description                 |
+| multiplier  | REAL DEFAULT 1       | Multiplier factor for meter readings |
 | created_at  | TIMESTAMP            | Creation timestamp                |
 | updated_at  | TIMESTAMP            | Last update timestamp             |
 
@@ -143,6 +144,7 @@ Manual meters (non-digital meters that require manual reading)
 - Used for tracking manual meters (as opposed to digital meters in `loads` table)
 - `meter_ref` must be unique across all manual meters
 - Manual meters require periodic manual reading and data entry
+- `multiplier` defaults to 1, but can be set to other values (e.g., 80, 120) for specific meters
 
 ### 8. unit_tenants_history
 

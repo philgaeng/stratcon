@@ -176,6 +176,7 @@ def init_database() -> None:
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 meter_ref TEXT NOT NULL UNIQUE,
                 description TEXT,
+                multiplier REAL DEFAULT 1,
                 created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
                 updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
