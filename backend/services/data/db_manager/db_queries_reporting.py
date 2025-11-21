@@ -16,7 +16,7 @@ from backend.services.core.utils import ReportLogger
 
 class ReportingDbQueries:
     """Static helpers for reporting-related database access."""
-
+    logger = ReportLogger()
     @staticmethod
     def find_load_id_by_name(load_name: str, conn: Optional[sqlite3.Connection] = None) -> Optional[int]:
         """Find a load identifier by its canonical name (e.g. 'MCB_802')."""
@@ -1073,30 +1073,32 @@ class ReportingDbQueries:
 
 
     @staticmethod
-    def get_consumptions_for_units_during_period(client_id: int, timestamp_start: datetime, timestamp_end: datetime, conn: Optional[sqlite3.Connection] = None) -> pd.DataFrame:
+    def get_consumptions_for_unit_during_period(unit_id: int, timestamp_start: datetime, timestamp_end: datetime, conn: Optional[sqlite3.Connection] = None) -> pd.DataFrame:
         """Return the consumptions for the given loads during the given period."""
+        # Convert unit_id to Python int (in case it's numpy.int64 or other numeric type)
+        unit_id = int(unit_id)
+        
         close_conn = False
         if conn is None:
             conn = get_db_connection()
             close_conn = True
         try:
             cursor = conn.cursor()
-            query = f"""
-                SELECT ulh.unit_id, c.load_id, l.load_name as smappy_load_name, SUM(c.consumption_kWh) as consumption_kWh
+            query = """
+                SELECT ulh.unit_id, SUM(c.consumption_kWh) as smappy_consumption_kWh, GROUP_CONCAT(DISTINCT l.load_name) as smappy_load_name
                 FROM consumptions c
-                JOIN unit_loads_history ulh ON c.load_id = ulh.load_id
+                JOIN unit_loads_history ulh ON c.load_id = ulh.load_id AND ulh.is_active = 1
                 JOIN loads l ON c.load_id = l.id
-                JOIN units u ON ulh.unit_id = u.id
-                JOIN buildings b ON u.building_id = b.id
-                JOIN clients cl ON b.client_id = cl.id
-                WHERE cl.id = ? AND c.timestamp >= ? AND c.timestamp <= ?
+                WHERE ulh.unit_id = ? AND c.timestamp >= ? AND c.timestamp <= ?
                 GROUP BY ulh.unit_id
             """
             start = timestamp_start.strftime("%Y-%m-%d %H:%M:%S")
             end = timestamp_end.strftime("%Y-%m-%d %H:%M:%S")
-            cursor.execute(query, (*load_ids, start, end))
-            row = cursor.fetchall()
-            return pd.DataFrame([row], columns=['unit_id', 'load_id', 'smappy_load_name', 'smappy_consumption_kWh']) if row else pd.DataFrame(columns=['unit_id', 'load_id', 'smappy_load_name', 'smappy_consumption_kWh']).astype({'unit_id': int, 'load_id': int, 'smappy_load_name': str, 'smappy_consumption_kWh': float})
+            ReportingDbQueries.logger.debug(f"Executing consumption query for unit_id={unit_id} - start={start} - end={end}")
+            cursor.execute(query, (unit_id, start, end))
+            rows = cursor.fetchall()
+            ReportingDbQueries.logger.debug(f"Query returned {len(rows)} rows")
+            return pd.DataFrame(rows, columns=['unit_id', 'smappy_consumption_kWh', 'smappy_load_name']) if rows else pd.DataFrame(columns=['unit_id', 'smappy_consumption_kWh', 'smappy_load_name'])
         finally:
             if close_conn:
                 conn.close()

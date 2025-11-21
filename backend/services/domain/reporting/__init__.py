@@ -452,8 +452,8 @@ def execute_billing_info_job(
 def execute_billing_comparison_job(
     *,
     client_id: int,
-    client_name: str,
     user_email: str,
+    client_name: Optional[str] = None
 ) -> None:
     """
     Background task that generates a billing comparison CSV (detail + summary) and emails it.
@@ -463,30 +463,121 @@ def execute_billing_comparison_job(
     """
     logger = ReportLogger()
     try:
+        if not client_name:
+            client_row = DbQueries.get_client_by_id(client_id)
+            client_name = client_row.get('name', f'Client_{client_id}') if client_row else f'Client_{client_id}'
         logger.info(f"Fetching billing comparison data for client {client_name} ({client_id})")
         df = prepare_billing_df(client_id=client_id)
+        logger.debug(f"Billing comparison dataframe: length {len(df)} rows and unit_id in df:{"unit_id" in df.columns}")
+        if "unit_id" not in df.columns:
+            logger.warning(f"No unit_id in dataframe")
+            return
 
         if df.empty:
             logger.warning(f"No billing comparison data found for client ({client_id})")
             return
-        #fetch the consumption data for the client from the table consumptions
-        consumption_df = DbQueries.get_consumptions_for_units_during_period(client_id=client_id, timestamp_start=df['timestamp_record'].min(), timestamp_end=df['timestamp_record'].max())
-        df = df.merge(consumption_df, on='unit_id', how='left')
-
+        
+        # Parse current_date strings to datetime to get timestamp range
+        # current_date is formatted as '%Y-%m-%d %H:%M:%S'
+        df['current_date_parsed'] = pd.to_datetime(df['current_date'], format='%Y-%m-%d %H:%M:%S', errors='coerce')
+        df['previous_date_parsed'] = pd.to_datetime(df['previous_date'], format='%Y-%m-%d %H:%M:%S', errors='coerce')
+        #group the meters by their units to enable the concatenation of the consumption dataframes
+        columns_to_group = ['building_name', 'tenant_name', 'unit_id', 'unit_number']
+        df_grouped = df.groupby(columns_to_group).agg({
+            'meter_ref': lambda x: ', '.join(x.astype(str)),
+            'description': lambda x: ', '.join(x.astype(str)),
+            'current_reading': 'sum',
+            'current_date': 'max',
+            'previous_reading': 'sum',
+            'previous_date': 'min',
+        }).reset_index()
+        
+        # Parse dates in grouped dataframe for consumption queries
+        df_grouped['previous_date_parsed'] = pd.to_datetime(df_grouped['previous_date'], format='%Y-%m-%d %H:%M:%S', errors='coerce')
+        df_grouped['current_date_parsed'] = pd.to_datetime(df_grouped['current_date'], format='%Y-%m-%d %H:%M:%S', errors='coerce')
+        
+        # Calculate derived columns after grouping
+        df_grouped['delta_reading'] = df_grouped['current_reading'] - df_grouped['previous_reading']
+        df_grouped['days_between_readings'] = (df_grouped['current_date_parsed'] - df_grouped['previous_date_parsed']).dt.days
+        # Note: consumption_kWh calculation would need multiplier, but it's not in grouped data
+        # We'll calculate it from delta_reading if multiplier is available, or leave as None
+        
+        list_df_consumption = []
+        for unit_id in set(df_grouped['unit_id'].unique()):
+            part_df = df_grouped[df_grouped['unit_id'] == unit_id]
+            timestamp_start_val = part_df['previous_date_parsed'].min()
+            timestamp_end_val = part_df['current_date_parsed'].max()
+            
+            # Convert to Python datetime objects
+            if isinstance(timestamp_start_val, pd.Timestamp):
+                timestamp_start = timestamp_start_val.to_pydatetime()
+            else:
+                timestamp_start = pd.to_datetime(timestamp_start_val).to_pydatetime()
+                
+            if isinstance(timestamp_end_val, pd.Timestamp):
+                timestamp_end = timestamp_end_val.to_pydatetime()
+            else:
+                timestamp_end = pd.to_datetime(timestamp_end_val).to_pydatetime()
+            
+            consumption_df = DbQueries.get_consumptions_for_unit_during_period(
+                unit_id=unit_id, 
+                timestamp_start=timestamp_start,                            
+                timestamp_end=timestamp_end
+            )
+            logger.debug(f"Fetching consumptions for unit {unit_id} for period: {timestamp_start} to {timestamp_end} - returned {len(consumption_df)} rows")
+            if consumption_df.empty:
+                logger.warning(f"No consumption data found for unit {unit_id} in period {timestamp_start} to {timestamp_end}")
+                continue
+            list_df_consumption.append(consumption_df)
+        
+        if list_df_consumption:
+            consumption_df = pd.concat(list_df_consumption, ignore_index=True)
+        else:
+            consumption_df = pd.DataFrame({'unit_id': [], 'smappy_consumption_kWh': [], 'smappy_load_name': []})
+        
+        logger.debug(f"Consumption dataframe: length {len(consumption_df)}")
+        result_df = df_grouped.merge(consumption_df, on='unit_id', how='left')
+        logger.debug(f"Merged dataframe: length {len(result_df)}")
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        detail_filename = f"billing_comparison_smappy_{client_name.replace(' ', '_')}_{timestamp}.csv"
+        safe_client_name = client_name or f'Client_{client_id}'
+        detail_filename = f"billing_comparison_smappy_{safe_client_name.replace(' ', '_')}_{timestamp}.csv"
         detail_path = Path(tempfile.gettempdir()) / detail_filename
-        df = df[['building_name', 'tenant_name', 'unit_number', 'meter_ref', 'description', 'current_reading', 'current_date', 'previous_reading', 'previous_date', 'delta_reading', 'consumption_kWh', 'days_between_readings', 'smappy_load_name', 'smappy_consumption_kWh']]
-        df['delta_smappy_meter_reading'] = df['smappy_consumption_kWh'] - df['current_reading']
-        df['delta_smappy_meter_reading'] = df['delta_smappy_meter_reading'].round(2)
-        df['percentage_change_smappy_meter_reading'] = df['delta_smappy_meter_reading'] / df['current_reading'] * 100
-        df['percentage_change_smappy_meter_reading'] = df['percentage_change_smappy_meter_reading'].round(2)
-        df.to_csv(detail_path, index=False)
+        
+        # Ensure consumption columns exist
+        if 'smappy_load_name' not in result_df.columns:
+            result_df['smappy_load_name'] = None
+        if 'smappy_consumption_kWh' not in result_df.columns:
+            result_df['smappy_consumption_kWh'] = None
+        
+        # Calculate consumption_kWh if not already present (using delta_reading, multiplier would be needed for accurate calculation)
+        if 'consumption_kWh' not in result_df.columns:
+            # For now, use delta_reading as approximation (should ideally multiply by multiplier)
+            result_df['consumption_kWh'] = result_df['delta_reading']
+        
+        # Select columns for output
+        output_columns = ['building_name', 'tenant_name', 'unit_number', 'meter_ref', 'description', 
+                         'current_reading', 'current_date', 'previous_reading', 'previous_date', 
+                         'delta_reading', 'consumption_kWh', 'days_between_readings', 
+                         'smappy_load_name', 'smappy_consumption_kWh']
+        result_df = result_df[[col for col in output_columns if col in result_df.columns]]
+        
+        # Calculate deltas, handling NaN values
+        result_df['delta_smappy_meter_reading'] = result_df['smappy_consumption_kWh'] - result_df['consumption_kWh']
+        result_df['delta_smappy_meter_reading'] = result_df['delta_smappy_meter_reading'].round(2)
+        
+        # Calculate percentage change, handling division by zero and NaN
+        result_df['percentage_change_smappy_meter_reading'] = (
+            result_df['delta_smappy_meter_reading'] / result_df['consumption_kWh'] * 100
+        ).round(2)
+        # Replace inf and -inf with None
+        mask_inf = (result_df['percentage_change_smappy_meter_reading'] == float('inf')) | (result_df['percentage_change_smappy_meter_reading'] == float('-inf'))
+        result_df.loc[mask_inf, 'percentage_change_smappy_meter_reading'] = None
+        result_df.to_csv(detail_path, index=False)
         logger.info(f"✅ Billing comparison Smappy CSV generated at {detail_path}")
 
         success = send_report_email(
             email=user_email,
-            client_name=client_name,
+            client_name=safe_client_name,
             tenant_name="All Tenants",
             last_month=None,
             attachments=[detail_path],

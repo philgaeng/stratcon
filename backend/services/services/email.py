@@ -53,7 +53,7 @@ def send_report_email(
 
     try:
         # Initialize SES client
-        ses_client = boto3.client('ses', region_name=os.getenv('AWS_REGION', 'us-east-1'))
+        ses_client = boto3.client('ses', region_name=os.getenv('AWS_REGION', 'ap-southeast-1'))
         
         # Get sender email from environment or use default
         sender_email = os.getenv('SES_SENDER_EMAIL', 'philippe@stratcon.ph')

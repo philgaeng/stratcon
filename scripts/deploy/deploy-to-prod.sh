@@ -30,8 +30,9 @@ git fetch origin prod
 echo "Checking out prod branch..."
 git checkout prod
 
-echo "Pulling latest changes..."
-git pull origin prod
+echo "Pulling latest changes (resetting to match remote)..."
+git fetch origin prod
+git reset --hard origin/prod
 
 echo "Restarting stratcon-api service..."
 sudo systemctl restart stratcon-api.service
