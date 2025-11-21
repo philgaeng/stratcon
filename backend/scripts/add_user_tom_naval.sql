@@ -36,3 +36,4 @@ AND NOT EXISTS (
     WHERE user_id = users.id AND entity_id = 2
 );
 
+
